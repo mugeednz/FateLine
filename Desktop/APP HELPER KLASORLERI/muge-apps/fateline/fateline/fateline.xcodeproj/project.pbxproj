@@ -54,6 +54,11 @@
 		B62D19892E9409DC00A0BC30 /* fateline */ = {
 			isa = PBXGroup;
 			children = (
+				B62D19982E940E6000A0BC30 /* Custom Views */,
+				B62D19972E940E4A00A0BC30 /* JSON Files */,
+				B62D19962E940E4100A0BC30 /* Models */,
+				B62D19952E940E3B00A0BC30 /* Extensions */,
+				B62D19942E940E3500A0BC30 /* Helpers */,
 				B62D19932E940CB300A0BC30 /* Storyboards */,
 				B62D19922E940C9C00A0BC30 /* View Controllers */,
 				B62D19912E940C9300A0BC30 /* Resources */,
@@ -86,6 +91,41 @@
 				B62D19862E9409DC00A0BC30 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B62D19942E940E3500A0BC30 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B62D19952E940E3B00A0BC30 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B62D19962E940E4100A0BC30 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B62D19972E940E4A00A0BC30 /* JSON Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "JSON Files";
+			sourceTree = "<group>";
+		};
+		B62D19982E940E6000A0BC30 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
