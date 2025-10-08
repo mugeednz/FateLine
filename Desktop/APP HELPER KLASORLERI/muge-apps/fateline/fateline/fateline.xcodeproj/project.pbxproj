@@ -7,14 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		297D9A5898556245CC2B66C6 /* Pods_fateline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772CDDFFD7544DC659F83AB5 /* Pods_fateline.framework */; };
 		B62D198A2E9409DC00A0BC30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B62D19812E9409DC00A0BC30 /* Assets.xcassets */; };
 		B62D198C2E9409DC00A0BC30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B62D19842E9409DC00A0BC30 /* LaunchScreen.storyboard */; };
 		B62D198D2E9409DC00A0BC30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B62D19862E9409DC00A0BC30 /* Main.storyboard */; };
 		B62D198E2E9409DC00A0BC30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19802E9409DC00A0BC30 /* AppDelegate.swift */; };
 		B62D198F2E9409DC00A0BC30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19872E9409DC00A0BC30 /* SceneDelegate.swift */; };
+		B62D19A62E96629200A0BC30 /* Quintessential-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B62D19A52E96629200A0BC30 /* Quintessential-Regular.ttf */; };
+		B62D19B02E96639400A0BC30 /* Global Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19AF2E96639400A0BC30 /* Global Helper.swift */; };
+		B62D19B42E96643500A0BC30 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19B32E96643500A0BC30 /* UIView+Ext.swift */; };
+		B62D19B62E96644300A0BC30 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19B52E96644300A0BC30 /* String+Ext.swift */; };
+		B62D19B82E96645700A0BC30 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19B72E96645700A0BC30 /* UIFont+Ext.swift */; };
+		B62D19BB2E96656600A0BC30 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B62D19BA2E96656600A0BC30 /* JGProgressHUD */; };
+		B62D19BE2E96657200A0BC30 /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = B62D19BD2E96657200A0BC30 /* Localize_Swift */; };
+		B62D19C12E9665AD00A0BC30 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19C02E9665AD00A0BC30 /* Subscription.swift */; };
+		B62D19C32E9665C800A0BC30 /* RevenueCatSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19C22E9665C800A0BC30 /* RevenueCatSubscription.swift */; };
+		B62D19C52E9665F400A0BC30 /* PurchaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19C42E9665F400A0BC30 /* PurchaseConstants.swift */; };
+		B62D19C72E96662000A0BC30 /* ApplicationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19C62E96662000A0BC30 /* ApplicationLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		772CDDFFD7544DC659F83AB5 /* Pods_fateline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fateline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		915C93972F285F79E826D640 /* Pods-fateline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fateline.debug.xcconfig"; path = "Target Support Files/Pods-fateline/Pods-fateline.debug.xcconfig"; sourceTree = "<group>"; };
+		A8B4A538CAF163EFDA36F429 /* Pods-fateline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fateline.release.xcconfig"; path = "Target Support Files/Pods-fateline/Pods-fateline.release.xcconfig"; sourceTree = "<group>"; };
 		B62D19682E9409BA00A0BC30 /* fateline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fateline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B62D19802E9409DC00A0BC30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B62D19812E9409DC00A0BC30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -22,6 +37,15 @@
 		B62D19832E9409DC00A0BC30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B62D19852E9409DC00A0BC30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B62D19872E9409DC00A0BC30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B62D19A52E96629200A0BC30 /* Quintessential-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quintessential-Regular.ttf"; sourceTree = "<group>"; };
+		B62D19AF2E96639400A0BC30 /* Global Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Global Helper.swift"; sourceTree = "<group>"; };
+		B62D19B32E96643500A0BC30 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		B62D19B52E96644300A0BC30 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		B62D19B72E96645700A0BC30 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		B62D19C02E9665AD00A0BC30 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		B62D19C22E9665C800A0BC30 /* RevenueCatSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueCatSubscription.swift; sourceTree = "<group>"; };
+		B62D19C42E9665F400A0BC30 /* PurchaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseConstants.swift; sourceTree = "<group>"; };
+		B62D19C62E96662000A0BC30 /* ApplicationLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +53,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B62D19BB2E96656600A0BC30 /* JGProgressHUD in Frameworks */,
+				B62D19BE2E96657200A0BC30 /* Localize_Swift in Frameworks */,
+				297D9A5898556245CC2B66C6 /* Pods_fateline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F00B0877BC64CA894C2F20D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				772CDDFFD7544DC659F83AB5 /* Pods_fateline.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B36E945A0C59E676569355B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				915C93972F285F79E826D640 /* Pods-fateline.debug.xcconfig */,
+				A8B4A538CAF163EFDA36F429 /* Pods-fateline.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B62D195F2E9409BA00A0BC30 = {
 			isa = PBXGroup;
 			children = (
 				B62D19892E9409DC00A0BC30 /* fateline */,
 				B62D19692E9409BA00A0BC30 /* Products */,
+				6B36E945A0C59E676569355B /* Pods */,
+				1F00B0877BC64CA894C2F20D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +101,7 @@
 		B62D19892E9409DC00A0BC30 /* fateline */ = {
 			isa = PBXGroup;
 			children = (
+				B62D19BF2E96659400A0BC30 /* Premium */,
 				B62D19982E940E6000A0BC30 /* Custom Views */,
 				B62D19972E940E4A00A0BC30 /* JSON Files */,
 				B62D19962E940E4100A0BC30 /* Models */,
@@ -73,6 +121,7 @@
 				B62D19802E9409DC00A0BC30 /* AppDelegate.swift */,
 				B62D19872E9409DC00A0BC30 /* SceneDelegate.swift */,
 				B62D19812E9409DC00A0BC30 /* Assets.xcassets */,
+				B62D19A52E96629200A0BC30 /* Quintessential-Regular.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -80,6 +129,12 @@
 		B62D19922E940C9C00A0BC30 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B62D19AD2E96635F00A0BC30 /* Soul and Life Card */,
+				B62D19AB2E96632600A0BC30 /* Sign compatibility */,
+				B62D19AA2E96631900A0BC30 /* Numerology */,
+				B62D19A92E9662FE00A0BC30 /* Sprit Animals */,
+				B62D19A82E9662F800A0BC30 /* Tarot */,
+				B62D19A72E9662F100A0BC30 /* Onboarding */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -96,6 +151,7 @@
 		B62D19942E940E3500A0BC30 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B62D19AF2E96639400A0BC30 /* Global Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -103,6 +159,9 @@
 		B62D19952E940E3B00A0BC30 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B62D19B32E96643500A0BC30 /* UIView+Ext.swift */,
+				B62D19B52E96644300A0BC30 /* String+Ext.swift */,
+				B62D19B72E96645700A0BC30 /* UIFont+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -128,6 +187,59 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		B62D19A72E9662F100A0BC30 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B62D19A82E9662F800A0BC30 /* Tarot */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tarot;
+			sourceTree = "<group>";
+		};
+		B62D19A92E9662FE00A0BC30 /* Sprit Animals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Sprit Animals";
+			sourceTree = "<group>";
+		};
+		B62D19AA2E96631900A0BC30 /* Numerology */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Numerology;
+			sourceTree = "<group>";
+		};
+		B62D19AB2E96632600A0BC30 /* Sign compatibility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Sign compatibility";
+			sourceTree = "<group>";
+		};
+		B62D19AD2E96635F00A0BC30 /* Soul and Life Card */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Soul and Life Card";
+			sourceTree = "<group>";
+		};
+		B62D19BF2E96659400A0BC30 /* Premium */ = {
+			isa = PBXGroup;
+			children = (
+				B62D19C02E9665AD00A0BC30 /* Subscription.swift */,
+				B62D19C62E96662000A0BC30 /* ApplicationLogger.swift */,
+				B62D19C22E9665C800A0BC30 /* RevenueCatSubscription.swift */,
+				B62D19C42E9665F400A0BC30 /* PurchaseConstants.swift */,
+			);
+			path = Premium;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B62D197B2E9409BC00A0BC30 /* Build configuration list for PBXNativeTarget "fateline" */;
 			buildPhases = (
+				4772CBDFEDC83BF57FDF806F /* [CP] Check Pods Manifest.lock */,
 				B62D19642E9409BA00A0BC30 /* Sources */,
 				B62D19652E9409BA00A0BC30 /* Frameworks */,
 				B62D19662E9409BA00A0BC30 /* Resources */,
+				97542C7DA179A4FE7077E233 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,6 +259,8 @@
 			);
 			name = fateline;
 			packageProductDependencies = (
+				B62D19BA2E96656600A0BC30 /* JGProgressHUD */,
+				B62D19BD2E96657200A0BC30 /* Localize_Swift */,
 			);
 			productName = fateline;
 			productReference = B62D19682E9409BA00A0BC30 /* fateline.app */;
@@ -174,6 +290,10 @@
 			);
 			mainGroup = B62D195F2E9409BA00A0BC30;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B62D19B92E96656600A0BC30 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				B62D19BC2E96657200A0BC30 /* XCRemoteSwiftPackageReference "Localize-Swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B62D19692E9409BA00A0BC30 /* Products */;
 			projectDirPath = "";
@@ -191,19 +311,70 @@
 			files = (
 				B62D198A2E9409DC00A0BC30 /* Assets.xcassets in Resources */,
 				B62D198C2E9409DC00A0BC30 /* LaunchScreen.storyboard in Resources */,
+				B62D19A62E96629200A0BC30 /* Quintessential-Regular.ttf in Resources */,
 				B62D198D2E9409DC00A0BC30 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4772CBDFEDC83BF57FDF806F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fateline-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97542C7DA179A4FE7077E233 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fateline/Pods-fateline-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fateline/Pods-fateline-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fateline/Pods-fateline-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B62D19642E9409BA00A0BC30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B62D19B82E96645700A0BC30 /* UIFont+Ext.swift in Sources */,
+				B62D19B42E96643500A0BC30 /* UIView+Ext.swift in Sources */,
 				B62D198E2E9409DC00A0BC30 /* AppDelegate.swift in Sources */,
 				B62D198F2E9409DC00A0BC30 /* SceneDelegate.swift in Sources */,
+				B62D19C12E9665AD00A0BC30 /* Subscription.swift in Sources */,
+				B62D19B62E96644300A0BC30 /* String+Ext.swift in Sources */,
+				B62D19C52E9665F400A0BC30 /* PurchaseConstants.swift in Sources */,
+				B62D19C32E9665C800A0BC30 /* RevenueCatSubscription.swift in Sources */,
+				B62D19C72E96662000A0BC30 /* ApplicationLogger.swift in Sources */,
+				B62D19B02E96639400A0BC30 /* Global Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +402,7 @@
 /* Begin XCBuildConfiguration section */
 		B62D197C2E9409BC00A0BC30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 915C93972F285F79E826D640 /* Pods-fateline.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -264,6 +436,7 @@
 		};
 		B62D197D2E9409BC00A0BC30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8B4A538CAF163EFDA36F429 /* Pods-fateline.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -436,6 +609,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B62D19B92E96656600A0BC30 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		B62D19BC2E96657200A0BC30 /* XCRemoteSwiftPackageReference "Localize-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Localize-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B62D19BA2E96656600A0BC30 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B62D19B92E96656600A0BC30 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		B62D19BD2E96657200A0BC30 /* Localize_Swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B62D19BC2E96657200A0BC30 /* XCRemoteSwiftPackageReference "Localize-Swift" */;
+			productName = Localize_Swift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B62D19602E9409BA00A0BC30 /* Project object */;
 }
