@@ -24,6 +24,8 @@
 		B62D19C32E9665C800A0BC30 /* RevenueCatSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19C22E9665C800A0BC30 /* RevenueCatSubscription.swift */; };
 		B62D19C52E9665F400A0BC30 /* PurchaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19C42E9665F400A0BC30 /* PurchaseConstants.swift */; };
 		B62D19C72E96662000A0BC30 /* ApplicationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19C62E96662000A0BC30 /* ApplicationLogger.swift */; };
+		B62D19C92E96680400A0BC30 /* tarot_meanings.json in Resources */ = {isa = PBXBuildFile; fileRef = B62D19C82E96680400A0BC30 /* tarot_meanings.json */; };
+		B62D19CB2E96682F00A0BC30 /* burclar.json in Resources */ = {isa = PBXBuildFile; fileRef = B62D19CA2E96682F00A0BC30 /* burclar.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		B62D19C22E9665C800A0BC30 /* RevenueCatSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueCatSubscription.swift; sourceTree = "<group>"; };
 		B62D19C42E9665F400A0BC30 /* PurchaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseConstants.swift; sourceTree = "<group>"; };
 		B62D19C62E96662000A0BC30 /* ApplicationLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLogger.swift; sourceTree = "<group>"; };
+		B62D19C82E96680400A0BC30 /* tarot_meanings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tarot_meanings.json; sourceTree = "<group>"; };
+		B62D19CA2E96682F00A0BC30 /* burclar.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = burclar.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +80,6 @@
 				915C93972F285F79E826D640 /* Pods-fateline.debug.xcconfig */,
 				A8B4A538CAF163EFDA36F429 /* Pods-fateline.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -176,6 +179,8 @@
 		B62D19972E940E4A00A0BC30 /* JSON Files */ = {
 			isa = PBXGroup;
 			children = (
+				B62D19CA2E96682F00A0BC30 /* burclar.json */,
+				B62D19C82E96680400A0BC30 /* tarot_meanings.json */,
 			);
 			path = "JSON Files";
 			sourceTree = "<group>";
@@ -310,9 +315,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B62D198A2E9409DC00A0BC30 /* Assets.xcassets in Resources */,
+				B62D19CB2E96682F00A0BC30 /* burclar.json in Resources */,
 				B62D198C2E9409DC00A0BC30 /* LaunchScreen.storyboard in Resources */,
 				B62D19A62E96629200A0BC30 /* Quintessential-Regular.ttf in Resources */,
 				B62D198D2E9409DC00A0BC30 /* Main.storyboard in Resources */,
+				B62D19C92E96680400A0BC30 /* tarot_meanings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

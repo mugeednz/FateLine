@@ -1,0 +1,638 @@
+{
+  "Aries": {
+    "paragraph": "Aries is fiery, bold, and thrives on excitement in relationships. They are natural leaders who seek adventure and intensity, and they need a partner who can keep up with their passionate drive. While their energy is infectious, their impulsiveness can create tension with more cautious or sensitive signs.",
+    "compatibility": {
+      "Aries": {
+        "score": 95,
+        "description": "Two Aries together create a relationship full of passion, action, and constant challenges. They admire each other’s bravery and enthusiasm, but power struggles are almost inevitable. If both learn to share leadership, this bond can become unstoppable."
+      },
+      "Taurus": {
+        "score": 55,
+        "description": "Aries thrives on speed and excitement, while Taurus prefers stability and slow growth. Taurus might find Aries reckless, and Aries may see Taurus as too rigid. However, if Aries respects Taurus’ need for security and Taurus accepts Aries’ need for freedom, they can balance each other."
+      },
+      "Gemini": {
+        "score": 80,
+        "description": "Aries and Gemini form an energetic and curious duo. Aries pushes Gemini into action, while Gemini entertains Aries with wit and variety. Together they never get bored. The challenge comes from Gemini’s inconsistency and Aries’ impatience, but with understanding, this can be a lively, stimulating bond."
+      },
+      "Cancer": {
+        "score": 50,
+        "description": "Aries is direct and fiery, while Cancer is sensitive and emotional. Aries may unintentionally hurt Cancer with blunt words, while Cancer’s need for reassurance may feel heavy to Aries. However, if Aries learns empathy and Cancer learns to embrace spontaneity, they can grow from each other."
+      },
+      "Leo": {
+        "score": 88,
+        "description": "Both Aries and Leo are fire signs, full of confidence, passion, and ambition. Their chemistry is undeniable, and they inspire each other to reach higher. But both are strong-willed and love attention, so clashes of ego are common. If they respect each other’s leadership, this can be a fiery, enduring match."
+      },
+      "Virgo": {
+        "score": 62,
+        "description": "Virgo is methodical and practical, while Aries is bold and impulsive. Aries may find Virgo too critical or cautious, while Virgo may see Aries as reckless. Still, they can balance each other: Aries motivates Virgo to take risks, while Virgo grounds Aries in reality."
+      },
+      "Libra": {
+        "score": 70,
+        "description": "Aries and Libra are opposites on the zodiac wheel, and this creates magnetic attraction. Aries brings passion and decisiveness, while Libra offers balance and diplomacy. They complete each other, but also frustrate each other: Aries sees Libra as indecisive, Libra finds Aries too aggressive. With effort, this can be a powerful, complementary relationship."
+      },
+      "Scorpio": {
+        "score": 65,
+        "description": "Both Aries and Scorpio are ruled by Mars, making this a passionate but intense match. Aries is open and straightforward, while Scorpio is deep and strategic. Aries may grow impatient with Scorpio’s secrecy, while Scorpio may feel Aries is too shallow. Still, their shared intensity can lead to powerful attraction and transformation."
+      },
+      "Sagittarius": {
+        "score": 90,
+        "description": "Aries and Sagittarius are a natural pair of adventurers. Both love freedom, exploration, and living passionately. They encourage each other’s dreams and rarely hold grudges. Their main challenge is lack of grounding, but overall, this is one of the most exciting and harmonious pairings."
+      },
+      "Capricorn": {
+        "score": 58,
+        "description": "Capricorn is disciplined and cautious, while Aries is impulsive and daring. Aries may see Capricorn as too serious, while Capricorn may view Aries as irresponsible. Yet, they can build a powerful partnership if Aries learns patience and Capricorn allows more spontaneity."
+      },
+      "Aquarius": {
+        "score": 75,
+        "description": "Aries and Aquarius share a love for freedom, innovation, and excitement. Aries admires Aquarius’ originality, while Aquarius enjoys Aries’ fearless spirit. This bond thrives on shared adventures and ideas, though both may resist compromise. With mutual respect, it can be inspiring and long-lasting."
+      },
+      "Pisces": {
+        "score": 52,
+        "description": "Aries is fiery and straightforward, while Pisces is gentle and dreamy. Aries may unintentionally overwhelm Pisces, while Pisces may frustrate Aries with indecision. However, Pisces’ compassion can soften Aries’ edges, and Aries’ courage can give Pisces strength. This pairing requires patience and empathy."
+      }
+    }
+  },
+  "Taurus": {
+    "paragraph": "Taurus is grounded, sensual, and values stability in relationships. They seek loyalty, comfort, and a steady rhythm with their partner. While patient and devoted, they may struggle with signs that crave too much change or unpredictability. Their ideal partner appreciates consistency and reliability, while still igniting Taurus’ deep passions.",
+    "compatibility": {
+      "Aries": {
+        "score": 55,
+        "description": "Taurus values patience and stability, while Aries seeks excitement and quick action. Taurus may find Aries impulsive, while Aries may view Taurus as too slow. Still, Aries can inspire Taurus to take risks, and Taurus can ground Aries if they find balance."
+      },
+      "Taurus": {
+        "score": 95,
+        "description": "Two Tauruses together create a deeply stable and sensual partnership. They understand each other’s love for comfort, romance, and loyalty. However, both can be stubborn, which might lead to conflicts if neither is willing to compromise. Otherwise, this bond is steady and enduring."
+      },
+      "Gemini": {
+        "score": 48,
+        "description": "Taurus is consistent and values routine, while Gemini thrives on variety and change. Taurus may feel Gemini is unreliable, while Gemini may see Taurus as boring. They need strong communication and patience to bridge this gap, but often this pairing struggles to find balance."
+      },
+      "Cancer": {
+        "score": 82,
+        "description": "Taurus and Cancer both value loyalty, security, and emotional connection. Taurus brings stability while Cancer offers nurturing care. This makes for a warm, protective, and deeply affectionate bond. Their biggest challenge is over-attachment, but generally, this is a very harmonious match."
+      },
+      "Leo": {
+        "score": 68,
+        "description": "Taurus and Leo both love pleasure, beauty, and luxury, but in different ways. Taurus is steady and calm, while Leo is dramatic and attention-seeking. They may clash over control and pride, but if they respect each other’s strengths, they can form a glamorous and strong relationship."
+      },
+      "Virgo": {
+        "score": 85,
+        "description": "Both Taurus and Virgo are earth signs, valuing practicality, stability, and commitment. Taurus offers warmth and loyalty, while Virgo adds thoughtfulness and organization. They understand each other deeply, though Virgo’s criticism can sometimes irritate Taurus. Overall, this is a grounded and long-lasting bond."
+      },
+      "Libra": {
+        "score": 72,
+        "description": "Taurus and Libra both love beauty, romance, and harmony, thanks to Venus’ influence. However, Taurus seeks stability while Libra craves variety and social interaction. They may differ in priorities, but their shared love of elegance and comfort can bring them together."
+      },
+      "Scorpio": {
+        "score": 70,
+        "description": "Taurus and Scorpio are opposite signs, which creates magnetic attraction. Taurus brings stability and loyalty, while Scorpio adds passion and intensity. The relationship is often powerful but can swing between love and conflict. If trust is built, this can be a deeply transformative bond."
+      },
+      "Sagittarius": {
+        "score": 50,
+        "description": "Taurus prefers security and consistency, while Sagittarius is restless and adventurous. Taurus may feel Sagittarius is unreliable, while Sagittarius may find Taurus too rigid. This is a challenging pairing unless they both respect and embrace their differences."
+      },
+      "Capricorn": {
+        "score": 90,
+        "description": "Taurus and Capricorn form one of the most solid matches in the zodiac. Both value loyalty, hard work, and long-term stability. Taurus adds sensuality while Capricorn contributes ambition. Together, they can build a relationship that is both secure and successful."
+      },
+      "Aquarius": {
+        "score": 45,
+        "description": "Taurus seeks stability, while Aquarius thrives on innovation and unpredictability. Taurus may find Aquarius too detached, while Aquarius may see Taurus as inflexible. This pairing requires major adjustments and usually struggles to maintain harmony."
+      },
+      "Pisces": {
+        "score": 78,
+        "description": "Taurus and Pisces share a deep emotional and romantic connection. Taurus provides grounding to dreamy Pisces, while Pisces adds compassion and creativity to Taurus’ life. This match is tender and supportive, though Taurus must avoid being overly rigid and Pisces overly passive."
+      }
+    }
+  },
+  "Gemini": {
+    "paragraph": "Gemini is curious, playful, and thrives on communication and variety. They crave intellectual stimulation and adaptability in relationships. While they bring fun and lightness, their restlessness can sometimes make them seem inconsistent. Their ideal partner keeps them mentally engaged while respecting their need for freedom.",
+    "compatibility": {
+      "Aries": {
+        "score": 80,
+        "description": "Gemini and Aries form a lively, exciting pair. Aries brings action, while Gemini adds mental stimulation. They share a love of adventure and novelty. The risk is inconsistency, as Gemini may get distracted and Aries may grow impatient, but overall this is a stimulating match."
+      },
+      "Taurus": {
+        "score": 48,
+        "description": "Gemini loves change and variety, while Taurus prefers stability and predictability. Gemini may feel confined by Taurus’ routines, while Taurus may see Gemini as unreliable. Unless they compromise, this pairing often struggles to find common ground."
+      },
+      "Gemini": {
+        "score": 95,
+        "description": "Two Geminis together create a whirlwind of conversation, curiosity, and fun. They understand each other’s need for variety and mental stimulation. However, they may both avoid responsibility or struggle with grounding, which can make the relationship unstable without commitment."
+      },
+      "Cancer": {
+        "score": 60,
+        "description": "Gemini is lighthearted and playful, while Cancer is sensitive and emotional. Gemini may find Cancer too clingy, while Cancer may feel Gemini is emotionally distant. Yet, if Gemini learns to be more emotionally present and Cancer becomes more adaptable, this can be a learning experience for both."
+      },
+      "Leo": {
+        "score": 78,
+        "description": "Gemini and Leo are both social, fun-loving, and dynamic. Gemini entertains Leo with wit and energy, while Leo adds passion and warmth to Gemini’s world. They thrive on shared adventures and excitement, but Gemini must avoid making Leo feel ignored."
+      },
+      "Virgo": {
+        "score": 66,
+        "description": "Gemini and Virgo are both ruled by Mercury, making this an intellectually engaging match. However, Gemini is playful and scattered, while Virgo is analytical and detail-oriented. Virgo may find Gemini inconsistent, while Gemini may see Virgo as too critical. With compromise, they can balance each other."
+      },
+      "Libra": {
+        "score": 88,
+        "description": "Gemini and Libra are a natural match, both loving conversation, socializing, and intellectual exploration. Libra’s charm complements Gemini’s wit, and they share a need for variety. Their only challenge is decision-making, as both can be indecisive at times."
+      },
+      "Scorpio": {
+        "score": 55,
+        "description": "Gemini is light and playful, while Scorpio is deep and intense. Gemini may struggle with Scorpio’s possessiveness, while Scorpio may find Gemini too superficial. This is a difficult pairing unless both are willing to bridge their very different emotional styles."
+      },
+      "Sagittarius": {
+        "score": 86,
+        "description": "Gemini and Sagittarius are opposite signs, and their chemistry is magnetic. Both love adventure, learning, and freedom. Gemini brings playfulness, while Sagittarius adds vision. They may struggle with consistency, but together they can experience a vibrant, dynamic relationship."
+      },
+      "Capricorn": {
+        "score": 50,
+        "description": "Gemini craves freedom and spontaneity, while Capricorn seeks structure and long-term goals. Gemini may feel restricted, while Capricorn may find Gemini unreliable. With effort, they can learn from each other, but this match requires compromise."
+      },
+      "Aquarius": {
+        "score": 92,
+        "description": "Gemini and Aquarius are a highly compatible air sign pair. Both love freedom, ideas, and intellectual growth. Aquarius appreciates Gemini’s curiosity, while Gemini admires Aquarius’ originality. This bond is exciting, innovative, and often long-lasting."
+      },
+      "Pisces": {
+        "score": 58,
+        "description": "Gemini is logical and playful, while Pisces is emotional and dreamy. Gemini may struggle to understand Pisces’ sensitivity, while Pisces may feel Gemini lacks depth. However, Pisces can teach Gemini compassion, and Gemini can help Pisces see things more rationally."
+      }
+    }
+  },
+  "Cancer": {
+    "paragraph": "Cancer is deeply emotional, nurturing, and values security in relationships. They seek partners who can provide consistency, empathy, and loyalty. While protective and intuitive, Cancer may struggle with partners who are too detached or fast-paced, as they need deep emotional bonds to thrive.",
+    "compatibility": {
+      "Aries": {
+        "score": 50,
+        "description": "Cancer is sensitive and nurturing, while Aries is bold and impulsive. Cancer may feel overwhelmed by Aries’ intensity, and Aries may see Cancer as overly emotional. If Aries learns patience and Cancer embraces Aries’ energy, they can balance passion with tenderness."
+      },
+      "Taurus": {
+        "score": 82,
+        "description": "Cancer and Taurus share a love for security, comfort, and loyalty. Taurus offers stability while Cancer provides emotional warmth. Together, they build a cozy and nurturing partnership. Their only challenge is stubbornness, but overall, this is one of the most harmonious bonds."
+      },
+      "Gemini": {
+        "score": 60,
+        "description": "Cancer is emotional and seeks depth, while Gemini is playful and changeable. Cancer may feel Gemini is inconsistent, while Gemini may view Cancer as too clingy. This relationship requires effort: Gemini must show commitment, and Cancer must learn flexibility."
+      },
+      "Cancer": {
+        "score": 95,
+        "description": "Two Cancers together create an incredibly nurturing and emotional bond. They intuitively understand each other’s needs and offer constant support. However, their moods can become overwhelming, and they risk being overly dependent. Balance is key for lasting harmony."
+      },
+      "Leo": {
+        "score": 70,
+        "description": "Cancer and Leo both crave love and attention, but in different ways. Cancer seeks emotional security, while Leo desires admiration. Cancer may find Leo too demanding, and Leo may see Cancer as moody. Yet, they can balance heart and passion if they respect each other’s needs."
+      },
+      "Virgo": {
+        "score": 84,
+        "description": "Cancer and Virgo complement each other beautifully. Cancer provides emotional depth and warmth, while Virgo brings practicality and care. Both value loyalty and devotion, making this a stable and nurturing relationship. Virgo must avoid being too critical, while Cancer should manage sensitivity."
+      },
+      "Libra": {
+        "score": 68,
+        "description": "Cancer is emotional and family-oriented, while Libra seeks harmony and social balance. Libra may find Cancer too inward, while Cancer may feel Libra is detached. Still, they both value love and commitment, which can bridge differences if they learn to compromise."
+      },
+      "Scorpio": {
+        "score": 88,
+        "description": "Cancer and Scorpio are a deeply emotional and intuitive pair. Both crave loyalty and emotional connection. Scorpio adds intensity, while Cancer offers nurturing care. Together, they form a powerful and passionate relationship, though Scorpio’s intensity may sometimes overwhelm Cancer."
+      },
+      "Sagittarius": {
+        "score": 52,
+        "description": "Cancer seeks stability and closeness, while Sagittarius loves freedom and adventure. Cancer may feel neglected by Sagittarius’ independence, while Sagittarius may feel restricted by Cancer’s need for security. This pairing requires major compromise and patience."
+      },
+      "Capricorn": {
+        "score": 86,
+        "description": "Cancer and Capricorn are opposites, but they balance each other well. Cancer brings warmth and emotional depth, while Capricorn provides structure and stability. Cancer softens Capricorn’s seriousness, while Capricorn grounds Cancer’s emotions. Together, they can create a lasting bond."
+      },
+      "Aquarius": {
+        "score": 55,
+        "description": "Cancer seeks deep emotional intimacy, while Aquarius values independence and intellectual connection. Cancer may find Aquarius too detached, while Aquarius may feel overwhelmed by Cancer’s emotional needs. This relationship requires significant adjustments to thrive."
+      },
+      "Pisces": {
+        "score": 90,
+        "description": "Cancer and Pisces are both water signs, creating a deeply emotional and intuitive bond. They understand each other’s moods and provide empathy and care. Together, they create a dreamlike connection filled with compassion and romance. The challenge is staying grounded in reality."
+      }
+    }
+  },
+  "Leo": {
+    "paragraph": "Leo is bold, charismatic, and thrives on passion and admiration in relationships. They seek a partner who appreciates their warmth, loyalty, and leadership. While generous and loving, Leo can struggle with partners who are too passive or who challenge their pride.",
+    "compatibility": {
+      "Aries": {
+        "score": 88,
+        "description": "Leo and Aries are both fire signs, full of energy, passion, and drive. They push each other to grow and enjoy a lively bond. However, their strong personalities may clash, especially if both insist on leading. If they respect each other’s strengths, this can be a vibrant match."
+      },
+      "Taurus": {
+        "score": 68,
+        "description": "Leo loves excitement and attention, while Taurus values stability and comfort. Taurus may find Leo too dramatic, while Leo may see Taurus as stubborn. Yet, both love loyalty and pleasure, and they can build a luxurious and affectionate bond if they compromise."
+      },
+      "Gemini": {
+        "score": 78,
+        "description": "Leo and Gemini share a playful, adventurous spirit. Gemini keeps Leo entertained with curiosity, while Leo provides warmth and consistency. This pairing thrives on fun and social activities, though Gemini’s inconsistency may frustrate Leo at times."
+      },
+      "Cancer": {
+        "score": 70,
+        "description": "Leo craves admiration, while Cancer seeks emotional closeness. Cancer may feel Leo is too self-focused, while Leo may find Cancer too moody. Still, both value loyalty and affection, and with effort, they can balance love with emotional security."
+      },
+      "Leo": {
+        "score": 95,
+        "description": "Two Leos together create a passionate, warm, and dramatic relationship. They admire each other’s charisma and loyalty, but pride and ego can lead to clashes. If they learn to share the spotlight, this can be a glamorous and powerful match."
+      },
+      "Virgo": {
+        "score": 60,
+        "description": "Leo is bold and expressive, while Virgo is cautious and analytical. Leo may see Virgo as critical, while Virgo may view Leo as egotistical. Still, they can learn from each other: Leo teaches Virgo confidence, and Virgo helps Leo stay grounded."
+      },
+      "Libra": {
+        "score": 85,
+        "description": "Leo and Libra share a love for romance, beauty, and social connection. Libra’s charm complements Leo’s warmth, creating a harmonious and glamorous partnership. Their biggest challenge is decision-making, but overall, this is a balanced and affectionate bond."
+      },
+      "Scorpio": {
+        "score": 68,
+        "description": "Leo and Scorpio are both strong-willed and intense. Their passion is magnetic, but power struggles are frequent. Leo seeks admiration, while Scorpio demands depth and control. If they find mutual respect, this bond can be fiery and transformative."
+      },
+      "Sagittarius": {
+        "score": 90,
+        "description": "Leo and Sagittarius are a dynamic fire sign pair. Both love adventure, excitement, and passion. They share optimism and inspire each other, making this a joyful and exciting relationship. The only risk is neglecting practical responsibilities together."
+      },
+      "Capricorn": {
+        "score": 62,
+        "description": "Leo is expressive and spontaneous, while Capricorn is disciplined and practical. Leo may find Capricorn too rigid, while Capricorn may view Leo as dramatic. Yet, both value loyalty and ambition, and together they can balance passion with responsibility."
+      },
+      "Aquarius": {
+        "score": 75,
+        "description": "Leo and Aquarius are opposites, creating strong attraction and dynamic energy. Leo offers warmth and creativity, while Aquarius brings innovation and independence. They can inspire each other, but also clash if Leo feels ignored or Aquarius feels restricted."
+      },
+      "Pisces": {
+        "score": 58,
+        "description": "Leo is bold and expressive, while Pisces is gentle and dreamy. Leo may overwhelm Pisces, and Pisces may frustrate Leo with passivity. Still, Pisces’ empathy can soften Leo, and Leo’s confidence can uplift Pisces if they learn to embrace differences."
+      }
+    }
+  },
+  "Virgo": {
+    "paragraph": "Virgo is practical, detail-oriented, and values reliability in relationships. They seek stability, loyalty, and shared goals with their partner. While attentive and caring, Virgo may struggle with signs that are too impulsive or careless. Their ideal partner appreciates their devotion and helps them relax perfectionist tendencies.",
+    "compatibility": {
+      "Aries": {
+        "score": 62,
+        "description": "Virgo is cautious and analytical, while Aries is impulsive and bold. Virgo may find Aries reckless, and Aries may view Virgo as overly critical. However, Virgo can help Aries slow down, and Aries can encourage Virgo to take more risks."
+      },
+      "Taurus": {
+        "score": 85,
+        "description": "Virgo and Taurus share practical values and a desire for stability. Virgo appreciates Taurus’ loyalty, while Taurus admires Virgo’s attentiveness. They both enjoy building a reliable, long-lasting partnership. The only challenge is Virgo’s tendency to criticize, which can irritate Taurus."
+      },
+      "Gemini": {
+        "score": 66,
+        "description": "Virgo and Gemini are both Mercury-ruled, making communication important. Gemini is playful and spontaneous, while Virgo is methodical and precise. Virgo may find Gemini too scattered, while Gemini may see Virgo as overly serious. They can balance each other if they respect differences."
+      },
+      "Cancer": {
+        "score": 84,
+        "description": "Virgo and Cancer create a nurturing and stable match. Cancer offers emotional warmth, while Virgo provides structure and support. They value loyalty and commitment, making this a caring and reliable relationship. Virgo must avoid nitpicking, while Cancer should manage moodiness."
+      },
+      "Leo": {
+        "score": 60,
+        "description": "Virgo is modest and grounded, while Leo is bold and expressive. Virgo may see Leo as arrogant, while Leo may view Virgo as critical. Still, they can learn from each other: Leo teaches Virgo confidence, and Virgo helps Leo stay grounded."
+      },
+      "Virgo": {
+        "score": 95,
+        "description": "Two Virgos together create a thoughtful, loyal, and practical bond. They understand each other’s need for stability and order. However, perfectionism and over-analysis may cause unnecessary tension. If they learn to relax together, this can be a supportive and enduring match."
+      },
+      "Libra": {
+        "score": 68,
+        "description": "Virgo values practicality, while Libra seeks balance and beauty. Virgo may find Libra indecisive, and Libra may see Virgo as overly critical. Still, they both appreciate harmony and can build a gentle relationship if they compromise on expectations."
+      },
+      "Scorpio": {
+        "score": 80,
+        "description": "Virgo and Scorpio share intensity in different ways: Virgo through precision, Scorpio through passion. They both value loyalty and deep connection. Virgo offers grounding, while Scorpio adds emotional depth. Together, they form a dedicated and transformative bond."
+      },
+      "Sagittarius": {
+        "score": 52,
+        "description": "Virgo is practical and cautious, while Sagittarius is adventurous and freedom-loving. Virgo may see Sagittarius as careless, while Sagittarius may find Virgo too restrictive. This pairing requires major compromise, but they can teach each other balance."
+      },
+      "Capricorn": {
+        "score": 88,
+        "description": "Virgo and Capricorn are a natural earth sign match. Both are hardworking, loyal, and practical. Virgo admires Capricorn’s ambition, while Capricorn values Virgo’s dedication. Together, they build a secure and long-lasting partnership."
+      },
+      "Aquarius": {
+        "score": 58,
+        "description": "Virgo seeks order and predictability, while Aquarius thrives on innovation and unpredictability. Virgo may find Aquarius too detached, while Aquarius may view Virgo as too rigid. With effort, they can inspire each other to grow, but it is not always easy."
+      },
+      "Pisces": {
+        "score": 85,
+        "description": "Virgo and Pisces are opposites, creating a complementary bond. Virgo provides grounding and logic, while Pisces adds imagination and compassion. Virgo admires Pisces’ creativity, while Pisces finds comfort in Virgo’s stability. Together, they balance each other beautifully."
+      }
+    }
+  },
+  "Libra": {
+    "paragraph": "Libra is charming, diplomatic, and seeks balance in relationships. They value harmony, beauty, and fairness, often striving to keep the peace. While romantic and affectionate, they may struggle with decisiveness and partners who thrive on conflict. Their ideal match is someone who appreciates elegance, balance, and emotional connection.",
+    "compatibility": {
+      "Aries": {
+        "score": 70,
+        "description": "Libra and Aries are opposites, creating strong attraction. Aries brings passion and decisiveness, while Libra offers balance and diplomacy. This dynamic can be magnetic, but Aries may see Libra as indecisive, and Libra may view Aries as too aggressive. When they learn to compromise, this is a powerful match."
+      },
+      "Taurus": {
+        "score": 72,
+        "description": "Libra and Taurus are both ruled by Venus, giving them a shared love for beauty, comfort, and romance. Taurus seeks stability, while Libra values harmony and variety. Their biggest challenge is Taurus’ stubbornness versus Libra’s indecision, but their appreciation of love can unite them."
+      },
+      "Gemini": {
+        "score": 88,
+        "description": "Libra and Gemini are both air signs, valuing communication, fun, and intellectual growth. Gemini brings curiosity, while Libra adds charm and balance. They thrive socially and romantically, though decision-making may be tricky since neither likes taking firm stands."
+      },
+      "Cancer": {
+        "score": 68,
+        "description": "Cancer seeks emotional closeness, while Libra values balance and social interaction. Cancer may see Libra as too detached, while Libra may find Cancer too moody. Still, both are affectionate and committed, making it possible to bridge their differences with effort."
+      },
+      "Leo": {
+        "score": 85,
+        "description": "Libra and Leo are a glamorous and romantic pairing. Libra admires Leo’s warmth, while Leo enjoys Libra’s charm and elegance. Together they shine socially and romantically. The only issue may be Libra’s indecision clashing with Leo’s pride, but overall, this is a vibrant match."
+      },
+      "Virgo": {
+        "score": 68,
+        "description": "Libra is sociable and diplomatic, while Virgo is detail-oriented and practical. Virgo may find Libra too idealistic, while Libra may see Virgo as overly critical. Still, they can learn from each other: Libra softens Virgo’s rigidity, and Virgo grounds Libra’s dreams."
+      },
+      "Libra": {
+        "score": 95,
+        "description": "Two Libras together create a harmonious, romantic, and elegant relationship. They value fairness, beauty, and companionship. However, their shared indecision can make it difficult to move forward in practical matters. With determination, this can be a peaceful and affectionate union."
+      },
+      "Scorpio": {
+        "score": 66,
+        "description": "Libra seeks harmony, while Scorpio thrives on intensity and passion. Scorpio may see Libra as too superficial, while Libra may find Scorpio overwhelming. Still, Libra can teach Scorpio diplomacy, and Scorpio can help Libra embrace emotional depth."
+      },
+      "Sagittarius": {
+        "score": 82,
+        "description": "Libra and Sagittarius form a lively and adventurous partnership. Sagittarius loves freedom and exploration, while Libra brings balance and romance. They enjoy socializing and adventures together. Their biggest challenge is Sagittarius’ bluntness clashing with Libra’s sensitivity, but overall, this is a fun and exciting match."
+      },
+      "Capricorn": {
+        "score": 60,
+        "description": "Libra seeks charm and balance, while Capricorn is disciplined and practical. Libra may find Capricorn too rigid, while Capricorn may see Libra as indecisive. Yet, if Libra inspires Capricorn to enjoy life more, and Capricorn provides grounding, this can work."
+      },
+      "Aquarius": {
+        "score": 90,
+        "description": "Libra and Aquarius are highly compatible air signs. They share a love for ideas, social connections, and intellectual pursuits. Libra admires Aquarius’ originality, while Aquarius appreciates Libra’s diplomacy. This relationship feels natural, harmonious, and exciting."
+      },
+      "Pisces": {
+        "score": 72,
+        "description": "Libra is diplomatic and airy, while Pisces is dreamy and emotional. Pisces may feel Libra is too detached, while Libra may see Pisces as overly sensitive. Still, both are romantic idealists who can build a compassionate and artistic relationship."
+      }
+    }
+  },
+  "Scorpio": {
+    "paragraph": "Scorpio is intense, passionate, and deeply emotional in relationships. They crave loyalty, depth, and transformation, often seeking bonds that go beyond the surface. While magnetic and powerful, Scorpio may struggle with trust and possessiveness. Their ideal partner embraces vulnerability and can handle their emotional depth.",
+    "compatibility": {
+      "Aries": {
+        "score": 65,
+        "description": "Scorpio and Aries share Mars’ influence, creating passion and intensity. Aries is bold and straightforward, while Scorpio is deep and strategic. Aries may find Scorpio’s secrecy frustrating, while Scorpio may view Aries as too impulsive. This is a magnetic but volatile connection."
+      },
+      "Taurus": {
+        "score": 70,
+        "description": "Scorpio and Taurus are opposite signs, creating powerful attraction. Taurus provides stability, while Scorpio brings emotional intensity. They balance each other well, though both are stubborn. If they learn to compromise, this can be a passionate and lasting union."
+      },
+      "Gemini": {
+        "score": 55,
+        "description": "Scorpio is intense and private, while Gemini is playful and light. Scorpio may feel Gemini lacks depth, while Gemini may see Scorpio as too controlling. Unless they make conscious effort, this pairing often struggles with mismatched emotional needs."
+      },
+      "Cancer": {
+        "score": 88,
+        "description": "Scorpio and Cancer are both water signs, valuing emotional depth and loyalty. Cancer offers nurturing care, while Scorpio adds passion and intensity. Together, they create a bond filled with trust and empathy. This is one of the most emotionally fulfilling matches."
+      },
+      "Leo": {
+        "score": 68,
+        "description": "Scorpio and Leo are both strong-willed and passionate. Scorpio seeks emotional intensity, while Leo craves admiration. They can be drawn to each other’s strength, but power struggles are frequent. If they learn mutual respect, this can be a transformative match."
+      },
+      "Virgo": {
+        "score": 80,
+        "description": "Scorpio and Virgo form a thoughtful and loyal bond. Virgo brings practicality and stability, while Scorpio adds passion and emotional depth. Virgo appreciates Scorpio’s dedication, while Scorpio admires Virgo’s reliability. This is a supportive and grounded connection."
+      },
+      "Libra": {
+        "score": 66,
+        "description": "Scorpio is intense and private, while Libra seeks balance and harmony. Scorpio may view Libra as too superficial, while Libra may feel overwhelmed by Scorpio’s depth. With effort, they can balance passion with diplomacy, but this pairing often faces challenges."
+      },
+      "Scorpio": {
+        "score": 95,
+        "description": "Two Scorpios together create an intense and passionate union. They understand each other’s need for loyalty and depth. However, their possessiveness and intensity can make the relationship overwhelming. If trust is built, this can be a powerful and transformative bond."
+      },
+      "Sagittarius": {
+        "score": 60,
+        "description": "Scorpio craves deep emotional connection, while Sagittarius seeks freedom and adventure. Scorpio may find Sagittarius unreliable, while Sagittarius may see Scorpio as too controlling. This is a challenging match unless both are willing to compromise deeply."
+      },
+      "Capricorn": {
+        "score": 85,
+        "description": "Scorpio and Capricorn share ambition, loyalty, and determination. Capricorn provides structure and long-term goals, while Scorpio adds passion and depth. They can build a strong, lasting relationship based on mutual respect and shared vision."
+      },
+      "Aquarius": {
+        "score": 58,
+        "description": "Scorpio is emotional and private, while Aquarius is intellectual and detached. Scorpio may find Aquarius too aloof, while Aquarius may feel Scorpio is too possessive. This is a difficult pairing unless they learn to bridge emotional and mental worlds."
+      },
+      "Pisces": {
+        "score": 90,
+        "description": "Scorpio and Pisces are a deeply emotional water sign pair. Both value loyalty, compassion, and deep connection. Scorpio provides strength and protection, while Pisces offers empathy and imagination. Together, they create a soulful and intuitive bond."
+      }
+    }
+  },
+  "Sagittarius": {
+    "paragraph": "Sagittarius is adventurous, optimistic, and freedom-loving. They thrive on exploration, excitement, and growth in relationships. While playful and inspiring, they may struggle with partners who are overly clingy or restrictive. Their ideal partner embraces curiosity, independence, and shares their zest for life.",
+    "compatibility": {
+      "Aries": {
+        "score": 90,
+        "description": "Sagittarius and Aries are both fire signs, full of passion and energy. They share a love for adventure and excitement. Aries brings boldness, while Sagittarius adds optimism. Together, they inspire each other, though they may lack grounding at times."
+      },
+      "Taurus": {
+        "score": 50,
+        "description": "Sagittarius seeks freedom and change, while Taurus craves stability and routine. Taurus may feel Sagittarius is unreliable, while Sagittarius may see Taurus as restrictive. Unless they compromise, this relationship can be difficult to sustain."
+      },
+      "Gemini": {
+        "score": 86,
+        "description": "Sagittarius and Gemini are opposite signs, creating strong attraction. Both love learning, adventure, and variety. Sagittarius offers vision, while Gemini provides curiosity. Together they create an exciting, dynamic bond, though consistency may be lacking."
+      },
+      "Cancer": {
+        "score": 52,
+        "description": "Sagittarius loves freedom, while Cancer seeks emotional security. Sagittarius may feel confined by Cancer’s need for closeness, while Cancer may feel neglected by Sagittarius’ independence. This is a challenging match that requires compromise."
+      },
+      "Leo": {
+        "score": 90,
+        "description": "Sagittarius and Leo form a fiery, adventurous partnership. Both love excitement and thrive on passion. Sagittarius appreciates Leo’s warmth, while Leo admires Sagittarius’ optimism. They inspire each other constantly, though practical matters may be overlooked."
+      },
+      "Virgo": {
+        "score": 52,
+        "description": "Sagittarius is adventurous and spontaneous, while Virgo is cautious and detail-oriented. Sagittarius may see Virgo as too critical, while Virgo may view Sagittarius as reckless. They can learn from each other, but this pairing often faces challenges."
+      },
+      "Libra": {
+        "score": 82,
+        "description": "Sagittarius and Libra share a love for fun, socializing, and adventure. Libra brings balance and charm, while Sagittarius adds excitement and optimism. Together, they enjoy exploring the world, though Libra may sometimes crave more stability than Sagittarius offers."
+      },
+      "Scorpio": {
+        "score": 60,
+        "description": "Sagittarius seeks freedom and exploration, while Scorpio craves deep emotional connection. Scorpio may find Sagittarius unreliable, while Sagittarius may see Scorpio as controlling. This is a difficult pairing unless both embrace flexibility and trust."
+      },
+      "Sagittarius": {
+        "score": 95,
+        "description": "Two Sagittarians together create an adventurous and joyful relationship. They thrive on exploration, fun, and growth. However, their shared restlessness may make it hard to create stability. If they build commitment, this can be a vibrant and inspiring match."
+      },
+      "Capricorn": {
+        "score": 55,
+        "description": "Sagittarius is free-spirited, while Capricorn is disciplined and goal-oriented. Sagittarius may see Capricorn as too rigid, while Capricorn may view Sagittarius as careless. Yet, Capricorn can ground Sagittarius, and Sagittarius can bring lightness to Capricorn’s life."
+      },
+      "Aquarius": {
+        "score": 88,
+        "description": "Sagittarius and Aquarius share a love for freedom, ideas, and adventure. They inspire each other with curiosity and originality. This is an exciting, unconventional match full of energy and growth."
+      },
+      "Pisces": {
+        "score": 60,
+        "description": "Sagittarius is optimistic and free-spirited, while Pisces is dreamy and emotional. Sagittarius may find Pisces too sensitive, while Pisces may see Sagittarius as detached. With patience, they can inspire each other, but this match requires effort."
+      }
+    }
+  },
+  "Capricorn": {
+    "paragraph": "Capricorn is disciplined, ambitious, and practical. They value stability, loyalty, and long-term commitment in relationships. Often cautious and reserved at first, Capricorn opens up deeply when trust is established. They seek a partner who respects their goals and can build a secure future alongside them.",
+    "compatibility": {
+      "Aries": {
+        "score": 58,
+        "description": "Capricorn is structured and disciplined, while Aries is impulsive and adventurous. Aries may see Capricorn as too rigid, while Capricorn may find Aries reckless. Yet, if Aries learns patience and Capricorn learns spontaneity, they can balance each other well."
+      },
+      "Taurus": {
+        "score": 90,
+        "description": "Capricorn and Taurus are both earth signs, valuing stability and loyalty. Taurus brings comfort, while Capricorn adds ambition. This pairing is grounded and reliable, making it one of the strongest and most enduring matches."
+      },
+      "Gemini": {
+        "score": 50,
+        "description": "Capricorn seeks long-term stability, while Gemini craves variety and change. Capricorn may view Gemini as unreliable, while Gemini may find Capricorn too serious. This is a challenging pairing unless both are willing to compromise."
+      },
+      "Cancer": {
+        "score": 88,
+        "description": "Capricorn and Cancer are opposites, creating balance. Cancer provides emotional warmth, while Capricorn offers security and structure. Capricorn admires Cancer’s nurturing, while Cancer feels safe with Capricorn’s reliability. This is a highly complementary match."
+      },
+      "Leo": {
+        "score": 65,
+        "description": "Leo is expressive and bold, while Capricorn is serious and reserved. Capricorn may find Leo’s flamboyance excessive, while Leo may feel Capricorn is too strict. Yet, if they respect each other’s strengths, this can be a powerful partnership of ambition and charisma."
+      },
+      "Virgo": {
+        "score": 92,
+        "description": "Capricorn and Virgo form a natural match, both being practical and responsible earth signs. Virgo admires Capricorn’s discipline, while Capricorn appreciates Virgo’s reliability. Together they build a steady, committed, and lasting relationship."
+      },
+      "Libra": {
+        "score": 60,
+        "description": "Capricorn is practical and goal-oriented, while Libra is social and idealistic. Libra may find Capricorn too rigid, while Capricorn may see Libra as indecisive. Still, Capricorn provides grounding, and Libra brings charm, creating potential balance if they compromise."
+      },
+      "Scorpio": {
+        "score": 85,
+        "description": "Capricorn and Scorpio share ambition, loyalty, and determination. Capricorn appreciates Scorpio’s passion, while Scorpio values Capricorn’s strength and stability. This is a deep and enduring match with strong potential for growth."
+      },
+      "Sagittarius": {
+        "score": 55,
+        "description": "Capricorn is disciplined and future-focused, while Sagittarius seeks freedom and adventure. Capricorn may see Sagittarius as unreliable, while Sagittarius may find Capricorn too restrictive. Though challenging, they can learn from each other."
+      },
+      "Capricorn": {
+        "score": 95,
+        "description": "Two Capricorns together create a stable, ambitious, and practical union. Both value loyalty and long-term goals. However, their seriousness may make the relationship lack spontaneity. Still, they build a solid foundation together."
+      },
+      "Aquarius": {
+        "score": 62,
+        "description": "Capricorn is traditional, while Aquarius is unconventional. Capricorn seeks structure, while Aquarius loves freedom. This difference can cause tension, but they can learn balance—Capricorn grounds Aquarius, and Aquarius opens Capricorn’s mind."
+      },
+      "Pisces": {
+        "score": 78,
+        "description": "Capricorn is practical and disciplined, while Pisces is emotional and dreamy. Pisces softens Capricorn’s rigidity, while Capricorn provides Pisces with stability. Together, they create a relationship that balances imagination and reality."
+      }
+    }
+  },
+  "Aquarius": {
+    "paragraph": "Aquarius is independent, innovative, and forward-thinking. They value freedom, originality, and intellectual connection in relationships. While they may seem emotionally detached at times, they deeply care about equality and shared ideals. Their ideal partner is someone who respects their need for individuality while sharing their vision for the future.",
+    "compatibility": {
+      "Aries": {
+        "score": 75,
+        "description": "Aquarius and Aries are adventurous and independent spirits. Aries brings boldness, while Aquarius adds originality. They enjoy excitement together, though Aries may sometimes find Aquarius emotionally distant."
+      },
+      "Taurus": {
+        "score": 45,
+        "description": "Aquarius is unconventional and freedom-loving, while Taurus is traditional and stable. Taurus may find Aquarius unpredictable, while Aquarius may see Taurus as too rigid. This is a difficult pairing unless both embrace flexibility."
+      },
+      "Gemini": {
+        "score": 92,
+        "description": "Aquarius and Gemini share intellectual curiosity, communication, and playfulness. Both love freedom and variety, making their bond stimulating and lively. This is one of the most harmonious air sign pairings."
+      },
+      "Cancer": {
+        "score": 55,
+        "description": "Aquarius is rational and freedom-oriented, while Cancer seeks emotional security. Cancer may find Aquarius too detached, while Aquarius may feel overwhelmed by Cancer’s sensitivity. This match requires patience and understanding."
+      },
+      "Leo": {
+        "score": 82,
+        "description": "Aquarius and Leo are opposite signs, creating magnetic attraction. Leo is bold and expressive, while Aquarius is innovative and unique. They admire each other’s strengths, but Leo may want more attention than Aquarius naturally gives."
+      },
+      "Virgo": {
+        "score": 60,
+        "description": "Aquarius is unconventional and visionary, while Virgo is detail-oriented and practical. Virgo may find Aquarius unrealistic, while Aquarius may see Virgo as too cautious. However, if they learn to respect each other’s perspectives, they can complement one another."
+      },
+      "Libra": {
+        "score": 90,
+        "description": "Aquarius and Libra are both air signs who thrive on ideas and social interaction. Aquarius admires Libra’s diplomacy, while Libra appreciates Aquarius’ originality. Together, they create a harmonious and inspiring bond."
+      },
+      "Scorpio": {
+        "score": 58,
+        "description": "Aquarius values freedom and innovation, while Scorpio seeks emotional intensity and loyalty. Scorpio may see Aquarius as too detached, while Aquarius may view Scorpio as controlling. This pairing often struggles without strong compromise."
+      },
+      "Sagittarius": {
+        "score": 88,
+        "description": "Aquarius and Sagittarius share a love for freedom, ideas, and adventure. They inspire each other with curiosity and originality. This is an exciting, unconventional match full of energy and growth."
+      },
+      "Capricorn": {
+        "score": 62,
+        "description": "Capricorn is structured and traditional, while Aquarius is futuristic and unconventional. Capricorn provides grounding, while Aquarius opens new perspectives. This pairing can work if they respect their differences."
+      },
+      "Aquarius": {
+        "score": 95,
+        "description": "Two Aquarians together create a stimulating and visionary partnership. They share ideals, freedom, and originality. However, their shared independence may make it hard to develop emotional closeness unless they work on vulnerability."
+      },
+      "Pisces": {
+        "score": 70,
+        "description": "Aquarius is rational and innovative, while Pisces is emotional and dreamy. Pisces may find Aquarius too detached, while Aquarius may view Pisces as impractical. Still, both are idealists who can inspire each other creatively."
+      }
+    }
+  },
+  "Pisces": {
+    "paragraph": "Pisces is sensitive, empathetic, and deeply intuitive. They value emotional connection, compassion, and creativity in relationships. Pisces thrives in a bond where vulnerability and imagination are shared. While sometimes overly idealistic, they bring warmth and healing to their partners.",
+    "compatibility": {
+      "Aries": {
+        "score": 52,
+        "description": "Pisces is gentle and dreamy, while Aries is bold and impulsive. Aries may overwhelm Pisces, while Pisces may seem too passive for Aries. This pairing requires patience and empathy to succeed."
+      },
+      "Taurus": {
+        "score": 78,
+        "description": "Pisces and Taurus share a love for comfort, romance, and beauty. Taurus provides stability, while Pisces adds emotional depth and creativity. Together, they form a supportive and nurturing bond."
+      },
+      "Gemini": {
+        "score": 58,
+        "description": "Pisces is emotional and intuitive, while Gemini is lighthearted and restless. Gemini may find Pisces too sensitive, while Pisces may see Gemini as unreliable. They must work hard to align emotionally and mentally."
+      },
+      "Cancer": {
+        "score": 92,
+        "description": "Pisces and Cancer are both water signs, deeply emotional and nurturing. They share empathy, romance, and intuition. This is one of the most natural and loving pairings, full of warmth and understanding."
+      },
+      "Leo": {
+        "score": 70,
+        "description": "Pisces is dreamy and sensitive, while Leo is bold and confident. Pisces admires Leo’s strength, while Leo appreciates Pisces’ devotion. Yet, Pisces may feel overshadowed by Leo’s dominance unless balance is maintained."
+      },
+      "Virgo": {
+        "score": 82,
+        "description": "Pisces and Virgo are opposite signs, creating balance. Virgo is practical and detail-oriented, while Pisces is emotional and imaginative. They complement each other beautifully, with Virgo grounding Pisces’ dreams and Pisces softening Virgo’s rigidity."
+      },
+      "Libra": {
+        "score": 72,
+        "description": "Pisces is emotional and intuitive, while Libra is balanced and diplomatic. Libra may find Pisces overly sensitive, while Pisces may see Libra as detached. Still, they share a love for romance and beauty, which can bring them together."
+      },
+      "Scorpio": {
+        "score": 90,
+        "description": "Pisces and Scorpio are a deeply emotional water sign pair. Pisces offers empathy and imagination, while Scorpio provides passion and protection. Together, they form a soulful and transformative bond."
+      },
+      "Sagittarius": {
+        "score": 60,
+        "description": "Pisces is dreamy and emotional, while Sagittarius is adventurous and independent. Pisces may feel neglected, while Sagittarius may find Pisces too clingy. This pairing requires compromise and understanding."
+      },
+      "Capricorn": {
+        "score": 78,
+        "description": "Pisces brings emotional sensitivity, while Capricorn provides stability and structure. Capricorn grounds Pisces’ imagination, while Pisces softens Capricorn’s seriousness. This is a supportive and balanced connection."
+      },
+      "Aquarius": {
+        "score": 70,
+        "description": "Pisces is intuitive and emotional, while Aquarius is rational and independent. Pisces may feel Aquarius is distant, while Aquarius may see Pisces as unrealistic. Still, their shared idealism can inspire creativity together."
+      },
+      "Pisces": {
+        "score": 95,
+        "description": "Two Pisces together create a dreamy, romantic, and empathetic bond. They deeply understand each other’s emotions and ideals. However, they may struggle with grounding, as both can escape reality too often. With balance, this is a soulful match."
+      }
+    }
+  }
+}

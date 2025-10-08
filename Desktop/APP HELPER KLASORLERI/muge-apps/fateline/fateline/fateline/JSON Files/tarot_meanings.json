@@ -1,0 +1,704 @@
+[
+  {
+    "id": 0,
+    "name": "The Fool",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Fool represents the spirit of adventure and the beginning of a new journey, embodying pure potential and innocence. This card encourages you to embrace the unknown with an open heart, trusting that the universe will guide you. Symbolically, the Fool steps off a cliff, carrying only a small knapsack, reminding us that we don't need to carry the weight of the past to move forward. In everyday life, this might manifest as starting a new job, moving to a new city, or embarking on a personal quest for self-discovery, where faith in oneself leads to unexpected growth and opportunities.\n\nPractically, the Fool urges you to take calculated risks rather than playing it safe all the time. It highlights the importance of spontaneity in breaking free from routine, fostering creativity and joy. Whether in relationships or career, this card suggests approaching situations with a beginner's mind, free from preconceptions, which can lead to innovative solutions and deeper connections.",
+    "reversed": "In the reversed position, the Fool warns against recklessness or hesitation that stems from fear of the unknown. It may indicate a tendency to jump into situations without proper consideration, leading to avoidable mistakes or setbacks. Symbolically, this inversion suggests a foolhardy attitude or being stuck at the edge of the cliff, unable to take the leap due to doubt or past failures. In daily life, this could appear as impulsive decisions in finances or relationships that result in regret, or procrastination on important changes.\n\nOn a deeper level, the reversed Fool calls for grounding your enthusiasm with wisdom. It encourages reflection to distinguish between true opportunities and illusions, promoting a balance between adventure and responsibility. Spiritually, it invites you to heal inner wounds that block your progress, turning potential folly into empowered action for personal evolution.",
+    "keywords": ["new beginnings", "innocence", "spontaneity", "leap of faith", "adventure"]
+  },
+  {
+    "id": 1,
+    "name": "The Magician",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Magician symbolizes manifestation, resourcefulness, and the power of will to turn ideas into reality. With one hand pointing to the heavens and the other to the earth, he channels divine energy into practical action, reminding us that we possess all the tools needed for success. This card often appears when you're at a point of harnessing your skills and talents to create something meaningful, such as launching a project or pursuing a passion.\n\nIn everyday contexts, the Magician encourages focused intention and skillful execution. Whether negotiating a deal, learning a new skill, or improving relationships, it highlights your ability to influence outcomes through confidence and adaptability. Spiritually, it represents alignment between mind, body, and spirit, urging you to act as a conduit for positive change in your life and others'.",
+    "reversed": "Reversed, the Magician suggests manipulation, untapped potential, or a lack of focus that hinders manifestation. It may indicate using your talents for deceitful purposes or feeling disconnected from your inner power, leading to stalled progress. Symbolically, this position warns of illusions or scattered energy, where intentions don't translate into action due to doubt or external distractions.\n\nPractically, it advises reassessing your goals and methods to avoid shortcuts that could backfire, such as in career ambitions or personal commitments. Spiritually, the reversed Magician prompts introspection to realign with authentic purpose, transforming blockages into opportunities for genuine empowerment and ethical growth.",
+    "keywords": ["manifestation", "willpower", "resourcefulness", "skill", "action"]
+  },
+  {
+    "id": 2,
+    "name": "The High Priestess",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The High Priestess embodies intuition, mystery, and the subconscious mind, serving as a guardian of hidden knowledge. Seated between pillars of light and dark, she invites you to look beyond the surface and trust your inner voice. This card often signals a time for reflection and listening to gut feelings, especially in uncertain situations like decision-making or emotional matters.\n\nIn practical terms, the High Priestess encourages patience and observation rather than hasty action. In relationships, it might mean uncovering unspoken truths; in career, it could suggest relying on instincts for opportunities. Spiritually, it fosters a connection to the divine feminine, promoting meditation and dream work to access profound insights for personal guidance.",
+    "reversed": "Reversed, the High Priestess indicates repressed intuition, secrets, or a disconnection from inner wisdom. It may suggest ignoring gut feelings or being swayed by external influences, leading to confusion or poor judgments. Symbolically, this inversion represents blocked access to the subconscious, where mysteries remain unresolved due to superficial focus.\n\nOn a daily level, it warns against gossip or withholding information in relationships, or overlooking subtle signs in professional settings. Spiritually, it calls for clearing mental clutter through practices like journaling to restore intuitive flow, turning disconnection into empowered self-awareness and clarity.",
+    "keywords": ["intuition", "mystery", "subconscious", "inner voice", "wisdom"]
+  },
+  {
+    "id": 3,
+    "name": "The Empress",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Empress represents nurturing, abundance, and creative fertility, embodying the essence of motherhood and nature's bounty. Surrounded by lush landscapes, she symbolizes growth and sensuality, encouraging you to embrace life's pleasures and care for yourself and others. This card often appears during times of creation, such as starting a family, artistic endeavors, or cultivating harmony in relationships.\n\nPractically, the Empress advises indulging in self-care and fostering supportive environments. In work, it might mean nurturing ideas into profitable ventures; in personal life, building emotional security. Spiritually, it connects to the divine feminine, inspiring compassion and gratitude to attract prosperity and fulfillment.",
+    "reversed": "Reversed, the Empress suggests dependency, creative blocks, or neglect of nurturing aspects. It may indicate over-mothering or feeling depleted, leading to imbalance in giving and receiving. Symbolically, this position warns of stifled growth, where abundance is hindered by insecurity or external demands.\n\nIn everyday scenarios, it prompts reevaluating boundaries in relationships or addressing burnout in career pursuits. Spiritually, it encourages self-nurturing practices to restore balance, transforming scarcity mindsets into abundant, empowered living.",
+    "keywords": ["nurturing", "abundance", "fertility", "creativity", "sensuality"]
+  },
+  {
+    "id": 4,
+    "name": "The Emperor",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Emperor signifies authority, structure, and paternal protection, representing stability and rational leadership. Enthroned with symbols of power, he encourages establishing order and boundaries to achieve goals. This card appears when you need to take control, such as in career advancements or family matters, emphasizing discipline and logic.\n\nPractically, the Emperor advises creating systems for efficiency, like organizing finances or leading teams. It promotes assertiveness without tyranny, fostering respect and security. Spiritually, it balances masculine energy, guiding you to build a solid foundation for long-term success and personal authority.",
+    "reversed": "Reversed, the Emperor indicates rigidity, abuse of power, or lack of discipline. It may suggest domineering behavior or feeling powerless, leading to chaos or rebellion. Symbolically, this inversion represents crumbling structures, where control becomes counterproductive.\n\nIn daily life, it warns against micromanaging in relationships or procrastination in responsibilities. Spiritually, it calls for flexibility and humility to rebuild authority authentically, turning imbalances into harmonious leadership.",
+    "keywords": ["authority", "structure", "stability", "leadership", "control"]
+  },
+  {
+    "id": 5,
+    "name": "The Hierophant",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Hierophant embodies tradition, spiritual guidance, and conformity to established norms. As a religious figure blessing followers, he represents mentorship and moral values, encouraging seeking wisdom from institutions or elders. This card often signals a time for learning, commitment, or adhering to conventions, like in education or marriage.\n\nPractically, the Hierophant advises respecting rules and seeking advice for stability, such as in legal matters or career paths. It fosters community and ethical behavior. Spiritually, it connects to divine teachings, promoting rituals for deeper understanding and collective harmony.",
+    "reversed": "Reversed, the Hierophant suggests rebellion against tradition, unorthodoxy, or feeling constrained by dogma. It may indicate questioning authority or innovative approaches, but risks isolation. Symbolically, this position challenges outdated structures for personal truth.\n\nIn everyday contexts, it encourages breaking free from limiting beliefs in relationships or work. Spiritually, it invites exploring alternative paths to reclaim autonomy, transforming conformity into liberated spirituality.",
+    "keywords": ["tradition", "conformity", "guidance", "morality", "institution"]
+  },
+  {
+    "id": 6,
+    "name": "The Lovers",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Lovers symbolize partnerships, choices, and harmonious unions, depicting a couple under an angel's blessing. This card highlights alignment of values and deep connections, often in romance but also in decisions requiring integrity. It encourages committing to what resonates with your heart.\n\nPractically, the Lovers advise evaluating relationships or options for mutual benefit, like in business partnerships or personal commitments. It promotes open communication and balance. Spiritually, it represents divine love and self-integration, fostering wholeness through meaningful bonds.",
+    "reversed": "Reversed, the Lovers indicate disharmony, imbalance, or difficult choices. It may suggest conflicts in relationships or internal struggles with values. Symbolically, this inversion warns of temptation or misalignment leading to regret.\n\nIn daily life, it prompts addressing issues in partnerships or reevaluating decisions. Spiritually, it calls for self-love to resolve dualities, turning discord into renewed harmony and clarity.",
+    "keywords": ["partnerships", "choices", "harmony", "union", "duality"]
+  },
+  {
+    "id": 7,
+    "name": "The Chariot",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Chariot represents victory, willpower, and directed focus, showing a warrior in a sphinx-drawn vehicle. It symbolizes overcoming obstacles through determination and control of opposing forces. This card appears during times of progress, like achieving goals or traveling.\n\nPractically, the Chariot encourages discipline and confidence in pursuits, such as career advancements or personal challenges. It highlights balancing emotions with action. Spiritually, it signifies triumph over inner conflicts, guiding you toward purposeful direction.",
+    "reversed": "Reversed, the Chariot suggests lack of control, setbacks, or aggression. It may indicate scattered energy or external opposition hindering progress. Symbolically, this position represents derailed ambitions due to imbalance.\n\nIn everyday scenarios, it advises reassessing strategies in work or relationships to regain momentum. Spiritually, it prompts integrating opposing aspects for renewed drive and success.",
+    "keywords": ["victory", "willpower", "control", "direction", "triumph"]
+  },
+  {
+    "id": 8,
+    "name": "Strength",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "Strength embodies inner courage, compassion, and gentle control, depicted as a woman taming a lion. It represents mastering instincts through patience and self-confidence rather than force. This card encourages facing fears with kindness during trials.\n\nPractically, Strength advises handling conflicts or health issues with resilience and empathy, fostering stronger bonds. It promotes self-assurance in daily challenges. Spiritually, it connects to heart-centered power, inspiring authentic bravery for personal growth.",
+    "reversed": "Reversed, Strength indicates self-doubt, weakness, or repressed anger. It may suggest overwhelming challenges or lack of confidence leading to defeat. Symbolically, this inversion warns of untamed impulses causing harm.\n\nIn life, it calls for building inner fortitude through self-care in stressful situations. Spiritually, it encourages confronting shadows to reclaim power and balance.",
+    "keywords": ["courage", "compassion", "inner strength", "patience", "control"]
+  },
+  {
+    "id": 9,
+    "name": "The Hermit",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Hermit symbolizes introspection, solitude, and inner guidance, shown as a lantern-holding figure on a mountain. It invites withdrawal for self-reflection and seeking truth. This card appears during times needing clarity, like after loss or before decisions.\n\nPractically, the Hermit advises alone time for recharging or problem-solving, beneficial in career planning or emotional healing. It fosters wisdom through contemplation. Spiritually, it represents soul-searching for enlightenment and personal truth.",
+    "reversed": "Reversed, the Hermit suggests isolation, withdrawal, or avoidance of reality. It may indicate loneliness or reluctance to seek help. Symbolically, this position warns of excessive seclusion hindering growth.\n\nIn daily contexts, it prompts reconnecting with others for support in challenges. Spiritually, it encourages balancing solitude with community for holistic insight.",
+    "keywords": ["introspection", "solitude", "guidance", "wisdom", "search"]
+  },
+  {
+    "id": 10,
+    "name": "Wheel of Fortune",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Wheel of Fortune represents cycles, change, and destiny, depicted as a rotating wheel with mythical creatures. It signifies shifts in luck and inevitable transitions, encouraging adaptability. This card often signals turning points in life circumstances.\n\nPractically, it advises embracing change in career or relationships for growth opportunities. It promotes optimism amid uncertainty. Spiritually, it reminds of karma and life's ebb and flow, fostering acceptance.",
+    "reversed": "Reversed, the Wheel of Fortune indicates resistance to change, bad luck, or stalled progress. It may suggest clinging to the past causing setbacks. Symbolically, this inversion represents disrupted cycles.\n\nIn everyday life, it calls for flexibility to navigate obstacles. Spiritually, it encourages releasing control to align with destiny's rhythm.",
+    "keywords": ["cycles", "change", "destiny", "luck", "turning point"]
+  },
+  {
+    "id": 11,
+    "name": "Justice",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "Justice embodies fairness, truth, and accountability, shown as a figure with scales and sword. It represents balanced decisions and legal matters, urging honesty and integrity. This card appears in situations requiring objectivity.\n\nPractically, Justice advises weighing options carefully in contracts or disputes for just outcomes. It promotes ethical behavior in daily interactions. Spiritually, it connects to karma, encouraging righteous actions for harmony.",
+    "reversed": "Reversed, Justice suggests injustice, dishonesty, or imbalance. It may indicate biased judgments or avoiding consequences. Symbolically, this position warns of unfairness leading to discord.\n\nIn life, it prompts correcting wrongs or seeking mediation. Spiritually, it calls for self-examination to restore equilibrium.",
+    "keywords": ["fairness", "truth", "accountability", "balance", "law"]
+  },
+  {
+    "id": 12,
+    "name": "The Hanged Man",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Hanged Man symbolizes surrender, new perspectives, and sacrifice, depicted upside-down with a serene expression. It encourages pausing to gain insight through letting go. This card signals times of waiting or reevaluation.\n\nPractically, it advises shifting viewpoints in stuck situations, like career shifts or relationships. It fosters patience for breakthroughs. Spiritually, it represents enlightenment through release, promoting inner peace.",
+    "reversed": "Reversed, the Hanged Man indicates resistance, delays, or futile sacrifices. It may suggest stagnation from unwillingness to change. Symbolically, this inversion represents missed opportunities for growth.\n\nIn daily contexts, it prompts action to break inertia. Spiritually, it encourages embracing change for liberation.",
+    "keywords": ["surrender", "perspective", "sacrifice", "pause", "insight"]
+  },
+  {
+    "id": 13,
+    "name": "Death",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "Death represents transformation, endings, and new beginnings, shown as a skeletal rider. It symbolizes releasing the old to make way for the new, not literal death but profound change. This card appears during transitions like job loss or breakups.\n\nPractically, Death advises accepting closures for renewal in personal or professional life. It encourages resilience amid change. Spiritually, it signifies rebirth, fostering growth through letting go.",
+    "reversed": "Reversed, Death suggests resistance to change, stagnation, or incomplete transitions. It may indicate clinging to the past hindering progress. Symbolically, this position warns of prolonged endings.\n\nIn everyday scenarios, it calls for embracing transformation. Spiritually, it prompts releasing attachments for evolution.",
+    "keywords": ["transformation", "endings", "renewal", "change", "release"]
+  },
+  {
+    "id": 14,
+    "name": "Temperance",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "Temperance embodies balance, moderation, and harmony, depicted as an angel mixing waters. It represents integrating opposites for equilibrium. This card encourages patience and adaptability in blending life's elements.\n\nPractically, Temperance advises measured approaches in health, work, or relationships for sustainable success. It promotes compromise. Spiritually, it connects to alchemy of the soul, fostering inner peace.",
+    "reversed": "Reversed, Temperance indicates imbalance, excess, or disharmony. It may suggest extremes leading to conflict. Symbolically, this inversion warns of unintegrated aspects causing turmoil.\n\nIn life, it calls for restoring moderation. Spiritually, it encourages alignment for wholeness.",
+    "keywords": ["balance", "moderation", "harmony", "patience", "integration"]
+  },
+  {
+    "id": 15,
+    "name": "The Devil",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Devil symbolizes bondage, materialism, and shadow self, shown with chained figures. It represents addictions or limiting beliefs holding you back. This card highlights confronting fears and dependencies.\n\nPractically, the Devil advises breaking free from toxic patterns in relationships or habits. It promotes self-awareness. Spiritually, it invites shadow work for liberation and empowerment.",
+    "reversed": "Reversed, the Devil suggests release, detachment, or overcoming limitations. It may indicate breaking chains of addiction. Symbolically, this position represents reclaiming power.\n\nIn daily life, it encourages positive changes. Spiritually, it fosters freedom through awareness.",
+    "keywords": ["bondage", "materialism", "addiction", "shadow", "limitation"]
+  },
+  {
+    "id": 16,
+    "name": "The Tower",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Tower represents sudden upheaval, revelation, and destruction of false structures, depicted as a struck tower. It signifies disruptive change for necessary awakening. This card appears during crises leading to breakthroughs.\n\nPractically, the Tower advises rebuilding after shocks in career or personal life. It promotes adaptability. Spiritually, it signifies ego dissolution for true insight.",
+    "reversed": "Reversed, the Tower suggests averting disaster, resistance to change, or prolonged upheaval. It may indicate internal turmoil. Symbolically, this inversion warns of delayed revelations.\n\nIn contexts, it calls for proactive adjustments. Spiritually, it encourages embracing transformation.",
+    "keywords": ["upheaval", "revelation", "destruction", "change", "awakening"]
+  },
+  {
+    "id": 17,
+    "name": "The Star",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Star embodies hope, inspiration, and serenity, shown as a woman pouring water under stars. It represents healing and guidance after turmoil. This card encourages faith in the future.\n\nPractically, the Star advises pursuing dreams with optimism in creative or healing pursuits. It fosters generosity. Spiritually, it connects to cosmic alignment, promoting inner light.",
+    "reversed": "Reversed, the Star indicates disconnection, lack of faith, or despair. It may suggest blocked inspiration. Symbolically, this position warns of lost hope.\n\nIn life, it calls for reigniting passion. Spiritually, it encourages reconnecting with purpose.",
+    "keywords": ["hope", "inspiration", "serenity", "healing", "guidance"]
+  },
+  {
+    "id": 18,
+    "name": "The Moon",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Moon symbolizes illusion, intuition, and the subconscious, depicted with a moonlit path and animals. It represents uncertainty and hidden truths. This card encourages trusting instincts amid confusion.\n\nPractically, the Moon advises caution in deceptive situations like relationships or decisions. It promotes dream analysis. Spiritually, it explores the psyche for deeper understanding.",
+    "reversed": "Reversed, the Moon suggests clarity emerging, release from fears, or deception revealed. It may indicate overcoming illusions. Symbolically, this inversion represents truth surfacing.\n\nIn daily contexts, it fosters resolution. Spiritually, it aids in dispelling shadows.",
+    "keywords": ["illusion", "intuition", "subconscious", "uncertainty", "fears"]
+  },
+  {
+    "id": 19,
+    "name": "The Sun",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The Sun represents joy, success, and vitality, shown with a child on horseback under a bright sun. It signifies positivity and enlightenment. This card heralds happy times and achievements.\n\nPractically, the Sun advises embracing optimism in endeavors for fulfillment. It promotes playfulness. Spiritually, it connects to divine energy, fostering gratitude.",
+    "reversed": "Reversed, the Sun indicates temporary setbacks, clouded joy, or inner unhappiness. It may suggest delayed success. Symbolically, this position warns of obscured light.\n\nIn life, it calls for positivity. Spiritually, it encourages finding inner sun.",
+    "keywords": ["joy", "success", "vitality", "positivity", "enlightenment"]
+  },
+  {
+    "id": 20,
+    "name": "Judgement",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "Judgement symbolizes awakening, renewal, and reckoning, depicted with an angel calling the dead. It represents self-evaluation and rebirth. This card signals life-changing realizations.\n\nPractically, Judgement advises forgiveness and new starts in personal or professional spheres. It promotes accountability. Spiritually, it fosters soul calling for purpose.",
+    "reversed": "Reversed, Judgement suggests self-doubt, delays, or ignoring calls. It may indicate unresolved issues. Symbolically, this inversion warns of missed awakenings.\n\nIn contexts, it calls for reflection. Spiritually, it encourages heeding inner voice.",
+    "keywords": ["awakening", "renewal", "reckoning", "forgiveness", "purpose"]
+  },
+  {
+    "id": 21,
+    "name": "The World",
+    "arcana": "Major Arcana",
+    "suit": null,
+    "upright": "The World represents completion, integration, and accomplishment, shown as a dancing figure in a wreath. It signifies wholeness and success. This card marks cycle endings with fulfillment.\n\nPractically, the World advises celebrating achievements and planning next phases. It promotes global perspectives. Spiritually, it connects to unity, fostering enlightenment.",
+    "reversed": "Reversed, the World indicates incompletion, stagnation, or shortcuts. It may suggest delayed closure. Symbolically, this position warns of unfinished business.\n\nIn life, it calls for persistence. Spiritually, it encourages tying loose ends.",
+    "keywords": ["completion", "integration", "accomplishment", "wholeness", "success"]
+  },
+  {
+    "id": 22,
+    "name": "Ace of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Ace of Wands ignites inspiration, new opportunities, and creative potential, symbolizing a spark of passion. It represents the birth of ideas or ventures, encouraging bold starts. This card often appears when enthusiasm drives action in career or hobbies.\n\nPractically, it advises seizing initiatives for growth, like starting a business or project. It fosters optimism and energy. Spiritually, it connects to fire element, inspiring soulful pursuits.",
+    "reversed": "Reversed, the Ace of Wands suggests delays, lack of direction, or extinguished passion. It may indicate frustration in beginnings. Symbolically, this inversion warns of blocked creativity.\n\nIn daily life, it calls for reigniting motivation. Spiritually, it encourages clearing obstacles for flow.",
+    "keywords": ["inspiration", "new beginnings", "potential", "creativity", "passion"]
+  },
+  {
+    "id": 23,
+    "name": "Two of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Two of Wands represents planning, discovery, and future vision, showing a figure holding a globe. It symbolizes decision-making for expansion. This card encourages exploring options beyond comfort zones.\n\nPractically, it advises strategic thinking in travel or investments. It promotes ambition. Spiritually, it fosters foresight for personal evolution.",
+    "reversed": "Reversed, the Two of Wands indicates fear of change, indecision, or restricted plans. It may suggest limited horizons. Symbolically, this position warns of hesitation.\n\nIn contexts, it calls for courage. Spiritually, it encourages broadening perspectives.",
+    "keywords": ["planning", "discovery", "vision", "decisions", "expansion"]
+  },
+  {
+    "id": 24,
+    "name": "Three of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Three of Wands signifies progress, foresight, and exploration, depicting a figure watching ships. It represents initial success leading to further opportunities. This card encourages patience for returns.\n\nPractically, it advises networking or long-term planning in business. It fosters optimism. Spiritually, it connects to adventure for growth.",
+    "reversed": "Reversed, the Three of Wands suggests obstacles, delays, or lack of foresight. It may indicate disappointment. Symbolically, this inversion warns of unpreparedness.\n\nIn life, it calls for adjustments. Spiritually, it encourages resilience.",
+    "keywords": ["progress", "foresight", "exploration", "opportunities", "expansion"]
+  },
+  {
+    "id": 25,
+    "name": "Four of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Four of Wands embodies celebration, harmony, and homecoming, shown with a festive arch. It represents stability and community joy. This card signals milestones like weddings or achievements.\n\nPractically, it advises building secure foundations in family or work. It promotes gratitude. Spiritually, it fosters unity and peace.",
+    "reversed": "Reversed, the Four of Wands indicates instability, conflict, or transient joy. It may suggest home tensions. Symbolically, this position warns of disrupted harmony.\n\nIn daily scenarios, it calls for resolution. Spiritually, it encourages nurturing bonds.",
+    "keywords": ["celebration", "harmony", "stability", "home", "community"]
+  },
+  {
+    "id": 26,
+    "name": "Five of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Five of Wands represents conflict, competition, and tension, depicting clashing figures. It symbolizes diverse opinions leading to growth. This card encourages healthy rivalry.\n\nPractically, it advises teamwork amid disagreements in group settings. It fosters resilience. Spiritually, it highlights learning through challenges.",
+    "reversed": "Reversed, the Five of Wands suggests resolution, compromise, or avoiding conflict. It may indicate inner turmoil. Symbolically, this inversion represents peace after strife.\n\nIn life, it calls for harmony. Spiritually, it encourages integration.",
+    "keywords": ["conflict", "competition", "tension", "rivalry", "struggle"]
+  },
+  {
+    "id": 27,
+    "name": "Six of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Six of Wands signifies victory, recognition, and success, shown as a triumphant rider. It represents public acclaim and progress. This card encourages confidence in achievements.\n\nPractically, it advises sharing successes in career or community. It promotes leadership. Spiritually, it fosters self-esteem.",
+    "reversed": "Reversed, the Six of Wands indicates delays, egotism, or lack of recognition. It may suggest private victories. Symbolically, this position warns of arrogance.\n\nIn contexts, it calls for humility. Spiritually, it encourages inner validation.",
+    "keywords": ["victory", "recognition", "success", "progress", "acclaim"]
+  },
+  {
+    "id": 28,
+    "name": "Seven of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Seven of Wands embodies defense, perseverance, and standing ground, depicting a figure fending off challengers. It represents maintaining position amid opposition. This card encourages assertiveness.\n\nPractically, it advises protecting interests in competitive environments. It fosters courage. Spiritually, it highlights conviction.",
+    "reversed": "Reversed, the Seven of Wands suggests overwhelm, surrender, or compromise. It may indicate exhaustion. Symbolically, this inversion warns of vulnerability.\n\nIn daily life, it calls for strategy. Spiritually, it encourages balance.",
+    "keywords": ["defense", "perseverance", "opposition", "courage", "stand"]
+  },
+  {
+    "id": 29,
+    "name": "Eight of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Eight of Wands represents swift movement, action, and progress, shown as flying wands. It symbolizes rapid developments and travel. This card encourages momentum.\n\nPractically, it advises quick decisions in communications or trips. It fosters excitement. Spiritually, it connects to alignment.",
+    "reversed": "Reversed, the Eight of Wands indicates delays, frustration, or haste. It may suggest miscommunication. Symbolically, this position warns of impatience.\n\nIn life, it calls for patience. Spiritually, it encourages timing.",
+    "keywords": ["movement", "action", "progress", "speed", "travel"]
+  },
+  {
+    "id": 30,
+    "name": "Nine of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Nine of Wands signifies resilience, persistence, and guardedness, depicting a wounded figure standing watch. It represents final challenges before success. This card encourages vigilance.\n\nPractically, it advises boundaries in stressful times. It fosters strength. Spiritually, it highlights endurance.",
+    "reversed": "Reversed, the Nine of Wands suggests paranoia, exhaustion, or collapse. It may indicate dropping guards. Symbolically, this inversion warns of burnout.\n\nIn contexts, it calls for rest. Spiritually, it encourages trust.",
+    "keywords": ["resilience", "persistence", "guarded", "endurance", "vigilance"]
+  },
+  {
+    "id": 31,
+    "name": "Ten of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Ten of Wands embodies burden, responsibility, and hard work, shown as a figure carrying heavy wands. It represents overload nearing completion. This card encourages delegation.\n\nPractically, it advises prioritizing tasks in busy periods. It fosters accomplishment. Spiritually, it highlights release.",
+    "reversed": "Reversed, the Ten of Wands suggests release, burnout, or inability to let go. It may indicate simplification. Symbolically, this position represents relief.\n\nIn daily life, it calls for boundaries. Spiritually, it encourages unburdening.",
+    "keywords": ["burden", "responsibility", "overload", "hard work", "completion"]
+  },
+  {
+    "id": 32,
+    "name": "Page of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Page of Wands represents enthusiasm, exploration, and free spirit, depicted as a youth with a wand. It symbolizes new ideas and messages. This card encourages curiosity.\n\nPractically, it advises pursuing passions in learning or communication. It fosters creativity. Spiritually, it connects to discovery.",
+    "reversed": "Reversed, the Page of Wands suggests setbacks, indecision, or bad news. It may indicate lack of focus. Symbolically, this inversion warns of haste.\n\nIn life, it calls for direction. Spiritually, it encourages grounding.",
+    "keywords": ["enthusiasm", "exploration", "ideas", "curiosity", "messages"]
+  },
+  {
+    "id": 33,
+    "name": "Knight of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Knight of Wands embodies action, adventure, and energy, shown charging on horseback. It represents bold pursuits and change. This card encourages passion.\n\nPractically, it advises impulsive moves in travel or career. It fosters excitement. Spiritually, it highlights drive.",
+    "reversed": "Reversed, the Knight of Wands suggests haste, frustration, or scattered energy. It may indicate delays. Symbolically, this position warns of recklessness.\n\nIn contexts, it calls for caution. Spiritually, it encourages focus.",
+    "keywords": ["action", "adventure", "energy", "passion", "change"]
+  },
+  {
+    "id": 34,
+    "name": "Queen of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The Queen of Wands represents confidence, warmth, and determination, depicted with a sunflower. It symbolizes vibrant leadership and creativity. This card encourages self-assurance.\n\nPractically, it advises nurturing ambitions in social or professional roles. It fosters charisma. Spiritually, it connects to fire.",
+    "reversed": "Reversed, the Queen of Wands suggests jealousy, insecurity, or demanding nature. It may indicate burnout. Symbolically, this inversion warns of temper.\n\nIn daily life, it calls for self-care. Spiritually, it encourages balance.",
+    "keywords": ["confidence", "warmth", "determination", "leadership", "creativity"]
+  },
+  {
+    "id": 35,
+    "name": "King of Wands",
+    "arcana": "Minor Arcana",
+    "suit": "Wands",
+    "upright": "The King of Wands embodies vision, entrepreneurship, and honor, shown as a seated leader. It represents natural leadership and innovation. This card encourages inspiration.\n\nPractically, it advises guiding others in business or projects. It fosters integrity. Spiritually, it highlights mastery.",
+    "reversed": "Reversed, the King of Wands suggests impulsiveness, arrogance, or ineffectiveness. It may indicate high expectations. Symbolically, this position warns of tyranny.\n\nIn life, it calls for humility. Spiritually, it encourages wisdom.",
+    "keywords": ["vision", "entrepreneurship", "leadership", "honor", "innovation"]
+  },
+  {
+    "id": 36,
+    "name": "Ace of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Ace of Cups represents new emotions, love, and intuition, symbolized by an overflowing chalice. It signifies emotional beginnings and compassion. This card encourages opening your heart.\n\nPractically, it advises embracing relationships or creative flows. It fosters empathy. Spiritually, it connects to divine love.",
+    "reversed": "Reversed, the Ace of Cups suggests blocked emotions, emptiness, or repressed feelings. It may indicate self-love needs. Symbolically, this inversion warns of loss.\n\nIn contexts, it calls for healing. Spiritually, it encourages release.",
+    "keywords": ["love", "new emotions", "intuition", "compassion", "creativity"]
+  },
+  {
+    "id": 37,
+    "name": "Two of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Two of Cups embodies unity, partnership, and mutual attraction, depicting a couple exchanging cups. It represents balanced relationships. This card encourages connection.\n\nPractically, it advises harmony in romance or business. It fosters respect. Spiritually, it highlights soul bonds.",
+    "reversed": "Reversed, the Two of Cups suggests imbalance, breakups, or tension. It may indicate self-partnership. Symbolically, this position warns of disharmony.\n\nIn life, it calls for communication. Spiritually, it encourages self-unity.",
+    "keywords": ["unity", "partnership", "attraction", "connection", "balance"]
+  },
+  {
+    "id": 38,
+    "name": "Three of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Three of Cups represents celebration, friendship, and community, shown with dancing figures. It symbolizes joyful gatherings. This card encourages social bonds.\n\nPractically, it advises collaboration and festivities. It fosters support. Spiritually, it connects to abundance.",
+    "reversed": "Reversed, the Three of Cups suggests overindulgence, isolation, or gossip. It may indicate third-party issues. Symbolically, this inversion warns of excess.\n\nIn daily scenarios, it calls for moderation. Spiritually, it encourages true connections.",
+    "keywords": ["celebration", "friendship", "community", "collaboration", "joy"]
+  },
+  {
+    "id": 39,
+    "name": "Four of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Four of Cups embodies contemplation, apathy, and reevaluation, depicting a figure ignoring a cup. It represents missed opportunities. This card encourages introspection.\n\nPractically, it advises awareness in stagnant situations. It fosters gratitude. Spiritually, it highlights meditation.",
+    "reversed": "Reversed, the Four of Cups suggests acceptance, new opportunities, or retreat ending. It may indicate motivation. Symbolically, this position represents awakening.\n\nIn life, it calls for engagement. Spiritually, it encourages openness.",
+    "keywords": ["contemplation", "apathy", "reevaluation", "missed opportunities", "introspection"]
+  },
+  {
+    "id": 40,
+    "name": "Five of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Five of Cups represents loss, regret, and disappointment, shown with spilled cups. It symbolizes focusing on negatives. This card encourages mourning then moving on.\n\nPractically, it advises acceptance in grief or failures. It fosters perspective. Spiritually, it highlights forgiveness.",
+    "reversed": "Reversed, the Five of Cups suggests recovery, acceptance, or moving on. It may indicate hope. Symbolically, this inversion represents healing.\n\nIn contexts, it calls for optimism. Spiritually, it encourages release.",
+    "keywords": ["loss", "regret", "disappointment", "grief", "focus"]
+  },
+  {
+    "id": 41,
+    "name": "Six of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Six of Cups embodies nostalgia, reunion, and innocence, depicting children with cups. It represents past influences. This card encourages childlike joy.\n\nPractically, it advises reconnecting with roots or old friends. It fosters generosity. Spiritually, it connects to memories.",
+    "reversed": "Reversed, the Six of Cups suggests stuck in past, independence, or leaving home. It may indicate maturity. Symbolically, this position warns of clinging.\n\nIn daily life, it calls for forward focus. Spiritually, it encourages growth.",
+    "keywords": ["nostalgia", "reunion", "innocence", "memories", "generosity"]
+  },
+  {
+    "id": 42,
+    "name": "Seven of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Seven of Cups represents choices, illusions, and fantasy, shown with varied cups. It symbolizes daydreaming. This card encourages discernment.\n\nPractically, it advises realistic decisions amid options. It fosters imagination. Spiritually, it highlights vision.",
+    "reversed": "Reversed, the Seven of Cups suggests clarity, alignment, or overwhelmed choices. It may indicate focus. Symbolically, this inversion represents reality check.\n\nIn life, it calls for prioritization. Spiritually, it encourages grounding.",
+    "keywords": ["choices", "illusions", "fantasy", "opportunities", "discernment"]
+  },
+  {
+    "id": 43,
+    "name": "Eight of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Eight of Cups embodies abandonment, withdrawal, and search for meaning, depicting a figure leaving cups. It represents walking away. This card encourages deeper fulfillment.\n\nPractically, it advises leaving unfulfilling situations. It fosters introspection. Spiritually, it highlights quest.",
+    "reversed": "Reversed, the Eight of Cups suggests stagnation, escapism, or return. It may indicate fear of change. Symbolically, this position warns of avoidance.\n\nIn contexts, it calls for commitment. Spiritually, it encourages evaluation.",
+    "keywords": ["abandonment", "withdrawal", "search", "disillusionment", "transition"]
+  },
+  {
+    "id": 44,
+    "name": "Nine of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Nine of Cups represents satisfaction, contentment, and wishes fulfilled, shown with a smug figure. It symbolizes emotional abundance. This card encourages gratitude.\n\nPractically, it advises enjoying achievements in personal life. It fosters well-being. Spiritually, it connects to harmony.",
+    "reversed": "Reversed, the Nine of Cups suggests complacency, shattered dreams, or materialism. It may indicate inner unhappiness. Symbolically, this inversion warns of greed.\n\nIn daily scenarios, it calls for humility. Spiritually, it encourages true fulfillment.",
+    "keywords": ["satisfaction", "contentment", "wishes", "abundance", "gratification"]
+  },
+  {
+    "id": 45,
+    "name": "Ten of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Ten of Cups embodies happiness, family, and harmony, depicting a joyful family. It represents ideal relationships. This card encourages emotional security.\n\nPractically, it advises nurturing home and bonds. It fosters love. Spiritually, it highlights divine blessings.",
+    "reversed": "Reversed, the Ten of Cups suggests broken home, disharmony, or separation. It may indicate misalignment. Symbolically, this position warns of conflict.\n\nIn life, it calls for repair. Spiritually, it encourages values alignment.",
+    "keywords": ["happiness", "family", "harmony", "fulfillment", "alignment"]
+  },
+  {
+    "id": 46,
+    "name": "Page of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Page of Cups represents creativity, intuition, and sensitivity, shown as a youth with a cup. It symbolizes emotional messages. This card encourages openness.\n\nPractically, it advises artistic pursuits or kind gestures. It fosters empathy. Spiritually, it connects to dreams.",
+    "reversed": "Reversed, the Page of Cups suggests emotional immaturity, creative blocks, or bad news. It may indicate insecurity. Symbolically, this inversion warns of repression.\n\nIn contexts, it calls for maturity. Spiritually, it encourages expression.",
+    "keywords": ["creativity", "intuition", "sensitivity", "messages", "dreams"]
+  },
+  {
+    "id": 47,
+    "name": "Knight of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Knight of Cups embodies romance, charm, and imagination, depicted riding with a cup. It represents following heart. This card encourages proposals.\n\nPractically, it advises emotional pursuits in love or art. It fosters idealism. Spiritually, it highlights intuition.",
+    "reversed": "Reversed, the Knight of Cups suggests moodiness, jealousy, or unreality. It may indicate deception. Symbolically, this position warns of fantasy.\n\nIn daily life, it calls for grounding. Spiritually, it encourages balance.",
+    "keywords": ["romance", "charm", "imagination", "intuition", "proposals"]
+  },
+  {
+    "id": 48,
+    "name": "Queen of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The Queen of Cups represents compassion, calm, and intuition, shown gazing at a cup. It symbolizes nurturing empathy. This card encourages emotional support.\n\nPractically, it advises listening in relationships or healing roles. It fosters kindness. Spiritually, it connects to psychic abilities.",
+    "reversed": "Reversed, the Queen of Cups suggests emotional insecurity, dependence, or martyrdom. It may indicate repression. Symbolically, this inversion warns of imbalance.\n\nIn life, it calls for self-care. Spiritually, it encourages boundaries.",
+    "keywords": ["compassion", "calm", "intuition", "nurturing", "empathy"]
+  },
+  {
+    "id": 49,
+    "name": "King of Cups",
+    "arcana": "Minor Arcana",
+    "suit": "Cups",
+    "upright": "The King of Cups embodies balance, control, and generosity, depicted on a throne amid waves. It represents emotional mastery. This card encourages diplomacy.\n\nPractically, it advises wise counsel in conflicts. It fosters stability. Spiritually, it highlights compassion.",
+    "reversed": "Reversed, the King of Cups suggests emotional manipulation, moodiness, or volatility. It may indicate withdrawal. Symbolically, this position warns of imbalance.\n\nIn contexts, it calls for self-control. Spiritually, it encourages healing.",
+    "keywords": ["balance", "control", "generosity", "diplomacy", "compassion"]
+  },
+  {
+    "id": 50,
+    "name": "Ace of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Ace of Swords represents breakthrough, clarity, and truth, symbolized by a hand-held sword. It signifies new ideas and justice. This card encourages decisive action.\n\nPractically, it advises cutting through confusion in decisions. It fosters mental strength. Spiritually, it connects to intellect.",
+    "reversed": "Reversed, the Ace of Swords suggests confusion, lack of clarity, or chaos. It may indicate brutality. Symbolically, this inversion warns of misuse.\n\nIn daily scenarios, it calls for focus. Spiritually, it encourages truth-seeking.",
+    "keywords": ["breakthrough", "clarity", "truth", "justice", "ideas"]
+  },
+  {
+    "id": 51,
+    "name": "Two of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Two of Swords embodies stalemate, indecision, and blocked emotions, depicting a blindfolded figure. It represents difficult choices. This card encourages intuition.\n\nPractically, it advises weighing options in conflicts. It fosters peace. Spiritually, it highlights denial.",
+    "reversed": "Reversed, the Two of Swords suggests indecision, information overload, or breakthrough. It may indicate guards down. Symbolically, this position represents clarity.\n\nIn life, it calls for action. Spiritually, it encourages resolution.",
+    "keywords": ["stalemate", "indecision", "choices", "denial", "balance"]
+  },
+  {
+    "id": 52,
+    "name": "Three of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Three of Swords represents heartbreak, sorrow, and betrayal, shown with a pierced heart. It symbolizes emotional pain. This card encourages healing.\n\nPractically, it advises processing grief in relationships. It fosters acceptance. Spiritually, it highlights release.",
+    "reversed": "Reversed, the Three of Swords suggests recovery, forgiveness, or release. It may indicate lingering pain. Symbolically, this inversion represents mending.\n\nIn contexts, it calls for compassion. Spiritually, it encourages growth.",
+    "keywords": ["heartbreak", "sorrow", "betrayal", "pain", "grief"]
+  },
+  {
+    "id": 53,
+    "name": "Four of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Four of Swords embodies rest, recovery, and meditation, depicting a figure in repose. It represents retreat for rejuvenation. This card encourages pause.\n\nPractically, it advises downtime after stress. It fosters contemplation. Spiritually, it connects to solace.",
+    "reversed": "Reversed, the Four of Swords suggests restlessness, burnout, or stagnation. It may indicate recovery delayed. Symbolically, this position warns of isolation.\n\nIn daily life, it calls for action. Spiritually, it encourages balance.",
+    "keywords": ["rest", "recovery", "meditation", "retreat", "rejuvenation"]
+  },
+  {
+    "id": 54,
+    "name": "Five of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Five of Swords represents defeat, conflict, and betrayal, shown with a smug victor. It symbolizes hollow victories. This card encourages surrender.\n\nPractically, it advises avoiding battles in arguments. It fosters wisdom. Spiritually, it highlights ego.",
+    "reversed": "Reversed, the Five of Swords suggests forgiveness, release, or lingering resentment. It may indicate peace. Symbolically, this inversion represents moving on.\n\nIn life, it calls for reconciliation. Spiritually, it encourages compassion.",
+    "keywords": ["defeat", "conflict", "betrayal", "tension", "surrender"]
+  },
+  {
+    "id": 55,
+    "name": "Six of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Six of Swords embodies transition, moving on, and rite of passage, depicting a boat journey. It represents healing change. This card encourages progress.\n\nPractically, it advises leaving troubles in travel or mindset. It fosters hope. Spiritually, it connects to guidance.",
+    "reversed": "Reversed, the Six of Swords suggests resistance, unfinished issues, or return. It may indicate stagnation. Symbolically, this position warns of delay.\n\nIn contexts, it calls for resolution. Spiritually, it encourages acceptance.",
+    "keywords": ["transition", "moving on", "change", "healing", "journey"]
+  },
+  {
+    "id": 56,
+    "name": "Seven of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Seven of Swords represents deception, strategy, and trickery, shown stealing swords. It symbolizes betrayal or cunning. This card encourages caution.\n\nPractically, it advises vigilance in dealings. It fosters resourcefulness. Spiritually, it highlights ethics.",
+    "reversed": "Reversed, the Seven of Swords suggests confession, conscience, or getting caught. It may indicate self-deception. Symbolically, this inversion represents truth.\n\nIn daily scenarios, it calls for honesty. Spiritually, it encourages integrity.",
+    "keywords": ["deception", "strategy", "trickery", "betrayal", "cunning"]
+  },
+  {
+    "id": 57,
+    "name": "Eight of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Eight of Swords embodies restriction, imprisonment, and self-imposed limits, depicting a bound figure. It represents victim mentality. This card encourages empowerment.\n\nPractically, it advises breaking free from fears. It fosters perspective. Spiritually, it highlights liberation.",
+    "reversed": "Reversed, the Eight of Swords suggests release, new perspective, or escape. It may indicate self-empowerment. Symbolically, this position represents freedom.\n\nIn life, it calls for action. Spiritually, it encourages confidence.",
+    "keywords": ["restriction", "imprisonment", "limits", "fear", "victim"]
+  },
+  {
+    "id": 58,
+    "name": "Nine of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Nine of Swords represents anxiety, fear, and nightmares, shown with a figure in despair. It symbolizes mental anguish. This card encourages seeking help.\n\nPractically, it advises addressing worries through therapy. It fosters compassion. Spiritually, it highlights release.",
+    "reversed": "Reversed, the Nine of Swords suggests hope, recovery, or inner demons. It may indicate worsening fears. Symbolically, this inversion represents light.\n\nIn contexts, it calls for positivity. Spiritually, it encourages faith.",
+    "keywords": ["anxiety", "fear", "nightmares", "despair", "worry"]
+  },
+  {
+    "id": 59,
+    "name": "Ten of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Ten of Swords embodies ruin, rock bottom, and painful endings, depicting a stabbed figure. It represents inevitable closure. This card encourages acceptance.\n\nPractically, it advises rising from failures. It fosters resilience. Spiritually, it highlights transformation.",
+    "reversed": "Reversed, the Ten of Swords suggests recovery, resistance, or unavoidable ruin. It may indicate new beginnings. Symbolically, this position represents hope.\n\nIn daily life, it calls for renewal. Spiritually, it encourages rebirth.",
+    "keywords": ["ruin", "ending", "rock bottom", "failure", "betrayal"]
+  },
+  {
+    "id": 60,
+    "name": "Page of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Page of Swords represents curiosity, mental agility, and vigilance, shown as a youth with sword. It symbolizes new ideas. This card encourages truth-seeking.\n\nPractically, it advises communication and learning. It fosters alertness. Spiritually, it connects to intellect.",
+    "reversed": "Reversed, the Page of Swords suggests all talk no action, haste, or paranoia. It may indicate manipulation. Symbolically, this inversion warns of deceit.\n\nIn life, it calls for focus. Spiritually, it encourages discernment.",
+    "keywords": ["curiosity", "agility", "vigilance", "ideas", "truth"]
+  },
+  {
+    "id": 61,
+    "name": "Knight of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Knight of Swords embodies action, ambition, and assertiveness, depicted charging with sword. It represents quick thinking. This card encourages directness.\n\nPractically, it advises bold moves in conflicts. It fosters determination. Spiritually, it highlights focus.",
+    "reversed": "Reversed, the Knight of Swords suggests scattered, disregard, or impulsiveness. It may indicate conflict. Symbolically, this position warns of recklessness.\n\nIn contexts, it calls for caution. Spiritually, it encourages patience.",
+    "keywords": ["action", "ambition", "assertiveness", "quick", "direct"]
+  },
+  {
+    "id": 62,
+    "name": "Queen of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The Queen of Swords represents independence, clarity, and perceptive judgment, shown with raised sword. It symbolizes honest communication. This card encourages boundaries.\n\nPractically, it advises objective advice. It fosters strength. Spiritually, it connects to wisdom.",
+    "reversed": "Reversed, the Queen of Swords suggests bitterness, absentee, or cold-hearted. It may indicate deceit. Symbolically, this inversion warns of isolation.\n\nIn daily scenarios, it calls for warmth. Spiritually, it encourages compassion.",
+    "keywords": ["independence", "clarity", "judgment", "honesty", "boundaries"]
+  },
+  {
+    "id": 63,
+    "name": "King of Swords",
+    "arcana": "Minor Arcana",
+    "suit": "Swords",
+    "upright": "The King of Swords embodies intellect, authority, and truth, depicted with sword upright. It represents logical leadership. This card encourages ethics.\n\nPractically, it advises fair decisions in authority roles. It fosters discipline. Spiritually, it highlights analysis.",
+    "reversed": "Reversed, the King of Swords suggests manipulative, cruel, or weakness. It may indicate abuse. Symbolically, this position warns of tyranny.\n\nIn life, it calls for balance. Spiritually, it encourages integrity.",
+    "keywords": ["intellect", "authority", "truth", "logic", "ethics"]
+  },
+  {
+    "id": 64,
+    "name": "Ace of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Ace of Pentacles represents new opportunities, prosperity, and manifestation, symbolized by a hand with coin. It signifies material beginnings. This card encourages investment.\n\nPractically, it advises financial or health starts. It fosters abundance. Spiritually, it connects to earth.",
+    "reversed": "Reversed, the Ace of Pentacles suggests lost opportunities, lack of planning, or scarcity. It may indicate greed. Symbolically, this inversion warns of delay.\n\nIn contexts, it calls for caution. Spiritually, it encourages grounding.",
+    "keywords": ["opportunity", "prosperity", "manifestation", "abundance", "new start"]
+  },
+  {
+    "id": 65,
+    "name": "Two of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Two of Pentacles embodies balance, adaptability, and prioritization, depicting juggling coins. It represents managing multiple tasks. This card encourages flexibility.\n\nPractically, it advises time management in work-life. It fosters harmony. Spiritually, it highlights flow.",
+    "reversed": "Reversed, the Two of Pentacles suggests disorganization, overcommitment, or imbalance. It may indicate drops. Symbolically, this position warns of chaos.\n\nIn daily life, it calls for simplification. Spiritually, it encourages focus.",
+    "keywords": ["balance", "adaptability", "prioritization", "juggling", "flexibility"]
+  },
+  {
+    "id": 66,
+    "name": "Three of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Three of Pentacles represents collaboration, learning, and implementation, shown with craftsmen. It symbolizes teamwork. This card encourages skill-building.\n\nPractically, it advises group projects or apprenticeships. It fosters expertise. Spiritually, it connects to mastery.",
+    "reversed": "Reversed, the Three of Pentacles suggests disharmony, misalignment, or lack of teamwork. It may indicate mediocrity. Symbolically, this inversion warns of isolation.\n\nIn life, it calls for cooperation. Spiritually, it encourages unity.",
+    "keywords": ["collaboration", "learning", "implementation", "teamwork", "skill"]
+  },
+  {
+    "id": 67,
+    "name": "Four of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Four of Pentacles embodies possession, control, and security, depicting a figure clutching coins. It represents stability but warns of greed. This card encourages conservation.\n\nPractically, it advises financial caution. It fosters boundaries. Spiritually, it highlights attachment.",
+    "reversed": "Reversed, the Four of Pentacles suggests release, generosity, or loss. It may indicate spending. Symbolically, this position represents openness.\n\nIn contexts, it calls for sharing. Spiritually, it encourages detachment.",
+    "keywords": ["possession", "control", "security", "stability", "greed"]
+  },
+  {
+    "id": 68,
+    "name": "Five of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Five of Pentacles represents hardship, poverty, and isolation, shown with destitute figures. It symbolizes struggle. This card encourages seeking help.\n\nPractically, it advises resilience in financial woes. It fosters community. Spiritually, it highlights faith.",
+    "reversed": "Reversed, the Five of Pentacles suggests recovery, spiritual poverty, or improvement. It may indicate hope. Symbolically, this inversion represents light.\n\nIn daily scenarios, it calls for optimism. Spiritually, it encourages inner wealth.",
+    "keywords": ["hardship", "poverty", "isolation", "struggle", "worry"]
+  },
+  {
+    "id": 69,
+    "name": "Six of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Six of Pentacles embodies generosity, sharing, and charity, depicting a giver. It represents balance in giving/receiving. This card encourages kindness.\n\nPractically, it advises philanthropy or fair dealings. It fosters prosperity. Spiritually, it connects to karma.",
+    "reversed": "Reversed, the Six of Pentacles suggests self-care, inequality, or strings attached. It may indicate debt. Symbolically, this position warns of imbalance.\n\nIn life, it calls for equity. Spiritually, it encourages boundaries.",
+    "keywords": ["generosity", "sharing", "charity", "balance", "prosperity"]
+  },
+  {
+    "id": 70,
+    "name": "Seven of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Seven of Pentacles represents assessment, patience, and investment, shown contemplating plants. It symbolizes long-term vision. This card encourages evaluation.\n\nPractically, it advises reviewing progress in goals. It fosters perseverance. Spiritually, it highlights growth.",
+    "reversed": "Reversed, the Seven of Pentacles suggests limited success, impatience, or procrastination. It may indicate redirection. Symbolically, this inversion warns of stagnation.\n\nIn contexts, it calls for action. Spiritually, it encourages alignment.",
+    "keywords": ["assessment", "patience", "investment", "vision", "perseverance"]
+  },
+  {
+    "id": 71,
+    "name": "Eight of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Eight of Pentacles embodies diligence, mastery, and craftsmanship, depicting a worker. It represents dedication. This card encourages apprenticeship.\n\nPractically, it advises skill honing in career. It fosters commitment. Spiritually, it connects to purpose.",
+    "reversed": "Reversed, the Eight of Pentacles suggests perfectionism, lack of focus, or burnout. It may indicate mediocrity. Symbolically, this position warns of repetition.\n\nIn daily life, it calls for balance. Spiritually, it encourages passion.",
+    "keywords": ["diligence", "mastery", "craftsmanship", "dedication", "skill"]
+  },
+  {
+    "id": 72,
+    "name": "Nine of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Nine of Pentacles represents self-sufficiency, luxury, and accomplishment, shown in a garden. It symbolizes independence. This card encourages enjoyment.\n\nPractically, it advises financial autonomy. It fosters gratitude. Spiritually, it highlights refinement.",
+    "reversed": "Reversed, the Nine of Pentacles suggests overwork, financial dependence, or loneliness. It may indicate guardedness. Symbolically, this inversion warns of isolation.\n\nIn life, it calls for connection. Spiritually, it encourages balance.",
+    "keywords": ["self-sufficiency", "luxury", "accomplishment", "independence", "abundance"]
+  },
+  {
+    "id": 73,
+    "name": "Ten of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Ten of Pentacles embodies wealth, family, and legacy, depicting a multi-generational scene. It represents long-term security. This card encourages tradition.\n\nPractically, it advises estate planning or family business. It fosters stability. Spiritually, it connects to inheritance.",
+    "reversed": "Reversed, the Ten of Pentacles suggests financial failure, family disputes, or loss. It may indicate impermanence. Symbolically, this position warns of instability.\n\nIn contexts, it calls for harmony. Spiritually, it encourages values.",
+    "keywords": ["wealth", "family", "legacy", "security", "tradition"]
+  },
+  {
+    "id": 74,
+    "name": "Page of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Page of Pentacles represents manifestation, skill development, and financial opportunity, shown studying a coin. It symbolizes ambition. This card encourages study.\n\nPractically, it advises practical learning. It fosters diligence. Spiritually, it connects to goals.",
+    "reversed": "Reversed, the Page of Pentacles suggests lack of progress, procrastination, or rebellion. It may indicate shortcuts. Symbolically, this inversion warns of laziness.\n\nIn daily scenarios, it calls for commitment. Spiritually, it encourages focus.",
+    "keywords": ["manifestation", "skill", "opportunity", "ambition", "diligence"]
+  },
+  {
+    "id": 75,
+    "name": "Knight of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Knight of Pentacles embodies hard work, responsibility, and methodology, depicted on a steady horse. It represents routine. This card encourages reliability.\n\nPractically, it advises consistent effort in tasks. It fosters patience. Spiritually, it highlights dedication.",
+    "reversed": "Reversed, the Knight of Pentacles suggests stagnation, perfectionism, or gambling. It may indicate boredom. Symbolically, this position warns of inertia.\n\nIn life, it calls for variety. Spiritually, it encourages adaptability.",
+    "keywords": ["hard work", "responsibility", "methodology", "reliability", "routine"]
+  },
+  {
+    "id": 76,
+    "name": "Queen of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The Queen of Pentacles represents nurturing, practicality, and security, shown in nature. It symbolizes generosity. This card encourages care.\n\nPractically, it advises financial wisdom and home-making. It fosters warmth. Spiritually, it connects to earth mother.",
+    "reversed": "Reversed, the Queen of Pentacles suggests financial dependence, smothering, or jealousy. It may indicate neglect. Symbolically, this inversion warns of imbalance.\n\nIn contexts, it calls for self-nurture. Spiritually, it encourages boundaries.",
+    "keywords": ["nurturing", "practicality", "security", "generosity", "abundance"]
+  },
+  {
+    "id": 77,
+    "name": "King of Pentacles",
+    "arcana": "Minor Arcana",
+    "suit": "Pentacles",
+    "upright": "The King of Pentacles embodies wealth, discipline, and abundance, depicted in a vineyard. It represents business acumen. This card encourages leadership.\n\nPractically, it advises sensible investments. It fosters stability. Spiritually, it highlights success.",
+    "reversed": "Reversed, the King of Pentacles suggests vice, corruption, or ungrounded. It may indicate stubbornness. Symbolically, this position warns of materialism.\n\nIn daily life, it calls for ethics. Spiritually, it encourages generosity.",
+    "keywords": ["wealth", "discipline", "abundance", "leadership", "stability"]
+  }
+]
