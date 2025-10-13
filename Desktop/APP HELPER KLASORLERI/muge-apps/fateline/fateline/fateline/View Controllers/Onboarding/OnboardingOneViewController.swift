@@ -147,7 +147,9 @@ class OnboardingOneViewController: UIViewController {
     
     // MARK: - Actions
     @objc private func startButtonTapped() {
-        // TODO: Handle button tap
-        print("Start Exploring button tapped")
+        // Navigate to second onboarding screen
+        GlobalHelper.pushController(id: "OnboardingSecondViewController", self) { vc in
+            (vc as? OnboardingSecondViewController)?.navigationItem.hidesBackButton = true
+        }
     }
 }
