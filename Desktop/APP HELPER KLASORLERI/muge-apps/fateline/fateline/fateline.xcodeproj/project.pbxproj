@@ -26,6 +26,9 @@
 		B62D19C72E96662000A0BC30 /* ApplicationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19C62E96662000A0BC30 /* ApplicationLogger.swift */; };
 		B62D19C92E96680400A0BC30 /* tarot_meanings.json in Resources */ = {isa = PBXBuildFile; fileRef = B62D19C82E96680400A0BC30 /* tarot_meanings.json */; };
 		B62D19CB2E96682F00A0BC30 /* burclar.json in Resources */ = {isa = PBXBuildFile; fileRef = B62D19CA2E96682F00A0BC30 /* burclar.json */; };
+		B62D19CD2E9C356200A0BC30 /* OnboardingOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19CC2E9C356200A0BC30 /* OnboardingOneViewController.swift */; };
+		B62D19CF2E9C357500A0BC30 /* OnboardingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19CE2E9C357500A0BC30 /* OnboardingSecondViewController.swift */; };
+		B62D19D22E9D737200A0BC30 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19D12E9D737200A0BC30 /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		B62D19C62E96662000A0BC30 /* ApplicationLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLogger.swift; sourceTree = "<group>"; };
 		B62D19C82E96680400A0BC30 /* tarot_meanings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tarot_meanings.json; sourceTree = "<group>"; };
 		B62D19CA2E96682F00A0BC30 /* burclar.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = burclar.json; sourceTree = "<group>"; };
+		B62D19CC2E9C356200A0BC30 /* OnboardingOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOneViewController.swift; sourceTree = "<group>"; };
+		B62D19CE2E9C357500A0BC30 /* OnboardingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSecondViewController.swift; sourceTree = "<group>"; };
+		B62D19D12E9D737200A0BC30 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,7 @@
 		B62D19922E940C9C00A0BC30 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B62D19D02E9D736100A0BC30 /* Splash */,
 				B62D19AD2E96635F00A0BC30 /* Soul and Life Card */,
 				B62D19AB2E96632600A0BC30 /* Sign compatibility */,
 				B62D19AA2E96631900A0BC30 /* Numerology */,
@@ -195,6 +202,8 @@
 		B62D19A72E9662F100A0BC30 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				B62D19CC2E9C356200A0BC30 /* OnboardingOneViewController.swift */,
+				B62D19CE2E9C357500A0BC30 /* OnboardingSecondViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -243,6 +252,14 @@
 				B62D19C42E9665F400A0BC30 /* PurchaseConstants.swift */,
 			);
 			path = Premium;
+			sourceTree = "<group>";
+		};
+		B62D19D02E9D736100A0BC30 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				B62D19D12E9D737200A0BC30 /* SplashViewController.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,9 +390,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B62D19B82E96645700A0BC30 /* UIFont+Ext.swift in Sources */,
+				B62D19CF2E9C357500A0BC30 /* OnboardingSecondViewController.swift in Sources */,
 				B62D19B42E96643500A0BC30 /* UIView+Ext.swift in Sources */,
+				B62D19CD2E9C356200A0BC30 /* OnboardingOneViewController.swift in Sources */,
 				B62D198E2E9409DC00A0BC30 /* AppDelegate.swift in Sources */,
 				B62D198F2E9409DC00A0BC30 /* SceneDelegate.swift in Sources */,
+				B62D19D22E9D737200A0BC30 /* SplashViewController.swift in Sources */,
 				B62D19C12E9665AD00A0BC30 /* Subscription.swift in Sources */,
 				B62D19B62E96644300A0BC30 /* String+Ext.swift in Sources */,
 				B62D19C52E9665F400A0BC30 /* PurchaseConstants.swift in Sources */,
