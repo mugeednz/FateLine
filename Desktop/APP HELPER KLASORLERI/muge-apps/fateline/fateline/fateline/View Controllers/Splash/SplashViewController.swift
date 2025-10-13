@@ -11,19 +11,28 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        checkOnboardingStatus()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func checkOnboardingStatus() {
+        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
+        
+        if hasSeenOnboarding {
+            navigateToHome()
+        } else {
+            navigateToOnboarding()
+        }
     }
-    */
+    
+    func navigateToHome() {
+        GlobalHelper.pushController(id: "MainViewController", self) { vc in }
+        
+    }
+    
+    func navigateToOnboarding() {
+        GlobalHelper.pushController(id: "OnboardingOneViewController", self) { vc in
+            (vc as? OnboardingOneViewController)?.navigationItem.hidesBackButton = true
+        }
 
+    }
 }
