@@ -32,6 +32,8 @@
 		B62D19D52E9D7F3000A0BC30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19D42E9D7F3000A0BC30 /* MainViewController.swift */; };
 		B63D6D602E9D82E900299BF7 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D5F2E9D82E900299BF7 /* UIColor+Ext.swift */; };
 		B63D6D632E9D885A00299BF7 /* onboarding_space.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B63D6D622E9D885A00299BF7 /* onboarding_space.mp4 */; };
+		B63D6D662E9D8BA200299BF7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D652E9D8BA200299BF7 /* SettingsViewController.swift */; };
+		B63D6D692E9D8BB900299BF7 /* PremiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D682E9D8BB900299BF7 /* PremiumViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		B62D19D42E9D7F3000A0BC30 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B63D6D5F2E9D82E900299BF7 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		B63D6D622E9D885A00299BF7 /* onboarding_space.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding_space.mp4; sourceTree = "<group>"; };
+		B63D6D652E9D8BA200299BF7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B63D6D682E9D8BB900299BF7 /* PremiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,8 @@
 		B62D19922E940C9C00A0BC30 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B63D6D672E9D8BA900299BF7 /* PremiumVC */,
+				B63D6D642E9D8B9000299BF7 /* Settings */,
 				B62D19D32E9D7F1F00A0BC30 /* Main */,
 				B62D19D02E9D736100A0BC30 /* Splash */,
 				B62D19AD2E96635F00A0BC30 /* Soul and Life Card */,
@@ -287,6 +293,22 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		B63D6D642E9D8B9000299BF7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B63D6D652E9D8BA200299BF7 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B63D6D672E9D8BA900299BF7 /* PremiumVC */ = {
+			isa = PBXGroup;
+			children = (
+				B63D6D682E9D8BB900299BF7 /* PremiumViewController.swift */,
+			);
+			path = PremiumVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -417,11 +439,13 @@
 			files = (
 				B62D19B82E96645700A0BC30 /* UIFont+Ext.swift in Sources */,
 				B62D19CF2E9C357500A0BC30 /* OnboardingSecondViewController.swift in Sources */,
+				B63D6D692E9D8BB900299BF7 /* PremiumViewController.swift in Sources */,
 				B62D19B42E96643500A0BC30 /* UIView+Ext.swift in Sources */,
 				B62D19CD2E9C356200A0BC30 /* OnboardingOneViewController.swift in Sources */,
 				B62D198E2E9409DC00A0BC30 /* AppDelegate.swift in Sources */,
 				B62D198F2E9409DC00A0BC30 /* SceneDelegate.swift in Sources */,
 				B62D19D22E9D737200A0BC30 /* SplashViewController.swift in Sources */,
+				B63D6D662E9D8BA200299BF7 /* SettingsViewController.swift in Sources */,
 				B62D19D52E9D7F3000A0BC30 /* MainViewController.swift in Sources */,
 				B62D19C12E9665AD00A0BC30 /* Subscription.swift in Sources */,
 				B62D19B62E96644300A0BC30 /* String+Ext.swift in Sources */,

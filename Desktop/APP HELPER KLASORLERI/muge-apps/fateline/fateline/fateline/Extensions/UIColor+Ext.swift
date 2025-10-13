@@ -30,4 +30,17 @@ extension UIColor {
             alpha: CGFloat(a) / 255
         )
     }
+    
+    // MARK: - App Colors
+    static var mainBackgroundTop: UIColor {
+        return UIColor(hex: "0f0f1e")
+    }
+    
+    static var mainBackgroundBottom: UIColor {
+        return UIColor(hex: "2d1b3d")
+    }
+    
+    static var mysticalPurple: UIColor {
+        return UIColor(hex: "3d2550")
+    }
 }
