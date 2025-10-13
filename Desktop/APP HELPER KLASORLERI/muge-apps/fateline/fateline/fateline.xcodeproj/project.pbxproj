@@ -31,6 +31,7 @@
 		B62D19D22E9D737200A0BC30 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19D12E9D737200A0BC30 /* SplashViewController.swift */; };
 		B62D19D52E9D7F3000A0BC30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19D42E9D7F3000A0BC30 /* MainViewController.swift */; };
 		B63D6D602E9D82E900299BF7 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D5F2E9D82E900299BF7 /* UIColor+Ext.swift */; };
+		B63D6D632E9D885A00299BF7 /* onboarding_space.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B63D6D622E9D885A00299BF7 /* onboarding_space.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		B62D19D12E9D737200A0BC30 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		B62D19D42E9D7F3000A0BC30 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B63D6D5F2E9D82E900299BF7 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		B63D6D622E9D885A00299BF7 /* onboarding_space.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding_space.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		B62D19892E9409DC00A0BC30 /* fateline */ = {
 			isa = PBXGroup;
 			children = (
+				B63D6D612E9D884800299BF7 /* Video */,
 				B62D19BF2E96659400A0BC30 /* Premium */,
 				B62D19982E940E6000A0BC30 /* Custom Views */,
 				B62D19972E940E4A00A0BC30 /* JSON Files */,
@@ -276,6 +279,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		B63D6D612E9D884800299BF7 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				B63D6D622E9D885A00299BF7 /* onboarding_space.mp4 */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -349,6 +360,7 @@
 				B62D19CB2E96682F00A0BC30 /* burclar.json in Resources */,
 				B62D198C2E9409DC00A0BC30 /* LaunchScreen.storyboard in Resources */,
 				B62D19A62E96629200A0BC30 /* Quintessential-Regular.ttf in Resources */,
+				B63D6D632E9D885A00299BF7 /* onboarding_space.mp4 in Resources */,
 				B62D198D2E9409DC00A0BC30 /* Main.storyboard in Resources */,
 				B62D19C92E96680400A0BC30 /* tarot_meanings.json in Resources */,
 			);

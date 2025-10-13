@@ -6,16 +6,20 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class OnboardingOneViewController: UIViewController {
     
+    // MARK: - Video Properties
+    private var player: AVPlayer?
+    private var playerLayer: AVPlayerLayer?
+    
     // MARK: - UI Components
-    private let backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "onboarding_first")
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+    private let videoContainerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private let overlayView: UIView = {
@@ -69,17 +73,33 @@ class OnboardingOneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupVideoPlayer()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupGradient()
+        playerLayer?.frame = videoContainerView.bounds
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        player?.play()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        player?.pause()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Setup
     private func setupUI() {
-        // Add background image
-        view.addSubview(backgroundImageView)
+        // Add video container
+        view.addSubview(videoContainerView)
         
         // Add overlay
         view.addSubview(overlayView)
@@ -93,11 +113,11 @@ class OnboardingOneViewController: UIViewController {
         
         // Setup constraints
         NSLayoutConstraint.activate([
-            // Background image constraints
-            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            // Video container constraints
+            videoContainerView.topAnchor.constraint(equalTo: view.topAnchor),
+            videoContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            videoContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            videoContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             // Overlay constraints
             overlayView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -117,6 +137,42 @@ class OnboardingOneViewController: UIViewController {
             startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             startButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    private func setupVideoPlayer() {
+        // Get video path
+        guard let videoPath = Bundle.main.path(forResource: "onboarding_space", ofType: "mp4") else {
+            print("Video file not found")
+            return
+        }
+        
+        let videoURL = URL(fileURLWithPath: videoPath)
+        
+        // Create player
+        player = AVPlayer(url: videoURL)
+        player?.isMuted = true
+        
+        // Create player layer
+        playerLayer = AVPlayerLayer(player: player)
+        playerLayer?.videoGravity = .resizeAspectFill
+        playerLayer?.frame = videoContainerView.bounds
+        
+        if let playerLayer = playerLayer {
+            videoContainerView.layer.addSublayer(playerLayer)
+        }
+        
+        // Loop video
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(videoDidEnd),
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: player?.currentItem
+        )
+    }
+    
+    @objc private func videoDidEnd() {
+        player?.seek(to: .zero)
+        player?.play()
     }
     
     private func setupGradient() {

@@ -12,7 +12,7 @@ class OnboardingSecondViewController: UIViewController {
     // MARK: - UI Components
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "onboarding_second")
+        imageView.image = UIImage(named: "onboarding_first")
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
