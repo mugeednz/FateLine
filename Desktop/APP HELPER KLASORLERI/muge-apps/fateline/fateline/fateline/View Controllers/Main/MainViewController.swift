@@ -206,8 +206,8 @@ extension MainViewController: UICollectionViewDelegate {
             let animalVC = AnimalsViewController()
             navigationController?.pushViewController(animalVC, animated: true)
         case "Numerology":
-            print("Navigate to Numerology")
-            // TODO: Navigate to NumerologyViewController
+            let numerologyVC = NumerologyViewController()
+            navigationController?.pushViewController(numerologyVC, animated: true)
         default:
             print("Selected: \(feature.title)")
         }

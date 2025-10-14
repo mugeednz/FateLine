@@ -40,6 +40,7 @@
 		B63D6D712E9E914600299BF7 /* LifeandSoulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D702E9E914600299BF7 /* LifeandSoulViewController.swift */; };
 		B63D6D732E9E933700299BF7 /* soulandlife.json in Resources */ = {isa = PBXBuildFile; fileRef = B63D6D722E9E933700299BF7 /* soulandlife.json */; };
 		B63D6D752E9E975000299BF7 /* AnimalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D742E9E975000299BF7 /* AnimalsViewController.swift */; };
+		B63D6D772E9E9F3100299BF7 /* NumerologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D762E9E9F3100299BF7 /* NumerologyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		B63D6D702E9E914600299BF7 /* LifeandSoulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeandSoulViewController.swift; sourceTree = "<group>"; };
 		B63D6D722E9E933700299BF7 /* soulandlife.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soulandlife.json; sourceTree = "<group>"; };
 		B63D6D742E9E975000299BF7 /* AnimalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsViewController.swift; sourceTree = "<group>"; };
+		B63D6D762E9E9F3100299BF7 /* NumerologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 		B62D19AA2E96631900A0BC30 /* Numerology */ = {
 			isa = PBXGroup;
 			children = (
+				B63D6D762E9E9F3100299BF7 /* NumerologyViewController.swift */,
 			);
 			path = Numerology;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			files = (
 				B62D19B82E96645700A0BC30 /* UIFont+Ext.swift in Sources */,
 				B62D19CF2E9C357500A0BC30 /* OnboardingSecondViewController.swift in Sources */,
+				B63D6D772E9E9F3100299BF7 /* NumerologyViewController.swift in Sources */,
 				B63D6D6F2E9E8E7F00299BF7 /* ZodiacViewController.swift in Sources */,
 				B63D6D692E9D8BB900299BF7 /* PremiumViewController.swift in Sources */,
 				B63D6D752E9E975000299BF7 /* AnimalsViewController.swift in Sources */,

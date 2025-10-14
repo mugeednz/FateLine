@@ -333,12 +333,10 @@ class AnimalsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("AnimalsViewController - viewDidLoad")
         setupGradientBackground()
         setupUI()
         displayQuestion()
         initializeAnimalScores()
-        print("Setup complete, displaying first question")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -352,11 +350,6 @@ class AnimalsViewController: UIViewController {
         questionGradientLayer?.frame = questionContainer.bounds
         buttonGradientLayer?.frame = revealButton.bounds
         resultGradientLayer?.frame = resultContainer.bounds
-        
-        print("ScrollView frame: \(scrollView.frame)")
-        print("ContentView frame: \(contentView.frame)")
-        print("QuestionContainer frame: \(questionContainer.frame)")
-        print("AnswersStackView frame: \(answersStackView.frame)")
     }
     
     // MARK: - Setup
@@ -513,8 +506,6 @@ class AnimalsViewController: UIViewController {
         questionNumberLabel.text = "Question \(currentQuestionIndex + 1) of \(questions.count)"
         questionLabel.text = question.text
         
-        print("Displaying question \(currentQuestionIndex + 1)")
-        
         // Clear previous answers
         answersStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
@@ -522,14 +513,13 @@ class AnimalsViewController: UIViewController {
         for (index, answer) in question.answers.enumerated() {
             let answerButton = createAnswerButton(answer: answer, index: index)
             answersStackView.addArrangedSubview(answerButton)
-            print("Added button \(index): \(answer.text)")
         }
         
         updateProgressBar()
     }
     
     private func createAnswerButton(answer: Answer, index: Int) -> UIButton {
-        let button = UIButton(type: .custom)  // .system yerine .custom
+        let button = UIButton(type: .custom)
         button.setTitle(answer.text, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
@@ -539,13 +529,11 @@ class AnimalsViewController: UIViewController {
         button.layer.cornerRadius = 15
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
-        button.backgroundColor = UIColor.white.withAlphaComponent(0.15)  // Daha belirgin
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.15)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
         button.tag = index
         button.addTarget(self, action: #selector(answerButtonTapped(_:)), for: .touchUpInside)
-        
-        print("Created button \(index) with frame: \(button.frame)")
         
         return button
     }
@@ -562,7 +550,6 @@ class AnimalsViewController: UIViewController {
     
     // MARK: - Answer Handling
     @objc private func answerButtonTapped(_ sender: UIButton) {
-        print("Answer button tapped: \(sender.tag)")
         guard currentQuestionIndex < questions.count else { return }
         
         let answer = questions[currentQuestionIndex].answers[sender.tag]
