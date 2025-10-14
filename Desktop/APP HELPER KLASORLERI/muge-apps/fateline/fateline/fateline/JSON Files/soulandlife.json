@@ -1,0 +1,180 @@
+{
+  "cards": [
+    {
+      "id": 0,
+      "name": "The Fool",
+      "element": "Air",
+      "keywords": ["Innocence", "New Beginnings", "Freedom"],
+      "life_message": "Your life journey begins with trust, curiosity, and wonder. You are here to explore life without fear of the unknown. Every step you take, no matter how uncertain, expands your wisdom and courage. When you follow your instincts with an open heart, the universe responds with miracles.",
+      "soul_message": "Your soul seeks liberation and authenticity. It whispers for you to break free from expectations and embrace the path that feels alive and true. You are a reminder to others that beginnings are sacred and that innocence carries its own kind of wisdom."
+    },
+    {
+      "id": 1,
+      "name": "The Magician",
+      "element": "Air",
+      "keywords": ["Creation", "Power", "Manifestation"],
+      "life_message": "You are here to turn thought into reality. Your mind is sharp and your will is strong — a channel between the spiritual and the material. When your intention aligns with your heart, you have the power to shape your destiny. You are meant to lead through inspired action.",
+      "soul_message": "Your soul came to master the art of manifestation. You are learning that true power is not about control, but about conscious creation. The more you trust your divine connection, the more effortlessly your dreams take form."
+    },
+    {
+      "id": 2,
+      "name": "The High Priestess",
+      "element": "Water",
+      "keywords": ["Intuition", "Mystery", "Inner Knowing"],
+      "life_message": "Your path calls you to listen beyond words and logic. Life will guide you through symbols, dreams, and intuition. You are meant to trust the unseen and find wisdom in silence. When you honor your inner knowing, clarity reveals itself naturally.",
+      "soul_message": "Your soul seeks stillness, depth, and connection with the sacred feminine. It came here to rediscover the hidden truths that live within. You hold ancient wisdom — your purpose is to bring light to what others cannot yet see."
+    },
+    {
+      "id": 3,
+      "name": "The Empress",
+      "element": "Earth",
+      "keywords": ["Abundance", "Nurture", "Creation"],
+      "life_message": "Your life is about growth, beauty, and connection to nature. You are a creator in every sense — nurturing ideas, people, and dreams into fullness. When you move with love and patience, everything around you flourishes. Your gift is to remind the world of life’s richness.",
+      "soul_message": "Your soul came to embody divine love and creativity. You are learning to trust in the cycles of creation and rest, birth and renewal. Through softness, compassion, and grace, you awaken others to the healing power of love."
+    },
+    {
+      "id": 4,
+      "name": "The Emperor",
+      "element": "Fire",
+      "keywords": ["Authority", "Structure", "Leadership"],
+      "life_message": "You are here to create order and stability in your world. Your life teaches you to lead with integrity and strength, balancing power with compassion. You thrive when you take responsibility for your vision and build foundations that endure.",
+      "soul_message": "Your soul came to learn the sacred balance of control and surrender. You are here to embody strength that protects rather than dominates. True mastery comes when you lead not from ego, but from grounded confidence and wisdom."
+    },
+    {
+      "id": 5,
+      "name": "The Hierophant",
+      "element": "Earth",
+      "keywords": ["Tradition", "Wisdom", "Spiritual Teaching"],
+      "life_message": "Your path involves learning from tradition, yet evolving beyond it. You are a bridge between old wisdom and new understanding. Life calls you to honor sacred knowledge while creating a path that fits your truth.",
+      "soul_message": "Your soul seeks deep spiritual connection. You are here to guide others by embodying faith, compassion, and purpose. True wisdom for you lies not in dogma, but in living your beliefs with authenticity and love."
+    },
+    {
+      "id": 6,
+      "name": "The Lovers",
+      "element": "Air",
+      "keywords": ["Union", "Choice", "Harmony"],
+      "life_message": "You are here to learn through love and connection. Relationships will mirror your deepest truths and fears, teaching you about balance and commitment. Your greatest lessons come through choosing with both heart and wisdom.",
+      "soul_message": "Your soul came to experience divine union — the merging of opposites within and without. Every relationship helps you discover the sacred harmony between independence and togetherness. Love is your teacher, and authenticity your guide."
+    },
+    {
+      "id": 7,
+      "name": "The Chariot",
+      "element": "Water",
+      "keywords": ["Determination", "Victory", "Control"],
+      "life_message": "You are meant to rise through discipline, focus, and willpower. Life challenges you to harness opposing forces and steer them toward your goals. Success comes when you move forward with emotional balance and faith in yourself.",
+      "soul_message": "Your soul seeks mastery over inner chaos. It came here to discover strength through self-awareness. Every challenge is a reminder that true victory is achieved through harmony, not domination."
+    },
+    {
+      "id": 8,
+      "name": "Strength",
+      "element": "Fire",
+      "keywords": ["Courage", "Compassion", "Resilience"],
+      "life_message": "Your path teaches you that true power comes from gentleness, not force. You are meant to face life’s storms with quiet courage and patience. When you meet fear with compassion, your strength becomes unshakable.",
+      "soul_message": "Your soul chose to experience the grace of inner strength. You are here to unite instinct and heart, courage and kindness. Through self-acceptance, you awaken others to the power of love in its purest form."
+    },
+    {
+      "id": 9,
+      "name": "The Hermit",
+      "element": "Earth",
+      "keywords": ["Solitude", "Wisdom", "Introspection"],
+      "life_message": "You are here to seek truth through solitude and self-reflection. Your journey is about finding light within and sharing it with others when they are ready to receive. You walk a path of quiet strength and spiritual clarity.",
+      "soul_message": "Your soul seeks deep understanding of life’s mysteries. It came here to explore silence, patience, and the wisdom of time. You are a guide for others simply by being true to your inner light."
+    },
+    {
+      "id": 10,
+      "name": "Wheel of Fortune",
+      "element": "Fire",
+      "keywords": ["Change", "Destiny", "Cycles"],
+      "life_message": "Your life moves in cycles of great change and renewal. You are here to learn to flow with fate rather than resist it. Each turning point brings new lessons, reminding you that every ending holds the seed of a new beginning.",
+      "soul_message": "Your soul understands that life is a dance of destiny and free will. You are learning to trust the rhythm of the universe, knowing that what rises will fall and rise again. Through acceptance, you find peace."
+    },
+    {
+      "id": 11,
+      "name": "Justice",
+      "element": "Air",
+      "keywords": ["Balance", "Truth", "Karma"],
+      "life_message": "You are here to understand cause and effect, truth and fairness. Life will mirror your integrity and invite you to act with honesty. When you align your choices with your values, your world finds equilibrium.",
+      "soul_message": "Your soul came to master discernment and truth. You are learning that justice is not punishment, but alignment with divine order. Through clarity and compassion, you restore harmony to yourself and others."
+    },
+    {
+      "id": 12,
+      "name": "The Hanged Man",
+      "element": "Water",
+      "keywords": ["Perspective", "Sacrifice", "Surrender"],
+      "life_message": "Your path teaches the art of letting go. At times, you must pause and see life from a new perspective. What feels like delay is divine timing. Through surrender, you awaken to higher understanding.",
+      "soul_message": "Your soul seeks spiritual expansion through release. It came here to learn that peace is found when control is surrendered. In stillness, your spirit aligns with the flow of the universe."
+    },
+    {
+      "id": 13,
+      "name": "Death",
+      "element": "Water",
+      "keywords": ["Transformation", "Endings", "Renewal"],
+      "life_message": "You are here to master the art of transformation. Life will guide you through cycles of endings and rebirth. Each change, though painful, clears the way for growth. You are an alchemist of renewal and rebirth.",
+      "soul_message": "Your soul chose deep transformation as its path. You are here to help others accept change as sacred evolution. Through death and release, you awaken new light within and around you."
+    },
+    {
+      "id": 14,
+      "name": "Temperance",
+      "element": "Fire",
+      "keywords": ["Balance", "Healing", "Harmony"],
+      "life_message": "Your life purpose is to bring balance to extremes. You are here to blend opposites — heart and mind, intuition and logic. Healing flows through you when you live in moderation and patience.",
+      "soul_message": "Your soul came to embody peace and spiritual alchemy. You are learning to channel divine energy in practical ways. Through patience and grace, you become a living bridge between heaven and earth."
+    },
+    {
+      "id": 15,
+      "name": "The Devil",
+      "element": "Earth",
+      "keywords": ["Shadow", "Temptation", "Liberation"],
+      "life_message": "You are here to confront illusions of limitation and fear. Your journey teaches you to reclaim your power from attachments and habits that no longer serve you. Freedom begins when you see the chains are of your own making.",
+      "soul_message": "Your soul came to learn mastery through shadow work. It seeks liberation through awareness and self-acceptance. By facing your darkness with compassion, you uncover the true light of your being."
+    },
+    {
+      "id": 16,
+      "name": "The Tower",
+      "element": "Fire",
+      "keywords": ["Revelation", "Change", "Awakening"],
+      "life_message": "Your path involves sudden shifts that shatter illusions. Though the ground may fall away, what remains is truth. You are meant to rebuild your life on authenticity and spiritual strength.",
+      "soul_message": "Your soul seeks awakening through disruption. It came here to release false foundations and awaken higher consciousness. Through chaos, you are reborn into clarity and freedom."
+    },
+    {
+      "id": 17,
+      "name": "The Star",
+      "element": "Air",
+      "keywords": ["Hope", "Healing", "Guidance"],
+      "life_message": "Your life is about faith and renewal. You are here to bring light where hope seems lost. Your presence reminds others that miracles are real when the heart remains open.",
+      "soul_message": "Your soul came to embody divine hope and inspiration. You are a vessel of cosmic healing, shining through darkness. By staying true to your essence, you guide others toward light and purpose."
+    },
+    {
+      "id": 18,
+      "name": "The Moon",
+      "element": "Water",
+      "keywords": ["Dreams", "Illusion", "Intuition"],
+      "life_message": "Your journey moves through mystery and emotion. Life will challenge you to trust your intuition when logic fails. The unseen realms are your teachers, revealing truth through reflection and feeling.",
+      "soul_message": "Your soul seeks connection to the subconscious and the sacred feminine. It came here to navigate illusion and find wisdom in the shadows. Through intuition, you uncover the deepest truths of your being."
+    },
+    {
+      "id": 19,
+      "name": "The Sun",
+      "element": "Fire",
+      "keywords": ["Joy", "Vitality", "Success"],
+      "life_message": "You are here to radiate warmth, confidence, and truth. Life blesses you when you share your light openly. Your optimism and authenticity inspire others to believe in their own power.",
+      "soul_message": "Your soul came to celebrate life itself. It seeks joy as a sacred state of being, not a fleeting emotion. Through generosity and honesty, you illuminate every path you walk."
+    },
+    {
+      "id": 20,
+      "name": "Judgement",
+      "element": "Fire",
+      "keywords": ["Awakening", "Redemption", "Purpose"],
+      "life_message": "You are here to awaken to your higher calling. Life will guide you to release guilt and rise renewed. Your story is one of rebirth, truth, and divine forgiveness.",
+      "soul_message": "Your soul came to experience resurrection and purpose. You are being called to align with your highest self and share your voice. Through acceptance and awareness, you inspire transformation in others."
+    },
+    {
+      "id": 21,
+      "name": "The World",
+      "element": "Earth",
+      "keywords": ["Completion", "Integration", "Wholeness"],
+      "life_message": "Your path is about fulfillment and unity. You have traveled through cycles of growth and now stand ready to embody your full potential. Every experience has shaped you into wisdom and grace.",
+      "soul_message": "Your soul seeks oneness with all creation. You are here to merge spirit and matter, dream and reality. In your completeness, you become a mirror of the universe itself — infinite, radiant, whole."
+    }
+  ]
+}
