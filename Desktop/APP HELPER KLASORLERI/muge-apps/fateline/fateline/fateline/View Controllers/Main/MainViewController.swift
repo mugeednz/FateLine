@@ -157,8 +157,9 @@ class MainViewController: UIViewController {
     
     // MARK: - Actions
     @objc private func settingsButtonTapped() {
-        print("Settings button tapped")
-        // TODO: Navigate to settings
+        let settingsVC = SettingsViewController()
+        settingsVC.modalPresentationStyle = .fullScreen
+        present(settingsVC, animated: true)
     }
     
     private func createLayout() -> UICollectionViewLayout {
