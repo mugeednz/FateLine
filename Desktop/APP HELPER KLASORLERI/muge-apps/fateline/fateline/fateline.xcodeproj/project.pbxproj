@@ -36,6 +36,7 @@
 		B63D6D692E9D8BB900299BF7 /* PremiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D682E9D8BB900299BF7 /* PremiumViewController.swift */; };
 		B63D6D6B2E9E88A600299BF7 /* TarotReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D6A2E9E88A600299BF7 /* TarotReadingViewController.swift */; };
 		B63D6D6D2E9E8C6500299BF7 /* TarotResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D6C2E9E8C6500299BF7 /* TarotResultsViewController.swift */; };
+		B63D6D6F2E9E8E7F00299BF7 /* ZodiacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D6E2E9E8E7F00299BF7 /* ZodiacViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		B63D6D682E9D8BB900299BF7 /* PremiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumViewController.swift; sourceTree = "<group>"; };
 		B63D6D6A2E9E88A600299BF7 /* TarotReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotReadingViewController.swift; sourceTree = "<group>"; };
 		B63D6D6C2E9E8C6500299BF7 /* TarotResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotResultsViewController.swift; sourceTree = "<group>"; };
+		B63D6D6E2E9E8E7F00299BF7 /* ZodiacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 		B62D19AB2E96632600A0BC30 /* Sign compatibility */ = {
 			isa = PBXGroup;
 			children = (
+				B63D6D6E2E9E8E7F00299BF7 /* ZodiacViewController.swift */,
 			);
 			path = "Sign compatibility";
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 			files = (
 				B62D19B82E96645700A0BC30 /* UIFont+Ext.swift in Sources */,
 				B62D19CF2E9C357500A0BC30 /* OnboardingSecondViewController.swift in Sources */,
+				B63D6D6F2E9E8E7F00299BF7 /* ZodiacViewController.swift in Sources */,
 				B63D6D692E9D8BB900299BF7 /* PremiumViewController.swift in Sources */,
 				B62D19B42E96643500A0BC30 /* UIView+Ext.swift in Sources */,
 				B62D19CD2E9C356200A0BC30 /* OnboardingOneViewController.swift in Sources */,
