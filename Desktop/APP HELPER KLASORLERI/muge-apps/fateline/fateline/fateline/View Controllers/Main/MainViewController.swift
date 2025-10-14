@@ -188,8 +188,26 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let feature = features[indexPath.item]
-        print("Selected: \(feature.title)")
-        // TODO: Navigate to feature
+        
+        switch feature.title {
+        case "Tarot Reading":
+            let tarotVC = TarotReadingViewController()
+            navigationController?.pushViewController(tarotVC, animated: true)
+        case "Zodiac Compatibility":
+            print("Navigate to Zodiac Compatibility")
+            // TODO: Navigate to ZodiacCompatibilityViewController
+        case "Life & Soul Card":
+            print("Navigate to Life & Soul Card")
+            // TODO: Navigate to LifeSoulCardViewController
+        case "Spirit Animal":
+            print("Navigate to Spirit Animal")
+            // TODO: Navigate to SpiritAnimalViewController
+        case "Numerology":
+            print("Navigate to Numerology")
+            // TODO: Navigate to NumerologyViewController
+        default:
+            print("Selected: \(feature.title)")
+        }
     }
 }
 
