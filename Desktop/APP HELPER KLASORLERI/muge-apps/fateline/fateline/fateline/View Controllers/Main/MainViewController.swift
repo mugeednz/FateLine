@@ -200,8 +200,8 @@ extension MainViewController: UICollectionViewDelegate {
             let zodiacVC = ZodiacViewController()
             navigationController?.pushViewController(zodiacVC, animated: true)
         case "Life & Soul Card":
-            print("Navigate to Life & Soul Card")
-            // TODO: Navigate to LifeSoulCardViewController
+            let lifeSoulVC = LifeandSoulViewController()
+            navigationController?.pushViewController(lifeSoulVC, animated: true)
         case "Spirit Animal":
             print("Navigate to Spirit Animal")
             // TODO: Navigate to SpiritAnimalViewController
