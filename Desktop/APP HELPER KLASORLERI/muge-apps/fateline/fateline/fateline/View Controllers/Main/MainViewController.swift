@@ -203,8 +203,8 @@ extension MainViewController: UICollectionViewDelegate {
             let lifeSoulVC = LifeandSoulViewController()
             navigationController?.pushViewController(lifeSoulVC, animated: true)
         case "Spirit Animal":
-            print("Navigate to Spirit Animal")
-            // TODO: Navigate to SpiritAnimalViewController
+            let animalVC = AnimalsViewController()
+            navigationController?.pushViewController(animalVC, animated: true)
         case "Numerology":
             print("Navigate to Numerology")
             // TODO: Navigate to NumerologyViewController
