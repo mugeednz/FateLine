@@ -34,6 +34,11 @@
 		B63D6D632E9D885A00299BF7 /* onboarding_space.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B63D6D622E9D885A00299BF7 /* onboarding_space.mp4 */; };
 		B63D6D662E9D8BA200299BF7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D652E9D8BA200299BF7 /* SettingsViewController.swift */; };
 		B63D6D692E9D8BB900299BF7 /* PremiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D682E9D8BB900299BF7 /* PremiumViewController.swift */; };
+		B63D6D6B2E9E88A600299BF7 /* TarotReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D6A2E9E88A600299BF7 /* TarotReadingViewController.swift */; };
+		B63D6D6D2E9E8C6500299BF7 /* TarotResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D6C2E9E8C6500299BF7 /* TarotResultsViewController.swift */; };
+		B63D6D6F2E9E8E7F00299BF7 /* ZodiacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D6E2E9E8E7F00299BF7 /* ZodiacViewController.swift */; };
+		B63D6D712E9E914600299BF7 /* LifeandSoulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D702E9E914600299BF7 /* LifeandSoulViewController.swift */; };
+		B63D6D732E9E933700299BF7 /* soulandlife.json in Resources */ = {isa = PBXBuildFile; fileRef = B63D6D722E9E933700299BF7 /* soulandlife.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +71,11 @@
 		B63D6D622E9D885A00299BF7 /* onboarding_space.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding_space.mp4; sourceTree = "<group>"; };
 		B63D6D652E9D8BA200299BF7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B63D6D682E9D8BB900299BF7 /* PremiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumViewController.swift; sourceTree = "<group>"; };
+		B63D6D6A2E9E88A600299BF7 /* TarotReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotReadingViewController.swift; sourceTree = "<group>"; };
+		B63D6D6C2E9E8C6500299BF7 /* TarotResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotResultsViewController.swift; sourceTree = "<group>"; };
+		B63D6D6E2E9E8E7F00299BF7 /* ZodiacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacViewController.swift; sourceTree = "<group>"; };
+		B63D6D702E9E914600299BF7 /* LifeandSoulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeandSoulViewController.swift; sourceTree = "<group>"; };
+		B63D6D722E9E933700299BF7 /* soulandlife.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soulandlife.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				B62D19CA2E96682F00A0BC30 /* burclar.json */,
+				B63D6D722E9E933700299BF7 /* soulandlife.json */,
 				B62D19C82E96680400A0BC30 /* tarot_meanings.json */,
 			);
 			path = "JSON Files";
@@ -226,6 +237,8 @@
 		B62D19A82E9662F800A0BC30 /* Tarot */ = {
 			isa = PBXGroup;
 			children = (
+				B63D6D6A2E9E88A600299BF7 /* TarotReadingViewController.swift */,
+				B63D6D6C2E9E8C6500299BF7 /* TarotResultsViewController.swift */,
 			);
 			path = Tarot;
 			sourceTree = "<group>";
@@ -247,6 +260,7 @@
 		B62D19AB2E96632600A0BC30 /* Sign compatibility */ = {
 			isa = PBXGroup;
 			children = (
+				B63D6D6E2E9E8E7F00299BF7 /* ZodiacViewController.swift */,
 			);
 			path = "Sign compatibility";
 			sourceTree = "<group>";
@@ -254,6 +268,7 @@
 		B62D19AD2E96635F00A0BC30 /* Soul and Life Card */ = {
 			isa = PBXGroup;
 			children = (
+				B63D6D702E9E914600299BF7 /* LifeandSoulViewController.swift */,
 			);
 			path = "Soul and Life Card";
 			sourceTree = "<group>";
@@ -384,6 +399,7 @@
 				B62D19A62E96629200A0BC30 /* Quintessential-Regular.ttf in Resources */,
 				B63D6D632E9D885A00299BF7 /* onboarding_space.mp4 in Resources */,
 				B62D198D2E9409DC00A0BC30 /* Main.storyboard in Resources */,
+				B63D6D732E9E933700299BF7 /* soulandlife.json in Resources */,
 				B62D19C92E96680400A0BC30 /* tarot_meanings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +455,7 @@
 			files = (
 				B62D19B82E96645700A0BC30 /* UIFont+Ext.swift in Sources */,
 				B62D19CF2E9C357500A0BC30 /* OnboardingSecondViewController.swift in Sources */,
+				B63D6D6F2E9E8E7F00299BF7 /* ZodiacViewController.swift in Sources */,
 				B63D6D692E9D8BB900299BF7 /* PremiumViewController.swift in Sources */,
 				B62D19B42E96643500A0BC30 /* UIView+Ext.swift in Sources */,
 				B62D19CD2E9C356200A0BC30 /* OnboardingOneViewController.swift in Sources */,
@@ -446,9 +463,12 @@
 				B62D198F2E9409DC00A0BC30 /* SceneDelegate.swift in Sources */,
 				B62D19D22E9D737200A0BC30 /* SplashViewController.swift in Sources */,
 				B63D6D662E9D8BA200299BF7 /* SettingsViewController.swift in Sources */,
+				B63D6D712E9E914600299BF7 /* LifeandSoulViewController.swift in Sources */,
 				B62D19D52E9D7F3000A0BC30 /* MainViewController.swift in Sources */,
 				B62D19C12E9665AD00A0BC30 /* Subscription.swift in Sources */,
 				B62D19B62E96644300A0BC30 /* String+Ext.swift in Sources */,
+				B63D6D6B2E9E88A600299BF7 /* TarotReadingViewController.swift in Sources */,
+				B63D6D6D2E9E8C6500299BF7 /* TarotResultsViewController.swift in Sources */,
 				B62D19C52E9665F400A0BC30 /* PurchaseConstants.swift in Sources */,
 				B62D19C32E9665C800A0BC30 /* RevenueCatSubscription.swift in Sources */,
 				B63D6D602E9D82E900299BF7 /* UIColor+Ext.swift in Sources */,
