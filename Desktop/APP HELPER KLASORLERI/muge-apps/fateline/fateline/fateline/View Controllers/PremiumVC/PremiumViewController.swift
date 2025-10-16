@@ -61,7 +61,7 @@ class PremiumViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Unlock Premium"
-        label.font = UIFont.QuintessentialRegular(size: 38)
+        label.font = UIFont.systemFont(ofSize: 38, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -123,7 +123,7 @@ class PremiumViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Continue", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont.QuintessentialRegular(size: 28)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         button.layer.cornerRadius = 28
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -340,7 +340,7 @@ class PremiumViewController: UIViewController {
     private func setupPlans() {
         weeklyPlanCard.configure(
             title: "Weekly",
-            price: "$4.99",
+            price: "",
             period: "per week",
             badge: nil,
             isSelected: selectedPlan == .weekly
@@ -348,9 +348,9 @@ class PremiumViewController: UIViewController {
         
         yearlyPlanCard.configure(
             title: "Yearly",
-            price: "$29.99",
+            price: "",
             period: "per year",
-            badge: "BEST VALUE - Save 88%",
+            badge: "BEST VALUE - Save 50%",
             isSelected: selectedPlan == .yearly
         )
     }
@@ -502,12 +502,12 @@ class PlanCard: UIView {
         gradientLayer = gradient
         
         // Title
-        titleLabel.font = UIFont.QuintessentialRegular(size: 22)
+        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         titleLabel.textColor = .white
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // Price
-        priceLabel.font = UIFont.QuintessentialRegular(size: 28)
+        priceLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         priceLabel.textColor = UIColor(hex: "FFD700")
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         

@@ -41,6 +41,8 @@
 		B63D6D732E9E933700299BF7 /* soulandlife.json in Resources */ = {isa = PBXBuildFile; fileRef = B63D6D722E9E933700299BF7 /* soulandlife.json */; };
 		B63D6D752E9E975000299BF7 /* AnimalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D742E9E975000299BF7 /* AnimalsViewController.swift */; };
 		B63D6D772E9E9F3100299BF7 /* NumerologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D762E9E9F3100299BF7 /* NumerologyViewController.swift */; };
+		B63D6D792EA0F73100299BF7 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63D6D782EA0F73100299BF7 /* AppTrackingTransparency.framework */; };
+		B63D6D7C2EA0F84200299BF7 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = B63D6D7B2EA0F84200299BF7 /* FacebookCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,7 @@
 		B63D6D722E9E933700299BF7 /* soulandlife.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soulandlife.json; sourceTree = "<group>"; };
 		B63D6D742E9E975000299BF7 /* AnimalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsViewController.swift; sourceTree = "<group>"; };
 		B63D6D762E9E9F3100299BF7 /* NumerologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyViewController.swift; sourceTree = "<group>"; };
+		B63D6D782EA0F73100299BF7 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B62D19BB2E96656600A0BC30 /* JGProgressHUD in Frameworks */,
+				B63D6D7C2EA0F84200299BF7 /* FacebookCore in Frameworks */,
+				B63D6D792EA0F73100299BF7 /* AppTrackingTransparency.framework in Frameworks */,
 				B62D19BE2E96657200A0BC30 /* Localize_Swift in Frameworks */,
 				297D9A5898556245CC2B66C6 /* Pods_fateline.framework in Frameworks */,
 			);
@@ -99,6 +104,7 @@
 		1F00B0877BC64CA894C2F20D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B63D6D782EA0F73100299BF7 /* AppTrackingTransparency.framework */,
 				772CDDFFD7544DC659F83AB5 /* Pods_fateline.framework */,
 			);
 			name = Frameworks;
@@ -351,6 +357,7 @@
 			packageProductDependencies = (
 				B62D19BA2E96656600A0BC30 /* JGProgressHUD */,
 				B62D19BD2E96657200A0BC30 /* Localize_Swift */,
+				B63D6D7B2EA0F84200299BF7 /* FacebookCore */,
 			);
 			productName = fateline;
 			productReference = B62D19682E9409BA00A0BC30 /* fateline.app */;
@@ -383,6 +390,7 @@
 			packageReferences = (
 				B62D19B92E96656600A0BC30 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				B62D19BC2E96657200A0BC30 /* XCRemoteSwiftPackageReference "Localize-Swift" */,
+				B63D6D7A2EA0F84200299BF7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B62D19692E9409BA00A0BC30 /* Products */;
@@ -734,6 +742,14 @@
 				minimumVersion = 3.2.0;
 			};
 		};
+		B63D6D7A2EA0F84200299BF7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -746,6 +762,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B62D19BC2E96657200A0BC30 /* XCRemoteSwiftPackageReference "Localize-Swift" */;
 			productName = Localize_Swift;
+		};
+		B63D6D7B2EA0F84200299BF7 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B63D6D7A2EA0F84200299BF7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

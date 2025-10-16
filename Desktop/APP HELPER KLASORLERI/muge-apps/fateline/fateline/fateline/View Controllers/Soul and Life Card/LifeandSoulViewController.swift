@@ -61,7 +61,7 @@ class LifeandSoulViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Life & Soul Card"
-        label.font = UIFont.QuintessentialRegular(size: 36)
+        label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -78,7 +78,7 @@ class LifeandSoulViewController: UIViewController {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Discover your spiritual essence"
-        label.font = UIFont.QuintessentialRegular(size: 18)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -106,7 +106,7 @@ class LifeandSoulViewController: UIViewController {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "Birth Date"
-        label.font = UIFont.QuintessentialRegular(size: 22)
+        label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +138,7 @@ class LifeandSoulViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Calculate My Cards", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.QuintessentialRegular(size: 24)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         button.layer.cornerRadius = 25
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -444,14 +444,14 @@ class LifeandSoulViewController: UIViewController {
         // Type Label
         let typeLabel = UILabel()
         typeLabel.text = type
-        typeLabel.font = UIFont.QuintessentialRegular(size: 18)
+        typeLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         typeLabel.textColor = .white.withAlphaComponent(0.7)
         typeLabel.textAlignment = .center
         
         // Card Number
         let numberLabel = UILabel()
         numberLabel.text = "Card \(number)"
-        numberLabel.font = UIFont.QuintessentialRegular(size: 48)
+        numberLabel.font = UIFont.systemFont(ofSize: 48, weight: .semibold)
         numberLabel.textColor = .white
         numberLabel.textAlignment = .center
         
@@ -464,7 +464,7 @@ class LifeandSoulViewController: UIViewController {
         // Card Name
         let nameLabel = UILabel()
         nameLabel.text = card.name
-        nameLabel.font = UIFont.QuintessentialRegular(size: 32)
+        nameLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         nameLabel.textColor = .white
         nameLabel.textAlignment = .center
         nameLabel.numberOfLines = 0
@@ -478,7 +478,7 @@ class LifeandSoulViewController: UIViewController {
         // Element
         let elementLabel = UILabel()
         elementLabel.text = "✦ \(card.element) ✦"
-        elementLabel.font = UIFont.QuintessentialRegular(size: 16)
+        elementLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         elementLabel.textColor = UIColor(hex: "d4a5ff")
         elementLabel.textAlignment = .center
         

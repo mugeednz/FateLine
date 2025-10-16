@@ -25,7 +25,7 @@ class SettingsViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Settings"
-        label.font = UIFont.QuintessentialRegular(size: 36)
+        label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -145,10 +145,7 @@ class SettingsViewController: UIViewController {
             }
             
         case .rate:
-            // App Store rating
-            if let url = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID") {
-                UIApplication.shared.open(url)
-            }
+            GlobalHelper.rateApp()
         }
     }
 }
@@ -267,7 +264,7 @@ class SettingsCell: UITableViewCell {
         
         // Title label
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.QuintessentialRegular(size: 22)
+        titleLabel.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
         titleLabel.textColor = .white
         titleLabel.numberOfLines = 1
         

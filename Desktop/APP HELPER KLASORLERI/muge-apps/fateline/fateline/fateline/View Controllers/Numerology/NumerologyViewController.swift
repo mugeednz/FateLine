@@ -67,7 +67,7 @@ class NumerologyViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Numerology"
-        label.font = UIFont.QuintessentialRegular(size: 36)
+        label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +84,7 @@ class NumerologyViewController: UIViewController {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Discover your life path number"
-        label.font = UIFont.QuintessentialRegular(size: 18)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -112,7 +112,7 @@ class NumerologyViewController: UIViewController {
     private let firstNameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "First Name"
-        textField.font = UIFont.QuintessentialRegular(size: 20)
+        textField.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         textField.textColor = .white
         textField.textAlignment = .center
         textField.attributedPlaceholder = NSAttributedString(
@@ -128,7 +128,7 @@ class NumerologyViewController: UIViewController {
     private let lastNameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Last Name"
-        textField.font = UIFont.QuintessentialRegular(size: 20)
+        textField.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         textField.textColor = .white
         textField.textAlignment = .center
         textField.attributedPlaceholder = NSAttributedString(
@@ -145,7 +145,7 @@ class NumerologyViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Calculate My Number", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.QuintessentialRegular(size: 24)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         button.layer.cornerRadius = 25
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -448,14 +448,14 @@ class NumerologyViewController: UIViewController {
         // Title
         let titleLabel = UILabel()
         titleLabel.text = "Your Life Path Number"
-        titleLabel.font = UIFont.QuintessentialRegular(size: 22)
+        titleLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         titleLabel.textColor = .white.withAlphaComponent(0.7)
         titleLabel.textAlignment = .center
         
         // Number
         let numberLabel = UILabel()
         numberLabel.text = "\(number)"
-        numberLabel.font = UIFont.QuintessentialRegular(size: 80)
+        numberLabel.font = UIFont.systemFont(ofSize: 80, weight: .semibold)
         numberLabel.textColor = .white
         numberLabel.textAlignment = .center
         
@@ -468,7 +468,7 @@ class NumerologyViewController: UIViewController {
         // Meaning Title
         let meaningTitleLabel = UILabel()
         meaningTitleLabel.text = meaning.title
-        meaningTitleLabel.font = UIFont.QuintessentialRegular(size: 32)
+        meaningTitleLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         meaningTitleLabel.textColor = .white
         meaningTitleLabel.textAlignment = .center
         meaningTitleLabel.numberOfLines = 0

@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "FateLine"
-        label.font = UIFont.QuintessentialRegular(size: 36)
+        label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -274,7 +274,7 @@ class FeatureCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.QuintessentialRegular(size: 23)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 2
@@ -308,8 +308,31 @@ class FeatureCell: UICollectionViewCell {
         glassLayer?.frame = CGRect(x: 0, y: 0, width: containerView.bounds.width, height: containerView.bounds.height * 0.5)
     }
     
+    override var isSelected: Bool {
+        didSet {
+            // Prevent any visual change on selection
+            if isSelected {
+                // Reset to default state immediately
+                contentView.backgroundColor = .clear
+                containerView.alpha = 1.0
+            }
+        }
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            // Prevent any visual change on highlight
+            if isHighlighted {
+                // Reset to default state immediately
+                contentView.backgroundColor = .clear
+                containerView.alpha = 1.0
+            }
+        }
+    }
+    
     private func setupUI() {
         // Setup main content view
+        contentView.backgroundColor = .clear
         contentView.layer.cornerRadius = 22
         contentView.clipsToBounds = false
         
@@ -325,14 +348,14 @@ class FeatureCell: UICollectionViewCell {
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2),
             
             emojiLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            emojiLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -20),
+            emojiLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -25),
             
             iconImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            iconImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -35),
+            iconImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -40),
             iconImageView.widthAnchor.constraint(equalToConstant: 80),
             iconImageView.heightAnchor.constraint(equalToConstant: 80),
             
-            titleLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor, constant: 28),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10)
         ])
