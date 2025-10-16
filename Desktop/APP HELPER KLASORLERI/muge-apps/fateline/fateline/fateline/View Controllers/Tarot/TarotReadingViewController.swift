@@ -46,6 +46,22 @@ class TarotReadingViewController: UIViewController {
         return button
     }()
     
+    private let historyButton: UIButton = {
+        let button = UIButton(type: .system)
+        let config = UIImage.SymbolConfiguration(pointSize: 24, weight: .semibold)
+        button.setImage(UIImage(systemName: "clock.arrow.circlepath", withConfiguration: config), for: .normal)
+        button.tintColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow
+        button.layer.shadowColor = UIColor.white.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.8
+        
+        return button
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Choose Your Cards"
@@ -194,6 +210,7 @@ class TarotReadingViewController: UIViewController {
     
     private func setupUI() {
         view.addSubview(backButton)
+        view.addSubview(historyButton)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
         view.addSubview(questionContainer)
@@ -238,6 +255,12 @@ class TarotReadingViewController: UIViewController {
             backButton.widthAnchor.constraint(equalToConstant: 44),
             backButton.heightAnchor.constraint(equalToConstant: 44),
             
+            // History button on the right
+            historyButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            historyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            historyButton.widthAnchor.constraint(equalToConstant: 25),
+            historyButton.heightAnchor.constraint(equalToConstant: 25),
+            
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
@@ -270,6 +293,7 @@ class TarotReadingViewController: UIViewController {
         
         readCardsButton.addTarget(self, action: #selector(readCardsButtonTapped), for: .touchUpInside)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        historyButton.addTarget(self, action: #selector(historyButtonTapped), for: .touchUpInside)
         setupButtonGradient()
     }
     
@@ -380,6 +404,11 @@ class TarotReadingViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc private func historyButtonTapped() {
+        let historyVC = TarotHistoryViewController()
+        navigationController?.pushViewController(historyVC, animated: true)
+    }
+    
     @objc private func readCardsButtonTapped() {
         guard selectedCards.count == maxSelections else { return }
         
@@ -388,8 +417,13 @@ class TarotReadingViewController: UIViewController {
             tarotCards.first { $0.id == cardId }
         }
         
-        // Navigate to results screen (you'll need to create this)
+        // Navigate to results screen
         let question = questionTextView.text == "What guidance do you seek from the cards?" ? "" : questionTextView.text
+        
+        // Save reading to history
+        let reading = TarotReading(question: question ?? "", cards: selectedCardMeanings)
+        TarotReadingManager.shared.saveReading(reading)
+        
         showReadingResults(cards: selectedCardMeanings, question: question ?? "")
     }
     

@@ -44,6 +44,22 @@ class TarotResultsViewController: UIViewController {
         return button
     }()
     
+    private let shareButton: UIButton = {
+        let button = UIButton(type: .system)
+        let config = UIImage.SymbolConfiguration(pointSize: 24, weight: .semibold)
+        button.setImage(UIImage(systemName: "square.and.arrow.up", withConfiguration: config), for: .normal)
+        button.tintColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow
+        button.layer.shadowColor = UIColor.white.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.8
+        
+        return button
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Your Reading"
@@ -144,6 +160,7 @@ class TarotResultsViewController: UIViewController {
         scrollView.addSubview(contentView)
         
         contentView.addSubview(backButton)
+        contentView.addSubview(shareButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(questionContainer)
         questionContainer.addSubview(questionLabel)
@@ -179,6 +196,11 @@ class TarotResultsViewController: UIViewController {
             backButton.widthAnchor.constraint(equalToConstant: 44),
             backButton.heightAnchor.constraint(equalToConstant: 44),
             
+            shareButton.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            shareButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            shareButton.widthAnchor.constraint(equalToConstant: 25),
+            shareButton.heightAnchor.constraint(equalToConstant: 25),
+            
             titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
@@ -198,6 +220,7 @@ class TarotResultsViewController: UIViewController {
         ])
         
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
     }
     
     private func displayResults() {
@@ -410,5 +433,36 @@ class TarotResultsViewController: UIViewController {
     // MARK: - Actions
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func shareButtonTapped() {
+        // Create share text
+        var shareText = "🔮 My Tarot Reading 🔮\n\n"
+        
+        if !question.isEmpty {
+            shareText += "Question: \(question)\n\n"
+        }
+        
+        shareText += "Cards:\n"
+        for (index, card) in cards.enumerated() {
+            shareText += "\(index + 1). \(card.name)\n"
+            shareText += "   \(card.upright)\n\n"
+        }
+        
+        shareText += "✨ Read with FateLine ✨"
+        
+        // Create activity view controller
+        let activityViewController = UIActivityViewController(
+            activityItems: [shareText],
+            applicationActivities: nil
+        )
+        
+        // For iPad
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceView = shareButton
+            popoverController.sourceRect = shareButton.bounds
+        }
+        
+        present(activityViewController, animated: true)
     }
 }
