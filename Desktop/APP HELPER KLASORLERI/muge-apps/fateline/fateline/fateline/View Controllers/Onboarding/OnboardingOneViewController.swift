@@ -39,11 +39,11 @@ class OnboardingOneViewController: UIViewController {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        // Subtle glow for premium feel
+        // Strong white glow
         label.layer.shadowColor = UIColor.white.cgColor
         label.layer.shadowOffset = CGSize(width: 0, height: 0)
-        label.layer.shadowRadius = 8
-        label.layer.shadowOpacity = 0.3
+        label.layer.shadowRadius = 20
+        label.layer.shadowOpacity = 0.9
         label.layer.masksToBounds = false
         
         return label
@@ -57,6 +57,13 @@ class OnboardingOneViewController: UIViewController {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Strong white glow
+        label.layer.shadowColor = UIColor.white.cgColor
+        label.layer.shadowOffset = CGSize(width: 0, height: 0)
+        label.layer.shadowRadius = 16
+        label.layer.shadowOpacity = 0.8
+        label.layer.masksToBounds = false
         
         return label
     }()
@@ -303,6 +310,13 @@ class OnboardingOneViewController: UIViewController {
         startButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         startButton.layer.shadowRadius = 12
         startButton.layer.shadowOpacity = 0.2
+        
+        // Add strong white glow to button text
+        startButton.titleLabel?.layer.shadowColor = UIColor.white.cgColor
+        startButton.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 0)
+        startButton.titleLabel?.layer.shadowRadius = 14
+        startButton.titleLabel?.layer.shadowOpacity = 0.9
+        startButton.titleLabel?.layer.masksToBounds = false
     }
     
     // MARK: - Animations

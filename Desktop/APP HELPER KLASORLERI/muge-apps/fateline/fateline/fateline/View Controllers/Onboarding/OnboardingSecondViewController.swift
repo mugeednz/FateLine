@@ -39,11 +39,11 @@ class OnboardingSecondViewController: UIViewController {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        // Subtle glow for premium feel
+        // Strong white glow
         label.layer.shadowColor = UIColor.white.cgColor
         label.layer.shadowOffset = CGSize(width: 0, height: 0)
-        label.layer.shadowRadius = 8
-        label.layer.shadowOpacity = 0.3
+        label.layer.shadowRadius = 20
+        label.layer.shadowOpacity = 0.9
         label.layer.masksToBounds = false
         
         return label
@@ -58,24 +58,31 @@ class OnboardingSecondViewController: UIViewController {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
+        // Strong white glow
+        label.layer.shadowColor = UIColor.white.cgColor
+        label.layer.shadowOffset = CGSize(width: 0, height: 0)
+        label.layer.shadowRadius = 16
+        label.layer.shadowOpacity = 0.8
+        label.layer.masksToBounds = false
+        
         return label
     }()
     
     // Animated Feature Label
     private let animatedFeatureLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 26, weight: .medium)
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 2
         label.alpha = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        // Subtle glow effect
+        // Strong white glow effect
         label.layer.shadowColor = UIColor.white.cgColor
         label.layer.shadowOffset = CGSize(width: 0, height: 0)
-        label.layer.shadowRadius = 12
-        label.layer.shadowOpacity = 0.4
+        label.layer.shadowRadius = 24
+        label.layer.shadowOpacity = 1.0
         label.layer.masksToBounds = false
         
         return label
@@ -306,6 +313,13 @@ class OnboardingSecondViewController: UIViewController {
         readyButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         readyButton.layer.shadowRadius = 12
         readyButton.layer.shadowOpacity = 0.2
+        
+        // Add strong white glow to button text
+        readyButton.titleLabel?.layer.shadowColor = UIColor.white.cgColor
+        readyButton.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 0)
+        readyButton.titleLabel?.layer.shadowRadius = 14
+        readyButton.titleLabel?.layer.shadowOpacity = 0.9
+        readyButton.titleLabel?.layer.masksToBounds = false
     }
     
     // MARK: - Feature Animation
