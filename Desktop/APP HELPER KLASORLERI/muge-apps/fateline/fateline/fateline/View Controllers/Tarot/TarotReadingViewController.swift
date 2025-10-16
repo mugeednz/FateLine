@@ -533,9 +533,8 @@ class TarotCardCell: UICollectionViewCell {
     }
     
     func configure(cardId: Int, isSelected: Bool) {
-        // Load card image (assuming you have tarot_card_0, tarot_card_1, etc.)
-        let imageName = "tarot_card_\(cardId)"
-        cardImageView.image = UIImage(named: imageName) ?? UIImage(named: "tarot_card")
+        // Always show generic tarot card back
+        cardImageView.image = UIImage(named: "tarot_card")
         
         // Update selection state
         selectionOverlay.isHidden = !isSelected

@@ -242,6 +242,16 @@ class TarotResultsViewController: UIViewController {
         containerView.layer.shadowRadius = 15
         containerView.layer.shadowOpacity = 0.5
         
+        // Card image
+        let cardImageView = UIImageView()
+        cardImageView.contentMode = .scaleAspectFit
+        cardImageView.translatesAutoresizingMaskIntoConstraints = false
+        cardImageView.layer.cornerRadius = 12
+        cardImageView.clipsToBounds = true
+        
+        // Load card image using same mapping as TarotReadingViewController
+        cardImageView.image = getCardImage(for: card.id)
+        
         // Content stack
         let contentStack = UIStackView()
         contentStack.axis = .vertical
@@ -301,6 +311,7 @@ class TarotResultsViewController: UIViewController {
         keywordsLabel.numberOfLines = 0
         
         // Add to stack
+        contentStack.addArrangedSubview(cardImageView)
         contentStack.addArrangedSubview(positionLabel)
         contentStack.addArrangedSubview(nameLabel)
         contentStack.addArrangedSubview(arcanaLabel)
@@ -314,7 +325,10 @@ class TarotResultsViewController: UIViewController {
             contentStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
             contentStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
             contentStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
-            contentStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20)
+            contentStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
+            
+            // Card image constraints
+            cardImageView.heightAnchor.constraint(equalToConstant: 180)
         ])
         
         // Animate gradient
@@ -323,6 +337,74 @@ class TarotResultsViewController: UIViewController {
         }
         
         return containerView
+    }
+    
+    // MARK: - Helper Methods
+    private func getCardImage(for cardId: Int) -> UIImage? {
+        // Convert card name to asset format using card id
+        // Format: "00_Fool", "01_Magician", etc.
+        let assetName = String(format: "%02d", cardId)
+        
+        // Try to load image with number prefix
+        // The asset names are: 00_Fool, 01_Magician, 02_High_Priestess, etc.
+        // We'll try to match by number first
+        let cardNames = [
+            "00_Fool", "01_Magician", "02_High_Priestess", "03_Empress", "04_Emperor",
+            "05_Hierophant", "06_Lovers", "07_Chariot", "08_Strength", "09_Hermit",
+            "10_Wheel_of_Fortune", "11_Justice", "12_Hanged_Man", "13_Death", "14_Temperance",
+            "15_Devil", "16_Tower", "17_Star", "18_Moon", "19_Sun",
+            "20_Judgement", "21_World",
+            "22_Ace_of_Wands", "23_Two_of_Wands", "24_Three_of_Wands", "25_Four_of_Wands",
+            "26_Five_of_Wands", "27_Six_of_Wands", "28_Seven_of_Wands", "29_Eight_of_Wands",
+            "30_Nine_of_Wands", "31_Ten_of_Wands", "32_Page_of_Wands", "33_Knight_of_Wands",
+            "34_Queen_of_Wands", "35_King_of_Wands",
+            "36_Ace_of_Pentacles", "37_Two_of_Pentacles", "38_Three_of_Pentacles", "39_Four_of_Pentacles",
+            "40_Five_of_Pentacles", "41_Six_of_Pentacles", "42_Seven_of_Pentacles", "43_Eight_of_Pentacles",
+            "44_Nine_of_Pentacles", "45_Ten_of_Pentacles", "46_Page_of_Pentacles", "47_Knight_of_Pentacles",
+            "48_Queen_of_Pentacles", "49_King_of_Pentacles",
+            "50_Ace_of_Cups", "51_Two_of_Cups", "52_Three_of_Cups", "53_Four_of_Cups",
+            "54_Five_of_Cups", "55_Six_of_Cups", "56_Seven_of_Cups", "57_Eight_of_Cups",
+            "58_Nine_of_Cups", "59_Ten_of_Cups", "60_Page_of_Cups", "61_Knight_of_Cups",
+            "62_Queen_of_Cups", "63_King_of_Cups",
+            "64_Ace_of_Swords", "65_Two_of_Swords", "66_Three_of_Swords", "67_Four_of_Swords",
+            "68_Five_of_Swords", "69_Six_of_Swords", "70_Seven_of_Swords", "71_Eight_of_Swords",
+            "72_Nine_of_Swords", "73_Ten_of_Swords", "74_Page_of_Swords", "75_Knight_of_Swords",
+            "76_Queen_of_Swords", "77_King_of_Swords"
+        ]
+        
+        // Map JSON id to asset name using direct lookup
+        var finalAssetName = "tarot_card"
+        
+        // Map based on card suit from JSON
+        if cardId < 22 {
+            // Major Arcana (0-21) - direct match
+            if cardId < cardNames.count {
+                finalAssetName = cardNames[cardId]
+            }
+        } else if cardId >= 22 && cardId <= 35 {
+            // Wands (22-35) - direct match
+            finalAssetName = cardNames[cardId]
+        } else if cardId >= 36 && cardId <= 49 {
+            // Cups in JSON (36-49) → Assets (50-63)
+            let assetIndex = 50 + (cardId - 36)
+            if assetIndex < cardNames.count {
+                finalAssetName = cardNames[assetIndex]
+            }
+        } else if cardId >= 50 && cardId <= 63 {
+            // Swords in JSON (50-63) → Assets (64-77)
+            let assetIndex = 64 + (cardId - 50)
+            if assetIndex < cardNames.count {
+                finalAssetName = cardNames[assetIndex]
+            }
+        } else if cardId >= 64 && cardId <= 77 {
+            // Pentacles in JSON (64-77) → Assets (36-49)
+            let assetIndex = 36 + (cardId - 64)
+            if assetIndex < cardNames.count {
+                finalAssetName = cardNames[assetIndex]
+            }
+        }
+        
+        return UIImage(named: finalAssetName)
     }
     
     // MARK: - Actions
