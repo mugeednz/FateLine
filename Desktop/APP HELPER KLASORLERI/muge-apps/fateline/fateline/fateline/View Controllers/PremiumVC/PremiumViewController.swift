@@ -42,9 +42,7 @@ class PremiumViewController: UIViewController {
     
     private let crownImageView: UIImageView = {
         let imageView = UIImageView()
-        let config = UIImage.SymbolConfiguration(pointSize: 60, weight: .bold)
-        imageView.image = UIImage(systemName: "crown.fill", withConfiguration: config)
-        imageView.tintColor = UIColor(hex: "FFD700")
+        imageView.image = UIImage(named: "premium_crown")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -60,7 +58,7 @@ class PremiumViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Unlock Premium"
+        label.text = "Premium"
         label.font = UIFont.systemFont(ofSize: 38, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
@@ -87,24 +85,28 @@ class PremiumViewController: UIViewController {
         return label
     }()
     
-    // Features Container
-    private let featuresContainer: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 25
-        view.clipsToBounds = false
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.white.withAlphaComponent(0.15).cgColor
-        return view
+    // Animated Feature Label
+    private let animatedFeatureLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.alpha = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow effect
+        label.layer.shadowColor = UIColor.white.cgColor
+        label.layer.shadowOffset = CGSize(width: 0, height: 0)
+        label.layer.shadowRadius = 20
+        label.layer.shadowOpacity = 1.0
+        label.layer.masksToBounds = false
+        
+        return label
     }()
     
-    private let featuresStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 14
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
+    private var currentFeatureIndex = 0
+    private var featureTimer: Timer?
     
     // Plan Cards
     private let weeklyPlanCard: PlanCard = {
@@ -120,25 +122,56 @@ class PremiumViewController: UIViewController {
     }()
     
     private let subscribeButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(type: .custom)
         button.setTitle("Continue", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         button.layer.cornerRadius = 28
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.backgroundColor = UIColor(hex: "FFD700")
+        // Advanced gradient background (matching app background)
+        let gradient = CAGradientLayer()
+        gradient.colors = [
+            UIColor(hex: "2d1b3d").cgColor,  // Same as background
+            UIColor(hex: "4a1e4f").cgColor,  // Same as background
+            UIColor(hex: "1a0a2e").cgColor   // Same as background
+        ]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        gradient.cornerRadius = 28
+        button.layer.insertSublayer(gradient, at: 0)
         
-        // Subtle shadow
-        button.layer.shadowColor = UIColor(hex: "FFD700").cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        button.layer.shadowRadius = 15
-        button.layer.shadowOpacity = 0.5
+        // Metallic shine overlay
+        let shineLayer = CAGradientLayer()
+        shineLayer.colors = [
+            UIColor.white.withAlphaComponent(0.3).cgColor,
+            UIColor.white.withAlphaComponent(0.1).cgColor,
+            UIColor.clear.cgColor,
+            UIColor.white.withAlphaComponent(0.1).cgColor
+        ]
+        shineLayer.locations = [0, 0.3, 0.6, 1]
+        shineLayer.startPoint = CGPoint(x: 0, y: 0)
+        shineLayer.endPoint = CGPoint(x: 1, y: 1)
+        shineLayer.cornerRadius = 28
+        button.layer.insertSublayer(shineLayer, at: 1)
+        
+        // Border for extra polish
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.white.withAlphaComponent(0.6).cgColor
+        
+        // Strong white glow
+        button.layer.shadowColor = UIColor.white.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowRadius = 25
+        button.layer.shadowOpacity = 0.8
         button.layer.masksToBounds = false
         
         return button
     }()
+    
+    private var subscribeButtonGradient: CAGradientLayer?
+    private var subscribeButtonShine: CAGradientLayer?
     
     private let termsLabel: UILabel = {
         let label = UILabel()
@@ -160,22 +193,39 @@ class PremiumViewController: UIViewController {
         return button
     }()
     
-    private var featuresGradientLayer: CAGradientLayer?
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGradientBackground()
         setupUI()
-        setupFeatures()
         setupPlans()
         addAnimations()
+        startFeatureAnimation()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         gradientLayer?.frame = view.bounds
-        featuresGradientLayer?.frame = featuresContainer.bounds
+        
+        // Update subscribe button gradient layers
+        if subscribeButtonGradient == nil {
+            if let gradient = subscribeButton.layer.sublayers?.first as? CAGradientLayer {
+                subscribeButtonGradient = gradient
+            }
+        }
+        if subscribeButtonShine == nil {
+            if let shine = subscribeButton.layer.sublayers?[1] as? CAGradientLayer {
+                subscribeButtonShine = shine
+            }
+        }
+        subscribeButtonGradient?.frame = subscribeButton.bounds
+        subscribeButtonShine?.frame = subscribeButton.bounds
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        featureTimer?.invalidate()
+        featureTimer = nil
     }
     
     // MARK: - Setup
@@ -201,15 +251,12 @@ class PremiumViewController: UIViewController {
         view.addSubview(crownImageView)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
-        view.addSubview(featuresContainer)
-        featuresContainer.addSubview(featuresStackView)
+        view.addSubview(animatedFeatureLabel)
         view.addSubview(weeklyPlanCard)
         view.addSubview(yearlyPlanCard)
         view.addSubview(subscribeButton)
         view.addSubview(restoreButton)
         view.addSubview(termsLabel)
-        
-        setupFeaturesGradient()
         
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -219,8 +266,8 @@ class PremiumViewController: UIViewController {
             
             crownImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             crownImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            crownImageView.widthAnchor.constraint(equalToConstant: 70),
-            crownImageView.heightAnchor.constraint(equalToConstant: 70),
+            crownImageView.widthAnchor.constraint(equalToConstant: 110),
+            crownImageView.heightAnchor.constraint(equalToConstant: 110),
             
             titleLabel.topAnchor.constraint(equalTo: crownImageView.bottomAnchor, constant: 20),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -230,26 +277,22 @@ class PremiumViewController: UIViewController {
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            featuresContainer.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 30),
-            featuresContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            featuresContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            animatedFeatureLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 40),
+            animatedFeatureLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            animatedFeatureLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            animatedFeatureLabel.heightAnchor.constraint(equalToConstant: 100),
             
-            featuresStackView.topAnchor.constraint(equalTo: featuresContainer.topAnchor, constant: 20),
-            featuresStackView.leadingAnchor.constraint(equalTo: featuresContainer.leadingAnchor, constant: 20),
-            featuresStackView.trailingAnchor.constraint(equalTo: featuresContainer.trailingAnchor, constant: -20),
-            featuresStackView.bottomAnchor.constraint(equalTo: featuresContainer.bottomAnchor, constant: -20),
-            
-            weeklyPlanCard.topAnchor.constraint(equalTo: featuresContainer.bottomAnchor, constant: 25),
-            weeklyPlanCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            weeklyPlanCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            weeklyPlanCard.heightAnchor.constraint(equalToConstant: 90),
-            
-            yearlyPlanCard.topAnchor.constraint(equalTo: weeklyPlanCard.bottomAnchor, constant: 12),
+            yearlyPlanCard.topAnchor.constraint(equalTo: animatedFeatureLabel.bottomAnchor, constant: 40),
             yearlyPlanCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             yearlyPlanCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            yearlyPlanCard.heightAnchor.constraint(equalToConstant: 100),
+            yearlyPlanCard.heightAnchor.constraint(equalToConstant: 110),
             
-            subscribeButton.topAnchor.constraint(equalTo: yearlyPlanCard.bottomAnchor, constant: 25),
+            weeklyPlanCard.topAnchor.constraint(equalTo: yearlyPlanCard.bottomAnchor, constant: 12),
+            weeklyPlanCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            weeklyPlanCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            weeklyPlanCard.heightAnchor.constraint(equalToConstant: 100),
+            
+            subscribeButton.topAnchor.constraint(equalTo: weeklyPlanCard.bottomAnchor, constant: 25),
             subscribeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             subscribeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             subscribeButton.heightAnchor.constraint(equalToConstant: 60),
@@ -263,6 +306,8 @@ class PremiumViewController: UIViewController {
         
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         subscribeButton.addTarget(self, action: #selector(subscribeButtonTapped), for: .touchUpInside)
+        subscribeButton.addTarget(self, action: #selector(subscribeButtonTouchDown), for: .touchDown)
+        subscribeButton.addTarget(self, action: #selector(subscribeButtonTouchUp), for: [.touchUpInside, .touchUpOutside, .touchCancel])
         restoreButton.addTarget(self, action: #selector(restoreButtonTapped), for: .touchUpInside)
         
         let weeklyTap = UITapGestureRecognizer(target: self, action: #selector(weeklyPlanTapped))
@@ -275,66 +320,36 @@ class PremiumViewController: UIViewController {
         termsLabel.addGestureRecognizer(termsTap)
     }
     
-    private func setupFeaturesGradient() {
-        let gradient = CAGradientLayer()
-        gradient.frame = featuresContainer.bounds
-        gradient.colors = [
-            UIColor(hex: "2d1b3d").withAlphaComponent(0.3).cgColor,
-            UIColor(hex: "4a1e4f").withAlphaComponent(0.2).cgColor
-        ]
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 1, y: 1)
-        gradient.cornerRadius = 25
-        gradient.zPosition = -1
-        featuresContainer.layer.insertSublayer(gradient, at: 0)
-        featuresGradientLayer = gradient
+    private func startFeatureAnimation() {
+        // Show first feature
+        showNextFeature()
         
-        // Subtle shadow
-        featuresContainer.layer.shadowColor = UIColor.black.cgColor
-        featuresContainer.layer.shadowOffset = CGSize(width: 0, height: 4)
-        featuresContainer.layer.shadowRadius = 12
-        featuresContainer.layer.shadowOpacity = 0.3
-        featuresContainer.layer.masksToBounds = false
-    }
-    
-    private func setupFeatures() {
-        for feature in features {
-            let featureView = createFeatureView(text: feature)
-            featuresStackView.addArrangedSubview(featureView)
+        // Start timer for cycling features
+        featureTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { [weak self] _ in
+            self?.showNextFeature()
         }
     }
     
-    private func createFeatureView(text: String) -> UIView {
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
+    private func showNextFeature() {
+        let feature = features[currentFeatureIndex]
         
-        let bullet = UIView()
-        bullet.translatesAutoresizingMaskIntoConstraints = false
-        bullet.backgroundColor = UIColor(hex: "FFD700")
-        bullet.layer.cornerRadius = 3
-        
-        let label = UILabel()
-        label.text = text
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        label.textColor = .white.withAlphaComponent(0.9)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        container.addSubview(bullet)
-        container.addSubview(label)
-        
-        NSLayoutConstraint.activate([
-            bullet.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-            bullet.topAnchor.constraint(equalTo: container.topAnchor, constant: 6),
-            bullet.widthAnchor.constraint(equalToConstant: 6),
-            bullet.heightAnchor.constraint(equalToConstant: 6),
+        // Fade out
+        UIView.animate(withDuration: 0.5, animations: {
+            self.animatedFeatureLabel.alpha = 0
+            self.animatedFeatureLabel.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }) { _ in
+            // Update text
+            self.animatedFeatureLabel.text = feature
             
-            label.leadingAnchor.constraint(equalTo: bullet.trailingAnchor, constant: 12),
-            label.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-            label.topAnchor.constraint(equalTo: container.topAnchor),
-            label.bottomAnchor.constraint(equalTo: container.bottomAnchor)
-        ])
-        
-        return container
+            // Fade in
+            UIView.animate(withDuration: 0.8, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, animations: {
+                self.animatedFeatureLabel.alpha = 1.0
+                self.animatedFeatureLabel.transform = .identity
+            })
+            
+            // Move to next feature
+            self.currentFeatureIndex = (self.currentFeatureIndex + 1) % self.features.count
+        }
     }
     
     private func setupPlans() {
@@ -404,6 +419,20 @@ class PremiumViewController: UIViewController {
         }
     }
     
+    @objc private func subscribeButtonTouchDown() {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.curveEaseInOut], animations: {
+            self.subscribeButton.transform = CGAffineTransform(scaleX: 0.96, y: 0.96)
+            self.subscribeButton.alpha = 0.9
+        })
+    }
+    
+    @objc private func subscribeButtonTouchUp() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseOut], animations: {
+            self.subscribeButton.transform = .identity
+            self.subscribeButton.alpha = 1.0
+        })
+    }
+    
     @objc private func subscribeButtonTapped() {
         // Show loading
         subscribeButton.isEnabled = false
@@ -450,6 +479,10 @@ class PremiumViewController: UIViewController {
         
         present(alert, animated: true)
     }
+    
+    deinit {
+        featureTimer?.invalidate()
+    }
 }
 
 // MARK: - PremiumPlan Enum
@@ -458,15 +491,40 @@ enum PremiumPlan {
     case yearly
 }
 
+// MARK: - PaddedLabel
+class PaddedLabel: UILabel {
+    var padding = UIEdgeInsets(top: 7, left: 14, bottom: 7, right: 14)
+    
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: padding))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + padding.left + padding.right,
+                      height: size.height + padding.top + padding.bottom)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // Ensure the background is properly rounded
+        layer.cornerRadius = 12
+        layer.masksToBounds = false
+        // Force badge to be on top of card border
+        layer.zPosition = 100
+    }
+}
+
 // MARK: - PlanCard
 class PlanCard: UIView {
     private let containerView = UIView()
     private let titleLabel = UILabel()
     private let priceLabel = UILabel()
     private let periodLabel = UILabel()
-    private let badgeLabel = UILabel()
+    private let badgeLabel = PaddedLabel()
     private let checkmarkImageView = UIImageView()
     private var gradientLayer: CAGradientLayer?
+    private var borderLayer: CAShapeLayer?  // Custom border layer that goes behind badge
     private var isSelected = false
     
     override init(frame: CGRect) {
@@ -481,14 +539,31 @@ class PlanCard: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         gradientLayer?.frame = bounds
+        
+        // Update custom border layer
+        if let borderLayer = borderLayer {
+            borderLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 22).cgPath
+        }
+        
+        // Ensure badge stays on top after layout
+        bringSubviewToFront(badgeLabel)
     }
     
     private func setupUI() {
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 22
         clipsToBounds = false
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
+        layer.masksToBounds = false
+        
+        // Remove native border, use custom border layer instead
+        // This allows badge to sit on top of the border
+        let border = CAShapeLayer()
+        border.strokeColor = UIColor.white.withAlphaComponent(0.2).cgColor
+        border.fillColor = UIColor.clear.cgColor
+        border.lineWidth = 2
+        border.zPosition = 1  // Below badge (badge is zPosition 100)
+        layer.insertSublayer(border, at: 1)  // Above gradient, below content
+        borderLayer = border
         
         let gradient = CAGradientLayer()
         gradient.colors = [
@@ -498,6 +573,7 @@ class PlanCard: UIView {
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         gradient.cornerRadius = 22
+        gradient.zPosition = -1
         layer.insertSublayer(gradient, at: 0)
         gradientLayer = gradient
         
@@ -508,7 +584,7 @@ class PlanCard: UIView {
         
         // Price
         priceLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
-        priceLabel.textColor = UIColor(hex: "FFD700")
+        priceLabel.textColor = .white
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // Period
@@ -516,28 +592,38 @@ class PlanCard: UIView {
         periodLabel.textColor = .white.withAlphaComponent(0.7)
         periodLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        // Badge
+        // Badge (must be fully opaque to cover card border)
         badgeLabel.font = UIFont.systemFont(ofSize: 11, weight: .bold)
-        badgeLabel.textColor = .black
-        badgeLabel.backgroundColor = UIColor(hex: "FFD700")
+        badgeLabel.textColor = .white
+        badgeLabel.backgroundColor = UIColor.mysticalPurple  // Fully opaque
         badgeLabel.textAlignment = .center
-        badgeLabel.layer.cornerRadius = 10
-        badgeLabel.clipsToBounds = true
+        badgeLabel.layer.cornerRadius = 12
+        badgeLabel.clipsToBounds = false
         badgeLabel.translatesAutoresizingMaskIntoConstraints = false
         badgeLabel.isHidden = true
+        badgeLabel.layer.borderWidth = 2
+        badgeLabel.layer.borderColor = UIColor.white.withAlphaComponent(0.6).cgColor
+        badgeLabel.layer.zPosition = 100
+        
+        // Shadow for depth
+        badgeLabel.layer.shadowColor = UIColor.black.cgColor
+        badgeLabel.layer.shadowOffset = CGSize(width: 0, height: 3)
+        badgeLabel.layer.shadowRadius = 8
+        badgeLabel.layer.shadowOpacity = 0.6
+        badgeLabel.layer.masksToBounds = false
         
         // Checkmark
         let config = UIImage.SymbolConfiguration(pointSize: 24, weight: .bold)
         checkmarkImageView.image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: config)
-        checkmarkImageView.tintColor = UIColor(hex: "FFD700")
+        checkmarkImageView.tintColor = .white
         checkmarkImageView.translatesAutoresizingMaskIntoConstraints = false
         checkmarkImageView.alpha = 0
         
         addSubview(titleLabel)
         addSubview(priceLabel)
         addSubview(periodLabel)
-        addSubview(badgeLabel)
         addSubview(checkmarkImageView)
+        addSubview(badgeLabel)  // Badge must be added LAST to be on top
         
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -549,9 +635,8 @@ class PlanCard: UIView {
             periodLabel.trailingAnchor.constraint(equalTo: priceLabel.trailingAnchor),
             periodLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 2),
             
-            badgeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            badgeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
-            badgeLabel.heightAnchor.constraint(equalToConstant: 22),
+            badgeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            badgeLabel.topAnchor.constraint(equalTo: topAnchor, constant: -15),
             
             checkmarkImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             checkmarkImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
@@ -579,22 +664,33 @@ class PlanCard: UIView {
         isSelected = selected
         
         if selected {
-            layer.borderColor = UIColor(hex: "FFD700").cgColor
-            layer.borderWidth = 2.5
+            // Update custom border layer
+            borderLayer?.strokeColor = UIColor.white.cgColor
+            borderLayer?.lineWidth = 2.5
             checkmarkImageView.alpha = 1
             
-            // Subtle golden shadow
-            layer.shadowColor = UIColor(hex: "FFD700").cgColor
+            // White-purple glow
+            layer.shadowColor = UIColor.mysticalPurple.cgColor
             layer.shadowOffset = CGSize(width: 0, height: 4)
-            layer.shadowRadius = 12
-            layer.shadowOpacity = 0.4
+            layer.shadowRadius = 15
+            layer.shadowOpacity = 0.8
             layer.masksToBounds = false
         } else {
-            layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
-            layer.borderWidth = 2
+            // Update custom border layer
+            borderLayer?.strokeColor = UIColor.white.withAlphaComponent(0.3).cgColor
+            borderLayer?.lineWidth = 2
             checkmarkImageView.alpha = 0
             
-            layer.shadowOpacity = 0
+            // Subtle purple shadow
+            layer.shadowColor = UIColor.mysticalPurple.cgColor
+            layer.shadowOffset = CGSize(width: 0, height: 2)
+            layer.shadowRadius = 8
+            layer.shadowOpacity = 0.3
+            layer.masksToBounds = false
         }
+        
+        // Force badge to front to cover card border
+        badgeLabel.layer.zPosition = 100
+        bringSubviewToFront(badgeLabel)
     }
 }
