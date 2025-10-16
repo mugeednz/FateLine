@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 // MARK: - TarotCard Model
 struct TarotCard: Codable {
@@ -26,6 +27,7 @@ class TarotReadingViewController: UIViewController {
     private var selectedCards: Set<Int> = []
     private var tarotCards: [TarotCard] = []
     private let maxSelections = 5
+    private var hasPerformedAutoScroll = false
     
     // MARK: - UI Components
     private let backButton: UIButton = {
@@ -142,6 +144,27 @@ class TarotReadingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        // Reset selected cards and question when returning from results
+        if hasPerformedAutoScroll {
+            selectedCards.removeAll()
+            collectionView.reloadData()
+            updateButtonState()
+            
+            // Reset question text to placeholder
+            questionTextView.text = "What guidance do you seek from the cards?"
+            questionTextView.textColor = .white.withAlphaComponent(0.7)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Perform auto-scroll animation only once to show scrollability
+        if !hasPerformedAutoScroll {
+            performAutoScrollAnimation()
+            hasPerformedAutoScroll = true
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -184,7 +207,11 @@ class TarotReadingViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = true
+        collectionView.indicatorStyle = .white
+        collectionView.bounces = true
+        collectionView.alwaysBounceVertical = true
+        collectionView.decelerationRate = .fast
         collectionView.register(TarotCardCell.self, forCellWithReuseIdentifier: "TarotCardCell")
         
         view.addSubview(collectionView)
@@ -205,37 +232,40 @@ class TarotReadingViewController: UIViewController {
         
         // Setup constraints
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            // Back button and title at same height
+            backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             backButton.widthAnchor.constraint(equalToConstant: 44),
             backButton.heightAnchor.constraint(equalToConstant: 44),
             
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
+            // Increased collection view height
             collectionView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            collectionView.heightAnchor.constraint(equalToConstant: 380),
+            collectionView.bottomAnchor.constraint(equalTo: questionContainer.topAnchor, constant: -15),
             
-            questionContainer.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
+            // Question container moved down
             questionContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             questionContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            questionContainer.heightAnchor.constraint(equalToConstant: 100),
+            questionContainer.bottomAnchor.constraint(equalTo: readCardsButton.topAnchor, constant: -15),
+            questionContainer.heightAnchor.constraint(equalToConstant: 80),
             
             questionTextView.topAnchor.constraint(equalTo: questionContainer.topAnchor),
             questionTextView.leadingAnchor.constraint(equalTo: questionContainer.leadingAnchor),
             questionTextView.trailingAnchor.constraint(equalTo: questionContainer.trailingAnchor),
             questionTextView.bottomAnchor.constraint(equalTo: questionContainer.bottomAnchor),
             
-            readCardsButton.topAnchor.constraint(equalTo: questionContainer.bottomAnchor, constant: 30),
+            // Button at bottom
             readCardsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             readCardsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            readCardsButton.heightAnchor.constraint(equalToConstant: 60),
-            readCardsButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            readCardsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            readCardsButton.heightAnchor.constraint(equalToConstant: 56)
         ])
         
         readCardsButton.addTarget(self, action: #selector(readCardsButtonTapped), for: .touchUpInside)
@@ -317,6 +347,31 @@ class TarotReadingViewController: UIViewController {
             subtitleLabel.text = "Select \(remainingSelections) more card\(remainingSelections == 1 ? "" : "s")"
         } else {
             subtitleLabel.text = "Perfect! Now ask your question"
+        }
+    }
+    
+    private func performAutoScrollAnimation() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            // Ensure we have content
+            let itemCount = self.collectionView.numberOfItems(inSection: 0)
+            guard itemCount > 30 else { return }
+            
+            // Scroll to last item instantly
+            let lastItem = itemCount - 1
+            self.collectionView.scrollToItem(at: IndexPath(item: lastItem, section: 0), at: .bottom, animated: false)
+            
+            // Small pause, then scroll back to top
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self.collectionView.flashScrollIndicators()
+                
+                // Scroll to first item with smooth animation
+                self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+                
+                // Flash when complete
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    self.collectionView.flashScrollIndicators()
+                }
+            }
         }
     }
     

@@ -43,6 +43,7 @@
 		B63D6D772E9E9F3100299BF7 /* NumerologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D762E9E9F3100299BF7 /* NumerologyViewController.swift */; };
 		B63D6D792EA0F73100299BF7 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63D6D782EA0F73100299BF7 /* AppTrackingTransparency.framework */; };
 		B63D6D7C2EA0F84200299BF7 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = B63D6D7B2EA0F84200299BF7 /* FacebookCore */; };
+		B63D6D802EA13C8400299BF7 /* TarotHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D7F2EA13C8400299BF7 /* TarotHistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		B63D6D742E9E975000299BF7 /* AnimalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsViewController.swift; sourceTree = "<group>"; };
 		B63D6D762E9E9F3100299BF7 /* NumerologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyViewController.swift; sourceTree = "<group>"; };
 		B63D6D782EA0F73100299BF7 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
+		B63D6D7F2EA13C8400299BF7 /* TarotHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotHistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 			children = (
 				B63D6D6A2E9E88A600299BF7 /* TarotReadingViewController.swift */,
 				B63D6D6C2E9E8C6500299BF7 /* TarotResultsViewController.swift */,
+				B63D6D7F2EA13C8400299BF7 /* TarotHistoryViewController.swift */,
 			);
 			path = Tarot;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				B62D198F2E9409DC00A0BC30 /* SceneDelegate.swift in Sources */,
 				B62D19D22E9D737200A0BC30 /* SplashViewController.swift in Sources */,
 				B63D6D662E9D8BA200299BF7 /* SettingsViewController.swift in Sources */,
+				B63D6D802EA13C8400299BF7 /* TarotHistoryViewController.swift in Sources */,
 				B63D6D712E9E914600299BF7 /* LifeandSoulViewController.swift in Sources */,
 				B62D19D52E9D7F3000A0BC30 /* MainViewController.swift in Sources */,
 				B62D19C12E9665AD00A0BC30 /* Subscription.swift in Sources */,
