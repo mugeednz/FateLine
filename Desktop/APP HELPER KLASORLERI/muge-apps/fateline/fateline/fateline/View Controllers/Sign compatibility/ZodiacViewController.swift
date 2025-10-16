@@ -64,7 +64,7 @@ class ZodiacViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Zodiac Compatibility"
-        label.font = UIFont.QuintessentialRegular(size: 36)
+        label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +81,7 @@ class ZodiacViewController: UIViewController {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Discover your cosmic connection"
-        label.font = UIFont.QuintessentialRegular(size: 18)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -109,7 +109,7 @@ class ZodiacViewController: UIViewController {
     private let maleLabel: UILabel = {
         let label = UILabel()
         label.text = "Male Sign"
-        label.font = UIFont.QuintessentialRegular(size: 20)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -120,7 +120,7 @@ class ZodiacViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Select Sign", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.QuintessentialRegular(size: 22)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         button.layer.cornerRadius = 15
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -148,7 +148,7 @@ class ZodiacViewController: UIViewController {
     private let femaleLabel: UILabel = {
         let label = UILabel()
         label.text = "Female Sign"
-        label.font = UIFont.QuintessentialRegular(size: 20)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -159,7 +159,7 @@ class ZodiacViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Select Sign", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.QuintessentialRegular(size: 22)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         button.layer.cornerRadius = 15
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -187,7 +187,7 @@ class ZodiacViewController: UIViewController {
     
     private let scoreLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.QuintessentialRegular(size: 60)
+        label.font = UIFont.systemFont(ofSize: 60, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -204,7 +204,7 @@ class ZodiacViewController: UIViewController {
     private let compatibilityLabel: UILabel = {
         let label = UILabel()
         label.text = "Compatibility Score"
-        label.font = UIFont.QuintessentialRegular(size: 18)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.7)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false

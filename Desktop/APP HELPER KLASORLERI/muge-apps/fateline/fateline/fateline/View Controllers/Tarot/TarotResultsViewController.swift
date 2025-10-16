@@ -47,7 +47,7 @@ class TarotResultsViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Your Reading"
-        label.font = UIFont.QuintessentialRegular(size: 36)
+        label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +74,7 @@ class TarotResultsViewController: UIViewController {
     
     private let questionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.QuintessentialRegular(size: 18)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.9)
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -251,14 +251,14 @@ class TarotResultsViewController: UIViewController {
         // Position label
         let positionLabel = UILabel()
         positionLabel.text = "Card \(position)"
-        positionLabel.font = UIFont.QuintessentialRegular(size: 16)
+        positionLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         positionLabel.textColor = .white.withAlphaComponent(0.7)
         positionLabel.textAlignment = .center
         
         // Card name
         let nameLabel = UILabel()
         nameLabel.text = card.name
-        nameLabel.font = UIFont.QuintessentialRegular(size: 24)
+        nameLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         nameLabel.textColor = .white
         nameLabel.textAlignment = .center
         nameLabel.numberOfLines = 0
@@ -273,7 +273,7 @@ class TarotResultsViewController: UIViewController {
         // Arcana type
         let arcanaLabel = UILabel()
         arcanaLabel.text = card.arcana
-        arcanaLabel.font = UIFont.QuintessentialRegular(size: 14)
+        arcanaLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         arcanaLabel.textColor = .white.withAlphaComponent(0.6)
         arcanaLabel.textAlignment = .center
         

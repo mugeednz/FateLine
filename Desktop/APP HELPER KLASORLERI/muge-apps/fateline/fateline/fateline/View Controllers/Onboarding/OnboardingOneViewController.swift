@@ -32,7 +32,7 @@ class OnboardingOneViewController: UIViewController {
     private let welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome to FateLine"
-        label.font = UIFont.QuintessentialRegular(size: 44)
+        label.font = UIFont.systemFont(ofSize: 38, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -52,7 +52,7 @@ class OnboardingOneViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Start Exploring", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.QuintessentialRegular(size: 20)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         button.layer.cornerRadius = 25
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false

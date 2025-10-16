@@ -28,7 +28,7 @@ class OnboardingSecondViewController: UIViewController {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Discover your destiny through mystical insights. Explore numerology, tarot readings, soul cards, and spirit animals—all personalized to your unique birth data."
-        label.font = UIFont.QuintessentialRegular(size: 22)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -48,7 +48,7 @@ class OnboardingSecondViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Ready", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.QuintessentialRegular(size: 20)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         button.layer.cornerRadius = 25
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false

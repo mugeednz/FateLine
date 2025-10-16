@@ -47,7 +47,7 @@ class TarotReadingViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Choose Your Cards"
-        label.font = UIFont.QuintessentialRegular(size: 32)
+        label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +65,7 @@ class TarotReadingViewController: UIViewController {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Select 5 cards that call to you"
-        label.font = UIFont.QuintessentialRegular(size: 18)
+        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -96,7 +96,7 @@ class TarotReadingViewController: UIViewController {
     private let questionTextView: UITextView = {
         let textView = UITextView()
         textView.text = "What guidance do you seek from the cards?"
-        textView.font = UIFont.QuintessentialRegular(size: 18)
+        textView.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         textView.textColor = .white.withAlphaComponent(0.7)
         textView.backgroundColor = .clear
         textView.textAlignment = .center
@@ -111,7 +111,7 @@ class TarotReadingViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Read My Cards", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.QuintessentialRegular(size: 22)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         button.layer.cornerRadius = 25
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
