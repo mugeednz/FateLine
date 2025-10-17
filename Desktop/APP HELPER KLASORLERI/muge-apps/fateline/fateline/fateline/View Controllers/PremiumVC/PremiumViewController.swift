@@ -10,6 +10,19 @@ import StoreKit
 
 class PremiumViewController: UIViewController {
 
+    // MARK: - Subscription Properties
+    private let subscription = Subscription.instance
+    
+    enum ChoosenPremium: String {
+        case weekly = "fatelineweekly"
+        case yearly = "fatelineyearly"
+    }
+    
+    var selectedProduct = ChoosenPremium.yearly
+    var purchasingProducts: [PurchasingProduct] = []
+    private var yearlyPrice = ""
+    private var weeklyPrice = ""
+    
     // MARK: - Properties
     private var gradientLayer: CAGradientLayer?
     private var selectedPlan: PremiumPlan = .yearly
@@ -173,15 +186,22 @@ class PremiumViewController: UIViewController {
     private var subscribeButtonGradient: CAGradientLayer?
     private var subscribeButtonShine: CAGradientLayer?
     
-    private let termsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Terms of Service • Privacy Policy"
-        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        label.textColor = .white.withAlphaComponent(0.5)
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isUserInteractionEnabled = true
-        return label
+    private let termsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Terms", for: .normal)
+        button.setTitleColor(.white.withAlphaComponent(0.6), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let privacyButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Privacy", for: .normal)
+        button.setTitleColor(.white.withAlphaComponent(0.6), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     private let restoreButton: UIButton = {
@@ -201,6 +221,10 @@ class PremiumViewController: UIViewController {
         setupPlans()
         addAnimations()
         startFeatureAnimation()
+        
+        // Setup subscription and fetch products
+        subscription.setOperator(self)
+        subscription.fetchAvailableProducts()
     }
     
     override func viewDidLayoutSubviews() {
@@ -256,7 +280,8 @@ class PremiumViewController: UIViewController {
         view.addSubview(yearlyPlanCard)
         view.addSubview(subscribeButton)
         view.addSubview(restoreButton)
-        view.addSubview(termsLabel)
+        view.addSubview(termsButton)
+        view.addSubview(privacyButton)
         
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -300,8 +325,13 @@ class PremiumViewController: UIViewController {
             restoreButton.topAnchor.constraint(equalTo: subscribeButton.bottomAnchor, constant: 12),
             restoreButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            termsLabel.topAnchor.constraint(equalTo: restoreButton.bottomAnchor, constant: 10),
-            termsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            termsButton.topAnchor.constraint(equalTo: restoreButton.bottomAnchor, constant: 10),
+            termsButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -10),
+            termsButton.heightAnchor.constraint(equalToConstant: 30),
+            
+            privacyButton.topAnchor.constraint(equalTo: restoreButton.bottomAnchor, constant: 10),
+            privacyButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
+            privacyButton.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
@@ -316,8 +346,8 @@ class PremiumViewController: UIViewController {
         let yearlyTap = UITapGestureRecognizer(target: self, action: #selector(yearlyPlanTapped))
         yearlyPlanCard.addGestureRecognizer(yearlyTap)
         
-        let termsTap = UITapGestureRecognizer(target: self, action: #selector(termsLabelTapped))
-        termsLabel.addGestureRecognizer(termsTap)
+        termsButton.addTarget(self, action: #selector(termsButtonTapped), for: .touchUpInside)
+        privacyButton.addTarget(self, action: #selector(privacyButtonTapped), for: .touchUpInside)
     }
     
     private func startFeatureAnimation() {
@@ -398,6 +428,7 @@ class PremiumViewController: UIViewController {
     
     @objc private func weeklyPlanTapped() {
         selectedPlan = .weekly
+        selectedProduct = .weekly
         updatePlanSelection()
         
         let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
@@ -406,6 +437,7 @@ class PremiumViewController: UIViewController {
     
     @objc private func yearlyPlanTapped() {
         selectedPlan = .yearly
+        selectedProduct = .yearly
         updatePlanSelection()
         
         let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
@@ -434,54 +466,139 @@ class PremiumViewController: UIViewController {
     }
     
     @objc private func subscribeButtonTapped() {
-        // Show loading
-        subscribeButton.isEnabled = false
-        subscribeButton.setTitle("Processing...", for: .normal)
-        
-        // TODO: Implement RevenueCat purchase
-        // For now, just simulate
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.subscribeButton.isEnabled = true
-            self.subscribeButton.setTitle("Continue", for: .normal)
-            
-            // Show success or handle purchase
-            print("Purchase initiated for plan: \(self.selectedPlan)")
+        guard let product = getProduct() else {
+            showAlert(title: "Error", message: "Product not available")
+            return
         }
+        GlobalHelper.hudShow(self)
+        subscription.purchaseProduct(product)
         
         let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
         impactFeedback.impactOccurred()
     }
     
     @objc private func restoreButtonTapped() {
-        // TODO: Implement RevenueCat restore purchases
-        print("Restore purchases tapped")
+        GlobalHelper.hudShow(self)
+        subscription.restore()
         
         let impactFeedback = UIImpactFeedbackGenerator(style: .light)
         impactFeedback.impactOccurred()
     }
     
-    @objc private func termsLabelTapped() {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Terms of Service", style: .default) { _ in
-            if let url = URL(string: "https://yourapp.com/terms") {
-                UIApplication.shared.open(url)
-            }
-        })
-        
-        alert.addAction(UIAlertAction(title: "Privacy Policy", style: .default) { _ in
-            if let url = URL(string: "https://yourapp.com/privacy") {
-                UIApplication.shared.open(url)
-            }
-        })
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        present(alert, animated: true)
+    func getProduct() -> PurchasingProduct? {
+        return purchasingProducts.first { $0.productIdentifier == selectedProduct.rawValue }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @objc private func termsButtonTapped() {
+        GlobalHelper.openTerms(self)
+    }
+    
+    @objc private func privacyButtonTapped() {
+        GlobalHelper.openPrivacy(self)
     }
     
     deinit {
         featureTimer?.invalidate()
+    }
+}
+
+// MARK: - SubscriptionOperator Conformance
+extension PremiumViewController: SubscriptionOperator {
+    func premiumVersionRestored() {
+        GlobalHelper.hudDismiss()
+        showAlert(title: "Success", message: "Your purchases have been restored")
+        dismiss(animated: true)
+    }
+    
+    func purchasesDisabledOnDevice() {
+        GlobalHelper.hudDismiss()
+        showAlert(title: "Error", message: "Purchases are disabled on this device.")
+    }
+    
+    func setPurchasingProducts(_ purchasingProducts: [PurchasingProduct]) {
+        print("🔵 setPurchasingProducts called with \(purchasingProducts.count) products")
+        self.purchasingProducts = purchasingProducts
+        setPrice()
+    }
+    
+    func premiumProductPurchased() {
+        GlobalHelper.hudDismiss()
+        showAlert(title: "Success", message: "Welcome to Premium!")
+        dismiss(animated: true)
+    }
+    
+    func purchaseStarted() {
+        // HUD already shown
+    }
+    
+    func purchaseFinished() {
+        GlobalHelper.hudDismiss()
+    }
+    
+    func fetchingProductFailure() {
+        GlobalHelper.hudDismiss()
+        showAlert(title: "Error", message: "Failed to fetch products.")
+    }
+    
+    func setPrice() {
+        print("🔵 setPrice called with \(purchasingProducts.count) products")
+        for product in purchasingProducts {
+            print("🔵 Product ID: \(product.productIdentifier), Price: \(product.productPrice)")
+            if product.productIdentifier == ChoosenPremium.yearly.rawValue {
+                yearlyPrice = product.productPrice
+                
+                // Calculate double price (x2)
+                let doublePrice = calculateDoublePrice(from: yearlyPrice)
+                
+                yearlyPlanCard.configure(
+                    title: "Yearly",
+                    price: yearlyPrice.isEmpty ? "" : yearlyPrice,
+                    period: "per year",
+                    badge: "BEST VALUE - Save 50% - \(doublePrice)",
+                    isSelected: selectedPlan == .yearly
+                )
+                print("🔵 Yearly price set: \(yearlyPrice), Double: \(doublePrice)")
+            } else if product.productIdentifier == ChoosenPremium.weekly.rawValue {
+                weeklyPrice = product.productPrice
+                weeklyPlanCard.configure(
+                    title: "Weekly",
+                    price: weeklyPrice.isEmpty ? "" : weeklyPrice,
+                    period: "per week",
+                    badge: nil,
+                    isSelected: selectedPlan == .weekly
+                )
+                print("🔵 Weekly price set: \(weeklyPrice)")
+            }
+        }
+    }
+    
+    // Calculate double price for yearly plan
+    private func calculateDoublePrice(from priceString: String) -> String {
+        // Extract numbers from price string
+        let numbers = priceString.filter { "0123456789.,".contains($0) }
+        
+        // Handle comma vs dot decimal separator
+        let normalizedNumbers = numbers.replacingOccurrences(of: ",", with: ".")
+        
+        if let priceValue = Double(normalizedNumbers), priceValue > 0 {
+            let doubleValue = (priceValue * 2.0).rounded(to: 2)
+            
+            // Preserve original format (comma or dot)
+            if numbers.contains(",") {
+                let doubleString = String(doubleValue).replacingOccurrences(of: ".", with: ",")
+                return priceString.replacingOccurrences(of: numbers, with: doubleString)
+            } else {
+                return priceString.replacingOccurrences(of: numbers, with: String(doubleValue))
+            }
+        }
+        
+        return priceString // Return original if calculation fails
     }
 }
 
@@ -692,5 +809,13 @@ class PlanCard: UIView {
         // Force badge to front to cover card border
         badgeLabel.layer.zPosition = 100
         bringSubviewToFront(badgeLabel)
+    }
+}
+
+// MARK: - Double Extension
+extension Double {
+    func rounded(to places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }
