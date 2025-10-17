@@ -27,6 +27,11 @@ class PremiumViewController: UIViewController {
     private var gradientLayer: CAGradientLayer?
     private var selectedPlan: PremiumPlan = .yearly
     
+    // Check if device is iPhone SE or similar small screen
+    private var isSmallScreen: Bool {
+        return UIScreen.main.bounds.height <= 667
+    }
+    
     private let features = [
         "Unlimited Tarot Readings",
         "Advanced Zodiac Compatibility",
@@ -53,7 +58,7 @@ class PremiumViewController: UIViewController {
         return button
     }()
     
-    private let crownImageView: UIImageView = {
+    private lazy var crownImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "premium_crown")
         imageView.contentMode = .scaleAspectFit
@@ -62,17 +67,17 @@ class PremiumViewController: UIViewController {
         // Subtle glow
         imageView.layer.shadowColor = UIColor(hex: "FFD700").cgColor
         imageView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        imageView.layer.shadowRadius = 15
+        imageView.layer.shadowRadius = isSmallScreen ? 10 : 15
         imageView.layer.shadowOpacity = 0.5
         imageView.layer.masksToBounds = false
         
         return imageView
     }()
     
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Premium"
-        label.font = UIFont.systemFont(ofSize: 38, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: isSmallScreen ? 30 : 38, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -87,10 +92,10 @@ class PremiumViewController: UIViewController {
         return label
     }()
     
-    private let subtitleLabel: UILabel = {
+    private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Experience the full mystical journey"
-        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: isSmallScreen ? 14 : 17, weight: .regular)
         label.textColor = .white.withAlphaComponent(0.7)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -99,9 +104,9 @@ class PremiumViewController: UIViewController {
     }()
     
     // Animated Feature Label
-    private let animatedFeatureLabel: UILabel = {
+    private lazy var animatedFeatureLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: isSmallScreen ? 20 : 28, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 2
@@ -111,7 +116,7 @@ class PremiumViewController: UIViewController {
         // Add glow effect
         label.layer.shadowColor = UIColor.white.cgColor
         label.layer.shadowOffset = CGSize(width: 0, height: 0)
-        label.layer.shadowRadius = 20
+        label.layer.shadowRadius = isSmallScreen ? 15 : 20
         label.layer.shadowOpacity = 1.0
         label.layer.masksToBounds = false
         
@@ -134,12 +139,13 @@ class PremiumViewController: UIViewController {
         return card
     }()
     
-    private let subscribeButton: UIButton = {
+    private lazy var subscribeButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("Continue", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        button.layer.cornerRadius = 28
+        button.titleLabel?.font = UIFont.systemFont(ofSize: isSmallScreen ? 20 : 24, weight: .bold)
+        let cornerRadius: CGFloat = isSmallScreen ? 24 : 28
+        button.layer.cornerRadius = cornerRadius
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -152,7 +158,7 @@ class PremiumViewController: UIViewController {
         ]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
-        gradient.cornerRadius = 28
+        gradient.cornerRadius = cornerRadius
         button.layer.insertSublayer(gradient, at: 0)
         
         // Metallic shine overlay
@@ -166,7 +172,7 @@ class PremiumViewController: UIViewController {
         shineLayer.locations = [0, 0.3, 0.6, 1]
         shineLayer.startPoint = CGPoint(x: 0, y: 0)
         shineLayer.endPoint = CGPoint(x: 1, y: 1)
-        shineLayer.cornerRadius = 28
+        shineLayer.cornerRadius = cornerRadius
         button.layer.insertSublayer(shineLayer, at: 1)
         
         // Border for extra polish
@@ -283,44 +289,57 @@ class PremiumViewController: UIViewController {
         view.addSubview(termsButton)
         view.addSubview(privacyButton)
         
+        // Small screen adjustments
+        let crownTop: CGFloat = isSmallScreen ? 20 : 50
+        let crownSize: CGFloat = isSmallScreen ? 80 : 110
+        let titleTop: CGFloat = isSmallScreen ? 12 : 20
+        let subtitleTop: CGFloat = isSmallScreen ? 5 : 8
+        let featureTop: CGFloat = isSmallScreen ? 20 : 40
+        let featureHeight: CGFloat = isSmallScreen ? 70 : 100
+        let yearlyTop: CGFloat = isSmallScreen ? 20 : 40
+        let yearlyHeight: CGFloat = isSmallScreen ? 90 : 110
+        let weeklyHeight: CGFloat = isSmallScreen ? 85 : 100
+        let buttonTop: CGFloat = isSmallScreen ? 15 : 25
+        let buttonHeight: CGFloat = isSmallScreen ? 50 : 60
+        
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             closeButton.widthAnchor.constraint(equalToConstant: 44),
             closeButton.heightAnchor.constraint(equalToConstant: 44),
             
-            crownImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            crownImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: crownTop),
             crownImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            crownImageView.widthAnchor.constraint(equalToConstant: 110),
-            crownImageView.heightAnchor.constraint(equalToConstant: 110),
+            crownImageView.widthAnchor.constraint(equalToConstant: crownSize),
+            crownImageView.heightAnchor.constraint(equalToConstant: crownSize),
             
-            titleLabel.topAnchor.constraint(equalTo: crownImageView.bottomAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: crownImageView.bottomAnchor, constant: titleTop),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -20),
             
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: subtitleTop),
             subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            animatedFeatureLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 40),
+            animatedFeatureLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: featureTop),
             animatedFeatureLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             animatedFeatureLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            animatedFeatureLabel.heightAnchor.constraint(equalToConstant: 100),
+            animatedFeatureLabel.heightAnchor.constraint(equalToConstant: featureHeight),
             
-            yearlyPlanCard.topAnchor.constraint(equalTo: animatedFeatureLabel.bottomAnchor, constant: 40),
+            yearlyPlanCard.topAnchor.constraint(equalTo: animatedFeatureLabel.bottomAnchor, constant: yearlyTop),
             yearlyPlanCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             yearlyPlanCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            yearlyPlanCard.heightAnchor.constraint(equalToConstant: 110),
+            yearlyPlanCard.heightAnchor.constraint(equalToConstant: yearlyHeight),
             
             weeklyPlanCard.topAnchor.constraint(equalTo: yearlyPlanCard.bottomAnchor, constant: 12),
             weeklyPlanCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             weeklyPlanCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            weeklyPlanCard.heightAnchor.constraint(equalToConstant: 100),
+            weeklyPlanCard.heightAnchor.constraint(equalToConstant: weeklyHeight),
             
-            subscribeButton.topAnchor.constraint(equalTo: weeklyPlanCard.bottomAnchor, constant: 25),
+            subscribeButton.topAnchor.constraint(equalTo: weeklyPlanCard.bottomAnchor, constant: buttonTop),
             subscribeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             subscribeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            subscribeButton.heightAnchor.constraint(equalToConstant: 60),
+            subscribeButton.heightAnchor.constraint(equalToConstant: buttonHeight),
             
             restoreButton.topAnchor.constraint(equalTo: subscribeButton.bottomAnchor, constant: 12),
             restoreButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),

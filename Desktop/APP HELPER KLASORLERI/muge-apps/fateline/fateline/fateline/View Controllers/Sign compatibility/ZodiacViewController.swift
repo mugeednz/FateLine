@@ -409,10 +409,10 @@ class ZodiacViewController: UIViewController {
             backButton.widthAnchor.constraint(equalToConstant: 44),
             backButton.heightAnchor.constraint(equalToConstant: 44),
             
-            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            titleLabel.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 20),
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-            subtitleLabel.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 8),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             subtitleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             maleContainer.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 30),
