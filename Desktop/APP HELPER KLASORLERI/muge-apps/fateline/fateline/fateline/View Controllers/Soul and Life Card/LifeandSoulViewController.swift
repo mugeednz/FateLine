@@ -239,6 +239,9 @@ class LifeandSoulViewController: UIViewController {
     private var lifeCardGradientLayer: CAGradientLayer?
     private var soulCardGradientLayer: CAGradientLayer?
     
+    // Store empty state constraints to deactivate later
+    private var emptyStateConstraints: [NSLayoutConstraint] = []
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -258,7 +261,12 @@ class LifeandSoulViewController: UIViewController {
         gradientLayer?.frame = view.bounds
         dateGradientLayer?.frame = dateContainer.bounds
         buttonGradientLayer?.frame = calculateButton.bounds
-        emptyStateGradientLayer?.frame = emptyStateContainer.bounds
+        
+        // Only update empty state gradient if it exists and is in hierarchy
+        if emptyStateGradientLayer != nil && emptyStateContainer.superview != nil {
+            emptyStateGradientLayer?.frame = emptyStateContainer.bounds
+        }
+        
         lifeCardGradientLayer?.frame = lifeCardContainer.bounds
         soulCardGradientLayer?.frame = soulCardContainer.bounds
     }
@@ -303,6 +311,24 @@ class LifeandSoulViewController: UIViewController {
         setupButtonGradient()
         setupEmptyStateGradient()
         
+        // Store empty state constraints
+        emptyStateConstraints = [
+            emptyStateContainer.topAnchor.constraint(equalTo: calculateButton.bottomAnchor, constant: 30),
+            emptyStateContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            emptyStateContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            emptyStateContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
+            
+            emptyStateImageView.topAnchor.constraint(equalTo: emptyStateContainer.topAnchor, constant: 40),
+            emptyStateImageView.centerXAnchor.constraint(equalTo: emptyStateContainer.centerXAnchor),
+            emptyStateImageView.widthAnchor.constraint(equalToConstant: 80),
+            emptyStateImageView.heightAnchor.constraint(equalToConstant: 80),
+            
+            emptyStateLabel.topAnchor.constraint(equalTo: emptyStateImageView.bottomAnchor, constant: 30),
+            emptyStateLabel.leadingAnchor.constraint(equalTo: emptyStateContainer.leadingAnchor, constant: 30),
+            emptyStateLabel.trailingAnchor.constraint(equalTo: emptyStateContainer.trailingAnchor, constant: -30),
+            emptyStateLabel.bottomAnchor.constraint(equalTo: emptyStateContainer.bottomAnchor, constant: -40)
+        ]
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -341,22 +367,6 @@ class LifeandSoulViewController: UIViewController {
             calculateButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
             calculateButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
             calculateButton.heightAnchor.constraint(equalToConstant: 60),
-            
-            // Empty State
-            emptyStateContainer.topAnchor.constraint(equalTo: calculateButton.bottomAnchor, constant: 30),
-            emptyStateContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            emptyStateContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            emptyStateContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
-            
-            emptyStateImageView.topAnchor.constraint(equalTo: emptyStateContainer.topAnchor, constant: 40),
-            emptyStateImageView.centerXAnchor.constraint(equalTo: emptyStateContainer.centerXAnchor),
-            emptyStateImageView.widthAnchor.constraint(equalToConstant: 80),
-            emptyStateImageView.heightAnchor.constraint(equalToConstant: 80),
-            
-            emptyStateLabel.topAnchor.constraint(equalTo: emptyStateImageView.bottomAnchor, constant: 30),
-            emptyStateLabel.leadingAnchor.constraint(equalTo: emptyStateContainer.leadingAnchor, constant: 30),
-            emptyStateLabel.trailingAnchor.constraint(equalTo: emptyStateContainer.trailingAnchor, constant: -30),
-            emptyStateLabel.bottomAnchor.constraint(equalTo: emptyStateContainer.bottomAnchor, constant: -40),
             
             lifeCardContainer.topAnchor.constraint(equalTo: calculateButton.bottomAnchor, constant: 40),
             lifeCardContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
@@ -425,6 +435,9 @@ class LifeandSoulViewController: UIViewController {
         emptyStateContainer.alpha = 1.0
         lifeCardContainer.alpha = 0
         soulCardContainer.alpha = 0
+        
+        // Activate empty state constraints
+        NSLayoutConstraint.activate(emptyStateConstraints)
         
         // Add pulsing animation to icon
         addPulsingAnimation(to: emptyStateImageView)
@@ -501,6 +514,44 @@ class LifeandSoulViewController: UIViewController {
             return
         }
         
+        // IMMEDIATE HIDE - before any removal
+        emptyStateContainer.alpha = 0
+        emptyStateContainer.isHidden = true
+        
+        // Force layout update
+        view.layoutIfNeeded()
+        
+        // Completely remove empty state
+        NSLayoutConstraint.deactivate(emptyStateConstraints)
+        emptyStateConstraints.removeAll()
+        
+        // Remove all sublayers
+        emptyStateContainer.layer.sublayers?.removeAll()
+        emptyStateImageView.layer.sublayers?.removeAll()
+        emptyStateLabel.layer.sublayers?.removeAll()
+        
+        // Stop all animations
+        emptyStateImageView.layer.removeAllAnimations()
+        emptyStateContainer.layer.removeAllAnimations()
+        emptyStateLabel.layer.removeAllAnimations()
+        
+        // Clear all layer properties
+        emptyStateContainer.layer.borderWidth = 0
+        emptyStateContainer.layer.borderColor = nil
+        emptyStateContainer.layer.shadowOpacity = 0
+        emptyStateContainer.layer.masksToBounds = true
+        
+        // Clear gradient reference
+        emptyStateGradientLayer = nil
+        
+        // Remove from hierarchy
+        emptyStateImageView.removeFromSuperview()
+        emptyStateLabel.removeFromSuperview()
+        emptyStateContainer.removeFromSuperview()
+        
+        // Force another layout update
+        view.layoutIfNeeded()
+        
         // Clear previous results
         lifeCardContainer.subviews.forEach { $0.removeFromSuperview() }
         soulCardContainer.subviews.forEach { $0.removeFromSuperview() }
@@ -514,14 +565,6 @@ class LifeandSoulViewController: UIViewController {
         
         // Create Soul Card View
         createCardView(in: soulCardContainer, card: soulCard, type: "Soul Card", number: soulNum)
-        
-        // Hide empty state and show results
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-            self.emptyStateContainer.alpha = 0
-        }, completion: { _ in
-            self.emptyStateContainer.isHidden = true
-            self.emptyStateContainer.removeFromSuperview()
-        })
         
         // Animate appearance
         UIView.animate(withDuration: 0.6, delay: 0.2, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5) {

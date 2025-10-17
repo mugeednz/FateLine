@@ -159,6 +159,53 @@ class NumerologyViewController: UIViewController {
         return button
     }()
     
+    // Empty State
+    private let emptyStateContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 20
+        view.clipsToBounds = true
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
+        return view
+    }()
+    
+    private let emptyStateImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage.numerology
+        imageView.tintColor = .white.withAlphaComponent(0.6)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow
+        imageView.layer.shadowColor = UIColor.white.cgColor
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        imageView.layer.shadowRadius = 4
+        imageView.layer.shadowOpacity = 0.8
+        imageView.layer.masksToBounds = false
+        
+        return imageView
+    }()
+    
+    private let emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Enter your full name and tap Calculate to discover your life path number"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .white.withAlphaComponent(0.7)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow
+        label.layer.shadowColor = UIColor.white.cgColor
+        label.layer.shadowOffset = CGSize(width: 0, height: 0)
+        label.layer.shadowRadius = 10
+        label.layer.shadowOpacity = 0.5
+        label.layer.masksToBounds = false
+        
+        return label
+    }()
+    
     // Result Container
     private let resultContainer: UIView = {
         let view = UIView()
@@ -174,7 +221,11 @@ class NumerologyViewController: UIViewController {
     
     private var inputGradientLayer: CAGradientLayer?
     private var buttonGradientLayer: CAGradientLayer?
+    private var emptyStateGradientLayer: CAGradientLayer?
     private var resultGradientLayer: CAGradientLayer?
+    
+    // Store empty state constraints to deactivate later
+    private var emptyStateConstraints: [NSLayoutConstraint] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -182,6 +233,7 @@ class NumerologyViewController: UIViewController {
         setupGradientBackground()
         setupUI()
         setupKeyboardHandling()
+        setupInitialState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -194,6 +246,12 @@ class NumerologyViewController: UIViewController {
         gradientLayer?.frame = view.bounds
         inputGradientLayer?.frame = inputContainer.bounds
         buttonGradientLayer?.frame = calculateButton.bounds
+        
+        // Only update empty state gradient if it exists and is in hierarchy
+        if emptyStateGradientLayer != nil && emptyStateContainer.superview != nil {
+            emptyStateGradientLayer?.frame = emptyStateContainer.bounds
+        }
+        
         resultGradientLayer?.frame = resultContainer.bounds
     }
     
@@ -225,10 +283,33 @@ class NumerologyViewController: UIViewController {
         inputContainer.addSubview(firstNameTextField)
         inputContainer.addSubview(lastNameTextField)
         contentView.addSubview(calculateButton)
+        contentView.addSubview(emptyStateContainer)
         contentView.addSubview(resultContainer)
+        
+        emptyStateContainer.addSubview(emptyStateImageView)
+        emptyStateContainer.addSubview(emptyStateLabel)
         
         setupInputGradient()
         setupButtonGradient()
+        setupEmptyStateGradient()
+        
+        // Store empty state constraints
+        emptyStateConstraints = [
+            emptyStateContainer.topAnchor.constraint(equalTo: calculateButton.bottomAnchor, constant: 30),
+            emptyStateContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            emptyStateContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            emptyStateContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
+            
+            emptyStateImageView.topAnchor.constraint(equalTo: emptyStateContainer.topAnchor, constant: 40),
+            emptyStateImageView.centerXAnchor.constraint(equalTo: emptyStateContainer.centerXAnchor),
+            emptyStateImageView.widthAnchor.constraint(equalToConstant: 80),
+            emptyStateImageView.heightAnchor.constraint(equalToConstant: 80),
+            
+            emptyStateLabel.topAnchor.constraint(equalTo: emptyStateImageView.bottomAnchor, constant: 30),
+            emptyStateLabel.leadingAnchor.constraint(equalTo: emptyStateContainer.leadingAnchor, constant: 30),
+            emptyStateLabel.trailingAnchor.constraint(equalTo: emptyStateContainer.trailingAnchor, constant: -30),
+            emptyStateLabel.bottomAnchor.constraint(equalTo: emptyStateContainer.bottomAnchor, constant: -40)
+        ]
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -319,6 +400,45 @@ class NumerologyViewController: UIViewController {
         calculateButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         calculateButton.layer.shadowRadius = 20
         calculateButton.layer.shadowOpacity = 0.8
+    }
+    
+    private func setupEmptyStateGradient() {
+        let gradient = CAGradientLayer()
+        gradient.frame = emptyStateContainer.bounds
+        gradient.colors = [
+            UIColor(hex: "2d1b3d").withAlphaComponent(0.4).cgColor,
+            UIColor(hex: "4a1e4f").withAlphaComponent(0.3).cgColor
+        ]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        gradient.cornerRadius = 20
+        gradient.masksToBounds = true
+        emptyStateContainer.layer.insertSublayer(gradient, at: 0)
+        emptyStateGradientLayer = gradient
+    }
+    
+    private func setupInitialState() {
+        // Show empty state, hide results
+        emptyStateContainer.alpha = 1.0
+        resultContainer.alpha = 0
+        resultContainer.isHidden = true
+        
+        // Activate empty state constraints
+        NSLayoutConstraint.activate(emptyStateConstraints)
+        
+        // Add pulsing animation to icon
+        addPulsingAnimation(to: emptyStateImageView)
+    }
+    
+    private func addPulsingAnimation(to view: UIView) {
+        let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
+        pulseAnimation.duration = 2.0
+        pulseAnimation.fromValue = 1.0
+        pulseAnimation.toValue = 1.15
+        pulseAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        pulseAnimation.autoreverses = true
+        pulseAnimation.repeatCount = .infinity
+        view.layer.add(pulseAnimation, forKey: "pulse")
     }
     
     private func setupKeyboardHandling() {
@@ -412,6 +532,44 @@ class NumerologyViewController: UIViewController {
     
     private func displayResult(number: Int) {
         guard let meaning = numberMeanings[number] else { return }
+        
+        // IMMEDIATE HIDE - before any removal
+        emptyStateContainer.alpha = 0
+        emptyStateContainer.isHidden = true
+        
+        // Force layout update
+        view.layoutIfNeeded()
+        
+        // Completely remove empty state
+        NSLayoutConstraint.deactivate(emptyStateConstraints)
+        emptyStateConstraints.removeAll()
+        
+        // Remove all sublayers
+        emptyStateContainer.layer.sublayers?.removeAll()
+        emptyStateImageView.layer.sublayers?.removeAll()
+        emptyStateLabel.layer.sublayers?.removeAll()
+        
+        // Stop all animations
+        emptyStateImageView.layer.removeAllAnimations()
+        emptyStateContainer.layer.removeAllAnimations()
+        emptyStateLabel.layer.removeAllAnimations()
+        
+        // Clear all layer properties
+        emptyStateContainer.layer.borderWidth = 0
+        emptyStateContainer.layer.borderColor = nil
+        emptyStateContainer.layer.shadowOpacity = 0
+        emptyStateContainer.layer.masksToBounds = true
+        
+        // Clear gradient reference
+        emptyStateGradientLayer = nil
+        
+        // Remove from hierarchy
+        emptyStateImageView.removeFromSuperview()
+        emptyStateLabel.removeFromSuperview()
+        emptyStateContainer.removeFromSuperview()
+        
+        // Force another layout update
+        view.layoutIfNeeded()
         
         // Clear previous content
         resultContainer.subviews.forEach { $0.removeFromSuperview() }
