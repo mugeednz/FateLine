@@ -32,7 +32,7 @@ class OnboardingSecondViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "FateLine"
+        label.text = "FateLine".translate
         label.font = UIFont.systemFont(ofSize: 38, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -51,7 +51,7 @@ class OnboardingSecondViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Your personal guide to self-discovery"
+        label.text = "Your personal guide to self-discovery".translate
         label.font = UIFont.systemFont(ofSize: 20, weight: .light)
         label.textColor = .white.withAlphaComponent(0.85)
         label.textAlignment = .center
@@ -89,11 +89,11 @@ class OnboardingSecondViewController: UIViewController {
     }()
     
     private let features = [
-        "Unlimited Tarot Readings",
-        "Advanced Zodiac Compatibility",
-        "Life & Soul Card Insights",
-        "Spirit Animal Discovery",
-        "Deep Numerology Analysis"
+        "Unlimited Tarot Readings".translate,
+        "Advanced Zodiac Compatibility".translate,
+        "Life & Soul Card Insights".translate,
+        "Spirit Animal Discovery".translate,
+        "Deep Numerology Analysis".translate
     ]
     
     private var currentFeatureIndex = 0
@@ -101,7 +101,7 @@ class OnboardingSecondViewController: UIViewController {
     
     private let readyButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Get Started", for: .normal)
+        button.setTitle("Get Started".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         button.layer.cornerRadius = 26

@@ -21,18 +21,18 @@ class NumerologyViewController: UIViewController {
     ]
     
     private let numberMeanings: [Int: (title: String, description: String, keywords: [String])] = [
-        1: ("The Leader", "You are independent, pioneering, and ambitious. Natural-born leader with strong willpower and determination. You create your own path and inspire others to follow.", ["Leadership", "Independence", "Ambition"]),
-        2: ("The Peacemaker", "You are diplomatic, cooperative, and intuitive. You bring harmony to relationships and have a gift for understanding others. Your sensitivity is your strength.", ["Harmony", "Cooperation", "Intuition"]),
-        3: ("The Creative", "You are expressive, optimistic, and creative. Communication and self-expression come naturally to you. You bring joy and inspiration wherever you go.", ["Creativity", "Expression", "Joy"]),
-        4: ("The Builder", "You are practical, organized, and hardworking. You build strong foundations and value stability. Your dedication and reliability make dreams reality.", ["Stability", "Organization", "Dedication"]),
-        5: ("The Adventurer", "You are freedom-loving, adaptable, and curious. You thrive on change and new experiences. Your energy and versatility inspire exploration.", ["Freedom", "Adventure", "Versatility"]),
-        6: ("The Nurturer", "You are caring, responsible, and compassionate. Family and community are important to you. Your love and support heal and uplift others.", ["Love", "Responsibility", "Compassion"]),
-        7: ("The Seeker", "You are analytical, spiritual, and introspective. You seek truth and understanding. Your wisdom comes from deep inner knowing.", ["Wisdom", "Spirituality", "Analysis"]),
-        8: ("The Achiever", "You are powerful, ambitious, and successful. Material and professional success come naturally. Your strength lies in manifesting abundance.", ["Success", "Power", "Abundance"]),
-        9: ("The Humanitarian", "You are compassionate, generous, and idealistic. You care deeply about the world and serve others. Your wisdom and empathy inspire change.", ["Compassion", "Service", "Wisdom"]),
-        11: ("The Master Intuitive", "You are highly intuitive, spiritual, and inspirational. As a master number, you have great potential for enlightenment and spiritual leadership. Trust your inner vision.", ["Intuition", "Inspiration", "Enlightenment"]),
-        22: ("The Master Builder", "You are a practical visionary with the ability to turn dreams into reality on a grand scale. As a master number, you can create lasting legacies that benefit humanity.", ["Mastery", "Vision", "Legacy"]),
-        33: ("The Master Teacher", "You are the master teacher and spiritual guide. Your purpose is to uplift humanity through love, compassion, and selfless service. You embody unconditional love.", ["Teaching", "Service", "Unconditional Love"])
+        1: ("The Leader".translate, "You are independent, pioneering, and ambitious. Natural-born leader with strong willpower and determination. You create your own path and inspire others to follow.".translate, ["Leadership".translate, "Independence".translate, "Ambition".translate]),
+        2: ("The Peacemaker".translate, "You are diplomatic, cooperative, and intuitive. You bring harmony to relationships and have a gift for understanding others. Your sensitivity is your strength.".translate, ["Harmony".translate, "Cooperation".translate, "Intuition".translate]),
+        3: ("The Creative".translate, "You are expressive, optimistic, and creative. Communication and self-expression come naturally to you. You bring joy and inspiration wherever you go.".translate, ["Creativity".translate, "Expression".translate, "Joy".translate]),
+        4: ("The Builder".translate, "You are practical, organized, and hardworking. You build strong foundations and value stability. Your dedication and reliability make dreams reality.".translate, ["Stability".translate, "Organization".translate, "Dedication".translate]),
+        5: ("The Adventurer".translate, "You are freedom-loving, adaptable, and curious. You thrive on change and new experiences. Your energy and versatility inspire exploration.".translate, ["Freedom".translate, "Adventure".translate, "Versatility".translate]),
+        6: ("The Nurturer".translate, "You are caring, responsible, and compassionate. Family and community are important to you. Your love and support heal and uplift others.".translate, ["Love".translate, "Responsibility".translate, "Compassion".translate]),
+        7: ("The Seeker".translate, "You are analytical, spiritual, and introspective. You seek truth and understanding. Your wisdom comes from deep inner knowing.".translate, ["Wisdom".translate, "Spirituality".translate, "Analysis".translate]),
+        8: ("The Achiever".translate, "You are powerful, ambitious, and successful. Material and professional success come naturally. Your strength lies in manifesting abundance.".translate, ["Success".translate, "Power".translate, "Abundance".translate]),
+        9: ("The Humanitarian".translate, "You are compassionate, generous, and idealistic. You care deeply about the world and serve others. Your wisdom and empathy inspire change.".translate, ["Compassion".translate, "Service".translate, "Wisdom".translate]),
+        11: ("The Master Intuitive".translate, "You are highly intuitive, spiritual, and inspirational. As a master number, you have great potential for enlightenment and spiritual leadership. Trust your inner vision.".translate, ["Intuition".translate, "Inspiration".translate, "Enlightenment".translate]),
+        22: ("The Master Builder".translate, "You are a practical visionary with the ability to turn dreams into reality on a grand scale. As a master number, you can create lasting legacies that benefit humanity.".translate, ["Mastery".translate, "Vision".translate, "Legacy".translate]),
+        33: ("The Master Teacher".translate, "You are the master teacher and spiritual guide. Your purpose is to uplift humanity through love, compassion, and selfless service. You embody unconditional love.".translate, ["Teaching".translate, "Service".translate, "Unconditional Love".translate])
     ]
     
     // MARK: - UI Components
@@ -66,7 +66,7 @@ class NumerologyViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Numerology"
+        label.text = "Numerology".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -83,7 +83,7 @@ class NumerologyViewController: UIViewController {
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Discover your life path number"
+        label.text = "Discover your life path number".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
@@ -111,12 +111,12 @@ class NumerologyViewController: UIViewController {
     
     private let firstNameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "First Name"
+        textField.placeholder = "First Name".translate
         textField.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         textField.textColor = .white
         textField.textAlignment = .center
         textField.attributedPlaceholder = NSAttributedString(
-            string: "First Name",
+            string: "First Name".translate,
             attributes: [.foregroundColor: UIColor.white.withAlphaComponent(0.5)]
         )
         textField.autocapitalizationType = .words
@@ -127,12 +127,12 @@ class NumerologyViewController: UIViewController {
     
     private let lastNameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Last Name"
+        textField.placeholder = "Last Name".translate
         textField.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         textField.textColor = .white
         textField.textAlignment = .center
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Last Name",
+            string: "Last Name".translate,
             attributes: [.foregroundColor: UIColor.white.withAlphaComponent(0.5)]
         )
         textField.autocapitalizationType = .words
@@ -143,7 +143,7 @@ class NumerologyViewController: UIViewController {
     
     private let calculateButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Calculate My Number", for: .normal)
+        button.setTitle("Calculate My Number".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         button.layer.cornerRadius = 25
@@ -189,7 +189,7 @@ class NumerologyViewController: UIViewController {
     
     private let emptyStateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Enter your full name and tap Calculate to discover your life path number"
+        label.text = "Enter your full name and tap Calculate to discover your life path number".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = .white.withAlphaComponent(0.7)
         label.textAlignment = .center
@@ -507,7 +507,7 @@ class NumerologyViewController: UIViewController {
     @objc private func calculateButtonTapped() {
         guard let firstName = firstNameTextField.text, !firstName.isEmpty,
               let lastName = lastNameTextField.text, !lastName.isEmpty else {
-            showAlert(title: "Missing Information", message: "Please enter both your first and last name.")
+            showAlert(title: "Missing Information".translate, message: "Please enter both your first and last name.".translate)
             return
         }
         
@@ -526,7 +526,7 @@ class NumerologyViewController: UIViewController {
     
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "OK".translate, style: .default))
         present(alert, animated: true)
     }
     
@@ -605,7 +605,7 @@ class NumerologyViewController: UIViewController {
         
         // Title
         let titleLabel = UILabel()
-        titleLabel.text = "Your Life Path Number"
+        titleLabel.text = "Your Life Path Number".translate
         titleLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         titleLabel.textColor = .white.withAlphaComponent(0.7)
         titleLabel.textAlignment = .center
@@ -625,7 +625,7 @@ class NumerologyViewController: UIViewController {
         
         // Meaning Title
         let meaningTitleLabel = UILabel()
-        meaningTitleLabel.text = meaning.title
+        meaningTitleLabel.text = meaning.title.translate
         meaningTitleLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         meaningTitleLabel.textColor = .white
         meaningTitleLabel.textAlignment = .center
@@ -639,7 +639,7 @@ class NumerologyViewController: UIViewController {
         
         // Keywords
         let keywordsLabel = UILabel()
-        keywordsLabel.text = meaning.keywords.joined(separator: " • ")
+        keywordsLabel.text = meaning.keywords.map { $0.translate }.joined(separator: " • ")
         keywordsLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         keywordsLabel.textColor = UIColor(hex: "d4a5ff")
         keywordsLabel.textAlignment = .center
@@ -654,7 +654,7 @@ class NumerologyViewController: UIViewController {
         
         // Description
         let descriptionLabel = UILabel()
-        descriptionLabel.text = meaning.description
+        descriptionLabel.text = meaning.description.translate
         descriptionLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         descriptionLabel.textColor = .white.withAlphaComponent(0.95)
         descriptionLabel.textAlignment = .center

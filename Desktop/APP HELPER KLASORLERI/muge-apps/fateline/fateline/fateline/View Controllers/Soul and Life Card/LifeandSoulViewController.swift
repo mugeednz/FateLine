@@ -60,7 +60,7 @@ class LifeandSoulViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Life & Soul Card"
+        label.text = "Life & Soul Card".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -77,7 +77,7 @@ class LifeandSoulViewController: UIViewController {
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Discover your spiritual essence"
+        label.text = "Discover your spiritual essence".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
@@ -105,7 +105,7 @@ class LifeandSoulViewController: UIViewController {
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Birth Date"
+        label.text = "Birth Date".translate
         label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -147,7 +147,7 @@ class LifeandSoulViewController: UIViewController {
     
     private let calculateButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Calculate My Cards", for: .normal)
+        button.setTitle("Calculate My Cards".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         button.layer.cornerRadius = 25
@@ -193,7 +193,7 @@ class LifeandSoulViewController: UIViewController {
     
     private let emptyStateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Select your birth date and tap Calculate to discover your spiritual cards"
+        label.text = "Select your birth date and tap Calculate to discover your spiritual cards".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = .white.withAlphaComponent(0.7)
         label.textAlignment = .center
@@ -561,10 +561,10 @@ class LifeandSoulViewController: UIViewController {
         setupCardGradient(for: soulCardContainer, gradientLayer: &soulCardGradientLayer, color1: "2d1530", color2: "4a1e4f")
         
         // Create Life Card View
-        createCardView(in: lifeCardContainer, card: lifeCard, type: "Life Card", number: lifeNum)
+        createCardView(in: lifeCardContainer, card: lifeCard, type: "Life Card".translate, number: lifeNum)
         
         // Create Soul Card View
-        createCardView(in: soulCardContainer, card: soulCard, type: "Soul Card", number: soulNum)
+        createCardView(in: soulCardContainer, card: soulCard, type: "Soul Card".translate, number: soulNum)
         
         // Animate appearance
         UIView.animate(withDuration: 0.6, delay: 0.2, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5) {
@@ -619,7 +619,7 @@ class LifeandSoulViewController: UIViewController {
         
         // Card Number
         let numberLabel = UILabel()
-        numberLabel.text = "Card \(number)"
+        numberLabel.text = "\("Card".translate) \(number)"
         numberLabel.font = UIFont.systemFont(ofSize: 48, weight: .semibold)
         numberLabel.textColor = .white
         numberLabel.textAlignment = .center
@@ -632,7 +632,7 @@ class LifeandSoulViewController: UIViewController {
         
         // Card Name
         let nameLabel = UILabel()
-        nameLabel.text = card.name
+        nameLabel.text = card.name.translate
         nameLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         nameLabel.textColor = .white
         nameLabel.textAlignment = .center
@@ -646,14 +646,14 @@ class LifeandSoulViewController: UIViewController {
         
         // Element
         let elementLabel = UILabel()
-        elementLabel.text = "✦ \(card.element) ✦"
+        elementLabel.text = "✦ \(card.element.translate) ✦"
         elementLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         elementLabel.textColor = UIColor(hex: "d4a5ff")
         elementLabel.textAlignment = .center
         
         // Keywords
         let keywordsLabel = UILabel()
-        keywordsLabel.text = card.keywords.joined(separator: " • ")
+        keywordsLabel.text = card.keywords.map { $0.translate }.joined(separator: " • ")
         keywordsLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         keywordsLabel.textColor = UIColor(hex: "d4a5ff")
         keywordsLabel.textAlignment = .center
@@ -667,7 +667,7 @@ class LifeandSoulViewController: UIViewController {
         
         // Message
         let messageLabel = UILabel()
-        messageLabel.text = type == "Life Card" ? card.life_message : card.soul_message
+        messageLabel.text = (type == "Life Card" ? card.life_message : card.soul_message).translate
         messageLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         messageLabel.textColor = .white.withAlphaComponent(0.95)
         messageLabel.textAlignment = .left

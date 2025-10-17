@@ -58,7 +58,7 @@ class ZodiacViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Zodiac Compatibility"
+        label.text = "Zodiac Compatibility".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
         label.numberOfLines = 0
@@ -76,7 +76,7 @@ class ZodiacViewController: UIViewController {
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Discover your cosmic connection"
+        label.text = "Discover your cosmic connection".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
@@ -104,7 +104,7 @@ class ZodiacViewController: UIViewController {
     
     private let maleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Male Sign"
+        label.text = "Male Sign".translate
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -114,7 +114,7 @@ class ZodiacViewController: UIViewController {
     
     private let maleSignButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Select Sign", for: .normal)
+        button.setTitle("Select Sign".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         button.layer.cornerRadius = 15
@@ -143,7 +143,7 @@ class ZodiacViewController: UIViewController {
     
     private let femaleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Female Sign"
+        label.text = "Female Sign".translate
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -153,7 +153,7 @@ class ZodiacViewController: UIViewController {
     
     private let femaleSignButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Select Sign", for: .normal)
+        button.setTitle("Select Sign".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         button.layer.cornerRadius = 15
@@ -240,7 +240,7 @@ class ZodiacViewController: UIViewController {
     
     private let compatibilityLabel: UILabel = {
         let label = UILabel()
-        label.text = "Compatibility Score"
+        label.text = "Compatibility Score".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.7)
         label.textAlignment = .center
@@ -288,7 +288,7 @@ class ZodiacViewController: UIViewController {
     
     private let emptyStateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Select both zodiac signs to discover your cosmic compatibility"
+        label.text = "Select both zodiac signs to discover your cosmic compatibility".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = .white.withAlphaComponent(0.7)
         label.textAlignment = .center
@@ -610,7 +610,7 @@ class ZodiacViewController: UIViewController {
             return
         }
         
-        showCompatibilityResults(score: compatibility.score, description: compatibility.description)
+        showCompatibilityResults(score: compatibility.score, description: compatibility.description.translate)
     }
     
     private func showCompatibilityResults(score: Int, description: String) {

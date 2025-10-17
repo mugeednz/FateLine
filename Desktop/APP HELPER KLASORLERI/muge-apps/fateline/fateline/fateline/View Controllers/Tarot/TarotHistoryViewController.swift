@@ -33,7 +33,7 @@ class TarotHistoryViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Reading History"
+        label.text = "Reading History".translate
         label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
@@ -51,7 +51,7 @@ class TarotHistoryViewController: UIViewController {
     
     private let emptyStateLabel: UILabel = {
         let label = UILabel()
-        label.text = "No readings yet\n✨ Start your first reading ✨"
+        label.text = "No readings yet\n✨ Start your first reading ✨".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.textColor = .white.withAlphaComponent(0.7)
         label.textAlignment = .center
@@ -198,7 +198,7 @@ extension TarotHistoryViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, completionHandler in
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete".translate) { [weak self] _, _, completionHandler in
             guard let self = self else { return }
             let reading = self.readings[indexPath.row]
             TarotReadingManager.shared.deleteReading(id: reading.id)
@@ -334,7 +334,7 @@ class TarotHistoryCell: UITableViewCell {
         dateLabel.text = formatter.string(from: reading.date)
         
         // Set question
-        questionLabel.text = reading.question.isEmpty ? "General Reading" : reading.question
+        questionLabel.text = reading.question.isEmpty ? "General Reading".translate : reading.question
         
         // Set cards (first 3)
         let cardText = reading.cardNames.prefix(3).joined(separator: " • ")

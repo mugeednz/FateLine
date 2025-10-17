@@ -33,12 +33,12 @@ class PremiumViewController: UIViewController {
     }
     
     private let features = [
-        "Unlimited Tarot Readings",
-        "Advanced Zodiac Compatibility",
-        "Life & Soul Card Insights",
-        "Spirit Animal Discovery",
-        "Deep Numerology Analysis",
-        "Exclusive Premium Content"
+        "Unlimited Tarot Readings".translate,
+        "Advanced Zodiac Compatibility".translate,
+        "Life & Soul Card Insights".translate,
+        "Spirit Animal Discovery".translate,
+        "Deep Numerology Analysis".translate,
+        "Exclusive Premium Content".translate
     ]
     
     // MARK: - UI Components
@@ -76,7 +76,7 @@ class PremiumViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Premium"
+        label.text = "Premium".translate
         label.font = UIFont.systemFont(ofSize: isSmallScreen ? 30 : 38, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
@@ -94,7 +94,7 @@ class PremiumViewController: UIViewController {
     
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Experience the full mystical journey"
+        label.text = "Experience the full mystical journey".translate
         label.font = UIFont.systemFont(ofSize: isSmallScreen ? 14 : 17, weight: .regular)
         label.textColor = .white.withAlphaComponent(0.7)
         label.textAlignment = .center
@@ -141,7 +141,7 @@ class PremiumViewController: UIViewController {
     
     private lazy var subscribeButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Continue", for: .normal)
+        button.setTitle("Continue".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: isSmallScreen ? 20 : 24, weight: .bold)
         let cornerRadius: CGFloat = isSmallScreen ? 24 : 28
@@ -194,7 +194,7 @@ class PremiumViewController: UIViewController {
     
     private let termsButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Terms", for: .normal)
+        button.setTitle("Terms".translate, for: .normal)
         button.setTitleColor(.white.withAlphaComponent(0.6), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -203,7 +203,7 @@ class PremiumViewController: UIViewController {
     
     private let privacyButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Privacy", for: .normal)
+        button.setTitle("Privacy".translate, for: .normal)
         button.setTitleColor(.white.withAlphaComponent(0.6), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -212,7 +212,7 @@ class PremiumViewController: UIViewController {
     
     private let restoreButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Restore Purchases", for: .normal)
+        button.setTitle("Restore Purchases".translate, for: .normal)
         button.setTitleColor(.white.withAlphaComponent(0.7), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -305,8 +305,8 @@ class PremiumViewController: UIViewController {
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            closeButton.widthAnchor.constraint(equalToConstant: 44),
-            closeButton.heightAnchor.constraint(equalToConstant: 44),
+            closeButton.widthAnchor.constraint(equalToConstant: 25),
+            closeButton.heightAnchor.constraint(equalToConstant: 25),
             
             crownImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: crownTop),
             crownImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -403,18 +403,18 @@ class PremiumViewController: UIViewController {
     
     private func setupPlans() {
         weeklyPlanCard.configure(
-            title: "Weekly",
+            title: "Weekly".translate,
             price: "",
-            period: "per week",
+            period: "per week".translate,
             badge: nil,
             isSelected: selectedPlan == .weekly
         )
         
         yearlyPlanCard.configure(
-            title: "Yearly",
+            title: "Yearly".translate,
             price: "",
-            period: "per year",
-            badge: "BEST VALUE - Save 50%",
+            period: "per year".translate,
+            badge: "BEST VALUE - Save 50%".translate,
             isSelected: selectedPlan == .yearly
         )
     }
@@ -486,7 +486,7 @@ class PremiumViewController: UIViewController {
     
     @objc private func subscribeButtonTapped() {
         guard let product = getProduct() else {
-            showAlert(title: "Error", message: "Product not available")
+            showAlert(title: "Error".translate, message: "Product not available".translate)
             return
         }
         GlobalHelper.hudShow(self)
@@ -510,7 +510,7 @@ class PremiumViewController: UIViewController {
     
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK".translate, style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
@@ -531,13 +531,13 @@ class PremiumViewController: UIViewController {
 extension PremiumViewController: SubscriptionOperator {
     func premiumVersionRestored() {
         GlobalHelper.hudDismiss()
-        showAlert(title: "Success", message: "Your purchases have been restored")
+        showAlert(title: "Success".translate, message: "Your purchases have been restored".translate)
         dismiss(animated: true)
     }
     
     func purchasesDisabledOnDevice() {
         GlobalHelper.hudDismiss()
-        showAlert(title: "Error", message: "Purchases are disabled on this device.")
+        showAlert(title: "Error".translate, message: "Purchases are disabled on this device.".translate)
     }
     
     func setPurchasingProducts(_ purchasingProducts: [PurchasingProduct]) {
@@ -548,7 +548,7 @@ extension PremiumViewController: SubscriptionOperator {
     
     func premiumProductPurchased() {
         GlobalHelper.hudDismiss()
-        showAlert(title: "Success", message: "Welcome to Premium!")
+        showAlert(title: "Success".translate, message: "Welcome to Premium!".translate)
         dismiss(animated: true)
     }
     
@@ -562,7 +562,7 @@ extension PremiumViewController: SubscriptionOperator {
     
     func fetchingProductFailure() {
         GlobalHelper.hudDismiss()
-        showAlert(title: "Error", message: "Failed to fetch products.")
+        showAlert(title: "Error".translate, message: "Failed to fetch products.".translate)
     }
     
     func setPrice() {
@@ -576,19 +576,19 @@ extension PremiumViewController: SubscriptionOperator {
                 let doublePrice = calculateDoublePrice(from: yearlyPrice)
                 
                 yearlyPlanCard.configure(
-                    title: "Yearly",
+                    title: "Yearly".translate,
                     price: yearlyPrice.isEmpty ? "" : yearlyPrice,
-                    period: "per year",
-                    badge: "BEST VALUE - Save 50% - \(doublePrice)",
+                    period: "per year".translate,
+                    badge: "BEST VALUE - Save 50%".translate + " - \(doublePrice)",
                     isSelected: selectedPlan == .yearly
                 )
                 print("🔵 Yearly price set: \(yearlyPrice), Double: \(doublePrice)")
             } else if product.productIdentifier == ChoosenPremium.weekly.rawValue {
                 weeklyPrice = product.productPrice
                 weeklyPlanCard.configure(
-                    title: "Weekly",
+                    title: "Weekly".translate,
                     price: weeklyPrice.isEmpty ? "" : weeklyPrice,
-                    period: "per week",
+                    period: "per week".translate,
                     badge: nil,
                     isSelected: selectedPlan == .weekly
                 )

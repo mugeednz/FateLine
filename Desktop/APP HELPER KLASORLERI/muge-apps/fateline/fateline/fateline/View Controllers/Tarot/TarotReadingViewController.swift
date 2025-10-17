@@ -64,7 +64,7 @@ class TarotReadingViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Choose Your Cards"
+        label.text = "Choose Your Cards".translate
         label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
@@ -82,7 +82,7 @@ class TarotReadingViewController: UIViewController {
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Select 5 cards that call to you"
+        label.text = "Select 5 cards that call to you".translate
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
@@ -113,7 +113,7 @@ class TarotReadingViewController: UIViewController {
     
     private let questionTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "What guidance do you seek from the cards?"
+        textView.text = "What guidance do you seek from the cards?".translate
         textView.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         textView.textColor = .white.withAlphaComponent(0.7)
         textView.backgroundColor = .clear
@@ -127,7 +127,7 @@ class TarotReadingViewController: UIViewController {
     
     private let readCardsButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Read My Cards", for: .normal)
+        button.setTitle("Read My Cards".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         button.layer.cornerRadius = 25
@@ -168,7 +168,7 @@ class TarotReadingViewController: UIViewController {
             updateButtonState()
             
             // Reset question text to placeholder
-            questionTextView.text = "What guidance do you seek from the cards?"
+            questionTextView.text = "What guidance do you seek from the cards?".translate
             questionTextView.textColor = .white.withAlphaComponent(0.7)
         }
     }
@@ -368,9 +368,9 @@ class TarotReadingViewController: UIViewController {
         // Update subtitle
         let remainingSelections = maxSelections - selectedCards.count
         if remainingSelections > 0 {
-            subtitleLabel.text = "Select \(remainingSelections) more card\(remainingSelections == 1 ? "" : "s")"
+            subtitleLabel.text = "\("Select".translate) \(remainingSelections) \("more card".translate)\(remainingSelections == 1 ? "" : "s")"
         } else {
-            subtitleLabel.text = "Perfect! Now ask your question"
+            subtitleLabel.text = "Perfect! Now ask your question".translate
         }
     }
     
@@ -418,7 +418,7 @@ class TarotReadingViewController: UIViewController {
         }
         
         // Navigate to results screen
-        let question = questionTextView.text == "What guidance do you seek from the cards?" ? "" : questionTextView.text
+        let question = questionTextView.text == "What guidance do you seek from the cards?".translate ? "" : questionTextView.text
         
         // Save reading to history
         let reading = TarotReading(question: question ?? "", cards: selectedCardMeanings)
@@ -477,7 +477,7 @@ extension TarotReadingViewController: UICollectionViewDelegate {
 // MARK: - UITextViewDelegate
 extension TarotReadingViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "What guidance do you seek from the cards?" {
+        if textView.text == "What guidance do you seek from the cards?".translate {
             textView.text = ""
             textView.textColor = .white
         }
@@ -485,7 +485,7 @@ extension TarotReadingViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "What guidance do you seek from the cards?"
+            textView.text = "What guidance do you seek from the cards?".translate
             textView.textColor = .white.withAlphaComponent(0.7)
         }
     }

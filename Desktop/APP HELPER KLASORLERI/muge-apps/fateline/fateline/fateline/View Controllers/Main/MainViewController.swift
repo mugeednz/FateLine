@@ -29,19 +29,19 @@ class MainViewController: UIViewController {
     
     private let features: [Feature] = [
         // Banner card (promotional)
-        Feature(title: "Discover Your Destiny", emoji: nil, imageName: "tarot_deck_onboarding", gradientColors: ["3d1f4f", "5d2f77"], size: .banner),
+        Feature(title: "Discover Your Destiny".translate, emoji: nil, imageName: "tarot_deck_onboarding", gradientColors: ["3d1f4f", "5d2f77"], size: .banner),
         // Feature cards (all equal size - 5 main features)
-        Feature(title: "Tarot Reading", emoji: nil, imageName: "tarot", gradientColors: ["3d1f4f", "5d2f77"], size: .feature),
-        Feature(title: "Zodiac Compatibility", emoji: nil, imageName: "zodiac_cell", gradientColors: ["2d1b3d", "4a1e4f"], size: .feature),
-        Feature(title: "Life & Soul Card", emoji: "🃏", imageName: nil, gradientColors: ["2d1530", "4a1e4f"], size: .feature),
-        Feature(title: "Spirit Animal", emoji: nil, imageName: "sprit_animal", gradientColors: ["1f0f2e", "3d1f4f"], size: .feature),
-        Feature(title: "Numerology", emoji: nil, imageName: "numerology", gradientColors: ["150a1e", "2d1530"], size: .feature)
+        Feature(title: "Tarot Reading".translate, emoji: nil, imageName: "tarot", gradientColors: ["3d1f4f", "5d2f77"], size: .feature),
+        Feature(title: "Zodiac Compatibility".translate, emoji: nil, imageName: "zodiac_cell", gradientColors: ["2d1b3d", "4a1e4f"], size: .feature),
+        Feature(title: "Life & Soul Card".translate, emoji: "🃏", imageName: nil, gradientColors: ["2d1530", "4a1e4f"], size: .feature),
+        Feature(title: "Spirit Animal".translate, emoji: nil, imageName: "sprit_animal", gradientColors: ["1f0f2e", "3d1f4f"], size: .feature),
+        Feature(title: "Numerology".translate, emoji: nil, imageName: "numerology", gradientColors: ["150a1e", "2d1530"], size: .feature)
     ]
     
     // MARK: - UI Components
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "FateLine"
+        label.text = "FateLine".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
@@ -217,19 +217,19 @@ extension MainViewController: UICollectionViewDelegate {
         
         // Feature cards - navigate to respective screens
         switch feature.title {
-        case "Tarot Reading":
+        case "Tarot Reading".translate:
             let tarotVC = TarotReadingViewController()
             navigationController?.pushViewController(tarotVC, animated: true)
-        case "Zodiac Compatibility":
+        case "Zodiac Compatibility".translate:
             let zodiacVC = ZodiacViewController()
             navigationController?.pushViewController(zodiacVC, animated: true)
-        case "Life & Soul Card":
+        case "Life & Soul Card".translate:
             let lifeSoulVC = LifeandSoulViewController()
             navigationController?.pushViewController(lifeSoulVC, animated: true)
-        case "Spirit Animal":
+        case "Spirit Animal".translate:
             let animalVC = AnimalsViewController()
             navigationController?.pushViewController(animalVC, animated: true)
-        case "Numerology":
+        case "Numerology".translate:
             let numerologyVC = NumerologyViewController()
             navigationController?.pushViewController(numerologyVC, animated: true)
         default:
@@ -485,7 +485,7 @@ class FeatureCell: UICollectionViewCell {
         // Configure subtitle and styling for banner
         if isBanner {
             subtitleLabel.isHidden = false
-            subtitleLabel.text = "Explore all mystical features"
+            subtitleLabel.text = "Explore all mystical features".translate
             
             // Adjust icon size and position for banner
             iconImageView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)

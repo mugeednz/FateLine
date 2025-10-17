@@ -14,17 +14,17 @@ class SettingsViewController: UIViewController {
     private let tableView = UITableView()
     
     private let settingsItems = [
-        SettingsItem(title: "Get Premium", icon: "crown.fill", iconColor: UIColor(hex: "FFD700"), action: .premium),
-        SettingsItem(title: "Privacy Policy", icon: "lock.shield", iconColor: UIColor(hex: "9B59D0"), action: .privacy),
-        SettingsItem(title: "Terms of Service", icon: "doc.text", iconColor: UIColor(hex: "B084CC"), action: .terms),
-        SettingsItem(title: "Contact Us", icon: "envelope.fill", iconColor: UIColor(hex: "D4A5FF"), action: .contact),
-        SettingsItem(title: "Rate Us", icon: "star.fill", iconColor: UIColor(hex: "FFA500"), action: .rate)
+        SettingsItem(title: "Get Premium".translate, icon: "crown.fill", iconColor: UIColor(hex: "FFD700"), action: .premium),
+        SettingsItem(title: "Privacy Policy".translate, icon: "lock.shield", iconColor: UIColor(hex: "9B59D0"), action: .privacy),
+        SettingsItem(title: "Terms of Service".translate, icon: "doc.text", iconColor: UIColor(hex: "B084CC"), action: .terms),
+        SettingsItem(title: "Contact Us".translate, icon: "envelope.fill", iconColor: UIColor(hex: "D4A5FF"), action: .contact),
+        SettingsItem(title: "Rate Us".translate, icon: "star.fill", iconColor: UIColor(hex: "FFA500"), action: .rate)
     ]
     
     // MARK: - UI Components
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Settings"
+        label.text = "Settings".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center

@@ -45,6 +45,7 @@
 		B63D6D7C2EA0F84200299BF7 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = B63D6D7B2EA0F84200299BF7 /* FacebookCore */; };
 		B63D6D802EA13C8400299BF7 /* TarotHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D7F2EA13C8400299BF7 /* TarotHistoryViewController.swift */; };
 		B63D6D822EA13D8500299BF7 /* TarotReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D812EA13D8500299BF7 /* TarotReading.swift */; };
+		B63D6D832EA2715A00299BF7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B63D6D812EA2715A00299BF7 /* Localizable.strings */; };
 		B63D6D842EA13F5600299BF7 /* ZodiacPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D832EA13F5600299BF7 /* ZodiacPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,7 +89,9 @@
 		B63D6D782EA0F73100299BF7 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		B63D6D7F2EA13C8400299BF7 /* TarotHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotHistoryViewController.swift; sourceTree = "<group>"; };
 		B63D6D812EA13D8500299BF7 /* TarotReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotReading.swift; sourceTree = "<group>"; };
+		B63D6D822EA2715A00299BF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B63D6D832EA13F5600299BF7 /* ZodiacPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacPickerViewController.swift; sourceTree = "<group>"; };
+		B63D6D842EA2825B00299BF7 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,7 @@
 				B62D19922E940C9C00A0BC30 /* View Controllers */,
 				B62D19912E940C9300A0BC30 /* Resources */,
 				B62D19822E9409DC00A0BC30 /* Info.plist */,
+				B63D6D812EA2715A00299BF7 /* Localizable.strings */,
 			);
 			path = fateline;
 			sourceTree = "<group>";
@@ -393,6 +397,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = B62D195F2E9409BA00A0BC30;
 			minimizedProjectReferenceProxies = 1;
@@ -420,6 +425,7 @@
 				B62D19CB2E96682F00A0BC30 /* burclar.json in Resources */,
 				B62D198C2E9409DC00A0BC30 /* LaunchScreen.storyboard in Resources */,
 				B62D19A62E96629200A0BC30 /* Quintessential-Regular.ttf in Resources */,
+				B63D6D832EA2715A00299BF7 /* Localizable.strings in Resources */,
 				B63D6D632E9D885A00299BF7 /* onboarding_space.mp4 in Resources */,
 				B62D198D2E9409DC00A0BC30 /* Main.storyboard in Resources */,
 				B63D6D732E9E933700299BF7 /* soulandlife.json in Resources */,
@@ -524,6 +530,15 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		B63D6D812EA2715A00299BF7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B63D6D822EA2715A00299BF7 /* en */,
+				B63D6D842EA2825B00299BF7 /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -600,6 +615,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -663,6 +679,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

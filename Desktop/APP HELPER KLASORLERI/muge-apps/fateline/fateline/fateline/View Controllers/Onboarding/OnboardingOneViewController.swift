@@ -32,7 +32,7 @@ class OnboardingOneViewController: UIViewController {
     
     private let welcomeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Welcome to FateLine"
+        label.text = "Welcome to FateLine".translate
         label.font = UIFont.systemFont(ofSize: 38, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -51,7 +51,7 @@ class OnboardingOneViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Unlock the mysteries of your destiny through tarot, numerology, and cosmic wisdom"
+        label.text = "Unlock the mysteries of your destiny through tarot, numerology, and cosmic wisdom".translate
         label.font = UIFont.systemFont(ofSize: 17, weight: .light)
         label.textColor = .white.withAlphaComponent(0.85)
         label.textAlignment = .center
@@ -86,7 +86,7 @@ class OnboardingOneViewController: UIViewController {
     
     private let startButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Continue", for: .normal)
+        button.setTitle("Continue".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         button.layer.cornerRadius = 26

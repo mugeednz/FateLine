@@ -62,7 +62,7 @@ class TarotResultsViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Your Reading"
+        label.text = "Your Reading".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -226,7 +226,7 @@ class TarotResultsViewController: UIViewController {
     private func displayResults() {
         // Set question text
         if question.isEmpty {
-            questionLabel.text = "The cards have spoken..."
+            questionLabel.text = "The cards have spoken...".translate
         } else {
             questionLabel.text = "\"" + question + "\""
         }
@@ -283,14 +283,14 @@ class TarotResultsViewController: UIViewController {
         
         // Position label
         let positionLabel = UILabel()
-        positionLabel.text = "Card \(position)"
+        positionLabel.text = "\("Card".translate) \(position)"
         positionLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         positionLabel.textColor = .white.withAlphaComponent(0.7)
         positionLabel.textAlignment = .center
         
         // Card name
         let nameLabel = UILabel()
-        nameLabel.text = card.name
+        nameLabel.text = card.name.translate
         nameLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         nameLabel.textColor = .white
         nameLabel.textAlignment = .center
@@ -318,7 +318,7 @@ class TarotResultsViewController: UIViewController {
         
         // Meaning label
         let meaningLabel = UILabel()
-        meaningLabel.text = card.upright
+        meaningLabel.text = card.upright.translate
         meaningLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         meaningLabel.textColor = .white.withAlphaComponent(0.9)
         meaningLabel.textAlignment = .left
@@ -445,8 +445,8 @@ class TarotResultsViewController: UIViewController {
         
         shareText += "Cards:\n"
         for (index, card) in cards.enumerated() {
-            shareText += "\(index + 1). \(card.name)\n"
-            shareText += "   \(card.upright)\n\n"
+            shareText += "\(index + 1). \(card.name.translate)\n"
+            shareText += "   \(card.upright.translate)\n\n"
         }
         
         shareText += "✨ Read with FateLine ✨"

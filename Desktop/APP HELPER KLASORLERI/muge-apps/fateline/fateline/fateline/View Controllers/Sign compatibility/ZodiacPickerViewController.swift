@@ -43,7 +43,7 @@ class ZodiacPickerViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Select Zodiac Sign"
+        label.text = "Select Zodiac Sign".translate
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.7)
         label.textAlignment = .center
@@ -62,7 +62,7 @@ class ZodiacPickerViewController: UIViewController {
     
     private let cancelButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Cancel", for: .normal)
+        button.setTitle("Cancel".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -273,7 +273,7 @@ class ZodiacSignCell: UITableViewCell {
     }
     
     func configure(name: String, emoji: String) {
-        nameLabel.text = name
+        nameLabel.text = name.translate
         emojiLabel.text = emoji
     }
     
