@@ -20,20 +20,22 @@ class NumerologyViewController: UIViewController {
         "S": 1, "T": 2, "U": 3, "V": 4, "W": 5, "X": 6, "Y": 7, "Z": 8
     ]
     
-    private let numberMeanings: [Int: (title: String, description: String, keywords: [String])] = [
-        1: ("The Leader".translate, "You are independent, pioneering, and ambitious. Natural-born leader with strong willpower and determination. You create your own path and inspire others to follow.".translate, ["Leadership".translate, "Independence".translate, "Ambition".translate]),
-        2: ("The Peacemaker".translate, "You are diplomatic, cooperative, and intuitive. You bring harmony to relationships and have a gift for understanding others. Your sensitivity is your strength.".translate, ["Harmony".translate, "Cooperation".translate, "Intuition".translate]),
-        3: ("The Creative".translate, "You are expressive, optimistic, and creative. Communication and self-expression come naturally to you. You bring joy and inspiration wherever you go.".translate, ["Creativity".translate, "Expression".translate, "Joy".translate]),
-        4: ("The Builder".translate, "You are practical, organized, and hardworking. You build strong foundations and value stability. Your dedication and reliability make dreams reality.".translate, ["Stability".translate, "Organization".translate, "Dedication".translate]),
-        5: ("The Adventurer".translate, "You are freedom-loving, adaptable, and curious. You thrive on change and new experiences. Your energy and versatility inspire exploration.".translate, ["Freedom".translate, "Adventure".translate, "Versatility".translate]),
-        6: ("The Nurturer".translate, "You are caring, responsible, and compassionate. Family and community are important to you. Your love and support heal and uplift others.".translate, ["Love".translate, "Responsibility".translate, "Compassion".translate]),
-        7: ("The Seeker".translate, "You are analytical, spiritual, and introspective. You seek truth and understanding. Your wisdom comes from deep inner knowing.".translate, ["Wisdom".translate, "Spirituality".translate, "Analysis".translate]),
-        8: ("The Achiever".translate, "You are powerful, ambitious, and successful. Material and professional success come naturally. Your strength lies in manifesting abundance.".translate, ["Success".translate, "Power".translate, "Abundance".translate]),
-        9: ("The Humanitarian".translate, "You are compassionate, generous, and idealistic. You care deeply about the world and serve others. Your wisdom and empathy inspire change.".translate, ["Compassion".translate, "Service".translate, "Wisdom".translate]),
-        11: ("The Master Intuitive".translate, "You are highly intuitive, spiritual, and inspirational. As a master number, you have great potential for enlightenment and spiritual leadership. Trust your inner vision.".translate, ["Intuition".translate, "Inspiration".translate, "Enlightenment".translate]),
-        22: ("The Master Builder".translate, "You are a practical visionary with the ability to turn dreams into reality on a grand scale. As a master number, you can create lasting legacies that benefit humanity.".translate, ["Mastery".translate, "Vision".translate, "Legacy".translate]),
-        33: ("The Master Teacher".translate, "You are the master teacher and spiritual guide. Your purpose is to uplift humanity through love, compassion, and selfless service. You embody unconditional love.".translate, ["Teaching".translate, "Service".translate, "Unconditional Love".translate])
-    ]
+    private var numberMeanings: [Int: (title: String, description: String, keywords: [String])] {
+        return [
+            1: ("The Leader".translate, "You are independent, pioneering, and ambitious. Natural-born leader with strong willpower and determination. You create your own path and inspire others to follow.".translate, ["Leadership".translate, "Independence".translate, "Ambition".translate]),
+            2: ("The Peacemaker".translate, "You are diplomatic, cooperative, and intuitive. You bring harmony to relationships and have a gift for understanding others. Your sensitivity is your strength.".translate, ["Harmony".translate, "Cooperation".translate, "Intuition".translate]),
+            3: ("The Creative".translate, "You are expressive, optimistic, and creative. Communication and self-expression come naturally to you. You bring joy and inspiration wherever you go.".translate, ["Creativity".translate, "Expression".translate, "Joy".translate]),
+            4: ("The Builder".translate, "You are practical, organized, and hardworking. You build strong foundations and value stability. Your dedication and reliability make dreams reality.".translate, ["Stability".translate, "Organization".translate, "Dedication".translate]),
+            5: ("The Adventurer".translate, "You are freedom-loving, adaptable, and curious. You thrive on change and new experiences. Your energy and versatility inspire exploration.".translate, ["Freedom".translate, "Adventure".translate, "Versatility".translate]),
+            6: ("The Nurturer".translate, "You are caring, responsible, and compassionate. Family and community are important to you. Your love and support heal and uplift others.".translate, ["Love".translate, "Responsibility".translate, "Compassion".translate]),
+            7: ("The Seeker".translate, "You are analytical, spiritual, and introspective. You seek truth and understanding. Your wisdom comes from deep inner knowing.".translate, ["Wisdom".translate, "Spirituality".translate, "Analysis".translate]),
+            8: ("The Achiever".translate, "You are powerful, ambitious, and successful. Material and professional success come naturally. Your strength lies in manifesting abundance.".translate, ["Success".translate, "Power".translate, "Abundance".translate]),
+            9: ("The Humanitarian".translate, "You are compassionate, generous, and idealistic. You care deeply about the world and serve others. Your wisdom and empathy inspire change.".translate, ["Compassion".translate, "Service".translate, "Wisdom".translate]),
+            11: ("The Master Intuitive".translate, "You are highly intuitive, spiritual, and inspirational. As a master number, you have great potential for enlightenment and spiritual leadership. Trust your inner vision.".translate, ["Intuition".translate, "Inspiration".translate, "Enlightenment".translate]),
+            22: ("The Master Builder".translate, "You are a practical visionary with the ability to turn dreams into reality on a grand scale. As a master number, you can create lasting legacies that benefit humanity.".translate, ["Mastery".translate, "Vision".translate, "Legacy".translate]),
+            33: ("The Master Teacher".translate, "You are the master teacher and spiritual guide. Your purpose is to uplift humanity through love, compassion, and selfless service. You embody unconditional love.".translate, ["Teaching".translate, "Service".translate, "Unconditional Love".translate])
+        ]
+    }
     
     // MARK: - UI Components
     private let scrollView: UIScrollView = {

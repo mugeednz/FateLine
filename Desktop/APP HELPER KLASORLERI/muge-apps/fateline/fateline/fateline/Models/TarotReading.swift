@@ -18,7 +18,7 @@ struct TarotReading: Codable {
     init(question: String, cards: [TarotCard]) {
         self.id = UUID().uuidString
         self.date = Date()
-        self.question = question.isEmpty ? "General Reading" : question
+        self.question = question.isEmpty ? "General Reading".translate : question
         self.cardIds = cards.map { $0.id }
         self.cardNames = cards.map { $0.name }
         self.cardMeanings = cards.map { $0.upright }

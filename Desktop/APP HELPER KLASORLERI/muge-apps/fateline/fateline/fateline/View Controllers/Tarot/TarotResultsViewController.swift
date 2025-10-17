@@ -305,7 +305,7 @@ class TarotResultsViewController: UIViewController {
         
         // Arcana type
         let arcanaLabel = UILabel()
-        arcanaLabel.text = card.arcana
+        arcanaLabel.text = card.arcana.translate
         arcanaLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         arcanaLabel.textColor = .white.withAlphaComponent(0.6)
         arcanaLabel.textAlignment = .center
@@ -326,7 +326,7 @@ class TarotResultsViewController: UIViewController {
         
         // Keywords
         let keywordsLabel = UILabel()
-        let keywordsText = card.keywords.prefix(5).joined(separator: " • ")
+        let keywordsText = card.keywords.prefix(5).map { $0.translate }.joined(separator: " • ")
         keywordsLabel.text = "✨ " + keywordsText
         keywordsLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         keywordsLabel.textColor = UIColor(hex: "d4a5ff")

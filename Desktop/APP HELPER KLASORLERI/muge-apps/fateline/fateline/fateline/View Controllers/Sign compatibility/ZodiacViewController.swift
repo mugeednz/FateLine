@@ -593,10 +593,10 @@ class ZodiacViewController: UIViewController {
         switch gender {
         case .male:
             selectedMaleSign = sign
-            maleSignButton.setTitle(sign, for: .normal)
+            maleSignButton.setTitle(sign.translate, for: .normal)
         case .female:
             selectedFemaleSign = sign
-            femaleSignButton.setTitle(sign, for: .normal)
+            femaleSignButton.setTitle(sign.translate, for: .normal)
         }
         
         checkAndShowCompatibility()

@@ -368,7 +368,8 @@ class TarotReadingViewController: UIViewController {
         // Update subtitle
         let remainingSelections = maxSelections - selectedCards.count
         if remainingSelections > 0 {
-            subtitleLabel.text = "\("Select".translate) \(remainingSelections) \("more card".translate)\(remainingSelections == 1 ? "" : "s")"
+            let format = remainingSelections == 1 ? "Select 1 more card".translate : "Select %d more cards".translate
+            subtitleLabel.text = String(format: format, remainingSelections)
         } else {
             subtitleLabel.text = "Perfect! Now ask your question".translate
         }

@@ -28,6 +28,138 @@
 "Spirit Animal" = "Ruh Hayvanı";
 "Numerology" = "Numeroloji";
 
+// MARK: - Tarot Reading Strings
+"Choose Your Cards" = "Kartlarınızı Seçin";
+"Select 5 cards that call to you" = "Size seslenen 5 kartı seçin";
+"Select 1 more card" = "1 kart daha seçin";
+"Select %d more cards" = "%d kart daha seçin";
+"Perfect! Now ask your question" = "Mükemmel! Şimdi sorunuzu sorun";
+"What guidance do you seek from the cards?" = "Kartlardan ne tür bir rehberlik arıyorsunuz?";
+"Read My Cards" = "Kartlarımı Oku";
+"Your Reading" = "Yorumunuz";
+"The cards have spoken..." = "Kartlar konuştu...";
+"Card" = "Kart";
+"General Reading" = "Genel Yorum";
+"Reading History" = "Yorum Geçmişi";
+"No readings yet\n✨ Start your first reading ✨" = "Henüz yorum yok\n✨ İlk yorumunuzu başlatın ✨";
+"Delete" = "Sil";
+
+// MARK: - Zodiac Strings
+"Male Sign" = "Erkek Burcu";
+"Female Sign" = "Kadın Burcu";
+"Select Sign" = "Burç Seçin";
+"Compatibility Score" = "Uyum Puanı";
+"Discover your cosmic connection" = "Kozmik bağınızı keşfedin";
+"Select both zodiac signs to discover your cosmic compatibility" = "Kozmik uyumunuzu keşfetmek için her iki burcu seçin";
+"Select Zodiac Sign" = "Burç Seçin";
+"Cancel" = "İptal";
+"Aries" = "Koç";
+"Taurus" = "Boğa";
+"Gemini" = "İkizler";
+"Cancer" = "Yengeç";
+"Leo" = "Aslan";
+"Virgo" = "Başak";
+"Libra" = "Terazi";
+"Scorpio" = "Akrep";
+"Sagittarius" = "Yay";
+"Capricorn" = "Oğlak";
+"Aquarius" = "Kova";
+"Pisces" = "Balık";
+
+// MARK: - Numerology Strings
+"Discover your life path number" = "Hayat yolu numaranızı keşfedin";
+"First Name" = "Ad";
+"Last Name" = "Soyad";
+"Calculate My Number" = "Numaramı Hesapla";
+"Your Life Path Number" = "Hayat Yolu Numaranız";
+"The Leader" = "Lider";
+"The Peacemaker" = "Barışçıl";
+"The Creative" = "Yaratıcı";
+"The Builder" = "İnşacı";
+"The Adventurer" = "Maceracı";
+"The Nurturer" = "Besleyici";
+"The Seeker" = "Arayan";
+"The Achiever" = "Başarılı";
+"The Humanitarian" = "İnsancıl";
+"The Master Intuitive" = "Usta Sezgisel";
+"The Master Builder" = "Usta İnşacı";
+"The Master Teacher" = "Usta Öğretmen";
+"You are independent, pioneering, and ambitious. Natural-born leader with strong willpower and determination. You create your own path and inspire others to follow." = "Bağımsız, öncü ve hırslısınız. Güçlü irade ve kararlılığa sahip doğuştan lidersiniz. Kendi yolunuzu yaratır ve başkalarına ilham verirsiniz.";
+"You are diplomatic, cooperative, and intuitive. You bring harmony to relationships and have a gift for understanding others. Your sensitivity is your strength." = "Diplomatik, işbirlikçi ve sezgiselsiniz. İlişkilere uyum getirirsiniz ve başkalarını anlama yeteneğiniz vardır. Hassasiyetiniz gücünüzdür.";
+"You are expressive, optimistic, and creative. Communication and self-expression come naturally to you. You bring joy and inspiration wherever you go." = "İfade edici, iyimser ve yaratıcısınız. İletişim ve kendini ifade etmek size doğal gelir. Gittiğiniz her yere neşe ve ilham getirirsiniz.";
+"You are practical, organized, and hardworking. You build strong foundations and value stability. Your dedication and reliability make dreams reality." = "Pratik, organize ve çalışkansınız. Güçlü temeller kurarsınız ve istikrara değer verirsiniz. Bağlılığınız ve güvenilirliğiniz hayalleri gerçekleştirir.";
+"You are freedom-loving, adaptable, and curious. You thrive on change and new experiences. Your energy and versatility inspire exploration." = "Özgürlük seven, uyumlu ve meraklısınız. Değişim ve yeni deneyimlerle gelişirsiniz. Enerjiniz ve çok yönlülüğünüz keşfi teşvik eder.";
+"You are caring, responsible, and compassionate. Family and community are important to you. Your love and support heal and uplift others." = "Sevecen, sorumlu ve şefkatlisiniz. Aile ve topluluk sizin için önemlidir. Sevginiz ve desteğiniz başkalarını iyileştirir ve yükseltir.";
+"You are analytical, spiritual, and introspective. You seek truth and understanding. Your wisdom comes from deep inner knowing." = "Analitik, ruhsal ve içe dönüksinüz. Gerçek ve anlayış ararsınız. Bilgeliğiniz derin iç bilgiden gelir.";
+"You are powerful, ambitious, and successful. Material and professional success come naturally. Your strength lies in manifesting abundance." = "Güçlü, hırslı ve başarılısınız. Maddi ve profesyonel başarı doğal olarak gelir. Gücünüz bolluğu tezahür ettirmede yatar.";
+"You are compassionate, generous, and idealistic. You care deeply about the world and serve others. Your wisdom and empathy inspire change." = "Şefkatli, cömert ve idealistsiniz. Dünyayı derinden önemsersiniz ve başkalarına hizmet edersiniz. Bilgeliğiniz ve empatiniz değişimi teşvik eder.";
+"You are highly intuitive, spiritual, and inspirational. As a master number, you have great potential for enlightenment and spiritual leadership. Trust your inner vision." = "Son derece sezgisel, ruhsal ve ilham vericisiniz. Usta bir numara olarak aydınlanma ve ruhsal liderlik için büyük potansiyeliniz vardır. İç görünüze güvenin.";
+"You are a practical visionary with the ability to turn dreams into reality on a grand scale. As a master number, you can create lasting legacies that benefit humanity." = "Hayalleri büyük ölçekte gerçeğe dönüştürme yeteneğine sahip pratik bir vizyonersiniz. Usta bir numara olarak insanlığa fayda sağlayan kalıcı miraslar yaratabilirsiniz.";
+"You are the master teacher and spiritual guide. Your purpose is to uplift humanity through love, compassion, and selfless service. You embody unconditional love." = "Usta öğretmen ve ruhsal rehbersiniz. Amacınız insanlığı sevgi, şefkat ve özverili hizmet yoluyla yüceltmektir. Koşulsuz sevgiyi temsil edersiniz.";
+"Independence" = "Bağımsızlık";
+"Ambition" = "Hırs";
+"Cooperation" = "İşbirliği";
+"Expression" = "İfade";
+"Joy" = "Neşe";
+"Stability" = "İstikrar";
+"Organization" = "Organizasyon";
+"Dedication" = "Bağlılık";
+"Adventure" = "Macera";
+"Versatility" = "Çok yönlülük";
+"Love" = "Sevgi";
+"Responsibility" = "Sorumluluk";
+"Spirituality" = "Maneviyat";
+"Analysis" = "Analiz";
+"Success" = "Başarı";
+"Service" = "Hizmet";
+"Inspiration" = "İlham";
+"Enlightenment" = "Aydınlanma";
+"Mastery" = "Ustalık";
+"Vision" = "Vizyon";
+"Legacy" = "Miras";
+"Teaching" = "Öğretmenlik";
+"Unconditional Love" = "Koşulsuz Sevgi";
+"Enter your full name and tap Calculate to discover your life path number" = "Hayat yolu numaranızı keşfetmek için tam adınızı girin ve Hesapla'ya dokunun";
+"Missing Information" = "Eksik Bilgi";
+"Please enter both your first and last name." = "Lütfen hem adınızı hem de soyadınızı girin.";
+"OK" = "Tamam";
+
+// MARK: - Life & Soul Card Strings
+"Discover your spiritual essence" = "Ruhsal özünüzü keşfedin";
+"Birth Date" = "Doğum Tarihi";
+"Calculate My Cards" = "Kartlarımı Hesapla";
+"Life Card" = "Hayat Kartı";
+"Soul Card" = "Ruh Kartı";
+"Select your birth date and tap Calculate to discover your spiritual cards" = "Ruhsal kartlarınızı keşfetmek için doğum tarihinizi seçin ve Hesapla'ya dokunun";
+
+// MARK: - Settings Strings
+"Settings" = "Ayarlar";
+"Get Premium" = "Premium Alın";
+"Privacy Policy" = "Gizlilik Politikası";
+"Terms of Use" = "Kullanım Koşulları";
+"Contact Us" = "Bize Ulaşın";
+"Share App" = "Uygulamayı Paylaş";
+"Rate Us" = "Bizi Değerlendirin";
+
+// MARK: - Premium Strings
+"Premium" = "Premium";
+"Experience the full mystical journey" = "Tam mistik yolculuğu deneyimleyin";
+"Yearly" = "Yıllık";
+"per year" = "yıllık";
+"BEST VALUE - Save 50%" = "EN İYİ DEĞER - %50 Tasarruf";
+"Weekly" = "Haftalık";
+"per week" = "haftalık";
+"Terms" = "Koşullar";
+"Privacy" = "Gizlilik";
+"Restore Purchases" = "Satın Alımları Geri Yükle";
+"Error" = "Hata";
+"Product not available" = "Ürün mevcut değil";
+"Success" = "Başarılı";
+"Your purchases have been restored" = "Satın alımlarınız geri yüklendi";
+"Purchases are disabled on this device." = "Bu cihazda satın alımlar devre dışı.";
+"Welcome to Premium!" = "Premium'a Hoş Geldiniz!";
+"Failed to fetch products." = "Ürünler getirilemedi.";
+
 // MARK: - Tarot Card Names
 "The Fool" = "Deli";
 "The Magician" = "Büyücü";
@@ -1676,9 +1808,8 @@
 "Rate Us" = "Bizi Değerlendir";
 
 /* History */
-"Reading History" = "Okuma Geçmişi";
-"No readings yet\n✨ Start your first reading ✨" = "Henüz okuma yok\n✨ İlk okumanı başlat ✨";
-"General Reading" = "Genel Okuma";
+"Reading History" = "Yorum Geçmişi";
+"No readings yet\n✨ Start your first reading ✨" = "Henüz yorum yok\n✨ İlk yorumunuzu başlatın ✨";
 "Delete" = "Sil";
 
 /* Zodiac */
