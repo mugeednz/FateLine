@@ -513,6 +513,15 @@ class NumerologyViewController: UIViewController {
             return
         }
         
+        // Check if user is premium
+        if !GlobalHelper.isPremiumActive() {
+            // Show premium screen
+            let premiumVC = PremiumViewController()
+            premiumVC.modalPresentationStyle = .fullScreen
+            present(premiumVC, animated: true)
+            return
+        }
+        
         dismissKeyboard()
         
         let fullName = firstName + lastName

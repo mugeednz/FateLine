@@ -413,6 +413,15 @@ class TarotReadingViewController: UIViewController {
     @objc private func readCardsButtonTapped() {
         guard selectedCards.count == maxSelections else { return }
         
+        // Check if user is premium
+        if !GlobalHelper.isPremiumActive() {
+            // Show premium screen
+            let premiumVC = PremiumViewController()
+            premiumVC.modalPresentationStyle = .fullScreen
+            present(premiumVC, animated: true)
+            return
+        }
+        
         // Get selected card meanings
         let selectedCardMeanings = selectedCards.compactMap { cardId in
             tarotCards.first { $0.id == cardId }

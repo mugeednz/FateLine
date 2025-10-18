@@ -599,6 +599,15 @@ class AnimalsViewController: UIViewController {
     
     // MARK: - Result Display
     @objc private func revealButtonTapped() {
+        // Check if user is premium
+        if !GlobalHelper.isPremiumActive() {
+            // Show premium screen
+            let premiumVC = PremiumViewController()
+            premiumVC.modalPresentationStyle = .fullScreen
+            present(premiumVC, animated: true)
+            return
+        }
+        
         guard let topAnimal = animalScores.max(by: { $0.value < $1.value })?.key,
               let animal = spiritAnimals[topAnimal] else { return }
         
