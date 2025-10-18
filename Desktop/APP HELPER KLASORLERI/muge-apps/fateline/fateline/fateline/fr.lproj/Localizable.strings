@@ -1620,3 +1620,104 @@
 "Virgo is practical and cautious, while Sagittarius is adventurous and freedom-loving. Virgo may see Sagittarius as careless, while Sagittarius may find Virgo too restrictive. This pairing requires major compromise, but they can teach each other balance." = "La Vierge est pratique et prudente, tandis que le Sagittaire est aventureux et épris de liberté. La Vierge peut voir le Sagittaire comme insouciant, tandis que le Sagittaire peut trouver la Vierge trop restrictive. Cette paire exige des compromis majeurs, mais ils peuvent s'enseigner mutuellement l'équilibre.";
 "Virgo seeks order and predictability, while Aquarius thrives on innovation and unpredictability. Virgo may find Aquarius too detached, while Aquarius may view Virgo as too rigid. With effort, they can inspire each other to grow, but it is not always easy." = "La Vierge recherche l'ordre et la prévisibilité, tandis que le Verseau s'épanouit dans l'innovation et l'imprévisibilité. La Vierge peut trouver le Verseau trop détaché, tandis que le Verseau peut considérer la Vierge comme trop rigide. Avec des efforts, ils peuvent s'inspirer mutuellement à grandir, mais ce n'est pas toujours facile.";
 "Virgo values practicality, while Libra seeks balance and beauty. Virgo may find Libra indecisive, and Libra may see Virgo as overly critical. Still, they both appreciate harmony and can build a gentle relationship if they compromise on expectations." = "La Vierge valorise la praticité, tandis que la Balance recherche l'équilibre et la beauté. La Vierge peut trouver la Balance indécise, et la Balance peut voir la Vierge comme excessivement critique. Néanmoins, les deux apprécient l'harmonie et peuvent bâtir une relation douce s'ils font des compromis sur les attentes.";
+
+"I face it head-on with courage" = "Je l'affronte de front avec courage";
+/* Spirit Animal Questions & Answers */
+"When faced with a challenge, how do you typically respond?" = "Lorsque vous êtes confronté à un défi, comment réagissez-vous généralement ?";
+"I face it head-on with courage" = "Je l'affronte de front avec courage";
+"I think strategically before acting" = "Je réfléchis stratégiquement avant d'agir";
+"I rely on my strength and patience" = "Je compte sur ma force et ma patience";
+"I adapt and find creative solutions" = "Je m'adapte et trouve des solutions créatives";
+
+"What environment makes you feel most at peace?" = "Quel environnement vous apporte le plus de paix ?";
+"Wide open spaces and freedom" = "Grands espaces et liberté";
+"Mountains and forests" = "Montagnes et forêts";
+"Deep waters and mystery" = "Eaux profondes et mystère";
+"Quiet, grounded natural spaces" = "Espaces naturels calmes et enracinés";
+
+"How would your friends describe you?" = "Comment vos amis vous décriraient-ils ?";
+"Strong, protective leader" = "Leader fort et protecteur";
+"Wise, observant, and strategic" = "Sage, observateur et stratégique";
+"Loyal, steady, and dependable" = "Loyal, stable et fiable";
+"Fierce, focused, and determined" = "Féroce, concentré et déterminé";
+
+"What drives you most in life?" = "Qu'est-ce qui vous motive le plus dans la vie ?";
+"Achieving greatness and recognition" = "Atteindre la grandeur et la reconnaissance";
+"Protecting those I love" = "Protéger ceux que j'aime";
+"Personal transformation and growth" = "Transformation personnelle et croissance";
+"Stability and building foundations" = "Stabilité et construction de bases solides";
+
+"How do you handle conflict?" = "Comment gérez-vous les conflits ?";
+"I confront it directly and powerfully" = "Je l'affronte directement et avec puissance";
+"I observe and strike when ready" = "J'observe et je frappe quand je suis prêt";
+"I stay calm and seek peaceful resolution" = "Je reste calme et cherche une résolution pacifique";
+"I rise above and see the bigger picture" = "Je prends du recul et vois l'ensemble de la situation";
+
+"What is your greatest strength?" = "Quelle est votre plus grande force ?";
+"My courage and leadership" = "Mon courage et mon leadership";
+"My wisdom and insight" = "Ma sagesse et mon discernement";
+"My resilience and endurance" = "Ma résilience et mon endurance";
+"My focus and determination" = "Ma concentration et ma détermination";
+
+"What role do you naturally take in a group?" = "Quel rôle prenez-vous naturellement dans un groupe ?";
+"The confident leader everyone follows" = "Le leader confiant que tout le monde suit";
+"The wise advisor with clear vision" = "Le conseiller sage avec une vision claire";
+"The loyal protector of the team" = "Le protecteur loyal de l'équipe";
+"The focused achiever who gets results" = "Le performeur concentré qui obtient des résultats";
+
+"Question" = "Question";
+"of" = "de";
+
+
+/* Spirit Animal Names & Descriptions */
+"Lion" = "Lion";
+"You embody the spirit of the Lion — a natural-born leader with unwavering courage and regal confidence. You face challenges head-on and inspire others with your strength. Your presence commands respect, and you protect those you love fiercely." = "Vous incarnez l'esprit du Lion — un leader né avec un courage inébranlable et une confiance royale. Vous affrontez les défis de front et inspirez les autres par votre force. Votre présence impose le respect et vous protégez farouchement ceux que vous aimez.";
+
+"Bear" = "Ours";
+"Your spirit animal is the Bear — powerful, protective, and deeply connected to nature. You possess great inner strength and resilience. People feel safe around you, and you have a natural ability to heal and nurture those in need." = "Votre animal spirituel est l'Ours — puissant, protecteur et profondément connecté à la nature. Vous possédez une grande force intérieure et résilience. Les gens se sentent en sécurité autour de vous et vous avez une capacité naturelle à guérir et nourrir ceux qui en ont besoin.";
+
+"Bull" = "Taureau";
+"You carry the spirit of the Bull — grounded, determined, and incredibly powerful. Once you set your mind on something, nothing can stop you. You value stability and are a pillar of strength for others. Your patience is matched only by your power." = "Vous incarnez l'esprit du Taureau — enraciné, déterminé et incroyablement puissant. Une fois que vous vous concentrez sur quelque chose, rien ne peut vous arrêter. Vous appréciez la stabilité et êtes un pilier de force pour les autres. Votre patience n'a d'égale que votre puissance.";
+
+"Elephant" = "Éléphant";
+"The Elephant is your spiritual guide — wise, loyal, and deeply intuitive. You carry ancient wisdom and never forget those who matter to you. Your gentle strength and emotional intelligence make you a trusted confidant and powerful ally." = "L'Éléphant est votre guide spirituel — sage, loyal et profondément intuitif. Vous portez une sagesse ancienne et n'oubliez jamais ceux qui comptent pour vous. Votre force douce et votre intelligence émotionnelle font de vous un confident de confiance et un allié puissant.";
+
+"Gorilla" = "Gorille";
+"Your spirit resonates with the Gorilla — intelligent, social, and protective of your tribe. You balance great physical strength with emotional depth. Family and community are everything to you, and you lead with both power and compassion." = "Votre esprit résonne avec le Gorille — intelligent, sociable et protecteur de votre tribu. Vous combinez une grande force physique avec une profondeur émotionnelle. La famille et la communauté sont tout pour vous, et vous dirigez avec puissance et compassion.";
+
+"Tiger" = "Tigre";
+"The Tiger is your spiritual essence — fierce, focused, and unstoppable when pursuing your goals. You move with grace and strike with precision. Your independence is your power, and your passion fuels everything you do." = "Le Tigre est votre essence spirituelle — féroce, concentré et imparable dans la poursuite de vos objectifs. Vous bougez avec grâce et frappez avec précision. Votre indépendance est votre force, et votre passion alimente tout ce que vous entreprenez.";
+
+"Eagle" = "Aigle";
+"You soar with the spirit of the Eagle — visionary, free, and able to see what others cannot. You rise above challenges and view life from higher perspectives. Your clarity of vision and connection to spirit make you a natural guide for others." = "Vous planez avec l'esprit de l'Aigle — visionnaire, libre et capable de voir ce que les autres ne voient pas. Vous surmontez les défis et regardez la vie sous des perspectives élevées. Votre clarté de vision et votre connexion spirituelle font de vous un guide naturel pour les autres.";
+
+"Shark" = "Requin";
+"The Shark guides your spirit — efficient, focused, and constantly moving forward. You thrive in competitive environments and trust your instincts completely. Your determination and survival instincts make you a powerful force in any situation." = "Le Requin guide votre esprit — efficace, concentré et en mouvement constant. Vous prospérez dans des environnements compétitifs et faites entièrement confiance à vos instincts. Votre détermination et vos instincts de survie font de vous une force puissante en toute situation.";
+
+"Snake" = "Serpent";
+"Your soul connects with the Snake — transformative, intuitive, and deeply mystical. You continuously shed old versions of yourself and emerge renewed. Your healing abilities and connection to hidden wisdom make you a powerful spiritual guide." = "Votre âme se connecte avec le Serpent — transformateur, intuitif et profondément mystique. Vous abandonnez continuellement vos anciennes versions et émergez renouvelé. Vos capacités de guérison et votre connexion à la sagesse cachée font de vous un guide spirituel puissant.";
+
+/* Spirit Animal Traits */
+"Courage" = "Courage";
+"Leadership" = "Leadership";
+"Confidence" = "Confiance";
+"Strength" = "Force";
+"Protection" = "Protection";
+"Determination" = "Détermination";
+"Stability" = "Stabilité";
+"Wisdom" = "Sagesse";
+"Loyalty" = "Loyauté";
+"Memory" = "Mémoire";
+"Intelligence" = "Intelligence";
+"Community" = "Communauté";
+"Focus" = "Concentration";
+"Passion" = "Passion";
+"Independence" = "Indépendance";
+"Vision" = "Vision";
+"Freedom" = "Liberté";
+"Perspective" = "Perspective";
+"Survival" = "Survie";
+"Efficiency" = "Efficacité";
+"Transformation" = "Transformation";
+"Healing" = "Guérison";
+"Power" = "Puissance";

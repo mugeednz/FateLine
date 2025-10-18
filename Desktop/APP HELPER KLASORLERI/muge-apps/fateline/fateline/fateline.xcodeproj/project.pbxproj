@@ -93,6 +93,7 @@
 		B63D6D832EA13F5600299BF7 /* ZodiacPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacPickerViewController.swift; sourceTree = "<group>"; };
 		B63D6D842EA2825B00299BF7 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B63D6D862EA2DDE000299BF7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B63D6D872EA3964F00299BF7 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +401,7 @@
 				Base,
 				tr,
 				fr,
+				it,
 			);
 			mainGroup = B62D195F2E9409BA00A0BC30;
 			minimizedProjectReferenceProxies = 1;
@@ -538,6 +540,7 @@
 				B63D6D822EA2715A00299BF7 /* en */,
 				B63D6D842EA2825B00299BF7 /* tr */,
 				B63D6D862EA2DDE000299BF7 /* fr */,
+				B63D6D872EA3964F00299BF7 /* it */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
