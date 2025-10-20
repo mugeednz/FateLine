@@ -47,6 +47,7 @@
 		B63D6D822EA13D8500299BF7 /* TarotReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D812EA13D8500299BF7 /* TarotReading.swift */; };
 		B63D6D832EA2715A00299BF7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B63D6D812EA2715A00299BF7 /* Localizable.strings */; };
 		B63D6D842EA13F5600299BF7 /* ZodiacPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D832EA13F5600299BF7 /* ZodiacPickerViewController.swift */; };
+		B63D6D902EA5488E00299BF7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B63D6D8F2EA5488E00299BF7 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 				B63D6D792EA0F73100299BF7 /* AppTrackingTransparency.framework in Frameworks */,
 				B62D19BE2E96657200A0BC30 /* Localize_Swift in Frameworks */,
 				297D9A5898556245CC2B66C6 /* Pods_fateline.framework in Frameworks */,
+				B63D6D902EA5488E00299BF7 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +381,7 @@
 				B62D19BA2E96656600A0BC30 /* JGProgressHUD */,
 				B62D19BD2E96657200A0BC30 /* Localize_Swift */,
 				B63D6D7B2EA0F84200299BF7 /* FacebookCore */,
+				B63D6D8F2EA5488E00299BF7 /* IQKeyboardManagerSwift */,
 			);
 			productName = fateline;
 			productReference = B62D19682E9409BA00A0BC30 /* fateline.app */;
@@ -421,6 +424,7 @@
 				B62D19B92E96656600A0BC30 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				B62D19BC2E96657200A0BC30 /* XCRemoteSwiftPackageReference "Localize-Swift" */,
 				B63D6D7A2EA0F84200299BF7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				B63D6D8E2EA5488E00299BF7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B62D19692E9409BA00A0BC30 /* Products */;
@@ -803,6 +807,14 @@
 				minimumVersion = 14.1.0;
 			};
 		};
+		B63D6D8E2EA5488E00299BF7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -820,6 +832,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B63D6D7A2EA0F84200299BF7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookCore;
+		};
+		B63D6D8F2EA5488E00299BF7 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B63D6D8E2EA5488E00299BF7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

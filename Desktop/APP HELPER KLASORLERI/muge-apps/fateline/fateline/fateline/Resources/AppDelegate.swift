@@ -6,17 +6,49 @@
 //
 
 import UIKit
-
+//import FirebaseCore
+import IQKeyboardManagerSwift
+import FacebookCore
+import Purchases
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        Purchases.configure(withAPIKey: "your_revenuecat_api_key")
+//        FirebaseApp.configure()
+        IQKeyboardManager.shared.isEnabled = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.resignOnTouchOutside = true
+        // MARK: FacebookSDK Codes - with error handling
+        do {
+            ApplicationDelegate.shared.application(
+                application,
+                didFinishLaunchingWithOptions: launchOptions
+            )
+            print("✅ Facebook SDK initialized successfully")
+        } catch {
+            print("❌ Facebook SDK initialization failed: \(error)")
+        }
+        // -----------------
         return true
     }
-
+    
+    // MARK: FacebookSDK Codes
+    func application(
+        _ app: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+    ) -> Bool {
+        do {
+            return ApplicationDelegate.shared.application(app, open: url, options: options)
+        } catch {
+            print("❌ Facebook URL handling failed: \(error)")
+            return false
+        }
+    }
+    // -----------------
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
