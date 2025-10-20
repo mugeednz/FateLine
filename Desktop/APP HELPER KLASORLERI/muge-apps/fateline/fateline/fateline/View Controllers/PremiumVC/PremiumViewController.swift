@@ -410,12 +410,17 @@ class PremiumViewController: UIViewController {
             isSelected: selectedPlan == .weekly
         )
         
+        // Yıllık plan için x2 hesaplama
+        let yearlyPrice = ""
+        let doublePrice = calculateDoublePrice(from: yearlyPrice)
+        
         yearlyPlanCard.configure(
             title: "Yearly".translate,
-            price: "",
+            price: yearlyPrice,
             period: "per year".translate,
-            badge: "BEST VALUE - Save 50%".translate,
-            isSelected: selectedPlan == .yearly
+            badge: "BEST VALUE - Save 50%".translate + " - \(doublePrice)",
+            isSelected: selectedPlan == .yearly,
+            originalPrice: doublePrice  // Üstü çizili orijinal fiyat
         )
     }
     
@@ -580,7 +585,8 @@ extension PremiumViewController: SubscriptionOperator {
                     price: yearlyPrice.isEmpty ? "" : yearlyPrice,
                     period: "per year".translate,
                     badge: "BEST VALUE - Save 50%".translate + " - \(doublePrice)",
-                    isSelected: selectedPlan == .yearly
+                    isSelected: selectedPlan == .yearly,
+                    originalPrice: doublePrice  // Üstü çizili orijinal fiyat
                 )
                 print("🔵 Yearly price set: \(yearlyPrice), Double: \(doublePrice)")
             } else if product.productIdentifier == ChoosenPremium.weekly.rawValue {
@@ -656,6 +662,7 @@ class PlanCard: UIView {
     private let containerView = UIView()
     private let titleLabel = UILabel()
     private let priceLabel = UILabel()
+    private let originalPriceLabel = UILabel()  // Üstü çizili orijinal fiyat
     private let periodLabel = UILabel()
     private let badgeLabel = PaddedLabel()
     private let checkmarkImageView = UIImageView()
@@ -723,6 +730,12 @@ class PlanCard: UIView {
         priceLabel.textColor = .white
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        // Original Price (üstü çizili)
+        originalPriceLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        originalPriceLabel.textColor = .white.withAlphaComponent(0.6)
+        originalPriceLabel.translatesAutoresizingMaskIntoConstraints = false
+        originalPriceLabel.isHidden = true
+        
         // Period
         periodLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         periodLabel.textColor = .white.withAlphaComponent(0.7)
@@ -757,6 +770,7 @@ class PlanCard: UIView {
         
         addSubview(titleLabel)
         addSubview(priceLabel)
+        addSubview(originalPriceLabel)
         addSubview(periodLabel)
         addSubview(checkmarkImageView)
         addSubview(badgeLabel)  // Badge must be added LAST to be on top
@@ -765,26 +779,49 @@ class PlanCard: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             
-            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            priceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            // Checkmark üstte
+            checkmarkImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            checkmarkImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            checkmarkImageView.widthAnchor.constraint(equalToConstant: 28),
+            checkmarkImageView.heightAnchor.constraint(equalToConstant: 28),
             
-            periodLabel.trailingAnchor.constraint(equalTo: priceLabel.trailingAnchor),
+            // Fiyatlar checkmark'ın altında, yan yana
+            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            priceLabel.topAnchor.constraint(equalTo: checkmarkImageView.bottomAnchor, constant: 8),
+            
+            originalPriceLabel.trailingAnchor.constraint(equalTo: priceLabel.leadingAnchor, constant: -8),
+            originalPriceLabel.centerYAnchor.constraint(equalTo: priceLabel.centerYAnchor),
+            
+            periodLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             periodLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 2),
             
             badgeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            badgeLabel.topAnchor.constraint(equalTo: topAnchor, constant: -15),
-            
-            checkmarkImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            checkmarkImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-            checkmarkImageView.widthAnchor.constraint(equalToConstant: 28),
-            checkmarkImageView.heightAnchor.constraint(equalToConstant: 28)
+            badgeLabel.topAnchor.constraint(equalTo: topAnchor, constant: -15)
         ])
     }
     
-    func configure(title: String, price: String, period: String, badge: String?, isSelected: Bool) {
+    func configure(title: String, price: String, period: String, badge: String?, isSelected: Bool, originalPrice: String? = nil) {
         titleLabel.text = title
         priceLabel.text = price
         periodLabel.text = period
+        
+        // Üstü çizili orijinal fiyat (sadece yıllık plan için)
+        if let originalPrice = originalPrice {
+            originalPriceLabel.text = originalPrice
+            originalPriceLabel.isHidden = false
+            
+            // Üstü çizili stil
+            let attributedString = NSAttributedString(
+                string: originalPrice,
+                attributes: [
+                    .strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                    .strikethroughColor: UIColor.white.withAlphaComponent(0.6)
+                ]
+            )
+            originalPriceLabel.attributedText = attributedString
+        } else {
+            originalPriceLabel.isHidden = true
+        }
         
         if let badge = badge {
             badgeLabel.text = badge
