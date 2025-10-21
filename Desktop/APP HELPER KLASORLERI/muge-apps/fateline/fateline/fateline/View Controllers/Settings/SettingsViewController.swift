@@ -13,18 +13,12 @@ class SettingsViewController: UIViewController {
     private var gradientLayer: CAGradientLayer?
     private let tableView = UITableView()
     
-    private let settingsItems = [
-        SettingsItem(title: "Get Premium", icon: "crown.fill", iconColor: UIColor(hex: "FFD700"), action: .premium),
-        SettingsItem(title: "Privacy Policy", icon: "lock.shield", iconColor: UIColor(hex: "9B59D0"), action: .privacy),
-        SettingsItem(title: "Terms of Service", icon: "doc.text", iconColor: UIColor(hex: "B084CC"), action: .terms),
-        SettingsItem(title: "Contact Us", icon: "envelope.fill", iconColor: UIColor(hex: "D4A5FF"), action: .contact),
-        SettingsItem(title: "Rate Us", icon: "star.fill", iconColor: UIColor(hex: "FFA500"), action: .rate)
-    ]
+    private var settingsItems: [SettingsItem] = []
     
     // MARK: - UI Components
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Settings"
+        label.text = "Settings".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
@@ -58,6 +52,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGradientBackground()
+        setupSettingsItems()
         setupUI()
     }
     
@@ -67,6 +62,23 @@ class SettingsViewController: UIViewController {
     }
     
     // MARK: - Setup
+    private func setupSettingsItems() {
+        var items: [SettingsItem] = []
+        
+        // Only show "Get Premium" if user is not premium
+        if !GlobalHelper.isPremiumActive() {
+            items.append(SettingsItem(title: "Get Premium".translate, icon: "crown.fill", iconColor: UIColor(hex: "FFD700"), action: .premium))
+        }
+        
+        // Always show other items
+        items.append(SettingsItem(title: "Privacy Policy".translate, icon: "lock.shield", iconColor: UIColor(hex: "9B59D0"), action: .privacy))
+        items.append(SettingsItem(title: "Terms of Service".translate, icon: "doc.text", iconColor: UIColor(hex: "B084CC"), action: .terms))
+        items.append(SettingsItem(title: "Contact Us".translate, icon: "envelope.fill", iconColor: UIColor(hex: "D4A5FF"), action: .contact))
+        items.append(SettingsItem(title: "Rate Us".translate, icon: "star.fill", iconColor: UIColor(hex: "FFA500"), action: .rate))
+        
+        settingsItems = items
+    }
+    
     private func setupGradientBackground() {
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds

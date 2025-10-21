@@ -60,7 +60,7 @@ class LifeandSoulViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Life & Soul Card"
+        label.text = "Life & Soul Card".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -77,7 +77,7 @@ class LifeandSoulViewController: UIViewController {
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Discover your spiritual essence"
+        label.text = "Discover your spiritual essence".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
@@ -105,7 +105,7 @@ class LifeandSoulViewController: UIViewController {
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Birth Date"
+        label.text = "Birth Date".translate
         label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -124,7 +124,18 @@ class LifeandSoulViewController: UIViewController {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
         picker.preferredDatePickerStyle = .wheels
-        picker.maximumDate = Date()
+        
+        // Set maximum date to 10 years ago from today
+        let calendar = Calendar.current
+        if let maxDate = calendar.date(byAdding: .year, value: -10, to: Date()) {
+            picker.maximumDate = maxDate
+        }
+        
+        // Set default date to 25 years ago
+        if let defaultDate = calendar.date(byAdding: .year, value: -25, to: Date()) {
+            picker.date = defaultDate
+        }
+        
         picker.translatesAutoresizingMaskIntoConstraints = false
         
         // Style the date picker for dark theme
@@ -136,7 +147,7 @@ class LifeandSoulViewController: UIViewController {
     
     private let calculateButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Calculate My Cards", for: .normal)
+        button.setTitle("Calculate My Cards".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         button.layer.cornerRadius = 25
@@ -150,6 +161,53 @@ class LifeandSoulViewController: UIViewController {
         button.titleLabel?.layer.masksToBounds = false
         
         return button
+    }()
+    
+    // Empty State
+    private let emptyStateContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 20
+        view.clipsToBounds = true
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
+        return view
+    }()
+    
+    private let emptyStateImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage.tarotCard
+        imageView.tintColor = .white.withAlphaComponent(0.6)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow
+        imageView.layer.shadowColor = UIColor.white.cgColor
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        imageView.layer.shadowRadius = 0
+        imageView.layer.shadowOpacity = 0.8
+        imageView.layer.masksToBounds = false
+        
+        return imageView
+    }()
+    
+    private let emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Select your birth date and tap Calculate to discover your spiritual cards".translate
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .white.withAlphaComponent(0.7)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow
+        label.layer.shadowColor = UIColor.white.cgColor
+        label.layer.shadowOffset = CGSize(width: 0, height: 0)
+        label.layer.shadowRadius = 10
+        label.layer.shadowOpacity = 0.5
+        label.layer.masksToBounds = false
+        
+        return label
     }()
     
     // Results Containers
@@ -177,8 +235,12 @@ class LifeandSoulViewController: UIViewController {
     
     private var dateGradientLayer: CAGradientLayer?
     private var buttonGradientLayer: CAGradientLayer?
+    private var emptyStateGradientLayer: CAGradientLayer?
     private var lifeCardGradientLayer: CAGradientLayer?
     private var soulCardGradientLayer: CAGradientLayer?
+    
+    // Store empty state constraints to deactivate later
+    private var emptyStateConstraints: [NSLayoutConstraint] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -186,6 +248,7 @@ class LifeandSoulViewController: UIViewController {
         setupGradientBackground()
         loadCardsData()
         setupUI()
+        setupInitialState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -198,6 +261,12 @@ class LifeandSoulViewController: UIViewController {
         gradientLayer?.frame = view.bounds
         dateGradientLayer?.frame = dateContainer.bounds
         buttonGradientLayer?.frame = calculateButton.bounds
+        
+        // Only update empty state gradient if it exists and is in hierarchy
+        if emptyStateGradientLayer != nil && emptyStateContainer.superview != nil {
+            emptyStateGradientLayer?.frame = emptyStateContainer.bounds
+        }
+        
         lifeCardGradientLayer?.frame = lifeCardContainer.bounds
         soulCardGradientLayer?.frame = soulCardContainer.bounds
     }
@@ -228,14 +297,37 @@ class LifeandSoulViewController: UIViewController {
         contentView.addSubview(subtitleLabel)
         contentView.addSubview(dateContainer)
         contentView.addSubview(calculateButton)
+        contentView.addSubview(emptyStateContainer)
         contentView.addSubview(lifeCardContainer)
         contentView.addSubview(soulCardContainer)
         
         dateContainer.addSubview(dateLabel)
         dateContainer.addSubview(datePicker)
         
+        emptyStateContainer.addSubview(emptyStateImageView)
+        emptyStateContainer.addSubview(emptyStateLabel)
+        
         setupDateContainerGradient()
         setupButtonGradient()
+        setupEmptyStateGradient()
+        
+        // Store empty state constraints
+        emptyStateConstraints = [
+            emptyStateContainer.topAnchor.constraint(equalTo: calculateButton.bottomAnchor, constant: 30),
+            emptyStateContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            emptyStateContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            emptyStateContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
+            
+            emptyStateImageView.topAnchor.constraint(equalTo: emptyStateContainer.topAnchor, constant: 40),
+            emptyStateImageView.centerXAnchor.constraint(equalTo: emptyStateContainer.centerXAnchor),
+            emptyStateImageView.widthAnchor.constraint(equalToConstant: 80),
+            emptyStateImageView.heightAnchor.constraint(equalToConstant: 80),
+            
+            emptyStateLabel.topAnchor.constraint(equalTo: emptyStateImageView.bottomAnchor, constant: 30),
+            emptyStateLabel.leadingAnchor.constraint(equalTo: emptyStateContainer.leadingAnchor, constant: 30),
+            emptyStateLabel.trailingAnchor.constraint(equalTo: emptyStateContainer.trailingAnchor, constant: -30),
+            emptyStateLabel.bottomAnchor.constraint(equalTo: emptyStateContainer.bottomAnchor, constant: -40)
+        ]
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -323,6 +415,45 @@ class LifeandSoulViewController: UIViewController {
         calculateButton.layer.shadowOpacity = 0.8
     }
     
+    private func setupEmptyStateGradient() {
+        let gradient = CAGradientLayer()
+        gradient.frame = emptyStateContainer.bounds
+        gradient.colors = [
+            UIColor(hex: "2d1b3d").withAlphaComponent(0.4).cgColor,
+            UIColor(hex: "4a1e4f").withAlphaComponent(0.3).cgColor
+        ]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        gradient.cornerRadius = 20
+        gradient.masksToBounds = true
+        emptyStateContainer.layer.insertSublayer(gradient, at: 0)
+        emptyStateGradientLayer = gradient
+    }
+    
+    private func setupInitialState() {
+        // Show empty state, hide results
+        emptyStateContainer.alpha = 1.0
+        lifeCardContainer.alpha = 0
+        soulCardContainer.alpha = 0
+        
+        // Activate empty state constraints
+        NSLayoutConstraint.activate(emptyStateConstraints)
+        
+        // Add pulsing animation to icon
+        addPulsingAnimation(to: emptyStateImageView)
+    }
+    
+    private func addPulsingAnimation(to view: UIView) {
+        let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
+        pulseAnimation.duration = 2.0
+        pulseAnimation.fromValue = 1.0
+        pulseAnimation.toValue = 1.15
+        pulseAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        pulseAnimation.autoreverses = true
+        pulseAnimation.repeatCount = .infinity
+        view.layer.add(pulseAnimation, forKey: "pulse")
+    }
+    
     private func loadCardsData() {
         guard let url = Bundle.main.url(forResource: "soulandlife", withExtension: "json") else {
             print("Could not find soulandlife.json")
@@ -383,6 +514,44 @@ class LifeandSoulViewController: UIViewController {
             return
         }
         
+        // IMMEDIATE HIDE - before any removal
+        emptyStateContainer.alpha = 0
+        emptyStateContainer.isHidden = true
+        
+        // Force layout update
+        view.layoutIfNeeded()
+        
+        // Completely remove empty state
+        NSLayoutConstraint.deactivate(emptyStateConstraints)
+        emptyStateConstraints.removeAll()
+        
+        // Remove all sublayers
+        emptyStateContainer.layer.sublayers?.removeAll()
+        emptyStateImageView.layer.sublayers?.removeAll()
+        emptyStateLabel.layer.sublayers?.removeAll()
+        
+        // Stop all animations
+        emptyStateImageView.layer.removeAllAnimations()
+        emptyStateContainer.layer.removeAllAnimations()
+        emptyStateLabel.layer.removeAllAnimations()
+        
+        // Clear all layer properties
+        emptyStateContainer.layer.borderWidth = 0
+        emptyStateContainer.layer.borderColor = nil
+        emptyStateContainer.layer.shadowOpacity = 0
+        emptyStateContainer.layer.masksToBounds = true
+        
+        // Clear gradient reference
+        emptyStateGradientLayer = nil
+        
+        // Remove from hierarchy
+        emptyStateImageView.removeFromSuperview()
+        emptyStateLabel.removeFromSuperview()
+        emptyStateContainer.removeFromSuperview()
+        
+        // Force another layout update
+        view.layoutIfNeeded()
+        
         // Clear previous results
         lifeCardContainer.subviews.forEach { $0.removeFromSuperview() }
         soulCardContainer.subviews.forEach { $0.removeFromSuperview() }
@@ -392,10 +561,10 @@ class LifeandSoulViewController: UIViewController {
         setupCardGradient(for: soulCardContainer, gradientLayer: &soulCardGradientLayer, color1: "2d1530", color2: "4a1e4f")
         
         // Create Life Card View
-        createCardView(in: lifeCardContainer, card: lifeCard, type: "Life Card", number: lifeNum)
+        createCardView(in: lifeCardContainer, card: lifeCard, type: "Life Card".translate, number: lifeNum)
         
         // Create Soul Card View
-        createCardView(in: soulCardContainer, card: soulCard, type: "Soul Card", number: soulNum)
+        createCardView(in: soulCardContainer, card: soulCard, type: "Soul Card".translate, number: soulNum)
         
         // Animate appearance
         UIView.animate(withDuration: 0.6, delay: 0.2, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5) {
@@ -407,7 +576,7 @@ class LifeandSoulViewController: UIViewController {
         }
         
         // Scroll to show results
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
             self.scrollView.scrollRectToVisible(self.lifeCardContainer.frame, animated: true)
         }
     }
@@ -450,7 +619,7 @@ class LifeandSoulViewController: UIViewController {
         
         // Card Number
         let numberLabel = UILabel()
-        numberLabel.text = "Card \(number)"
+        numberLabel.text = "\("Card".translate) \(number)"
         numberLabel.font = UIFont.systemFont(ofSize: 48, weight: .semibold)
         numberLabel.textColor = .white
         numberLabel.textAlignment = .center
@@ -463,7 +632,7 @@ class LifeandSoulViewController: UIViewController {
         
         // Card Name
         let nameLabel = UILabel()
-        nameLabel.text = card.name
+        nameLabel.text = card.name.translate
         nameLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
         nameLabel.textColor = .white
         nameLabel.textAlignment = .center
@@ -477,14 +646,14 @@ class LifeandSoulViewController: UIViewController {
         
         // Element
         let elementLabel = UILabel()
-        elementLabel.text = "✦ \(card.element) ✦"
+        elementLabel.text = "✦ \(card.element.translate) ✦"
         elementLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         elementLabel.textColor = UIColor(hex: "d4a5ff")
         elementLabel.textAlignment = .center
         
         // Keywords
         let keywordsLabel = UILabel()
-        keywordsLabel.text = card.keywords.joined(separator: " • ")
+        keywordsLabel.text = card.keywords.map { $0.translate }.joined(separator: " • ")
         keywordsLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         keywordsLabel.textColor = UIColor(hex: "d4a5ff")
         keywordsLabel.textAlignment = .center
@@ -498,7 +667,7 @@ class LifeandSoulViewController: UIViewController {
         
         // Message
         let messageLabel = UILabel()
-        messageLabel.text = type == "Life Card" ? card.life_message : card.soul_message
+        messageLabel.text = (type == "Life Card" ? card.life_message : card.soul_message).translate
         messageLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         messageLabel.textColor = .white.withAlphaComponent(0.95)
         messageLabel.textAlignment = .left
@@ -529,6 +698,15 @@ class LifeandSoulViewController: UIViewController {
     }
     
     @objc private func calculateButtonTapped() {
+        // Check if user is premium
+        if !GlobalHelper.isPremiumActive() {
+            // Show premium screen
+            let premiumVC = PremiumViewController()
+            premiumVC.modalPresentationStyle = .fullScreen
+            present(premiumVC, animated: true)
+            return
+        }
+        
         let selectedDate = datePicker.date
         calculateCards(from: selectedDate)
         

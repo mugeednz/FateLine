@@ -14,11 +14,11 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkOnboardingStatus()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // Add delay to ensure everything is properly loaded
+        // First request ATT, then navigate
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.requestATTIfNeeded()
         }
@@ -27,6 +27,8 @@ class SplashViewController: UIViewController {
     func requestATTIfNeeded() {
         guard #available(iOS 14, *) else {
             print("📱 iOS < 14, tracking not required")
+            // Navigate immediately for iOS < 14
+            checkOnboardingStatus()
             return
         }
         
@@ -36,14 +38,21 @@ class SplashViewController: UIViewController {
         case .authorized:
             print("🔓 Already authorized")
             Settings.shared.isAdvertiserTrackingEnabled = true
+            // Already determined, navigate immediately
+            checkOnboardingStatus()
             return
         case .denied, .restricted:
             print("❌ Already denied/restricted")
+            Settings.shared.isAdvertiserTrackingEnabled = false
+            // Already determined, navigate immediately
+            checkOnboardingStatus()
             return
         case .notDetermined:
             print("🕐 Requesting tracking authorization...")
         @unknown default:
             print("⚠️ Unknown tracking status")
+            // Navigate anyway
+            checkOnboardingStatus()
             return
         }
         
@@ -59,6 +68,7 @@ class SplashViewController: UIViewController {
                     Settings.shared.isAdvertiserTrackingEnabled = false
                 case .notDetermined:
                     print("🕐 Still not determined")
+                    Settings.shared.isAdvertiserTrackingEnabled = false
                 case .restricted:
                     print("🚫 Tracking restricted")
                     Settings.shared.isAdvertiserTrackingEnabled = false
@@ -66,6 +76,9 @@ class SplashViewController: UIViewController {
                     print("⚠️ Unknown status: \(status)")
                     Settings.shared.isAdvertiserTrackingEnabled = false
                 }
+                
+                // Navigate after user responds to ATT prompt
+                self?.checkOnboardingStatus()
             }
         }
     }

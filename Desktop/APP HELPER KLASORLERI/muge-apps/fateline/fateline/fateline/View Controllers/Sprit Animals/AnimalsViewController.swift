@@ -196,7 +196,7 @@ class AnimalsViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Spirit Animal"
+        label.text = "Spirit Animal".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -213,7 +213,7 @@ class AnimalsViewController: UIViewController {
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Answer 7 questions to reveal your guide"
+        label.text = "Answer 7 questions to reveal your guide".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
@@ -295,7 +295,7 @@ class AnimalsViewController: UIViewController {
     
     private let revealButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Discover Your Spirit Animal", for: .normal)
+        button.setTitle("Discover Your Spirit Animal".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         button.layer.cornerRadius = 25
@@ -503,8 +503,8 @@ class AnimalsViewController: UIViewController {
         guard currentQuestionIndex < questions.count else { return }
         
         let question = questions[currentQuestionIndex]
-        questionNumberLabel.text = "Question \(currentQuestionIndex + 1) of \(questions.count)"
-        questionLabel.text = question.text
+        questionNumberLabel.text = "\("Question".translate) \(currentQuestionIndex + 1) \("of".translate) \(questions.count)"
+        questionLabel.text = question.text.translate
         
         // Clear previous answers
         answersStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
@@ -520,7 +520,7 @@ class AnimalsViewController: UIViewController {
     
     private func createAnswerButton(answer: Answer, index: Int) -> UIButton {
         let button = UIButton(type: .custom)
-        button.setTitle(answer.text, for: .normal)
+        button.setTitle(answer.text.translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.titleLabel?.numberOfLines = 0
@@ -599,6 +599,15 @@ class AnimalsViewController: UIViewController {
     
     // MARK: - Result Display
     @objc private func revealButtonTapped() {
+        // Check if user is premium
+        if !GlobalHelper.isPremiumActive() {
+            // Show premium screen
+            let premiumVC = PremiumViewController()
+            premiumVC.modalPresentationStyle = .fullScreen
+            present(premiumVC, animated: true)
+            return
+        }
+        
         guard let topAnimal = animalScores.max(by: { $0.value < $1.value })?.key,
               let animal = spiritAnimals[topAnimal] else { return }
         
@@ -628,7 +637,7 @@ class AnimalsViewController: UIViewController {
         
         // Title
         let titleLabel = UILabel()
-        titleLabel.text = "Your Spirit Animal"
+        titleLabel.text = "Your Spirit Animal".translate
         titleLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         titleLabel.textColor = .white.withAlphaComponent(0.7)
         titleLabel.textAlignment = .center
@@ -641,7 +650,7 @@ class AnimalsViewController: UIViewController {
         
         // Animal Name
         let nameLabel = UILabel()
-        nameLabel.text = animal.name
+        nameLabel.text = animal.name.translate
         nameLabel.font = UIFont.systemFont(ofSize: 48, weight: .semibold)
         nameLabel.textColor = .white
         nameLabel.textAlignment = .center
@@ -654,14 +663,14 @@ class AnimalsViewController: UIViewController {
         
         // Element
         let elementLabel = UILabel()
-        elementLabel.text = "✦ \(animal.element) Element ✦"
+        elementLabel.text = "✦ \(animal.element.translate) \("Element".translate) ✦"
         elementLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         elementLabel.textColor = UIColor(hex: "d4a5ff")
         elementLabel.textAlignment = .center
         
         // Traits
         let traitsLabel = UILabel()
-        traitsLabel.text = animal.traits.joined(separator: " • ")
+        traitsLabel.text = animal.traits.map { $0.translate }.joined(separator: " • ")
         traitsLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         traitsLabel.textColor = UIColor(hex: "d4a5ff")
         traitsLabel.textAlignment = .center
@@ -676,7 +685,7 @@ class AnimalsViewController: UIViewController {
         
         // Description
         let descriptionLabel = UILabel()
-        descriptionLabel.text = animal.description
+        descriptionLabel.text = animal.description.translate
         descriptionLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         descriptionLabel.textColor = .white.withAlphaComponent(0.95)
         descriptionLabel.textAlignment = .center

@@ -19,18 +19,13 @@ struct ZodiacCompatibility: Codable {
 }
 
 class ZodiacViewController: UIViewController {
-    
+
     // MARK: - Properties
     private var gradientLayer: CAGradientLayer?
     private var zodiacData: [String: ZodiacData] = [:]
     private var selectedMaleSign: String?
     private var selectedFemaleSign: String?
-    
-    private let zodiacSigns = [
-        "Aries", "Taurus", "Gemini", "Cancer",
-        "Leo", "Virgo", "Libra", "Scorpio",
-        "Sagittarius", "Capricorn", "Aquarius", "Pisces"
-    ]
+    private var currentGender: Gender?
     
     // MARK: - UI Components
     private let scrollView: UIScrollView = {
@@ -63,9 +58,10 @@ class ZodiacViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Zodiac Compatibility"
+        label.text = "Zodiac Compatibility".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
         label.textColor = .white
+        label.numberOfLines = 0
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -80,7 +76,7 @@ class ZodiacViewController: UIViewController {
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Discover your cosmic connection"
+        label.text = "Discover your cosmic connection".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
@@ -108,7 +104,7 @@ class ZodiacViewController: UIViewController {
     
     private let maleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Male Sign"
+        label.text = "Male Sign".translate
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -118,7 +114,7 @@ class ZodiacViewController: UIViewController {
     
     private let maleSignButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Select Sign", for: .normal)
+        button.setTitle("Select Sign".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         button.layer.cornerRadius = 15
@@ -147,7 +143,7 @@ class ZodiacViewController: UIViewController {
     
     private let femaleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Female Sign"
+        label.text = "Female Sign".translate
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
@@ -157,7 +153,7 @@ class ZodiacViewController: UIViewController {
     
     private let femaleSignButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Select Sign", for: .normal)
+        button.setTitle("Select Sign".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         button.layer.cornerRadius = 15
@@ -178,10 +174,51 @@ class ZodiacViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 20
-        view.clipsToBounds = true
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         view.alpha = 0
+        view.clipsToBounds = true
+        return view
+    }()
+    
+    private let maleIconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "zodiac_man")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow
+        imageView.layer.shadowColor = UIColor.white.cgColor
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        imageView.layer.shadowRadius = 15
+        imageView.layer.shadowOpacity = 0.6
+        imageView.layer.masksToBounds = false
+        
+        return imageView
+    }()
+    
+    private let femaleIconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "zodiac_women")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Flip horizontally to face left (towards male)
+        imageView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        
+        // Add glow
+        imageView.layer.shadowColor = UIColor.white.cgColor
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        imageView.layer.shadowRadius = 15
+        imageView.layer.shadowOpacity = 0.6
+        imageView.layer.masksToBounds = false
+        
+        return imageView
+    }()
+    
+    private let scoreContainerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -203,7 +240,7 @@ class ZodiacViewController: UIViewController {
     
     private let compatibilityLabel: UILabel = {
         let label = UILabel()
-        label.text = "Compatibility Score"
+        label.text = "Compatibility Score".translate
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white.withAlphaComponent(0.7)
         label.textAlignment = .center
@@ -221,9 +258,57 @@ class ZodiacViewController: UIViewController {
         return label
     }()
     
+    // Empty State
+    private let emptyStateContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 20
+        view.clipsToBounds = true
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
+        return view
+    }()
+    
+    private let emptyStateImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage.astrology
+        imageView.tintColor = .white.withAlphaComponent(0.6)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow
+        imageView.layer.shadowColor = UIColor.white.cgColor
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        imageView.layer.shadowRadius = 6
+        imageView.layer.shadowOpacity = 0.8
+        imageView.layer.masksToBounds = false
+        
+        return imageView
+    }()
+    
+    private let emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Select both zodiac signs to discover your cosmic compatibility".translate
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .white.withAlphaComponent(0.7)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow
+        label.layer.shadowColor = UIColor.white.cgColor
+        label.layer.shadowOffset = CGSize(width: 0, height: 0)
+        label.layer.shadowRadius = 10
+        label.layer.shadowOpacity = 0.5
+        label.layer.masksToBounds = false
+        
+        return label
+    }()
+    
     private var maleGradientLayer: CAGradientLayer?
     private var femaleGradientLayer: CAGradientLayer?
     private var resultsGradientLayer: CAGradientLayer?
+    private var emptyStateGradientLayer: CAGradientLayer?
     private var maleButtonGradientLayer: CAGradientLayer?
     private var femaleButtonGradientLayer: CAGradientLayer?
     
@@ -233,6 +318,7 @@ class ZodiacViewController: UIViewController {
         setupGradientBackground()
         loadZodiacData()
         setupUI()
+        setupInitialState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -246,6 +332,7 @@ class ZodiacViewController: UIViewController {
         maleGradientLayer?.frame = maleContainer.bounds
         femaleGradientLayer?.frame = femaleContainer.bounds
         resultsGradientLayer?.frame = resultsContainer.bounds
+        emptyStateGradientLayer?.frame = emptyStateContainer.bounds
         maleButtonGradientLayer?.frame = maleSignButton.bounds
         femaleButtonGradientLayer?.frame = femaleSignButton.bounds
     }
@@ -276,6 +363,7 @@ class ZodiacViewController: UIViewController {
         contentView.addSubview(subtitleLabel)
         contentView.addSubview(maleContainer)
         contentView.addSubview(femaleContainer)
+        contentView.addSubview(emptyStateContainer)
         contentView.addSubview(resultsContainer)
         
         // Male container setup
@@ -290,8 +378,16 @@ class ZodiacViewController: UIViewController {
         setupContainerGradient(for: femaleContainer, gradientLayer: &femaleGradientLayer)
         setupButtonGradient(for: femaleSignButton, gradientLayer: &femaleButtonGradientLayer)
         
+        // Empty State container setup
+        emptyStateContainer.addSubview(emptyStateImageView)
+        emptyStateContainer.addSubview(emptyStateLabel)
+        setupContainerGradient(for: emptyStateContainer, gradientLayer: &emptyStateGradientLayer)
+        
         // Results container setup
-        resultsContainer.addSubview(scoreLabel)
+        resultsContainer.addSubview(scoreContainerView)
+        scoreContainerView.addSubview(maleIconImageView)
+        scoreContainerView.addSubview(scoreLabel)
+        scoreContainerView.addSubview(femaleIconImageView)
         resultsContainer.addSubview(compatibilityLabel)
         resultsContainer.addSubview(descriptionLabel)
         setupContainerGradient(for: resultsContainer, gradientLayer: &resultsGradientLayer)
@@ -313,7 +409,7 @@ class ZodiacViewController: UIViewController {
             backButton.widthAnchor.constraint(equalToConstant: 44),
             backButton.heightAnchor.constraint(equalToConstant: 44),
             
-            titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 22),
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
@@ -345,21 +441,54 @@ class ZodiacViewController: UIViewController {
             femaleSignButton.trailingAnchor.constraint(equalTo: femaleContainer.trailingAnchor, constant: -30),
             femaleSignButton.heightAnchor.constraint(equalToConstant: 50),
             
+            // Empty State
+            emptyStateContainer.topAnchor.constraint(equalTo: femaleContainer.bottomAnchor, constant: 30),
+            emptyStateContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            emptyStateContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            emptyStateContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
+            
+            emptyStateImageView.topAnchor.constraint(equalTo: emptyStateContainer.topAnchor, constant: 40),
+            emptyStateImageView.centerXAnchor.constraint(equalTo: emptyStateContainer.centerXAnchor),
+            emptyStateImageView.widthAnchor.constraint(equalToConstant: 80),
+            emptyStateImageView.heightAnchor.constraint(equalToConstant: 80),
+            
+            emptyStateLabel.topAnchor.constraint(equalTo: emptyStateImageView.bottomAnchor, constant: 30),
+            emptyStateLabel.leadingAnchor.constraint(equalTo: emptyStateContainer.leadingAnchor, constant: 30),
+            emptyStateLabel.trailingAnchor.constraint(equalTo: emptyStateContainer.trailingAnchor, constant: -30),
+            emptyStateLabel.bottomAnchor.constraint(equalTo: emptyStateContainer.bottomAnchor, constant: -40),
+            
             resultsContainer.topAnchor.constraint(equalTo: femaleContainer.bottomAnchor, constant: 30),
             resultsContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             resultsContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            resultsContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
             
-            scoreLabel.topAnchor.constraint(equalTo: resultsContainer.topAnchor, constant: 30),
-            scoreLabel.centerXAnchor.constraint(equalTo: resultsContainer.centerXAnchor),
+            scoreContainerView.topAnchor.constraint(equalTo: resultsContainer.topAnchor, constant: 30),
+            scoreContainerView.centerXAnchor.constraint(equalTo: resultsContainer.centerXAnchor),
+            scoreContainerView.heightAnchor.constraint(equalToConstant: 80),
             
-            compatibilityLabel.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 5),
+            maleIconImageView.leadingAnchor.constraint(equalTo: scoreContainerView.leadingAnchor),
+            maleIconImageView.centerYAnchor.constraint(equalTo: scoreContainerView.centerYAnchor),
+            maleIconImageView.widthAnchor.constraint(equalToConstant: 60),
+            maleIconImageView.heightAnchor.constraint(equalToConstant: 60),
+            
+            scoreLabel.centerXAnchor.constraint(equalTo: scoreContainerView.centerXAnchor),
+            scoreLabel.centerYAnchor.constraint(equalTo: scoreContainerView.centerYAnchor),
+            scoreLabel.leadingAnchor.constraint(equalTo: maleIconImageView.trailingAnchor, constant: 15),
+            scoreLabel.trailingAnchor.constraint(equalTo: femaleIconImageView.leadingAnchor, constant: -15),
+            
+            femaleIconImageView.trailingAnchor.constraint(equalTo: scoreContainerView.trailingAnchor),
+            femaleIconImageView.centerYAnchor.constraint(equalTo: scoreContainerView.centerYAnchor),
+            femaleIconImageView.widthAnchor.constraint(equalToConstant: 60),
+            femaleIconImageView.heightAnchor.constraint(equalToConstant: 60),
+            
+            compatibilityLabel.topAnchor.constraint(equalTo: scoreContainerView.bottomAnchor, constant: 5),
             compatibilityLabel.centerXAnchor.constraint(equalTo: resultsContainer.centerXAnchor),
             
             descriptionLabel.topAnchor.constraint(equalTo: compatibilityLabel.bottomAnchor, constant: 25),
             descriptionLabel.leadingAnchor.constraint(equalTo: resultsContainer.leadingAnchor, constant: 20),
             descriptionLabel.trailingAnchor.constraint(equalTo: resultsContainer.trailingAnchor, constant: -20),
-            descriptionLabel.bottomAnchor.constraint(equalTo: resultsContainer.bottomAnchor, constant: -30)
+            descriptionLabel.bottomAnchor.constraint(equalTo: resultsContainer.bottomAnchor, constant: -30),
+            
+            resultsContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
         ])
         
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
@@ -377,6 +506,7 @@ class ZodiacViewController: UIViewController {
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         gradient.cornerRadius = 20
+        gradient.masksToBounds = true
         container.layer.insertSublayer(gradient, at: 0)
         gradientLayer = gradient
     }
@@ -415,6 +545,26 @@ class ZodiacViewController: UIViewController {
         }
     }
     
+    private func setupInitialState() {
+        // Show empty state, hide results
+        emptyStateContainer.alpha = 1.0
+        resultsContainer.alpha = 0
+        
+        // Add pulsing animation to sparkles
+        addPulsingAnimation(to: emptyStateImageView)
+    }
+    
+    private func addPulsingAnimation(to view: UIView) {
+        let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
+        pulseAnimation.duration = 2.0
+        pulseAnimation.fromValue = 1.0
+        pulseAnimation.toValue = 1.15
+        pulseAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        pulseAnimation.autoreverses = true
+        pulseAnimation.repeatCount = .infinity
+        view.layer.add(pulseAnimation, forKey: "pulse")
+    }
+    
     // MARK: - Actions
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
@@ -429,27 +579,24 @@ class ZodiacViewController: UIViewController {
     }
     
     private func showZodiacPicker(for gender: Gender) {
-        let alert = UIAlertController(title: "Select Zodiac Sign", message: nil, preferredStyle: .actionSheet)
+        currentGender = gender
         
-        for sign in zodiacSigns {
-            let action = UIAlertAction(title: sign, style: .default) { [weak self] _ in
-                self?.selectSign(sign, for: gender)
-            }
-            alert.addAction(action)
-        }
+        let pickerVC = ZodiacPickerViewController()
+        pickerVC.delegate = self
+        pickerVC.modalPresentationStyle = .overFullScreen
+        pickerVC.modalTransitionStyle = .crossDissolve
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(alert, animated: true)
+        present(pickerVC, animated: true)
     }
     
     private func selectSign(_ sign: String, for gender: Gender) {
         switch gender {
         case .male:
             selectedMaleSign = sign
-            maleSignButton.setTitle(sign, for: .normal)
+            maleSignButton.setTitle(sign.translate, for: .normal)
         case .female:
             selectedFemaleSign = sign
-            femaleSignButton.setTitle(sign, for: .normal)
+            femaleSignButton.setTitle(sign.translate, for: .normal)
         }
         
         checkAndShowCompatibility()
@@ -463,25 +610,37 @@ class ZodiacViewController: UIViewController {
             return
         }
         
-        showCompatibilityResults(score: compatibility.score, description: compatibility.description)
+        showCompatibilityResults(score: compatibility.score, description: compatibility.description.translate)
     }
     
     private func showCompatibilityResults(score: Int, description: String) {
         scoreLabel.text = "\(score)%"
         descriptionLabel.text = description
         
-        // Animate results appearance
-        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut) {
-            self.resultsContainer.alpha = 1.0
+        // Hide empty state and show results
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+            self.emptyStateContainer.alpha = 0
+        } completion: { _ in
+            UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut) {
+                self.resultsContainer.alpha = 1.0
+            }
         }
         
         // Scroll to show results
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
             self.scrollView.scrollRectToVisible(self.resultsContainer.frame, animated: true)
         }
     }
     
     enum Gender {
         case male, female
+    }
+}
+
+// MARK: - ZodiacPickerDelegate
+extension ZodiacViewController: ZodiacPickerDelegate {
+    func didSelectZodiacSign(_ sign: String) {
+        guard let gender = currentGender else { return }
+        selectSign(sign, for: gender)
     }
 }

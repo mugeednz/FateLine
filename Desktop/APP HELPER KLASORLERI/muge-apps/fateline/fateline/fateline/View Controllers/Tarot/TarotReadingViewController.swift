@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 // MARK: - TarotCard Model
 struct TarotCard: Codable {
@@ -26,6 +27,7 @@ class TarotReadingViewController: UIViewController {
     private var selectedCards: Set<Int> = []
     private var tarotCards: [TarotCard] = []
     private let maxSelections = 5
+    private var hasPerformedAutoScroll = false
     
     // MARK: - UI Components
     private let backButton: UIButton = {
@@ -44,9 +46,25 @@ class TarotReadingViewController: UIViewController {
         return button
     }()
     
+    private let historyButton: UIButton = {
+        let button = UIButton(type: .system)
+        let config = UIImage.SymbolConfiguration(pointSize: 24, weight: .semibold)
+        button.setImage(UIImage(systemName: "clock.arrow.circlepath", withConfiguration: config), for: .normal)
+        button.tintColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add glow
+        button.layer.shadowColor = UIColor.white.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.8
+        
+        return button
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Choose Your Cards"
+        label.text = "Choose Your Cards".translate
         label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
@@ -64,7 +82,7 @@ class TarotReadingViewController: UIViewController {
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Select 5 cards that call to you"
+        label.text = "Select 5 cards that call to you".translate
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         label.textColor = .white.withAlphaComponent(0.8)
         label.textAlignment = .center
@@ -95,7 +113,7 @@ class TarotReadingViewController: UIViewController {
     
     private let questionTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "What guidance do you seek from the cards?"
+        textView.text = "What guidance do you seek from the cards?".translate
         textView.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         textView.textColor = .white.withAlphaComponent(0.7)
         textView.backgroundColor = .clear
@@ -109,7 +127,7 @@ class TarotReadingViewController: UIViewController {
     
     private let readCardsButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Read My Cards", for: .normal)
+        button.setTitle("Read My Cards".translate, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         button.layer.cornerRadius = 25
@@ -142,6 +160,27 @@ class TarotReadingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        // Reset selected cards and question when returning from results
+        if hasPerformedAutoScroll {
+            selectedCards.removeAll()
+            collectionView.reloadData()
+            updateButtonState()
+            
+            // Reset question text to placeholder
+            questionTextView.text = "What guidance do you seek from the cards?".translate
+            questionTextView.textColor = .white.withAlphaComponent(0.7)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Perform auto-scroll animation only once to show scrollability
+        if !hasPerformedAutoScroll {
+            performAutoScrollAnimation()
+            hasPerformedAutoScroll = true
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -171,6 +210,7 @@ class TarotReadingViewController: UIViewController {
     
     private func setupUI() {
         view.addSubview(backButton)
+        view.addSubview(historyButton)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
         view.addSubview(questionContainer)
@@ -184,7 +224,11 @@ class TarotReadingViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = true
+        collectionView.indicatorStyle = .white
+        collectionView.bounces = true
+        collectionView.alwaysBounceVertical = true
+        collectionView.decelerationRate = .fast
         collectionView.register(TarotCardCell.self, forCellWithReuseIdentifier: "TarotCardCell")
         
         view.addSubview(collectionView)
@@ -205,41 +249,51 @@ class TarotReadingViewController: UIViewController {
         
         // Setup constraints
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            // Back button and title at same height
+            backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             backButton.widthAnchor.constraint(equalToConstant: 44),
             backButton.heightAnchor.constraint(equalToConstant: 44),
             
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            // History button on the right
+            historyButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            historyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            historyButton.widthAnchor.constraint(equalToConstant: 25),
+            historyButton.heightAnchor.constraint(equalToConstant: 25),
+            
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
+            // Increased collection view height
             collectionView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            collectionView.heightAnchor.constraint(equalToConstant: 380),
+            collectionView.bottomAnchor.constraint(equalTo: questionContainer.topAnchor, constant: -15),
             
-            questionContainer.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
+            // Question container moved down
             questionContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             questionContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            questionContainer.heightAnchor.constraint(equalToConstant: 100),
+            questionContainer.bottomAnchor.constraint(equalTo: readCardsButton.topAnchor, constant: -15),
+            questionContainer.heightAnchor.constraint(equalToConstant: 80),
             
             questionTextView.topAnchor.constraint(equalTo: questionContainer.topAnchor),
             questionTextView.leadingAnchor.constraint(equalTo: questionContainer.leadingAnchor),
             questionTextView.trailingAnchor.constraint(equalTo: questionContainer.trailingAnchor),
             questionTextView.bottomAnchor.constraint(equalTo: questionContainer.bottomAnchor),
             
-            readCardsButton.topAnchor.constraint(equalTo: questionContainer.bottomAnchor, constant: 30),
+            // Button at bottom
             readCardsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             readCardsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            readCardsButton.heightAnchor.constraint(equalToConstant: 60),
-            readCardsButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            readCardsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            readCardsButton.heightAnchor.constraint(equalToConstant: 56)
         ])
         
         readCardsButton.addTarget(self, action: #selector(readCardsButtonTapped), for: .touchUpInside)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        historyButton.addTarget(self, action: #selector(historyButtonTapped), for: .touchUpInside)
         setupButtonGradient()
     }
     
@@ -314,9 +368,35 @@ class TarotReadingViewController: UIViewController {
         // Update subtitle
         let remainingSelections = maxSelections - selectedCards.count
         if remainingSelections > 0 {
-            subtitleLabel.text = "Select \(remainingSelections) more card\(remainingSelections == 1 ? "" : "s")"
+            let format = remainingSelections == 1 ? "Select 1 more card".translate : "Select %d more cards".translate
+            subtitleLabel.text = String(format: format, remainingSelections)
         } else {
-            subtitleLabel.text = "Perfect! Now ask your question"
+            subtitleLabel.text = "Perfect! Now ask your question".translate
+        }
+    }
+    
+    private func performAutoScrollAnimation() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            // Ensure we have content
+            let itemCount = self.collectionView.numberOfItems(inSection: 0)
+            guard itemCount > 30 else { return }
+            
+            // Scroll to last item instantly
+            let lastItem = itemCount - 1
+            self.collectionView.scrollToItem(at: IndexPath(item: lastItem, section: 0), at: .bottom, animated: false)
+            
+            // Small pause, then scroll back to top
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self.collectionView.flashScrollIndicators()
+                
+                // Scroll to first item with smooth animation
+                self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+                
+                // Flash when complete
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    self.collectionView.flashScrollIndicators()
+                }
+            }
         }
     }
     
@@ -325,16 +405,35 @@ class TarotReadingViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc private func historyButtonTapped() {
+        let historyVC = TarotHistoryViewController()
+        navigationController?.pushViewController(historyVC, animated: true)
+    }
+    
     @objc private func readCardsButtonTapped() {
         guard selectedCards.count == maxSelections else { return }
+        
+        // Check if user is premium
+        if !GlobalHelper.isPremiumActive() {
+            // Show premium screen
+            let premiumVC = PremiumViewController()
+            premiumVC.modalPresentationStyle = .fullScreen
+            present(premiumVC, animated: true)
+            return
+        }
         
         // Get selected card meanings
         let selectedCardMeanings = selectedCards.compactMap { cardId in
             tarotCards.first { $0.id == cardId }
         }
         
-        // Navigate to results screen (you'll need to create this)
-        let question = questionTextView.text == "What guidance do you seek from the cards?" ? "" : questionTextView.text
+        // Navigate to results screen
+        let question = questionTextView.text == "What guidance do you seek from the cards?".translate ? "" : questionTextView.text
+        
+        // Save reading to history
+        let reading = TarotReading(question: question ?? "", cards: selectedCardMeanings)
+        TarotReadingManager.shared.saveReading(reading)
+        
         showReadingResults(cards: selectedCardMeanings, question: question ?? "")
     }
     
@@ -388,7 +487,7 @@ extension TarotReadingViewController: UICollectionViewDelegate {
 // MARK: - UITextViewDelegate
 extension TarotReadingViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "What guidance do you seek from the cards?" {
+        if textView.text == "What guidance do you seek from the cards?".translate {
             textView.text = ""
             textView.textColor = .white
         }
@@ -396,7 +495,7 @@ extension TarotReadingViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "What guidance do you seek from the cards?"
+            textView.text = "What guidance do you seek from the cards?".translate
             textView.textColor = .white.withAlphaComponent(0.7)
         }
     }
@@ -478,9 +577,8 @@ class TarotCardCell: UICollectionViewCell {
     }
     
     func configure(cardId: Int, isSelected: Bool) {
-        // Load card image (assuming you have tarot_card_0, tarot_card_1, etc.)
-        let imageName = "tarot_card_\(cardId)"
-        cardImageView.image = UIImage(named: imageName) ?? UIImage(named: "tarot_card")
+        // Always show generic tarot card back
+        cardImageView.image = UIImage(named: "tarot_card")
         
         // Update selection state
         selectionOverlay.isHidden = !isSelected

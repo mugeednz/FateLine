@@ -17,9 +17,8 @@ struct Feature {
 }
 
 enum FeatureSize {
-    case small  // 1 column
-    case medium // 1 column, taller
-    case large  // 2 columns
+    case banner  // Full width banner
+    case feature // Equal sized feature cards (2 columns)
 }
 
 class MainViewController: UIViewController {
@@ -29,17 +28,20 @@ class MainViewController: UIViewController {
     private var collectionView: UICollectionView!
     
     private let features: [Feature] = [
-        Feature(title: "Tarot Reading", emoji: nil, imageName: "tarot", gradientColors: ["3d1f4f", "5d2f77"], size: .large),
-        Feature(title: "Zodiac Compatibility", emoji: nil, imageName: "zodiac_cell", gradientColors: ["2d1b3d", "4a1e4f"], size: .medium),
-        Feature(title: "Life & Soul Card", emoji: "🃏", imageName: nil, gradientColors: ["2d1530", "4a1e4f"], size: .small),
-        Feature(title: "Spirit Animal", emoji: nil, imageName: "sprit_animal", gradientColors: ["1f0f2e", "3d1f4f"], size: .medium),
-        Feature(title: "Numerology", emoji: nil, imageName: "numerology", gradientColors: ["150a1e", "2d1530"], size: .small)
+        // Banner card (promotional)
+        Feature(title: "Discover Your Destiny".translate, emoji: nil, imageName: "tarot_deck_onboarding", gradientColors: ["3d1f4f", "5d2f77"], size: .banner),
+        // Feature cards (all equal size - 5 main features)
+        Feature(title: "Tarot Reading".translate, emoji: nil, imageName: "tarot", gradientColors: ["3d1f4f", "5d2f77"], size: .feature),
+        Feature(title: "Zodiac Compatibility".translate, emoji: nil, imageName: "zodiac_cell", gradientColors: ["2d1b3d", "4a1e4f"], size: .feature),
+        Feature(title: "Life & Soul Card".translate, emoji: "🃏", imageName: nil, gradientColors: ["2d1530", "4a1e4f"], size: .feature),
+        Feature(title: "Spirit Animal".translate, emoji: nil, imageName: "sprit_animal", gradientColors: ["1f0f2e", "3d1f4f"], size: .feature),
+        Feature(title: "Numerology".translate, emoji: nil, imageName: "numerology", gradientColors: ["150a1e", "2d1530"], size: .feature)
     ]
     
     // MARK: - UI Components
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "FateLine"
+        label.text = "FateLine".translate
         label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
@@ -86,7 +88,7 @@ class MainViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewDidLayoutSubviews() {
@@ -133,6 +135,11 @@ class MainViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(FeatureCell.self, forCellWithReuseIdentifier: "FeatureCell")
+        
+        // Prevent any visual selection behavior
+        collectionView.allowsSelection = true
+        collectionView.allowsMultipleSelection = false
+        collectionView.delaysContentTouches = false
         
         view.addSubview(collectionView)
         
@@ -187,26 +194,42 @@ extension MainViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Deselect immediately to prevent color change
-        collectionView.deselectItem(at: indexPath, animated: false)
+        // Immediately deselect to prevent any visual change
+        DispatchQueue.main.async {
+            collectionView.deselectItem(at: indexPath, animated: false)
+        }
         
         let feature = features[indexPath.item]
         
+        // Banner card - show premium or do nothing
+        if feature.size == .banner {
+            // Show premium screen
+            let premiumVC = PremiumViewController()
+            premiumVC.modalPresentationStyle = .fullScreen
+            present(premiumVC, animated: true)
+            return
+        }
+        
+        // Feature cards - navigate to respective screens
         switch feature.title {
-        case "Tarot Reading":
+        case "Tarot Reading".translate:
             let tarotVC = TarotReadingViewController()
             navigationController?.pushViewController(tarotVC, animated: true)
-        case "Zodiac Compatibility":
+        case "Zodiac Compatibility".translate:
             let zodiacVC = ZodiacViewController()
             navigationController?.pushViewController(zodiacVC, animated: true)
-        case "Life & Soul Card":
+        case "Life & Soul Card".translate:
             let lifeSoulVC = LifeandSoulViewController()
             navigationController?.pushViewController(lifeSoulVC, animated: true)
-        case "Spirit Animal":
+        case "Spirit Animal".translate:
             let animalVC = AnimalsViewController()
             navigationController?.pushViewController(animalVC, animated: true)
-        case "Numerology":
+        case "Numerology".translate:
             let numerologyVC = NumerologyViewController()
             navigationController?.pushViewController(numerologyVC, animated: true)
         default:
@@ -223,14 +246,13 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         let spacing: CGFloat = 15
         
         switch feature.size {
-        case .small:
+        case .banner:
+            // Full width banner (taller and more prominent)
+            return CGSize(width: width, height: 220)
+        case .feature:
+            // Equal sized feature cards (2 columns)
             let cellWidth = (width - spacing) / 2
             return CGSize(width: cellWidth, height: 200)
-        case .medium:
-            let cellWidth = (width - spacing) / 2
-            return CGSize(width: cellWidth, height: 240)
-        case .large:
-            return CGSize(width: width, height: 220)
         }
     }
 }
@@ -292,6 +314,25 @@ class FeatureCell: UICollectionViewCell {
         return label
     }()
     
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .white.withAlphaComponent(0.8)
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
+        
+        // Add subtle glow
+        label.layer.shadowColor = UIColor.white.cgColor
+        label.layer.shadowOffset = CGSize(width: 0, height: 0)
+        label.layer.shadowRadius = 8
+        label.layer.shadowOpacity = 0.5
+        label.layer.masksToBounds = false
+        
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -301,45 +342,99 @@ class FeatureCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // Ensure no visual changes persist
+        contentView.backgroundColor = .clear
+        containerView.alpha = 1.0
+        containerView.backgroundColor = .clear
+        backgroundColor = .clear
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         gradientLayer?.frame = containerView.bounds
         borderGradientLayer?.frame = contentView.bounds
-        glassLayer?.frame = CGRect(x: 0, y: 0, width: containerView.bounds.width, height: containerView.bounds.height * 0.5)
+        // glassLayer frame is set in configure method based on banner/feature type
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        // Prevent any visual changes
+        contentView.backgroundColor = .clear
+        containerView.alpha = 1.0
+        backgroundColor = .clear
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        // Ensure state remains unchanged
+        contentView.backgroundColor = .clear
+        containerView.alpha = 1.0
+        backgroundColor = .clear
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        // Ensure state remains unchanged
+        contentView.backgroundColor = .clear
+        containerView.alpha = 1.0
+        backgroundColor = .clear
     }
     
     override var isSelected: Bool {
-        didSet {
-            // Prevent any visual change on selection
-            if isSelected {
-                // Reset to default state immediately
-                contentView.backgroundColor = .clear
-                containerView.alpha = 1.0
+        get {
+            return false // Always return false
+        }
+        set {
+            // Prevent selection and maintain visual state
+            super.isSelected = false
+            DispatchQueue.main.async {
+                self.contentView.backgroundColor = .clear
+                self.containerView.alpha = 1.0
+                self.containerView.backgroundColor = .clear
+                self.backgroundColor = .clear
             }
         }
     }
     
     override var isHighlighted: Bool {
-        didSet {
-            // Prevent any visual change on highlight
-            if isHighlighted {
-                // Reset to default state immediately
-                contentView.backgroundColor = .clear
-                containerView.alpha = 1.0
+        get {
+            return false // Always return false
+        }
+        set {
+            // Prevent highlight and maintain visual state
+            super.isHighlighted = false
+            DispatchQueue.main.async {
+                self.contentView.backgroundColor = .clear
+                self.containerView.alpha = 1.0
+                self.containerView.backgroundColor = .clear
+                self.backgroundColor = .clear
             }
         }
     }
     
     private func setupUI() {
         // Setup main content view
+        backgroundColor = .clear
         contentView.backgroundColor = .clear
         contentView.layer.cornerRadius = 22
         contentView.clipsToBounds = false
+        
+        // Prevent selection visual changes completely
+        selectedBackgroundView = nil
+        backgroundView = nil
+        
+        // Create a transparent view to block default selection behavior
+        let clearView = UIView()
+        clearView.backgroundColor = .clear
+        selectedBackgroundView = clearView
         
         contentView.addSubview(containerView)
         containerView.addSubview(emojiLabel)
         containerView.addSubview(iconImageView)
         containerView.addSubview(titleLabel)
+        containerView.addSubview(subtitleLabel)
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2),
@@ -357,13 +452,15 @@ class FeatureCell: UICollectionViewCell {
             
             titleLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor, constant: 28),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10)
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            subtitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15),
+            subtitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15)
         ])
         
-        // Add glassmorphism effect (more subtle for dark theme)
+        // Glassmorphism will be added dynamically in configure method
         let glass = CALayer()
-        glass.backgroundColor = UIColor.white.withAlphaComponent(0.05).cgColor
-        glass.frame = CGRect(x: 0, y: 0, width: containerView.bounds.width, height: containerView.bounds.height * 0.5)
         containerView.layer.addSublayer(glass)
         glassLayer = glass
         
@@ -382,6 +479,44 @@ class FeatureCell: UICollectionViewCell {
     func configure(with feature: Feature) {
         titleLabel.text = feature.title
         
+        // Check if this is a banner card
+        let isBanner = feature.size == .banner
+        
+        // Configure subtitle and styling for banner
+        if isBanner {
+            subtitleLabel.isHidden = false
+            subtitleLabel.text = "Explore all mystical features".translate
+            
+            // Adjust icon size and position for banner
+            iconImageView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            
+            // Make title larger and more prominent for banner
+            titleLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+            subtitleLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+            
+            // Increase glow for banner text
+            titleLabel.layer.shadowRadius = 15
+            titleLabel.layer.shadowOpacity = 1.0
+            subtitleLabel.layer.shadowRadius = 10
+            subtitleLabel.layer.shadowOpacity = 0.7
+            
+            // Enhanced glassmorphism for banner
+            glassLayer?.backgroundColor = UIColor.white.withAlphaComponent(0.1).cgColor
+            glassLayer?.frame = CGRect(x: 0, y: 0, width: containerView.bounds.width, height: containerView.bounds.height * 0.4)
+        } else {
+            subtitleLabel.isHidden = true
+            iconImageView.transform = .identity
+            
+            // Normal font for feature cards
+            titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+            titleLabel.layer.shadowRadius = 10
+            titleLabel.layer.shadowOpacity = 0.8
+            
+            // Subtle glassmorphism for feature cards
+            glassLayer?.backgroundColor = UIColor.white.withAlphaComponent(0.05).cgColor
+            glassLayer?.frame = CGRect(x: 0, y: 0, width: containerView.bounds.width, height: containerView.bounds.height * 0.5)
+        }
+        
         // Show emoji or image
         if let imageName = feature.imageName {
             emojiLabel.isHidden = true
@@ -397,78 +532,139 @@ class FeatureCell: UICollectionViewCell {
         gradientLayer?.removeFromSuperlayer()
         borderGradientLayer?.removeFromSuperlayer()
         
-        // Create main gradient (much darker)
-        let gradient = CAGradientLayer()
-        gradient.frame = containerView.bounds
         let color1 = UIColor(hex: feature.gradientColors[0])
         let color2 = UIColor(hex: feature.gradientColors[1])
         
-        // Darken colors by mixing with black
-        let darkerColor1 = color1.withAlphaComponent(1.0)
-        let darkerColor2 = color2.withAlphaComponent(0.95)
+        if isBanner {
+            // BANNER STYLE - Advanced and premium look
+            
+            // Create rich gradient with app's main colors
+            let gradient = CAGradientLayer()
+            gradient.frame = containerView.bounds
+            gradient.colors = [
+                UIColor.mainBackgroundTop.cgColor,
+                UIColor.mysticalPurple.cgColor,
+                UIColor.mainBackgroundBottom.cgColor,
+                UIColor.mysticalPurple.cgColor
+            ]
+            gradient.locations = [0.0, 0.3, 0.7, 1.0]
+            gradient.startPoint = CGPoint(x: 0, y: 0)
+            gradient.endPoint = CGPoint(x: 1, y: 1)
+            
+            containerView.layer.insertSublayer(gradient, at: 0)
+            gradientLayer = gradient
+            
+            // Create premium border gradient
+            let borderGradient = CAGradientLayer()
+            borderGradient.frame = contentView.bounds
+            borderGradient.colors = [
+                UIColor.white.withAlphaComponent(0.4).cgColor,
+                UIColor.mysticalPurple.withAlphaComponent(0.8).cgColor,
+                UIColor.white.withAlphaComponent(0.4).cgColor
+            ]
+            borderGradient.startPoint = CGPoint(x: 0, y: 0)
+            borderGradient.endPoint = CGPoint(x: 1, y: 1)
+            borderGradient.cornerRadius = 22
+            
+            contentView.layer.insertSublayer(borderGradient, at: 0)
+            borderGradientLayer = borderGradient
+            
+            // Enhanced white glow for banner
+            layer.shadowColor = UIColor.white.cgColor
+            layer.shadowOpacity = 0.3
+            layer.shadowRadius = 25
+            layer.shadowOffset = CGSize(width: 0, height: 0)
+            
+            // Add stronger border for banner
+            containerView.layer.borderWidth = 2
+            containerView.layer.borderColor = UIColor.white.withAlphaComponent(0.3).cgColor
+            
+        } else {
+            // FEATURE CARD STYLE - Original darker style
+            
+            let darkerColor1 = color1.withAlphaComponent(1.0)
+            let darkerColor2 = color2.withAlphaComponent(0.95)
+            
+            let gradient = CAGradientLayer()
+            gradient.frame = containerView.bounds
+            gradient.colors = [
+                darkerColor1.cgColor,
+                darkerColor2.cgColor,
+                darkerColor1.cgColor
+            ]
+            gradient.locations = [0.0, 0.5, 1.0]
+            gradient.startPoint = CGPoint(x: 0, y: 0)
+            gradient.endPoint = CGPoint(x: 1, y: 1)
+            
+            containerView.layer.insertSublayer(gradient, at: 0)
+            gradientLayer = gradient
+            
+            let borderGradient = CAGradientLayer()
+            borderGradient.frame = contentView.bounds
+            borderGradient.colors = [
+                UIColor.white.withAlphaComponent(0.15).cgColor,
+                color2.withAlphaComponent(0.8).cgColor,
+                UIColor.white.withAlphaComponent(0.05).cgColor
+            ]
+            borderGradient.startPoint = CGPoint(x: 0, y: 0)
+            borderGradient.endPoint = CGPoint(x: 1, y: 1)
+            borderGradient.cornerRadius = 22
+            
+            contentView.layer.insertSublayer(borderGradient, at: 0)
+            borderGradientLayer = borderGradient
+            
+            layer.shadowColor = color2.cgColor
+            layer.shadowOpacity = 0.6
+            
+            containerView.layer.borderWidth = 1
+            containerView.layer.borderColor = UIColor.white.withAlphaComponent(0.1).cgColor
+        }
         
-        gradient.colors = [
-            darkerColor1.cgColor,
-            darkerColor2.cgColor,
-            darkerColor1.cgColor
-        ]
-        gradient.locations = [0.0, 0.5, 1.0]
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 1, y: 1)
-        
-        containerView.layer.insertSublayer(gradient, at: 0)
-        gradientLayer = gradient
-        
-        // Create border gradient effect (darker)
-        let borderGradient = CAGradientLayer()
-        borderGradient.frame = contentView.bounds
-        borderGradient.colors = [
-            UIColor.white.withAlphaComponent(0.15).cgColor,
-            color2.withAlphaComponent(0.8).cgColor,
-            UIColor.white.withAlphaComponent(0.05).cgColor
-        ]
-        borderGradient.startPoint = CGPoint(x: 0, y: 0)
-        borderGradient.endPoint = CGPoint(x: 1, y: 1)
-        borderGradient.cornerRadius = 22
-        
-        contentView.layer.insertSublayer(borderGradient, at: 0)
-        borderGradientLayer = borderGradient
-        
-        // Enhanced glow effect
-        layer.shadowColor = color2.cgColor
-        layer.shadowOpacity = 0.6
-        
-        // Add subtle shine animation
-        addShineEffect()
+        // Add subtle shine animation (stronger for banner)
+        addShineEffect(isBanner: isBanner)
     }
     
-    private func addShineEffect() {
-        // Create a very subtle shine that moves across
+    private func addShineEffect(isBanner: Bool) {
+        // Create shine effect (stronger for banner)
         let shineLayer = CAGradientLayer()
         shineLayer.frame = containerView.bounds
-        shineLayer.colors = [
-            UIColor.white.withAlphaComponent(0.0).cgColor,
-            UIColor.white.withAlphaComponent(0.08).cgColor,
-            UIColor.white.withAlphaComponent(0.0).cgColor
-        ]
+        
+        if isBanner {
+            // Stronger shine for banner
+            shineLayer.colors = [
+                UIColor.white.withAlphaComponent(0.0).cgColor,
+                UIColor.white.withAlphaComponent(0.2).cgColor,
+                UIColor.white.withAlphaComponent(0.0).cgColor
+            ]
+        } else {
+            // Subtle shine for feature cards
+            shineLayer.colors = [
+                UIColor.white.withAlphaComponent(0.0).cgColor,
+                UIColor.white.withAlphaComponent(0.08).cgColor,
+                UIColor.white.withAlphaComponent(0.0).cgColor
+            ]
+        }
+        
         shineLayer.locations = [0.0, 0.5, 1.0]
         shineLayer.startPoint = CGPoint(x: -1, y: -1)
         shineLayer.endPoint = CGPoint(x: 0, y: 0)
         
         containerView.layer.addSublayer(shineLayer)
         
-        // Animate shine (slower for darker theme)
+        // Animate shine (faster for banner)
+        let duration: Double = isBanner ? 3.0 : 4.0
+        
         let animation = CABasicAnimation(keyPath: "startPoint")
         animation.fromValue = CGPoint(x: -1, y: -1)
         animation.toValue = CGPoint(x: 1, y: 1)
-        animation.duration = 4.0
+        animation.duration = duration
         animation.repeatCount = .infinity
         animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         
         let endAnimation = CABasicAnimation(keyPath: "endPoint")
         endAnimation.fromValue = CGPoint(x: 0, y: 0)
         endAnimation.toValue = CGPoint(x: 2, y: 2)
-        endAnimation.duration = 4.0
+        endAnimation.duration = duration
         endAnimation.repeatCount = .infinity
         endAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         
