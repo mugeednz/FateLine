@@ -35,29 +35,29 @@ final class GlobalHelper {
     }
     
     static func openPrivacy(_ vc: UIViewController) {
-        openLinkInSafari(vc, url: "")  //DEGISTI
+        openLinkInSafari(vc, url: "https://sites.google.com/view/fateline/ana-sayfa")
     }
     
     static func openTerms(_ vc: UIViewController) {
-        openLinkInSafari(vc, url: "")
+        openLinkInSafari(vc, url: "https://sites.google.com/view/fatelinee/ana-sayfa")
     }
     
     static func openContact(_ vc: UIViewController) {
-        openLinkInSafari(vc, url: "")
+        openLinkInSafari(vc, url: "https://sites.google.com/view/fatelinecontact/ana-sayfa")
     }
     
     static func openSubs(vC: UIViewController) {
-//        let premiumVC = PremiumViewController()
-//        let nav = UINavigationController(rootViewController: premiumVC)
-//        nav.modalPresentationStyle = .fullScreen
-//        vC.present(nav, animated: true)
+        let premiumVC = PremiumViewController()
+        let nav = UINavigationController(rootViewController: premiumVC)
+        nav.modalPresentationStyle = .fullScreen
+        vC.present(nav, animated: true)
     }
     
     static func openSettings (vc: UIViewController) {
-//        let settingsVC = SettingsViewController()
-//        let nav = UINavigationController(rootViewController: settingsVC)
-//        nav.modalPresentationStyle = .fullScreen
-//        vc.present(nav, animated: true)
+        let settingsVC = SettingsViewController()
+        let nav = UINavigationController(rootViewController: settingsVC)
+        nav.modalPresentationStyle = .fullScreen
+        vc.present(nav, animated: true)
     }
     
     static func openLinkInSafari(_ vc: UIViewController, url: String) {

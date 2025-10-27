@@ -11,9 +11,40 @@ import AdSupport
 import FacebookCore
 
 class SplashViewController: UIViewController {
+    
+    // MARK: - Properties
+    private var gradientLayer: CAGradientLayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupGradientBackground()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        gradientLayer?.frame = view.bounds
+    }
+    
+    // MARK: - Setup
+    private func setupGradientBackground() {
+        // Remove existing gradient if any
+        gradientLayer?.removeFromSuperlayer()
+        
+        // Create gradient layer (same as MainViewController)
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [
+            UIColor.mainBackgroundTop.cgColor,
+            UIColor.mysticalPurple.cgColor,
+            UIColor.mainBackgroundBottom.cgColor
+        ]
+        gradient.locations = [0.0, 0.5, 1.0]
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
+        
+        // Insert gradient at the bottom
+        view.layer.insertSublayer(gradient, at: 0)
+        gradientLayer = gradient
     }
     
     override func viewDidAppear(_ animated: Bool) {

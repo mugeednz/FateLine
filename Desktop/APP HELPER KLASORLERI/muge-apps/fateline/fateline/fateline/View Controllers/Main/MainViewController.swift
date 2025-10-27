@@ -446,11 +446,11 @@ class FeatureCell: UICollectionViewCell {
             emojiLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -25),
             
             iconImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            iconImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -40),
+            iconImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -20),
             iconImageView.widthAnchor.constraint(equalToConstant: 80),
             iconImageView.heightAnchor.constraint(equalToConstant: 80),
             
-            titleLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor, constant: 28),
+            titleLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
             
@@ -501,7 +501,7 @@ class FeatureCell: UICollectionViewCell {
             subtitleLabel.layer.shadowOpacity = 0.7
             
             // Enhanced glassmorphism for banner
-            glassLayer?.backgroundColor = UIColor.white.withAlphaComponent(0.1).cgColor
+            glassLayer?.backgroundColor = UIColor.white.withAlphaComponent(0.0).cgColor
             glassLayer?.frame = CGRect(x: 0, y: 0, width: containerView.bounds.width, height: containerView.bounds.height * 0.4)
         } else {
             subtitleLabel.isHidden = true

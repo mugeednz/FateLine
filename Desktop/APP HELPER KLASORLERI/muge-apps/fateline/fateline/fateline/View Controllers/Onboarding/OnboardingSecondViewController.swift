@@ -9,6 +9,11 @@ import UIKit
 import AVFoundation
 import AVKit
 
+enum OnbType {
+    case first
+    case second
+}
+
 class OnboardingSecondViewController: UIViewController {
 
     // MARK: - Video Properties
