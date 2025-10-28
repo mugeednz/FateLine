@@ -338,13 +338,13 @@ class OnboardingOneViewController: UIViewController {
             self.smoothTransitionToFeatures()
         }
         
-        // Phase 3: Features showcase (4-9s)
+        // Phase 3: Features showcase (4-16.5s)
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             self.showcaseFeatures()
         }
         
-        // Phase 4: Final call to action (9-10s)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) {
+        // Phase 4: Final call to action (16.5-17.5s)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 16.5) {
             self.finalCallToAction()
         }
     }
@@ -411,8 +411,8 @@ class OnboardingOneViewController: UIViewController {
         // Show first feature with elegant entrance
         showProfessionalFeature()
         
-        // Start timer for cycling through features (perfect timing)
-        featureTimer = Timer.scheduledTimer(withTimeInterval: 1.8, repeats: true) { [weak self] _ in
+        // Start timer for cycling through features (slower timing)
+        featureTimer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: true) { [weak self] _ in
             self?.showProfessionalFeature()
         }
     }
@@ -429,8 +429,8 @@ class OnboardingOneViewController: UIViewController {
                 self.animatedFeatureLabel.transform = .identity
             })
         } else {
-            // Professional transition between features
-            UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseIn], animations: {
+            // Professional transition between features (slower fade out)
+            UIView.animate(withDuration: 0.8, delay: 0, options: [.curveEaseIn], animations: {
                 self.animatedFeatureLabel.alpha = 0
                 self.animatedFeatureLabel.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             }) { _ in
@@ -438,8 +438,8 @@ class OnboardingOneViewController: UIViewController {
                 self.animatedFeatureLabel.text = feature
                 self.animatedFeatureLabel.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
                 
-                // Elegant entrance
-                UIView.animate(withDuration: 0.8, delay: 0.1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.3, options: [.curveEaseOut], animations: {
+                // Elegant entrance (slower fade in)
+                UIView.animate(withDuration: 1.2, delay: 0.2, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.3, options: [.curveEaseOut], animations: {
                     self.animatedFeatureLabel.alpha = 1.0
                     self.animatedFeatureLabel.transform = .identity
                 })
