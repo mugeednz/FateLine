@@ -59,7 +59,7 @@ class ZodiacViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Zodiac Compatibility".translate
-        label.font = UIFont.systemFont(ofSize: 36, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 35, weight: .semibold)
         label.textColor = .white
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -409,7 +409,7 @@ class ZodiacViewController: UIViewController {
             backButton.widthAnchor.constraint(equalToConstant: 44),
             backButton.heightAnchor.constraint(equalToConstant: 44),
             
-            titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 22),
+            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),

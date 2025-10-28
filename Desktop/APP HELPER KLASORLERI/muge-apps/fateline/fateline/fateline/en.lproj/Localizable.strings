@@ -7,7 +7,7 @@
 */
 
 // MARK: - Onboarding Strings
-"Welcome to FateLine" = "Welcome to FateLine";
+"Unlock the secrets of your destiny through ancient wisdom" = "Unlock the secrets of your destiny through ancient wisdom";
 "Unlock the mysteries of your destiny through tarot, numerology, and cosmic wisdom" = "Unlock the mysteries of your destiny through tarot, numerology, and cosmic wisdom";
 "Continue" = "Continue";
 "FateLine" = "FateLine";
@@ -2053,3 +2053,6 @@
 "Power" = "Power";
 
 
+"Unlock the secrets of your destiny through ancient wisdom" = "Unlock the secrets of your destiny through ancient wisdom";
+
+"Welcome to FateLine" = "Welcome to FateLine";

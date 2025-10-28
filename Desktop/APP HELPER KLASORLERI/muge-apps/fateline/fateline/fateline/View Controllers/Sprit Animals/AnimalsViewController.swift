@@ -348,7 +348,6 @@ class AnimalsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         gradientLayer?.frame = view.bounds
         questionGradientLayer?.frame = questionContainer.bounds
-        buttonGradientLayer?.frame = revealButton.bounds
         resultGradientLayer?.frame = resultContainer.bounds
     }
     
@@ -382,11 +381,9 @@ class AnimalsViewController: UIViewController {
         questionContainer.addSubview(questionNumberLabel)
         questionContainer.addSubview(questionLabel)
         questionContainer.addSubview(answersStackView)
-        contentView.addSubview(revealButton)
         contentView.addSubview(resultContainer)
         
         setupQuestionGradient()
-        setupButtonGradient()
         
         progressBarWidthConstraint = progressBar.widthAnchor.constraint(equalToConstant: 0)
         progressBarWidthConstraint?.isActive = true
@@ -408,7 +405,7 @@ class AnimalsViewController: UIViewController {
             backButton.widthAnchor.constraint(equalToConstant: 44),
             backButton.heightAnchor.constraint(equalToConstant: 44),
             
-            titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
@@ -439,12 +436,6 @@ class AnimalsViewController: UIViewController {
             answersStackView.trailingAnchor.constraint(equalTo: questionContainer.trailingAnchor, constant: -20),
             answersStackView.bottomAnchor.constraint(equalTo: questionContainer.bottomAnchor, constant: -25),
             
-            revealButton.topAnchor.constraint(equalTo: questionContainer.bottomAnchor, constant: 30),
-            revealButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
-            revealButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
-            revealButton.heightAnchor.constraint(equalToConstant: 60),
-            revealButton.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -30),
-            
             resultContainer.topAnchor.constraint(equalTo: progressContainer.bottomAnchor, constant: 30),
             resultContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             resultContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
@@ -457,7 +448,6 @@ class AnimalsViewController: UIViewController {
         questionBottomConstraint.isActive = true
         
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        revealButton.addTarget(self, action: #selector(revealButtonTapped), for: .touchUpInside)
     }
     
     private func setupQuestionGradient() {
@@ -475,24 +465,6 @@ class AnimalsViewController: UIViewController {
         questionGradientLayer = gradient
     }
     
-    private func setupButtonGradient() {
-        let gradient = CAGradientLayer()
-        gradient.frame = revealButton.bounds
-        gradient.colors = [
-            UIColor(hex: "5D2F77").cgColor,
-            UIColor(hex: "6B3F69").cgColor
-        ]
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 1, y: 1)
-        gradient.cornerRadius = 25
-        revealButton.layer.insertSublayer(gradient, at: 0)
-        buttonGradientLayer = gradient
-        
-        revealButton.layer.shadowColor = UIColor(hex: "6B3F69").cgColor
-        revealButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        revealButton.layer.shadowRadius = 20
-        revealButton.layer.shadowOpacity = 0.8
-    }
     
     private func initializeAnimalScores() {
         spiritAnimals.keys.forEach { animalScores[$0] = 0 }
@@ -580,45 +552,34 @@ class AnimalsViewController: UIViewController {
             if self.currentQuestionIndex < self.questions.count {
                 self.displayQuestion()
             } else {
-                self.showRevealButton()
+                self.showResultDirectly()
             }
         }
     }
     
-    private func showRevealButton() {
+    private func showResultDirectly() {
+        guard let topAnimal = animalScores.max(by: { $0.value < $1.value })?.key,
+              let animal = spiritAnimals[topAnimal] else { return }
+        
         UIView.animate(withDuration: 0.3) {
             self.questionContainer.alpha = 0
         } completion: { _ in
-            UIView.animate(withDuration: 0.6, delay: 0.2, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5) {
-                self.revealButton.alpha = 1.0
-            }
+            self.displayResult(animal: animal)
         }
         
         updateProgressBar()
     }
     
     // MARK: - Result Display
-    @objc private func revealButtonTapped() {
-        // Check if user is premium
+    
+    private func displayResult(animal: SpiritAnimal) {
         if !GlobalHelper.isPremiumActive() {
-            // Show premium screen
             let premiumVC = PremiumViewController()
             premiumVC.modalPresentationStyle = .fullScreen
             present(premiumVC, animated: true)
             return
         }
         
-        guard let topAnimal = animalScores.max(by: { $0.value < $1.value })?.key,
-              let animal = spiritAnimals[topAnimal] else { return }
-        
-        displayResult(animal: animal)
-        
-        // Haptic feedback
-        let impactFeedback = UIImpactFeedbackGenerator(style: .heavy)
-        impactFeedback.impactOccurred()
-    }
-    
-    private func displayResult(animal: SpiritAnimal) {
         // Setup result container as black
         resultContainer.backgroundColor = .black
         
@@ -712,20 +673,16 @@ class AnimalsViewController: UIViewController {
             stackView.bottomAnchor.constraint(equalTo: resultContainer.bottomAnchor, constant: -30)
         ])
         
-        // Hide button and show result
-        UIView.animate(withDuration: 0.3) {
-            self.revealButton.alpha = 0
-        } completion: { _ in
-            self.resultContainer.isHidden = false  // Unhide
-            self.resultContainer.isUserInteractionEnabled = true
-            UIView.animate(withDuration: 0.6, delay: 0.1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5) {
-                self.resultContainer.alpha = 1.0
-            }
-            
-            // Scroll to show result
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.scrollView.scrollRectToVisible(self.resultContainer.frame, animated: true)
-            }
+        // Show result
+        self.resultContainer.isHidden = false
+        self.resultContainer.isUserInteractionEnabled = true
+        UIView.animate(withDuration: 0.6, delay: 0.1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5) {
+            self.resultContainer.alpha = 1.0
+        }
+        
+        // Scroll to show result
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.scrollView.scrollRectToVisible(self.resultContainer.frame, animated: true)
         }
     }
     

@@ -199,9 +199,9 @@ class TarotResultsViewController: UIViewController {
             shareButton.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
             shareButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             shareButton.widthAnchor.constraint(equalToConstant: 25),
-            shareButton.heightAnchor.constraint(equalToConstant: 25),
+            shareButton.heightAnchor.constraint(equalToConstant: 30),
             
-            titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             questionContainer.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),

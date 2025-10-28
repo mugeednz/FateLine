@@ -27,7 +27,6 @@
 		B62D19C92E96680400A0BC30 /* tarot_meanings.json in Resources */ = {isa = PBXBuildFile; fileRef = B62D19C82E96680400A0BC30 /* tarot_meanings.json */; };
 		B62D19CB2E96682F00A0BC30 /* burclar.json in Resources */ = {isa = PBXBuildFile; fileRef = B62D19CA2E96682F00A0BC30 /* burclar.json */; };
 		B62D19CD2E9C356200A0BC30 /* OnboardingOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19CC2E9C356200A0BC30 /* OnboardingOneViewController.swift */; };
-		B62D19CF2E9C357500A0BC30 /* OnboardingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19CE2E9C357500A0BC30 /* OnboardingSecondViewController.swift */; };
 		B62D19D22E9D737200A0BC30 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19D12E9D737200A0BC30 /* SplashViewController.swift */; };
 		B62D19D52E9D7F3000A0BC30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D19D42E9D7F3000A0BC30 /* MainViewController.swift */; };
 		B63D6D602E9D82E900299BF7 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D6D5F2E9D82E900299BF7 /* UIColor+Ext.swift */; };
@@ -73,7 +72,6 @@
 		B62D19C82E96680400A0BC30 /* tarot_meanings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tarot_meanings.json; sourceTree = "<group>"; };
 		B62D19CA2E96682F00A0BC30 /* burclar.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = burclar.json; sourceTree = "<group>"; };
 		B62D19CC2E9C356200A0BC30 /* OnboardingOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOneViewController.swift; sourceTree = "<group>"; };
-		B62D19CE2E9C357500A0BC30 /* OnboardingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSecondViewController.swift; sourceTree = "<group>"; };
 		B62D19D12E9D737200A0BC30 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		B62D19D42E9D7F3000A0BC30 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B63D6D5F2E9D82E900299BF7 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				B62D19CC2E9C356200A0BC30 /* OnboardingOneViewController.swift */,
-				B62D19CE2E9C357500A0BC30 /* OnboardingSecondViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -503,7 +500,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B62D19B82E96645700A0BC30 /* UIFont+Ext.swift in Sources */,
-				B62D19CF2E9C357500A0BC30 /* OnboardingSecondViewController.swift in Sources */,
 				B63D6D772E9E9F3100299BF7 /* NumerologyViewController.swift in Sources */,
 				B63D6D6F2E9E8E7F00299BF7 /* ZodiacViewController.swift in Sources */,
 				B63D6D692E9D8BB900299BF7 /* PremiumViewController.swift in Sources */,

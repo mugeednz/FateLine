@@ -10,7 +10,6 @@ import UIKit
 // MARK: - Feature Model
 struct Feature {
     let title: String
-    let emoji: String?
     let imageName: String?
     let gradientColors: [String]
     let size: FeatureSize
@@ -28,14 +27,13 @@ class MainViewController: UIViewController {
     private var collectionView: UICollectionView!
     
     private let features: [Feature] = [
-        // Banner card (promotional)
-        Feature(title: "Discover Your Destiny".translate, emoji: nil, imageName: "tarot_deck_onboarding", gradientColors: ["3d1f4f", "5d2f77"], size: .banner),
-        // Feature cards (all equal size - 5 main features)
-        Feature(title: "Tarot Reading".translate, emoji: nil, imageName: "tarot", gradientColors: ["3d1f4f", "5d2f77"], size: .feature),
-        Feature(title: "Zodiac Compatibility".translate, emoji: nil, imageName: "zodiac_cell", gradientColors: ["2d1b3d", "4a1e4f"], size: .feature),
-        Feature(title: "Life & Soul Card".translate, emoji: "🃏", imageName: nil, gradientColors: ["2d1530", "4a1e4f"], size: .feature),
-        Feature(title: "Spirit Animal".translate, emoji: nil, imageName: "sprit_animal", gradientColors: ["1f0f2e", "3d1f4f"], size: .feature),
-        Feature(title: "Numerology".translate, emoji: nil, imageName: "numerology", gradientColors: ["150a1e", "2d1530"], size: .feature)
+        // Tarot Reading as banner (top, full width)
+        Feature(title: "Tarot Reading".translate, imageName: "tarot", gradientColors: ["3d1f4f", "5d2f77"], size: .banner),
+        // Other feature cards (all equal size - 4 remaining features)
+        Feature(title: "Zodiac Compatibility".translate, imageName: "zodiac_cell", gradientColors: ["2d1b3d", "4a1e4f"], size: .feature),
+        Feature(title: "Life & Soul Card".translate, imageName: "", gradientColors: ["2d1530", "4a1e4f"], size: .feature),
+        Feature(title: "Spirit Animal".translate, imageName: "sprit_animal", gradientColors: ["1f0f2e", "3d1f4f"], size: .feature),
+        Feature(title: "Numerology".translate, imageName: "numerology", gradientColors: ["150a1e", "2d1530"], size: .feature)
     ]
     
     // MARK: - UI Components
@@ -141,6 +139,11 @@ class MainViewController: UIViewController {
         collectionView.allowsMultipleSelection = false
         collectionView.delaysContentTouches = false
         
+        // Disable selection highlighting
+        if #available(iOS 14.0, *) {
+            collectionView.allowsFocus = false
+        }
+        
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
@@ -194,26 +197,17 @@ extension MainViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Immediately deselect to prevent any visual change
-        DispatchQueue.main.async {
-            collectionView.deselectItem(at: indexPath, animated: false)
+        collectionView.deselectItem(at: indexPath, animated: false)
+        
+        // Force cell to reset its visual state
+        if let cell = collectionView.cellForItem(at: indexPath) as? FeatureCell {
+            cell.resetVisualState()
         }
         
         let feature = features[indexPath.item]
-        
-        // Banner card - show premium or do nothing
-        if feature.size == .banner {
-            // Show premium screen
-            let premiumVC = PremiumViewController()
-            premiumVC.modalPresentationStyle = .fullScreen
-            present(premiumVC, animated: true)
-            return
-        }
         
         // Feature cards - navigate to respective screens
         switch feature.title {
@@ -285,12 +279,6 @@ class FeatureCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        // Add subtle glow to icon
-        imageView.layer.shadowColor = UIColor.white.cgColor
-        imageView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        imageView.layer.shadowRadius = 15
-        imageView.layer.shadowOpacity = 0.4
-        
         return imageView
     }()
     
@@ -345,6 +333,14 @@ class FeatureCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         // Ensure no visual changes persist
+        contentView.backgroundColor = .clear
+        containerView.alpha = 1.0
+        containerView.backgroundColor = .clear
+        backgroundColor = .clear
+    }
+    
+    func resetVisualState() {
+        // Force reset all visual properties
         contentView.backgroundColor = .clear
         containerView.alpha = 1.0
         containerView.backgroundColor = .clear
@@ -414,6 +410,7 @@ class FeatureCell: UICollectionViewCell {
         }
     }
     
+    
     private func setupUI() {
         // Setup main content view
         backgroundColor = .clear
@@ -422,13 +419,11 @@ class FeatureCell: UICollectionViewCell {
         contentView.clipsToBounds = false
         
         // Prevent selection visual changes completely
-        selectedBackgroundView = nil
-        backgroundView = nil
+        selectedBackgroundView = UIView()
+        selectedBackgroundView?.backgroundColor = .clear
         
-        // Create a transparent view to block default selection behavior
-        let clearView = UIView()
-        clearView.backgroundColor = .clear
-        selectedBackgroundView = clearView
+        backgroundView = UIView()
+        backgroundView?.backgroundColor = .clear
         
         contentView.addSubview(containerView)
         containerView.addSubview(emojiLabel)
@@ -485,16 +480,16 @@ class FeatureCell: UICollectionViewCell {
         // Configure subtitle and styling for banner
         if isBanner {
             subtitleLabel.isHidden = false
-            subtitleLabel.text = "Explore all mystical features".translate
+            subtitleLabel.text = "Unlock the secrets of your destiny through ancient wisdom".translate
             
-            // Adjust icon size and position for banner
-            iconImageView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            // Keep icon size consistent but slightly bigger for banner
+            iconImageView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
             
             // Make title larger and more prominent for banner
             titleLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
             subtitleLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
             
-            // Increase glow for banner text
+            // Consistent glow for banner text
             titleLabel.layer.shadowRadius = 15
             titleLabel.layer.shadowOpacity = 1.0
             subtitleLabel.layer.shadowRadius = 10
@@ -505,7 +500,8 @@ class FeatureCell: UICollectionViewCell {
             glassLayer?.frame = CGRect(x: 0, y: 0, width: containerView.bounds.width, height: containerView.bounds.height * 0.4)
         } else {
             subtitleLabel.isHidden = true
-            iconImageView.transform = .identity
+            // Keep icon size consistent for feature cards
+            iconImageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             
             // Normal font for feature cards
             titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -517,15 +513,16 @@ class FeatureCell: UICollectionViewCell {
             glassLayer?.frame = CGRect(x: 0, y: 0, width: containerView.bounds.width, height: containerView.bounds.height * 0.5)
         }
         
-        // Show emoji or image
-        if let imageName = feature.imageName {
+        
+        // Show image or emoji
+        if let imageName = feature.imageName, !imageName.isEmpty {
             emojiLabel.isHidden = true
             iconImageView.isHidden = false
             iconImageView.image = UIImage(named: imageName)
         } else {
             emojiLabel.isHidden = false
             iconImageView.isHidden = true
-            emojiLabel.text = feature.emoji
+            emojiLabel.text = "🃏"
         }
         
         // Remove existing gradients

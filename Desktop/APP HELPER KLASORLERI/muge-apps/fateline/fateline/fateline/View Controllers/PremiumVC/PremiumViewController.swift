@@ -418,9 +418,10 @@ class PremiumViewController: UIViewController {
             title: "Yearly".translate,
             price: yearlyPrice,
             period: "per year".translate,
-            badge: "BEST VALUE - Save 50%".translate + " - \(doublePrice)",
+            badge: "BEST VALUE".translate + " - \(doublePrice)",
             isSelected: selectedPlan == .yearly,
-            originalPrice: doublePrice  // Üstü çizili orijinal fiyat
+            originalPrice: doublePrice,  // Üstü çizili orijinal fiyat
+            saveText: "Save 50%".translate
         )
     }
     
@@ -584,9 +585,10 @@ extension PremiumViewController: SubscriptionOperator {
                     title: "Yearly".translate,
                     price: yearlyPrice.isEmpty ? "" : yearlyPrice,
                     period: "per year".translate,
-                    badge: "BEST VALUE - Save 50%".translate + " - \(doublePrice)",
+                    badge: "BEST VALUE".translate + " - \(doublePrice)",
                     isSelected: selectedPlan == .yearly,
-                    originalPrice: doublePrice  // Üstü çizili orijinal fiyat
+                    originalPrice: doublePrice,  // Üstü çizili orijinal fiyat
+                    saveText: "Save 50%".translate
                 )
                 print("🔵 Yearly price set: \(yearlyPrice), Double: \(doublePrice)")
             } else if product.productIdentifier == ChoosenPremium.weekly.rawValue {
@@ -664,6 +666,7 @@ class PlanCard: UIView {
     private let priceLabel = UILabel()
     private let originalPriceLabel = UILabel()  // Üstü çizili orijinal fiyat
     private let periodLabel = UILabel()
+    private let saveLabel = UILabel()  // Save 50% yazısı için
     private let badgeLabel = PaddedLabel()
     private let checkmarkImageView = UIImageView()
     private var gradientLayer: CAGradientLayer?
@@ -741,6 +744,19 @@ class PlanCard: UIView {
         periodLabel.textColor = .white.withAlphaComponent(0.7)
         periodLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        // Save Label (Save 50%)
+        saveLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        saveLabel.textColor = UIColor(hex: "FFD700")  // Golden color
+        saveLabel.translatesAutoresizingMaskIntoConstraints = false
+        saveLabel.isHidden = true
+        
+        // Add glow to save label
+        saveLabel.layer.shadowColor = UIColor(hex: "FFD700").cgColor
+        saveLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+        saveLabel.layer.shadowRadius = 5
+        saveLabel.layer.shadowOpacity = 0.8
+        saveLabel.layer.masksToBounds = false
+        
         // Badge (must be fully opaque to cover card border)
         badgeLabel.font = UIFont.systemFont(ofSize: 11, weight: .bold)
         badgeLabel.textColor = .white
@@ -772,6 +788,7 @@ class PlanCard: UIView {
         addSubview(priceLabel)
         addSubview(originalPriceLabel)
         addSubview(periodLabel)
+        addSubview(saveLabel)
         addSubview(checkmarkImageView)
         addSubview(badgeLabel)  // Badge must be added LAST to be on top
         
@@ -795,12 +812,16 @@ class PlanCard: UIView {
             periodLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             periodLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 2),
             
+            // Save label sola, title'ın altında
+            saveLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            saveLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            
             badgeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             badgeLabel.topAnchor.constraint(equalTo: topAnchor, constant: -15)
         ])
     }
     
-    func configure(title: String, price: String, period: String, badge: String?, isSelected: Bool, originalPrice: String? = nil) {
+    func configure(title: String, price: String, period: String, badge: String?, isSelected: Bool, originalPrice: String? = nil, saveText: String? = nil) {
         titleLabel.text = title
         priceLabel.text = price
         periodLabel.text = period
@@ -828,6 +849,14 @@ class PlanCard: UIView {
             badgeLabel.isHidden = false
         } else {
             badgeLabel.isHidden = true
+        }
+        
+        // Save text (Save 50%)
+        if let saveText = saveText {
+            saveLabel.text = saveText
+            saveLabel.isHidden = false
+        } else {
+            saveLabel.isHidden = true
         }
         
         setSelected(isSelected)

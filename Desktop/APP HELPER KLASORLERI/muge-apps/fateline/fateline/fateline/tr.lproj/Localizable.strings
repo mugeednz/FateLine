@@ -7,7 +7,7 @@
 */
 
 // MARK: - Onboarding Strings
-"Welcome to FateLine" = "FateLine'e Hoş Geldiniz";
+"Unlock the secrets of your destiny through ancient wisdom" = "Kadim bilgelikle kaderinin sırlarını keşfet";
 "Unlock the mysteries of your destiny through tarot, numerology, and cosmic wisdom" = "Tarot, numeroloji ve kozmik bilgelik aracılığıyla kaderinizin gizemlerini keşfedin";
 "Continue" = "Devam";
 "FateLine" = "FateLine";
@@ -2076,3 +2076,7 @@
 "Taurus and Scorpio are opposite signs, which creates magnetic attraction. Taurus brings stability and loyalty, while Scorpio adds passion and intensity. The relationship is often powerful but can swing between love and conflict. If trust is built, this can be a deeply transformative bond." = "Boğa ve Akrep zıt burçlardır; bu da güçlü bir manyetik çekim yaratır. Boğa istikrar ve sadakat getirirken, Akrep tutku ve yoğunluk katar. İlişki genellikle güçlüdür, ancak sevgi ile çatışma arasında gidip gelebilir. Güven inşa edilirse, bu bağ derin bir dönüşüm yaratabilir.";
 
 "Taurus prefers security and consistency, while Sagittarius is restless and adventurous. Taurus may feel Sagittarius is unreliable, while Sagittarius may find Taurus too rigid. This is a challenging pairing unless they both respect and embrace their differences." = "Boğa güvenlik ve istikrardan hoşlanırken, Yay huzursuz ve maceraperesttir. Boğa, Yay’ı güvenilmez bulabilir; Yay ise Boğa’yı fazla katı görebilir. Bu zorlu bir eşleşmedir, ancak her iki taraf da farklılıklarını kabul edip saygı duyarsa, denge kurulabilir.";
+
+"Unlock the secrets of your destiny through ancient wisdom" = "Kaderinin sırlarını kadim bilgelik aracılığıyla keşfet";
+
+"Welcome to FateLine" = "FateLine'a Hoş Geldiniz";

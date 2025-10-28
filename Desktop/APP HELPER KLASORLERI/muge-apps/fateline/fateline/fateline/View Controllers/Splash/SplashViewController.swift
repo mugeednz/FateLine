@@ -133,6 +133,5 @@ class SplashViewController: UIViewController {
         GlobalHelper.pushController(id: "OnboardingOneViewController", self) { vc in
             (vc as? OnboardingOneViewController)?.navigationItem.hidesBackButton = true
         }
-
     }
 }

@@ -66,6 +66,21 @@ class NumerologyViewController: UIViewController {
         return button
     }()
     
+    private let refreshButton: UIButton = {
+        let button = UIButton(type: .system)
+        let config = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
+        button.setImage(UIImage(systemName: "arrow.clockwise", withConfiguration: config), for: .normal)
+        button.tintColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.layer.shadowColor = UIColor.white.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowRadius = 8
+        button.layer.shadowOpacity = 0.8
+        
+        return button
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Numerology".translate
@@ -279,6 +294,7 @@ class NumerologyViewController: UIViewController {
         scrollView.addSubview(contentView)
         
         contentView.addSubview(backButton)
+        contentView.addSubview(refreshButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(subtitleLabel)
         contentView.addSubview(inputContainer)
@@ -330,7 +346,12 @@ class NumerologyViewController: UIViewController {
             backButton.widthAnchor.constraint(equalToConstant: 44),
             backButton.heightAnchor.constraint(equalToConstant: 44),
             
-            titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
+            refreshButton.topAnchor.constraint(equalTo: backButton.centerYAnchor),
+            refreshButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            refreshButton.widthAnchor.constraint(equalToConstant: 25),
+            refreshButton.heightAnchor.constraint(equalToConstant: 30),
+            
+            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
@@ -363,6 +384,7 @@ class NumerologyViewController: UIViewController {
         ])
         
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        refreshButton.addTarget(self, action: #selector(refreshButtonTapped), for: .touchUpInside)
         calculateButton.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
         
         // Add tap gesture to dismiss keyboard
@@ -490,6 +512,34 @@ class NumerologyViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc private func refreshButtonTapped() {
+        resetContent()
+        
+        let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
+        impactFeedback.impactOccurred()
+    }
+    
+    private func resetContent() {
+        firstNameTextField.text = ""
+        lastNameTextField.text = ""
+        calculatedNumber = nil
+        
+        resultContainer.alpha = 0
+        resultContainer.isHidden = true
+        
+        resultContainer.subviews.forEach { subview in
+            subview.removeFromSuperview()
+        }
+        
+        emptyStateContainer.alpha = 1.0
+        emptyStateContainer.isHidden = false
+        
+        emptyStateImageView.layer.removeAllAnimations()
+        addPulsingAnimation(to: emptyStateImageView)
+        
+        dismissKeyboard()
+    }
+    
     @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -531,6 +581,12 @@ class NumerologyViewController: UIViewController {
         // Haptic feedback
         let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
         impactFeedback.impactOccurred()
+        
+        // Reset text fields immediately after calculation
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.firstNameTextField.text = ""
+            self.lastNameTextField.text = ""
+        }
     }
     
     private func showAlert(title: String, message: String) {
@@ -545,40 +601,6 @@ class NumerologyViewController: UIViewController {
         // IMMEDIATE HIDE - before any removal
         emptyStateContainer.alpha = 0
         emptyStateContainer.isHidden = true
-        
-        // Force layout update
-        view.layoutIfNeeded()
-        
-        // Completely remove empty state
-        NSLayoutConstraint.deactivate(emptyStateConstraints)
-        emptyStateConstraints.removeAll()
-        
-        // Remove all sublayers
-        emptyStateContainer.layer.sublayers?.removeAll()
-        emptyStateImageView.layer.sublayers?.removeAll()
-        emptyStateLabel.layer.sublayers?.removeAll()
-        
-        // Stop all animations
-        emptyStateImageView.layer.removeAllAnimations()
-        emptyStateContainer.layer.removeAllAnimations()
-        emptyStateLabel.layer.removeAllAnimations()
-        
-        // Clear all layer properties
-        emptyStateContainer.layer.borderWidth = 0
-        emptyStateContainer.layer.borderColor = nil
-        emptyStateContainer.layer.shadowOpacity = 0
-        emptyStateContainer.layer.masksToBounds = true
-        
-        // Clear gradient reference
-        emptyStateGradientLayer = nil
-        
-        // Remove from hierarchy
-        emptyStateImageView.removeFromSuperview()
-        emptyStateLabel.removeFromSuperview()
-        emptyStateContainer.removeFromSuperview()
-        
-        // Force another layout update
-        view.layoutIfNeeded()
         
         // Clear previous content
         resultContainer.subviews.forEach { $0.removeFromSuperview() }
@@ -695,6 +717,11 @@ class NumerologyViewController: UIViewController {
         // Scroll to show result
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.scrollView.scrollRectToVisible(self.resultContainer.frame, animated: true)
+        }
+        
+        // Auto reset after 3 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.resetContent()
         }
     }
     
